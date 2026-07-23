@@ -49,15 +49,27 @@ study_status: unverified
 - [[M01-Q44]]
 - [[M01-Q45]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. DCL에 속하는 대표 명령어 2가지는?
-2. WITH GRANT OPTION으로 전이된 권한을 REVOKE하면 어떻게 되는가?
+### 1. DCL에 속하는 대표 명령어 2가지는?
 
-## 답 확인
+> [!success]- 답 확인
+> GRANT, REVOKE.
 
-1. GRANT, REVOKE.
-2. 하위로 전이된 권한까지 연쇄적으로 모두 회수된다.
+### 2. WITH GRANT OPTION으로 전이된 권한을 REVOKE하면 어떻게 되는가?
+
+> [!success]- 답 확인
+> 하위로 전이된 권한까지 연쇄적으로 모두 회수된다.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

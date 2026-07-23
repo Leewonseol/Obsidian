@@ -49,15 +49,27 @@ study_status: unverified
 - [[M01-Q46]]
 - [[M01-Q47]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. TRUNCATE는 WHERE절을 사용할 수 있는가?
-2. TRUNCATE가 DELETE보다 빠른 이유는?
+### 1. TRUNCATE는 WHERE절을 사용할 수 있는가?
 
-## 답 확인
+> [!success]- 답 확인
+> 없다.
 
-1. 없다.
-2. UNDO 로그를 남기지 않기 때문이다.
+### 2. TRUNCATE가 DELETE보다 빠른 이유는?
+
+> [!success]- 답 확인
+> UNDO 로그를 남기지 않기 때문이다.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

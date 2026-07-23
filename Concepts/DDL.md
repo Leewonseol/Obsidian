@@ -54,19 +54,37 @@ study_status: unverified
 - [[M01-Q46]]
 - [[M01-Q47]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. Oracle에서 DDL을 실행하면 어떤 일이 자동으로 일어나는가?
-2. DDL 실행 이전의 커밋되지 않은 DML은 이후 ROLLBACK으로 되돌릴 수 있는가?
-3. DROP과 TRUNCATE는 각각 테이블 구조를 어떻게 처리하는가?
-4. DDL에 속하는 명령어 4가지는 무엇인가?
+### 1. Oracle에서 DDL을 실행하면 어떤 일이 자동으로 일어나는가?
 
-## 답 확인
+> [!success]- 답 확인
+> 자동으로 COMMIT이 발생한다.
 
-1. 자동으로 COMMIT이 발생한다.
-2. 되돌릴 수 없다(이미 DDL 시점에 확정되었으므로).
-3. DROP은 구조까지 삭제, TRUNCATE는 구조를 유지한다.
-4. CREATE, ALTER, DROP, TRUNCATE(및 RENAME).
+### 2. DDL 실행 이전의 커밋되지 않은 DML은 이후 ROLLBACK으로 되돌릴 수 있는가?
+
+> [!success]- 답 확인
+> 되돌릴 수 없다(이미 DDL 시점에 확정되었으므로).
+
+### 3. DROP과 TRUNCATE는 각각 테이블 구조를 어떻게 처리하는가?
+
+> [!success]- 답 확인
+> DROP은 구조까지 삭제, TRUNCATE는 구조를 유지한다.
+
+### 4. DDL에 속하는 명령어 4가지는 무엇인가?
+
+> [!success]- 답 확인
+> CREATE, ALTER, DROP, TRUNCATE(및 RENAME).
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

@@ -44,15 +44,27 @@ study_status: unverified
 
 - [[M01-Q17]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. COMMIT 이후 ROLLBACK으로 되돌릴 수 있는가?
-2. Oracle에서 자동으로 COMMIT이 발생하는 경우는?
+### 1. COMMIT 이후 ROLLBACK으로 되돌릴 수 있는가?
 
-## 답 확인
+> [!success]- 답 확인
+> 없다(되돌릴 수 없다).
 
-1. 없다(되돌릴 수 없다).
-2. DDL을 실행했을 때.
+### 2. Oracle에서 자동으로 COMMIT이 발생하는 경우는?
+
+> [!success]- 답 확인
+> DDL을 실행했을 때.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

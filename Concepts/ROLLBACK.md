@@ -49,15 +49,27 @@ study_status: unverified
 - [[M01-Q46]]
 - [[M01-Q47]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. ROLLBACK은 어느 시점까지 되돌리는가?
-2. TRUNCATE는 ROLLBACK으로 복구 가능한가?
+### 1. ROLLBACK은 어느 시점까지 되돌리는가?
 
-## 답 확인
+> [!success]- 답 확인
+> 마지막 COMMIT 시점까지.
 
-1. 마지막 COMMIT 시점까지.
-2. 불가능하다(DDL이므로 자동 COMMIT됨).
+### 2. TRUNCATE는 ROLLBACK으로 복구 가능한가?
+
+> [!success]- 답 확인
+> 불가능하다(DDL이므로 자동 COMMIT됨).
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

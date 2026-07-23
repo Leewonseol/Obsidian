@@ -72,21 +72,42 @@ study_status: unverified
 - [[M01-Q38]]
 - [[M01-Q49]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. COUNT(*)와 COUNT(열)은 NULL을 각각 어떻게 처리하는가?
-2. WHERE COL = NULL이 항상 아무 행도 반환하지 않는 이유는?
-3. NOT IN 목록에 NULL이 포함되면 전체 결과가 어떻게 되는가?
-4. LEFT OUTER JOIN에서 매칭되지 않은 반대편 열은 어떤 값이 되는가?
-5. Oracle과 SQL Server에서 ORDER BY 시 NULL 위치가 어떻게 다른가?
+### 1. COUNT(*)와 COUNT(열)은 NULL을 각각 어떻게 처리하는가?
 
-## 답 확인
+> [!success]- 답 확인
+> COUNT(*)는 NULL을 포함해 모든 행을 세고, COUNT(열)은 해당 열이 NULL인 행을 제외한다.
 
-1. COUNT(*)는 NULL을 포함해 모든 행을 세고, COUNT(열)은 해당 열이 NULL인 행을 제외한다.
-2. NULL은 일반 비교 연산자(=)로 비교할 수 없어 항상 UNKNOWN이 되기 때문이다.
-3. NULL과의 비교가 UNKNOWN이 되어 전체 조건이 참이 될 수 없으므로 결과 집합이 비어버린다.
-4. NULL로 채워진다.
-5. Oracle의 ASC는 NULL이 마지막, SQL Server의 ASC는 NULL이 처음에 온다.
+### 2. WHERE COL = NULL이 항상 아무 행도 반환하지 않는 이유는?
+
+> [!success]- 답 확인
+> NULL은 일반 비교 연산자(=)로 비교할 수 없어 항상 UNKNOWN이 되기 때문이다.
+
+### 3. NOT IN 목록에 NULL이 포함되면 전체 결과가 어떻게 되는가?
+
+> [!success]- 답 확인
+> NULL과의 비교가 UNKNOWN이 되어 전체 조건이 참이 될 수 없으므로 결과 집합이 비어버린다.
+
+### 4. LEFT OUTER JOIN에서 매칭되지 않은 반대편 열은 어떤 값이 되는가?
+
+> [!success]- 답 확인
+> NULL로 채워진다.
+
+### 5. Oracle과 SQL Server에서 ORDER BY 시 NULL 위치가 어떻게 다른가?
+
+> [!success]- 답 확인
+> Oracle의 ASC는 NULL이 마지막, SQL Server의 ASC는 NULL이 처음에 온다.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

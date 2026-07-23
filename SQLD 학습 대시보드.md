@@ -78,67 +78,91 @@
 
 | Concept | 고유 Question | Proposition | Concept Degree | Bridge | 중심성 해석 |
 |---|---:|---:|---:|---|---|
-| NULL | 16 | 47 | 9 | high | 직접 출제와 구조적 중심성이 모두 가장 높은 진짜 허브 |
-| 집계 함수 | 8 | 23 | 6 | high | 직접 출제도 많고 여러 개념(COUNT, NULL, HAVING)을 연결 |
-| 정규화 | 5 | 14 | 3 | medium | 직접 출제 많음, 구조적 연결은 중간 |
-| ERD | 2 | 8 | 10 | high | 직접 출제는 적지만 구조적 중심성이 전체 1위 — 빈도≠중심성의 대표 사례 |
-| DDL | 4 | 6 | 7 | high | 직접 출제와 구조적 연결(DROP/TRUNCATE/ALTER/AUTO COMMIT) 모두 높음 |
-| PK | 2 | 4 | 7 | high | 직접 출제는 적으나 데이터모델링↔SQL 구현을 잇는 구조적 허브 |
-| 식별자 | 2 | 3 | 7 | high | 직접 출제 0, 판단 개입 2 — 순수 구조적 허브에 가까움 |
-| 제약조건 | 1 | 2 | 7 | high | 직접 출제 0 — PK/FK/CHECK/UNIQUE를 묶는 상위 허브 |
-| GROUP BY | 3 | 8 | 4 | medium | 집계 함수·HAVING과 함께 SQL 실행순서의 축 |
-| WHERE | 3 | 9 | 4 | medium | HAVING과 대조되는 실행순서 허브 |
-| JOIN | 2 | 5 | 5 | medium | OUTER JOIN·CROSS JOIN의 상위 개념 |
-| Transaction | 3 | 4 | 4 | medium | COMMIT·ROLLBACK·ACID가 다루는 대상 개념(TCL이 이를 제어하는 명령어 분류) |
-| 엔터티 | 1 | 1 | 4 | medium | 직접 출제 0 — 데이터 모델링의 구조적 출발점 |
-| 관계 | 0 | 0 | 6 | high | 직접 출제·판단 개입 모두 0이지만 관계차수·관계선택성·FK를 연결하는 순수 구조적 허브 |
+| [[NULL]] | 16 | 47 | 9 | high | 직접 출제와 구조적 중심성이 모두 가장 높은 진짜 허브 |
+| [[집계 함수]] | 8 | 23 | 6 | high | 직접 출제도 많고 여러 개념(COUNT, NULL, HAVING)을 연결 |
+| [[정규화]] | 5 | 14 | 3 | medium | 직접 출제 많음, 구조적 연결은 중간 |
+| [[ERD]] | 2 | 8 | 10 | high | 직접 출제는 적지만 구조적 중심성이 전체 1위 — 빈도≠중심성의 대표 사례 |
+| [[DDL]] | 4 | 6 | 7 | high | 직접 출제와 구조적 연결(DROP/TRUNCATE/ALTER/AUTO COMMIT) 모두 높음 |
+| [[PK]] | 2 | 4 | 7 | high | 직접 출제는 적으나 데이터모델링↔SQL 구현을 잇는 구조적 허브 |
+| [[식별자]] | 2 | 3 | 7 | high | 직접 출제 0, 판단 개입 2 — 순수 구조적 허브에 가까움 |
+| [[제약조건]] | 1 | 2 | 7 | high | 직접 출제 0 — PK/FK/CHECK/UNIQUE를 묶는 상위 허브 |
+| [[FK]] | 2 | 5 | 6 | high | PK와 짝을 이루는 참조 무결성 허브 — 대시보드에 누락되어 있던 항목을 YAML 기준으로 반영 |
+| [[GROUP BY]] | 3 | 8 | 4 | medium | 집계 함수·HAVING과 함께 SQL 실행순서의 축 |
+| [[WHERE]] | 3 | 9 | 4 | medium | HAVING과 대조되는 실행순서 허브 |
+| [[JOIN]] | 2 | 5 | 5 | medium | OUTER JOIN·CROSS JOIN의 상위 개념 |
+| [[Transaction]] | 3 | 4 | 4 | medium | COMMIT·ROLLBACK·ACID가 다루는 대상 개념(TCL이 이를 제어하는 명령어 분류) |
+| [[엔터티]] | 1 | 1 | 4 | medium | 직접 출제 0 — 데이터 모델링의 구조적 출발점 |
+| [[관계]] | 0 | 0 | 6 | high | 직접 출제·판단 개입 모두 0이지만 관계차수·관계선택성·FK를 연결하는 순수 구조적 허브 |
 
 ## Tier 2 주요 적용 개념
 
 | Concept | 고유 Question | 주요 문제 유형 |
 |---|---:|---|
-| DCL | 3 | GRANT/REVOKE 권한 전이(Q17, Q44, Q45) |
-| 윈도우 함수 | 3 | RANK류·ROWS BETWEEN(Q23, Q24, Q35) |
-| 정규표현식 함수 | 3 | REGEXP_LIKE/SUBSTR/COUNT(Q16, Q25, Q50) |
-| 함수적 종속 | 3 | 정규화 판단 근거(Q03, Q06, Q08) |
-| COUNT | 3 | NULL 처리 함정(Q19, Q29, Q49) |
-| HAVING | 3 | WHERE 대조(Q20, Q30, Q31) |
-| ORDER BY | 3 | 정렬 기준·NULL 위치(Q15, Q24, Q36) |
-| DELETE | 3 | 삭제 명령 비교(Q46, Q47) |
-| ROLLBACK | 3 | 트랜잭션 흐름 추적(Q40, Q46, Q47) |
-| OUTER JOIN | 2 | LEFT/RIGHT 기준 테이블(Q19, Q27) |
-| TRUNCATE | 2 | DDL 자동 커밋(Q46, Q47) |
-| 그룹함수 확장 | 2 | ROLLUP/CUBE(Q21, Q33) |
-| 서브쿼리 | 2 | 사용 가능 절·EXISTS(Q41, Q43) |
-| DROP | 2 | 구조 삭제(Q47) |
-| 참조 무결성 | 2 | FK 규칙(Q01, Q07) |
-| 비식별 관계 | 2 | ERD bar 기호(Q10) |
-| 식별 관계 | 2 | ERD bar 기호(Q10) |
-| ACID | 1 | 원자성 정의(Q34) |
-| ALTER | 1 | MODIFY vs ALTER COLUMN(Q48) |
-| AUTO COMMIT | 1 | Oracle DDL 자동 커밋(Q40) |
-| VIEW | 1 | 단순/복합 뷰 DML(Q12) |
-| 개체 무결성 | 1 | PK NULL 위반(Q01) |
-| 데이터 모델링 3단계 | 1 | 개념적/논리적/물리적(Q02) |
-| COMMIT | 1 | 트랜잭션 확정(Q17) |
-| 관계 차수 | 1 | ERD 카디널리티(Q09) |
-| TCL | 1 | SQL 명령어 분류, Transaction 제어(Q17) — DCL.md 계층 오류 수정 중 신규 생성 |
+| [[DCL]] | 3 | GRANT/REVOKE 권한 전이(Q17, Q44, Q45) |
+| [[윈도우 함수]] | 3 | RANK류·ROWS BETWEEN(Q23, Q24, Q35) |
+| [[정규표현식 함수]] | 3 | REGEXP_LIKE/SUBSTR/COUNT(Q16, Q25, Q50) |
+| [[함수적 종속]] | 3 | 정규화 판단 근거(Q03, Q06, Q08) |
+| [[COUNT]] | 3 | NULL 처리 함정(Q19, Q29, Q49) |
+| [[HAVING]] | 3 | WHERE 대조(Q20, Q30, Q31) |
+| [[ORDER BY]] | 3 | 정렬 기준·NULL 위치(Q15, Q24, Q36) |
+| [[DELETE]] | 3 | 삭제 명령 비교(Q46, Q47) |
+| [[ROLLBACK]] | 3 | 트랜잭션 흐름 추적(Q40, Q46, Q47) |
+| [[OUTER JOIN]] | 2 | LEFT/RIGHT 기준 테이블(Q19, Q27) |
+| [[TRUNCATE]] | 2 | DDL 자동 커밋(Q46, Q47) |
+| [[그룹함수 확장]] | 2 | ROLLUP/CUBE(Q21, Q33) |
+| [[서브쿼리]] | 2 | 사용 가능 절·EXISTS(Q41, Q43) |
+| [[DROP]] | 2 | 구조 삭제(Q47) |
+| [[참조 무결성]] | 2 | FK 규칙(Q01, Q07) |
+| [[비식별 관계]] | 2 | ERD bar 기호(Q10) |
+| [[식별 관계]] | 2 | ERD bar 기호(Q10) |
+| [[ACID]] | 1 | 원자성 정의(Q34) |
+| [[ALTER]] | 1 | MODIFY vs ALTER COLUMN(Q48) |
+| [[AUTO COMMIT]] | 1 | Oracle DDL 자동 커밋(Q40) |
+| [[VIEW]] | 1 | 단순/복합 뷰 DML(Q12) |
+| [[개체 무결성]] | 1 | PK NULL 위반(Q01) |
+| [[데이터 모델링 3단계]] | 1 | 개념적/논리적/물리적(Q02) |
+| [[COMMIT]] | 1 | 트랜잭션 확정(Q17) |
+| [[관계 차수]] | 1 | ERD 카디널리티(Q09) |
+| [[TCL]] | 1 | SQL 명령어 분류, Transaction 제어(Q17) — DCL.md 계층 오류 수정 중 신규 생성 |
 
 ## Tier 3 세부 규칙
 
-- 문자형 함수 (상위: SQL 기본 4. 공통 표현 도구)
-- CROSS JOIN (상위: [[JOIN]])
-- PIVOT·UNPIVOT (상위: 원본 부재, mock-01 보강)
-- 계층형 질의 (상위: 원본 부재, mock-01 보강)
-- 데이터 모델링 관점 (상위: [[데이터 모델링 3단계]])
-- 엔터티 분류 (상위: [[엔터티]])
-- 자료형 (상위: [[ORDER BY]])
-- 집합 연산자 (상위: 원본 부재, mock-01 보강)
-- DML (상위: [[DELETE]])
-- 관계 선택성 (상위: [[관계]])
-- IN·NOT IN (상위: [[WHERE]])
-- 숫자형 함수 (상위: SQL 기본 4. 공통 표현 도구)
-- 속성 (상위: [[엔터티]]) — 이번 검증 중 깨진 링크 수정을 위해 신규 생성됨
+- [[문자형 함수]] (상위: SQL 기본 4. 공통 표현 도구)
+- [[CROSS JOIN]] (상위: [[JOIN]])
+- [[PIVOT·UNPIVOT]] (상위: 원본 부재, mock-01 보강)
+- [[계층형 질의]] (상위: 원본 부재, mock-01 보강)
+- [[데이터 모델링 관점]] (상위: [[데이터 모델링 3단계]])
+- [[엔터티 분류]] (상위: [[엔터티]])
+- [[자료형]] (상위: [[ORDER BY]])
+- [[집합 연산자]] (상위: 원본 부재, mock-01 보강)
+- [[DML]] (상위: [[DELETE]])
+- [[관계 선택성]] (상위: [[관계]])
+- [[IN·NOT IN]] (상위: [[WHERE]])
+- [[숫자형 함수]] (상위: SQL 기본 4. 공통 표현 도구)
+- [[속성]] (상위: [[엔터티]]) — 이번 검증 중 깨진 링크 수정을 위해 신규 생성됨
+
+## 연결망 학습 모드
+
+1. 대시보드에서 Concept Node를 연다.
+2. 능동 회상 질문에 답한다.
+3. 접힌 답을 확인한다.
+4. 연결된 문제를 푼다.
+5. 틀린 선지만 Proposition에서 확인한다.
+6. Local Graph로 다음 개념에 이동한다.
+
+**Graph View 필터**
+
+개념과 문제 중심:
+
+```
+path:"SQLD/Pilot" -path:"SQLD/Pilot/Propositions"
+```
+
+전체 선지 포함:
+
+```
+path:"SQLD/Pilot"
+```
 
 ## NULL 분석
 

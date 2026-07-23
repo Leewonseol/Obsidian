@@ -26,6 +26,23 @@ study_status: unverified
 - [[DELETE]]: 조건에 맞는 행 삭제, ROLLBACK 가능
 - MERGE: 대상 테이블과 소스 테이블을 병합(MATCHED/NOT MATCHED 처리)
 
+## 능동 회상
+
+### 1. DML에 속하는 4가지 명령어는 무엇인가?
+
+> [!success]- 답 확인
+> INSERT, UPDATE, DELETE, MERGE.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
+
 ## Related Concepts
 
 - [[DELETE]]

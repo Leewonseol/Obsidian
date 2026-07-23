@@ -47,15 +47,27 @@ study_status: unverified
 
 - [[M01-Q17]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. TCL의 대표 명령어 3가지는?
-2. TCL과 Transaction은 같은 층위의 개념인가?
+### 1. TCL의 대표 명령어 3가지는?
 
-## 답 확인
+> [!success]- 답 확인
+> COMMIT, ROLLBACK, SAVEPOINT.
 
-1. COMMIT, ROLLBACK, SAVEPOINT.
-2. 아니다. TCL은 명령어 분류이고 Transaction은 그 제어 대상이다.
+### 2. TCL과 Transaction은 같은 층위의 개념인가?
+
+> [!success]- 답 확인
+> 아니다. TCL은 명령어 분류이고 Transaction은 그 제어 대상이다.
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 

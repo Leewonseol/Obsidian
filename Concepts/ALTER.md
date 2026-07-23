@@ -46,15 +46,27 @@ study_status: unverified
 
 - [[M01-Q48]]
 
-## 능동 회상 질문
+## 능동 회상
 
-1. Oracle과 SQL Server에서 컬럼 자료형 변경 명령어는 각각 무엇인가?
-2. 여러 컬럼을 한 번에 변경할 수 있는 DBMS는?
+### 1. Oracle과 SQL Server에서 컬럼 자료형 변경 명령어는 각각 무엇인가?
 
-## 답 확인
+> [!success]- 답 확인
+> Oracle은 MODIFY, SQL Server는 ALTER COLUMN.
 
-1. Oracle은 MODIFY, SQL Server는 ALTER COLUMN.
-2. Oracle(MODIFY로 괄호 묶음 가능).
+### 2. 여러 컬럼을 한 번에 변경할 수 있는 DBMS는?
+
+> [!success]- 답 확인
+> Oracle(MODIFY로 괄호 묶음 가능).
+
+## 연결망 학습 경로
+
+1. 능동 회상 질문에 먼저 답한다.
+2. 접힌 답을 열어 비교한다.
+3. 연결된 Question Node를 푼다.
+4. 헷갈린 선지만 Proposition Node에서 확인한다.
+5. Local Graph에서 다음 개념으로 이동한다.
+
+- [[SQLD 학습 대시보드]]
 
 ## 관련 개념
 
