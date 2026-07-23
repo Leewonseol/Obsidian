@@ -11,6 +11,12 @@ bridge_role: medium
 direct_question_count: 2
 supporting_question_count: 0
 study_status: unverified
+axis_membership:
+  - modeling_to_join
+  - sql_writing_order
+  - sql_execution_order
+axis_confidence: high
+axis_review_required: true
 ---
 
 # JOIN

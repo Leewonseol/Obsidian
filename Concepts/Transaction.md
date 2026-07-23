@@ -11,6 +11,10 @@ bridge_role: medium
 direct_question_count: 2
 supporting_question_count: 1
 study_status: unverified
+axis_membership:
+  - sql_writing_order
+axis_confidence: medium
+axis_review_required: true
 ---
 
 # Transaction

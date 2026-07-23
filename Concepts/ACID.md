@@ -11,6 +11,9 @@ bridge_role: low
 direct_question_count: 1
 supporting_question_count: 0
 study_status: unverified
+axis_membership: []
+axis_confidence: high
+axis_review_required: false
 ---
 
 # ACID

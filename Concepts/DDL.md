@@ -11,6 +11,12 @@ bridge_role: high
 direct_question_count: 3
 supporting_question_count: 1
 study_status: unverified
+axis_membership:
+  - modeling_to_join
+  - sql_writing_order
+  - oracle_sqlserver
+axis_confidence: medium
+axis_review_required: false
 ---
 
 # DDL

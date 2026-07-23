@@ -11,6 +11,11 @@ bridge_role: medium
 direct_question_count: 1
 supporting_question_count: 0
 study_status: unverified
+axis_membership:
+  - sql_writing_order
+  - oracle_sqlserver
+axis_confidence: high
+axis_review_required: false
 ---
 
 # AUTO COMMIT

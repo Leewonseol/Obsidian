@@ -11,6 +11,10 @@ bridge_role: low
 direct_question_count: 1
 supporting_question_count: 0
 study_status: unverified
+axis_membership:
+  - sql_writing_order
+axis_confidence: low
+axis_review_required: true
 ---
 
 # PIVOT·UNPIVOT

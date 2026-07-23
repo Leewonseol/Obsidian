@@ -11,6 +11,10 @@ bridge_role: low
 direct_question_count: 0
 supporting_question_count: 1
 study_status: unverified
+axis_membership:
+  - sql_writing_order
+axis_confidence: high
+axis_review_required: false
 ---
 
 # DML
