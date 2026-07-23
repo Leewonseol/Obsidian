@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: mysite.github.io
+  baseUrl: leewonseol.github.io/Obsidian
   ignorePatterns:
     - private
     - templates

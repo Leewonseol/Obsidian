@@ -1,6 +1,7 @@
 ---
-title: Welcome to Quartz
+title: SQLD 학습 연결망
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+# SQLD 학습 연결망
+
+- [[SQLD 학습 대시보드]]
