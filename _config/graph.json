@@ -8,6 +8,13 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
+      "query": "path:\"SQLD/Pilot/Concepts\" file:\"LIKE\"",
+      "color": {
+        "a": 1,
+        "rgb": 2718207
+      }
+    },
+    {
       "query": "file:\"데이터 모델링에서 JOIN까지\" OR file:\"SQL 작성 순서\" OR file:\"SQL 논리적 실행 순서\" OR file:\"Oracle과 SQL Server 차이\"",
       "color": {
         "a": 1,
@@ -82,5 +89,5 @@
   "linkStrength": 1,
   "linkDistance": 250,
   "scale": 0.32098509084378857,
-  "close": true
+  "close": false
 }

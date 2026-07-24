@@ -88,6 +88,7 @@ axis_review_required: true
 - [[NULL]]과 결합 시 LIKE 비교 결과가 TRUE·FALSE가 아니라 UNKNOWN이 될 수 있다.
 - [[WHERE]] 조건식에서 다른 조건과 함께 사용된다.
 - [[문자형 함수]]와는 성격이 다르다(문자열 값을 가공하지 않고 패턴 일치만 판정하는 조건 연산자다).
+- [[SQL 논리적 실행 순서]]상 WHERE 또는 HAVING 단계에서 조건으로 평가된다.
 
 ## Source
 
