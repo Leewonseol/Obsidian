@@ -1,7 +1,10 @@
 ---
-type: hub
+type: concept
+concept_kind: structural_axis
 axis_id: modeling_to_join
-exclude_from_centrality: true
+graph_role: structural_axis
+include_in_learning_graph: true
+exclude_from_concept_centrality: true
 ---
 
 # 데이터 모델링에서 JOIN까지

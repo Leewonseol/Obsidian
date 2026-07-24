@@ -1,7 +1,10 @@
 ---
-type: hub
+type: concept
+concept_kind: structural_axis
 axis_id: sql_execution_order
-exclude_from_centrality: true
+graph_role: structural_axis
+include_in_learning_graph: true
+exclude_from_concept_centrality: true
 ---
 
 # SQL 논리적 실행 순서
