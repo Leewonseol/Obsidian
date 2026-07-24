@@ -37,6 +37,20 @@ axis_review_required: false
 - [[OUTER JOIN]]에서 매칭되지 않는 반대편 열은 NULL로 채워진다.
 - 정렬([[ORDER BY]]) 시 NULL의 위치는 Oracle과 SQL Server가 서로 다르다.
 
+## NULL 처리 함수
+
+| 함수 | 주 사용 DBMS | 인수 | 핵심 동작 |
+|---|---|---:|---|
+| COALESCE | 표준 SQL | 2개 이상 | 왼쪽부터 최초의 NULL이 아닌 값 반환 |
+| NVL | Oracle | 2개 | 첫 번째 값이 NULL이면 두 번째 값 반환 |
+| IFNULL | MySQL·SQLite 계열 | 2개 | 첫 번째 값이 NULL이면 두 번째 값 반환 |
+| ISNULL | SQL Server | 2개 | 첫 번째 값이 NULL이면 두 번째 값 반환 |
+| NULLIF | 표준 SQL | 2개 | 두 값이 같으면 NULL, 다르면 첫 번째 값 반환 |
+
+- NULLIF(a, b)는 두 인수의 자료형이 비교 가능해야 하며, 타입이 맞지 않으면 오류(Oracle ORA-00932 등)가 발생할 수 있다.
+- `분자 / NULLIF(분모, 0)`처럼 쓰면 분모가 0일 때 다른 숫자로 치환되는 것이 아니라 결과가 NULL이 되어, 0으로 나누기 오류 대신 NULL을 반환하게 만든다.
+- COALESCE는 인수를 2개 이상 받을 수 있어 NVL·IFNULL·ISNULL(모두 인수 2개 고정)보다 범용적이다.
+
 ## 판단 순서
 
 1. NULL이 어느 위치(연산/비교/집계/조인/정렬)에 등장하는지 먼저 식별한다.
@@ -52,6 +66,7 @@ axis_review_required: false
 | IN vs NOT IN            | IN은 NULL이 목록에 있어도 영향 없음, NOT IN은 NULL이 있으면 전체가 UNKNOWN |
 | NULL 산술연산 vs NULL 집계    | 산술연산은 NULL 전파(결과 NULL), 집계 함수는 대부분 NULL 무시             |
 | Oracle vs SQL Server 정렬 | Oracle ASC는 NULL이 마지막, SQL Server ASC는 NULL이 처음        |
+| NVL·IFNULL·ISNULL vs COALESCE | 전자 3개는 인수 2개 고정, COALESCE는 2개 이상(다중 인수 가능) |
 
 ## 대표 함정
 
@@ -122,6 +137,7 @@ axis_review_required: false
 - [[집계 함수]]는 대부분 NULL을 제외하고 계산하지만 COUNT(*)만 예외적으로 NULL을 포함한다.
 - [[OUTER JOIN]]은 불일치하는 행에 NULL을 채워 넣어 이후 [[집계 함수]] 결과에 영향을 준다.
 - [[개체 무결성]]은 PK의 NULL 금지 규칙에서 출발한다.
+- [[LIKE]] 비교에서도 NULL은 UNKNOWN이 되어 WHERE 조건을 통과하지 못한다.
 
 ## Source
 

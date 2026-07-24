@@ -30,6 +30,17 @@ axis_review_required: false
 - SELECT에서는 GROUP BY에 명시한 열·표현식과 [[집계 함수]]만 사용할 수 있다.
 - [[HAVING]]으로 그룹을 추가 필터링할 수 있다.
 - [[그룹함수 확장]](ROLLUP/CUBE/GROUPING SETS)으로 여러 집계 수준을 한 번에 낼 수 있다.
+- SELECT 별칭은 논리적으로 SELECT 단계에서 만들어지고, [[SQL 논리적 실행 순서]]상 GROUP BY는 SELECT보다 먼저 처리된다. 따라서 같은 SELECT 목록에서 만든 별칭을 GROUP BY 절에서 바로 참조할 수 없다는 것이 표준적인 설명이다(Oracle 기준).
+- 다만 일부 DBMS는 편의 기능으로 GROUP BY에서 SELECT 별칭 참조를 허용할 수 있으므로, 문제가 전제하는 DBMS를 먼저 확인해야 한다.
+- 별칭 참조가 불확실한 경우, 다음처럼 GROUP BY 절에 원래 식을 그대로 반복하면 안전하다.
+
+```sql
+SELECT
+    SUBSTR(code, 1, 1) AS code_group,
+    COUNT(*)
+FROM sample
+GROUP BY SUBSTR(code, 1, 1);
+```
 
 ## 판단 순서
 
@@ -73,6 +84,11 @@ axis_review_required: false
 > [!success]- 답 확인
 > 포함되지 않는다(HAVING이 걸러낸다).
 
+### 4. SELECT에서 만든 열 별칭을 GROUP BY 절에서 바로 참조할 수 있는가?
+
+> [!success]- 답 확인
+> 표준적으로는 불가능하다(Oracle 기준). GROUP BY가 SELECT보다 먼저 처리되기 때문이며, 일부 DBMS만 편의 기능으로 허용할 수 있다.
+
 ## 연결망 학습 경로
 
 1. 능동 회상 질문에 먼저 답한다.
@@ -92,3 +108,4 @@ axis_review_required: false
 ## Source
 
 - SQL 기본.md — 7. GROUP BY
+- SELECT 별칭 참조 제한(Oracle): 유선배 기출변형 모의고사 1회(Q24) 해설 근거
