@@ -1,0 +1,4 @@
+- 실제 활성 설정 경로: `C:\Users\yjl59\OneDrive\문서\Obsidian Vault\.obsidian\graph.json`
+- Git 백업 경로: `SQLD\Pilot\_config\graph.json`
+- 복원 시 백업본(`_config\graph.json`)을 활성 경로(`.obsidian\graph.json`)로 복사해야 한다.
+- 백업본은 자동 동기화되지 않는다. 그래프 설정을 변경한 뒤에는 다시 이 경로로 복사해야 한다.

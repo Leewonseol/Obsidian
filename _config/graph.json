@@ -1,0 +1,86 @@
+{
+  "collapse-filter": false,
+  "search": "-path:\"SQLD/Pilot/_reports\"",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "file:\"데이터 모델링에서 JOIN까지\" OR file:\"SQL 작성 순서\" OR file:\"SQL 논리적 실행 순서\" OR file:\"Oracle과 SQL Server 차이\"",
+      "color": {
+        "a": 1,
+        "rgb": 15902017
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Concepts\" (file:\"TCL\" OR file:\"식별자\" OR file:\"JOIN\" OR file:\"제약조건\" OR file:\"PK\") -file:\"CROSS JOIN\" -file:\"OUTER JOIN\" -file:\"데이터 모델링에서 JOIN까지\"",
+      "color": {
+        "a": 1,
+        "rgb": 16717636
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Concepts\" (file:\"NULL\" OR file:\"정규화\" OR file:\"TRUNCATE\" OR file:\"집계 함수\" OR file:\"윈도우 함수\" OR file:\"정규표현식 함수\" OR file:\"ERD\" OR file:\"서브쿼리\" OR file:\"FK\" OR file:\"DCL\")",
+      "color": {
+        "a": 1,
+        "rgb": 16711935
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Concepts\" (file:\"함수적 종속\" OR file:\"COUNT\" OR file:\"GROUP BY\" OR file:\"ORDER BY\" OR file:\"그룹함수 확장\" OR file:\"DDL\" OR file:\"문자형 함수\" OR file:\"Transaction\" OR file:\"참조 무결성\" OR file:\"ROLLBACK\")",
+      "color": {
+        "a": 1,
+        "rgb": 16766720
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Concepts\" (file:\"VIEW\" OR file:\"HAVING\" OR file:\"OUTER JOIN\" OR file:\"WHERE\" OR file:\"개체 무결성\" OR file:\"데이터 모델링 3단계\" OR file:\"DELETE\" OR file:\"AUTO COMMIT\" OR file:\"ACID\" OR file:\"ALTER\" OR file:\"CROSS JOIN\" OR file:\"PIVOT·UNPIVOT\" OR file:\"데이터 모델링 관점\" OR file:\"엔터티 분류\" OR file:\"자료형\" OR file:\"PK\")",
+      "color": {
+        "a": 1,
+        "rgb": 48340
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Concepts\" (file:\"계층형 질의\" OR file:\"집합 연산자\" OR file:\"DROP\" OR file:\"비식별 관계\" OR file:\"식별 관계\" OR file:\"관계 선택성\" OR file:\"IN·NOT IN\" OR file:\"숫자형 함수\" OR file:\"관계 차수\" OR file:\"COMMIT\" OR file:\"관계\" OR file:\"DML\" OR file:\"속성\" OR file:\"엔터티\" OR file:\"TCL\" OR file:\"식별자\" OR file:\"JOIN\" OR file:\"제약조건\") -file:\"AUTO COMMIT\" -file:\"엔터티 분류\" -file:\"CROSS JOIN\" -file:\"OUTER JOIN\" -file:\"데이터 모델링에서 JOIN까지\"",
+      "color": {
+        "a": 1,
+        "rgb": 7901340
+      }
+    },
+    {
+      "query": "path:\"SQLD/Pilot/Questions\"",
+      "color": {
+        "a": 1,
+        "rgb": 9333694
+      }
+    },
+    {
+      "query": "file:\"SQLD 학습 대시보드\"",
+      "color": {
+        "a": 1,
+        "rgb": 14049119
+      }
+    },
+    {
+      "query": "path:\"SQLD/_원본 자료\"",
+      "color": {
+        "a": 1,
+        "rgb": 5873999
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0.1,
+  "nodeSizeMultiplier": 0.896885813148789,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.501730103806228,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.32098509084378857,
+  "close": true
+}
