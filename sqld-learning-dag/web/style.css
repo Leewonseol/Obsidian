@@ -413,6 +413,48 @@ pre.ex { background: var(--code-bg); border: 1px solid var(--border); border-rad
 .flowline { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
 .flowline b { color: var(--text); }
 
+/* ---------- views, filters, detail sub-tabs (v0.5 content) ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.view-seg button { font-weight: 600; }
+.view-hint { max-width: 1500px; margin: 0 auto 10px; font-size: 12.5px; color: var(--muted); }
+.section-gap { height: 14px; }
+.stage-title .subj { font-size: 11px; font-weight: 500; color: var(--faint); margin-left: 4px; }
+.subtabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin: 12px 0 4px; flex-wrap: wrap; }
+.subtabs button { border: 0; background: none; padding: 7px 10px; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; font-size: 13px; }
+.subtabs button.on { color: var(--text); border-bottom-color: var(--accent); }
+.subtabs .cnt { margin-left: 4px; font-size: 10.5px; font-weight: 600; padding: 0 5px; border-radius: 8px; background: var(--surface-3); color: var(--muted); }
+.src { font-size: 10px; font-weight: 500; color: var(--faint); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; margin-left: 4px; }
+dl.facts { display: grid; grid-template-columns: 112px 1fr; gap: 4px 10px; margin: 4px 0; font-size: 13px; }
+dl.facts dt { color: var(--muted); }
+dl.facts dd { margin: 0; }
+dl.facts .cbtn { font-weight: 500; }
+p.core { font-size: 14px; padding: 8px 10px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 6px 6px 0; margin: 4px 0; }
+ul.rlist li { padding: 5px 0; border-bottom: 1px dashed var(--border); font-size: 13px; }
+ul.rlist li:last-child { border-bottom: 0; }
+ul.rlist .why-edge, ul.traps .why-edge { display: block; font-size: 12px; color: var(--muted); }
+.rtype { font-size: 10px; font-weight: 700; border-radius: 4px; padding: 0 4px; background: var(--surface-3); color: var(--muted); margin-right: 4px; }
+.clist .tag.inf { background: var(--surface-3); color: var(--faint); font-style: italic; }
+.badge.depth { background: var(--surface-2); border: 1px solid var(--border); }
+.badge.review { background: color-mix(in srgb, var(--st-review) 15%, var(--surface)); color: var(--st-review); }
+ul.traps li { font-weight: 500; }
+ul.traps.soft li { border-left-color: var(--border-strong); background: var(--surface-2); font-weight: 400; }
+.cmp h4 .n, .cmp th .cbtn { font-weight: 500; }
+.cmp h4 .n { color: var(--faint); font-size: 11px; margin-left: 6px; }
+.cmp th.me, .cmp td.me { background: var(--accent-soft); font-weight: 600; }
+.example { border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; margin: 6px 0; }
+.exmeta { font-size: 12px; color: var(--muted); }
+.exhead { margin: 10px 0 2px; font-size: 12.5px; color: var(--muted); }
+.expected { margin-top: 4px; font-size: 13px; padding: 5px 8px; border-radius: 6px; background: color-mix(in srgb, var(--st-learned) 10%, var(--surface)); }
+.expected b { font-size: 11px; color: var(--st-learned); margin-right: 6px; }
+details.supp { margin: 12px 0 4px; border: 1px dashed var(--border-strong); border-radius: 8px; padding: 4px 8px; }
+details.supp > summary { cursor: pointer; font-size: 12.5px; color: var(--muted); }
+.supp-label { font-size: 10.5px; color: var(--faint); margin-left: 4px; }
+.minidag { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 10px 4px; margin: 8px 0; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); }
+.minidag > svg.edges { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.node.compact { font-size: 11.5px; padding: 2px 6px 2px 3px; }
+.node.compact .nm { max-width: 150px; }
+svg .e.inferred { stroke-dasharray: 7 3; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) {
   .topbar { grid-template-columns: 1fr; grid-template-areas: "brand" "search" "controls" "progress"; }
@@ -435,5 +477,6 @@ pre.ex { background: var(--code-bg); border: 1px solid var(--border); border-rad
   .sel { font-size: 12px; }
   .progress { gap: 8px; }
   .progress > span:nth-child(n+4) { display: none; }
+  dl.facts { grid-template-columns: 90px 1fr; }
   .progress .bar { flex-basis: 90px; }
 }

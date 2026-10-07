@@ -1,16 +1,5 @@
 [
  {
-  "source": "N0057",
-  "target": "N0437",
-  "relation": "EXECUTION_ORDER",
-  "reason": "논리적 실행 순서",
-  "edge_class": "핵심규칙",
-  "source_name": "HAVING",
-  "target_name": "SELECT",
-  "original_relation": "PRECEDES",
-  "review": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
- },
- {
   "source": "N0488",
   "target": "N0486",
   "relation": "EXCEPTION",
@@ -846,6 +835,15 @@
   "edge_class": "DBMS",
   "source_name": "ANSI/ISO SQL",
   "target_name": "CASE"
+ },
+ {
+  "source": "N0057",
+  "target": "N0437",
+  "relation": "EXECUTION_ORDER",
+  "reason": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다(17 PRECEDES, 21 SELECT의 Prerequisites에도 포함). 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order metadata로 이동한다.",
+  "edge_class": "실행순서",
+  "source_name": "HAVING",
+  "target_name": "SELECT"
  },
  {
   "source": "N0464",
@@ -1814,549 +1812,671 @@
   "source": "N0464",
   "target": "N0472",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "UNKNOWN"
+  "target_name": "UNKNOWN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0488",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "WHERE"
+  "target_name": "WHERE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0478",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "IN·NOT IN"
+  "target_name": "IN·NOT IN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0483",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "NOT IN"
+  "target_name": "NOT IN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0460",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "IN + NULL"
+  "target_name": "IN + NULL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0050",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "COUNT"
+  "target_name": "COUNT",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0053",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "COUNT(열)"
+  "target_name": "COUNT(열)",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0049",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "AVG"
+  "target_name": "AVG",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0459",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "GROUP BY NULL"
+  "target_name": "GROUP BY NULL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0458",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "DISTINCT NULL"
+  "target_name": "DISTINCT NULL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0308",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "OUTER JOIN"
+  "target_name": "OUTER JOIN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0262",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "NVL"
+  "target_name": "NVL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0259",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "COALESCE"
+  "target_name": "COALESCE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0473",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "빈 문자열과 NULL(Oracle)"
+  "target_name": "빈 문자열과 NULL(Oracle)",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0431",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "CHECK"
+  "target_name": "CHECK",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "N0438",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "UNIQUE"
+  "target_name": "UNIQUE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "X202",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "NULL 함정 종합"
+  "target_name": "NULL 함정 종합",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "X101",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "NULL 처리 DBMS 차이"
+  "target_name": "NULL 처리 DBMS 차이",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0464",
   "target": "X102",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "NULL",
-  "target_name": "NULL 정렬 DBMS 차이"
+  "target_name": "NULL 정렬 DBMS 차이",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0291",
   "target": "X001",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "계층형 질의",
-  "target_name": "순환 관계(자기참조)"
+  "target_name": "순환 관계(자기참조)",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0291",
   "target": "N0316",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "계층형 질의",
-  "target_name": "셀프 조인"
+  "target_name": "셀프 조인",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0291",
   "target": "N0295",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "계층형 질의",
-  "target_name": "재귀 CTE"
+  "target_name": "재귀 CTE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0291",
   "target": "N0488",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "계층형 질의",
-  "target_name": "WHERE"
+  "target_name": "WHERE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0291",
   "target": "N0497",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "계층형 질의",
-  "target_name": "ORDER BY"
+  "target_name": "ORDER BY",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0099",
   "target": "N0068",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "윈도우 함수",
-  "target_name": "집계 함수"
+  "target_name": "집계 함수",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0099",
   "target": "N0054",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "윈도우 함수",
-  "target_name": "GROUP BY"
+  "target_name": "GROUP BY",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0099",
   "target": "N0104",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "윈도우 함수",
-  "target_name": "Top-N"
+  "target_name": "Top-N",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0099",
   "target": "N0497",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "윈도우 함수",
-  "target_name": "ORDER BY"
+  "target_name": "ORDER BY",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0301",
   "target": "N0220",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "JOIN",
-  "target_name": "정규화"
+  "target_name": "정규화",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0301",
   "target": "N0181",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "JOIN",
-  "target_name": "FK"
+  "target_name": "FK",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0301",
   "target": "N0511",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "JOIN",
-  "target_name": "서브쿼리"
+  "target_name": "서브쿼리",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0301",
   "target": "N0520",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "JOIN",
-  "target_name": "집합 연산자"
+  "target_name": "집합 연산자",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0511",
   "target": "N0301",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "서브쿼리",
-  "target_name": "JOIN"
+  "target_name": "JOIN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0511",
   "target": "N0507",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "서브쿼리",
-  "target_name": "WITH 절"
+  "target_name": "WITH 절",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0511",
   "target": "N0483",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "서브쿼리",
-  "target_name": "NOT IN"
+  "target_name": "NOT IN",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0511",
   "target": "N0400",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "서브쿼리",
-  "target_name": "VIEW"
+  "target_name": "VIEW",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0409",
   "target": "N0361",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "Transaction",
-  "target_name": "DML"
+  "target_name": "DML",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0409",
   "target": "N0380",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "Transaction",
-  "target_name": "DDL"
+  "target_name": "DDL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0409",
   "target": "N0388",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "Transaction",
-  "target_name": "Oracle DDL 자동 커밋"
+  "target_name": "Oracle DDL 자동 커밋",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0409",
   "target": "N0403",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "Transaction",
-  "target_name": "AUTO COMMIT"
+  "target_name": "AUTO COMMIT",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0409",
   "target": "X105",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "Transaction",
-  "target_name": "DDL 커밋 동작 차이"
+  "target_name": "DDL 커밋 동작 차이",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0102",
   "target": "N0095",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "ROWNUM",
-  "target_name": "ROW_NUMBER"
+  "target_name": "ROW_NUMBER",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0102",
   "target": "X103",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "ROWNUM",
-  "target_name": "Top-N 문법 차이"
+  "target_name": "Top-N 문법 차이",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0102",
   "target": "N0514",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "ROWNUM",
-  "target_name": "인라인 뷰"
+  "target_name": "인라인 뷰",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0054",
   "target": "N0099",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "GROUP BY",
-  "target_name": "윈도우 함수"
+  "target_name": "윈도우 함수",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0054",
   "target": "N0106",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "GROUP BY",
-  "target_name": "PIVOT"
+  "target_name": "PIVOT",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0054",
   "target": "N0435",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "GROUP BY",
-  "target_name": "DISTINCT"
+  "target_name": "DISTINCT",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0425",
   "target": "X201",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "SQL 논리 실행 순서",
-  "target_name": "별칭 가시성 종합"
+  "target_name": "별칭 가시성 종합",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0425",
   "target": "N0102",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "SQL 논리 실행 순서",
-  "target_name": "ROWNUM"
+  "target_name": "ROWNUM",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0425",
   "target": "N0099",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "SQL 논리 실행 순서",
-  "target_name": "윈도우 함수"
+  "target_name": "윈도우 함수",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0308",
   "target": "X203",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "OUTER JOIN",
-  "target_name": "OUTER JOIN 필터 위치 종합"
+  "target_name": "OUTER JOIN 필터 위치 종합",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0308",
   "target": "N0513",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "OUTER JOIN",
-  "target_name": "스칼라 서브쿼리"
+  "target_name": "스칼라 서브쿼리",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0308",
   "target": "N0262",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "OUTER JOIN",
-  "target_name": "NVL"
+  "target_name": "NVL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0435",
   "target": "N0518",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "DISTINCT",
-  "target_name": "UNION"
+  "target_name": "UNION",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0435",
   "target": "N0054",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "DISTINCT",
-  "target_name": "GROUP BY"
+  "target_name": "GROUP BY",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0435",
   "target": "N0052",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "DISTINCT",
-  "target_name": "COUNT(DISTINCT)"
+  "target_name": "COUNT(DISTINCT)",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0432",
   "target": "N0485",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "CTAS",
-  "target_name": "SELECT INTO"
+  "target_name": "SELECT INTO",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0432",
   "target": "N0398",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "CTAS",
-  "target_name": "PK 제약 비상속"
+  "target_name": "PK 제약 비상속",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0432",
   "target": "N0463",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "CTAS",
-  "target_name": "NOT NULL"
+  "target_name": "NOT NULL",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0360",
   "target": "N0393",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "DELETE",
-  "target_name": "TRUNCATE"
+  "target_name": "TRUNCATE",
+  "inferred": true,
+  "confidence": "medium"
  },
  {
   "source": "N0360",
   "target": "N0381",
   "relation": "RELATED_TO",
-  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
   "edge_class": "관련",
   "source_name": "DELETE",
-  "target_name": "DROP"
+  "target_name": "DROP",
+  "inferred": true,
+  "confidence": "medium"
  }
 ]

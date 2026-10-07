@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Build the SQLD Learning DAG from SQLD_knowledge_graph_v0_4.xlsx.
+"""Build the SQLD Concept Structure DAG + Learning DAG from the workbook (source of truth).
+
+Default input: SQLD_knowledge_graph_v0_5_with_content.xlsx
 
 Pipeline
-  1. read the workbook (16/17/18/19/20/13/10/11/03/04 sheets)
-  2. normalise nodes, hierarchy, evidence, legacy status
-  3. build the prerequisite DAG = reviewed explicit edges (REQUIRES/PRECEDES/ENABLES/EXPLAINS)
-                                + curated inferred edges (scripts/curation/prerequisites.py)
-  4. cycle check on the candidate graph -> cycle_report.json (no edge is silently deleted)
-  5. visibility / support / priority / display tier
-  6. write data/*.json and web/data.js, then run validate_graph.validate()
+  1. read the workbook (16–20 graph sheets, 10/11/13 evidence, 21–26 learning content)
+  2. normalise nodes (Node ID is canonical), evidence, legacy status
+  3. Concept Structure DAG = 17 BELONGS_TO + IS_A (+ inferred grouping for curated nodes)
+  4. Learning DAG = explicit prerequisites (21.Prerequisites concept tokens ∪ 17 REQUIRES/PRECEDES/
+     ENABLES/EXPLAINS) + curated inferred edges that the explicit edges do not already imply
+  5. cycle check on both candidate graphs -> cycle_report.json (no edge is silently deleted;
+     excluded candidates are kept with the review reason)
+  6. attach learning content from 21–25 by Node ID; keep v0.4 curated notes only as labelled
+     supplementary material
+  7. visibility / support / priority / display tiers, write data/*.json + web/data.js,
+     then run validate_graph.validate()
 
 Usage:  python3 scripts/build_learning_graph.py [--xlsx path]
 """
@@ -26,6 +32,7 @@ import networkx as nx
 import openpyxl
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO = ROOT.parent  # Obsidian vault root (Concepts/, Questions/) — read only
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from curation import comparisons as cmp_mod  # noqa: E402
@@ -37,33 +44,54 @@ import validate_graph  # noqa: E402
 
 DATA = ROOT / "data"
 WEB = ROOT / "web"
-DEFAULT_XLSX = ROOT / "SQLD_knowledge_graph_v0_4.xlsx"
+DEFAULT_XLSX = ROOT / "SQLD_knowledge_graph_v0_5_with_content.xlsx"
 
 STRUCT_TYPES = {"ROOT", "DOMAIN", "CLUSTER"}
 CONCEPT_TYPES = {"CONCEPT", "SYNTAX", "FUNCTION", "RULE"}
+SUPPLEMENTARY_LABEL = "curated-v0.4 (Claude 작성 보조 노트 · 원본 아님 · 검토 필요)"
+
+# Name references in 25_Dialect_Notes that have no Concept node of their own.
+DIALECT_NAME_ALIASES = {
+    "ISNULL": ("NVL", "ISNULL은 SQL Server의 NULL 대체 함수로 별도 Concept 노드가 없어 Oracle 대응 함수 NVL에 연결"),
+}
 
 
 # ---------------------------------------------------------------------------
 # 1. Workbook
 # ---------------------------------------------------------------------------
+TABULAR_SHEETS = [
+    "02_Concept_Master", "03_Round_Concepts", "04_Mindmap_Gaps", "10_Current_Evidence", "11_Legacy_Only",
+    "13_Current_Mindmap_Gaps", "16_KG_Nodes", "17_KG_Edges", "18_Learning_DAG", "19_Study_Outline_v2",
+    "20_Hubs_Rules", "21_Concept_Content", "22_Rules_And_Traps", "23_Comparisons", "24_SQL_Examples",
+    "25_Dialect_Notes",
+]
+
+
 def read_workbook(path: Path) -> dict[str, list[dict]]:
     import warnings
 
     warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
     wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-    wanted = ["03_Round_Concepts", "04_Mindmap_Gaps", "10_Current_Evidence", "11_Legacy_Only",
-              "13_Current_Mindmap_Gaps", "16_KG_Nodes", "17_KG_Edges", "18_Learning_DAG",
-              "19_Study_Outline_v2", "20_Hubs_Rules", "02_Concept_Master"]
+    missing = [n for n in TABULAR_SHEETS + ["26_Content_Coverage"] if n not in wb.sheetnames]
+    if missing:
+        raise SystemExit(f"workbook is missing sheets: {missing}")
     sheets = {}
-    for name in wanted:
+    for name in TABULAR_SHEETS:
         rows = list(wb[name].iter_rows(values_only=True))
-        header = [str(h).strip() if h is not None else f"col{i}" for i, h in enumerate(rows[0])]
+        header = [str(h).strip() if h is not None else f"col{k}" for k, h in enumerate(rows[0])]
         out = []
         for r in rows[1:]:
             if r is None or all(v is None for v in r):
                 continue
-            out.append({header[i]: (r[i] if i < len(r) else None) for i in range(len(header))})
+            out.append({header[k]: (r[k] if k < len(r) else None) for k in range(len(header))})
         sheets[name] = out
+    # 26 is a KPI sheet (label/value pairs), not a table
+    kpi = {}
+    for r in wb["26_Content_Coverage"].iter_rows(values_only=True):
+        for a, b in ((0, 1), (3, 4)):
+            if len(r) > b and r[a] is not None and isinstance(r[b], (int, float)):
+                kpi[str(r[a]).strip()] = int(r[b])
+    sheets["26_Content_Coverage"] = kpi
     wb.close()
     return sheets
 
@@ -81,6 +109,11 @@ def i(v) -> int:
 
 def parse_rounds(v) -> list[int]:
     return [int(x) for x in re.findall(r"\d+", s(v))]
+
+
+def split_names(v) -> list[str]:
+    """Comma-separated concept-name lists. Never split on '/', names such as 'PL/SQL' contain it."""
+    return [t.strip() for t in s(v).replace("\n", ",").split(",") if t.strip()]
 
 
 _JOSA = {"은(는)": ("은", "는"), "을(를)": ("을", "를"), "이(가)": ("이", "가"), "과(와)": ("과", "와"),
@@ -116,25 +149,41 @@ def stage_order(stage) -> int:
     return 10 if stage == "L" else int(stage)
 
 
+def cycles_of(g: nx.DiGraph, limit: int = 50) -> list[list[str]]:
+    if nx.is_directed_acyclic_graph(g):
+        return []
+    return sorted(nx.simple_cycles(g), key=len)[:limit]
+
+
 # ---------------------------------------------------------------------------
-# 2. Normalise
+# 2. Build
 # ---------------------------------------------------------------------------
 def build(xlsx: Path) -> dict:
     sh = read_workbook(xlsx)
-    report_notes: list[str] = []
+    notes: list[str] = []
+    broken_refs: list[dict] = []
 
     # ---- 16_KG_Nodes -------------------------------------------------------
     raw_nodes = {s(r["Node ID"]): r for r in sh["16_KG_Nodes"]}
+    if len(raw_nodes) != len(sh["16_KG_Nodes"]):
+        raise SystemExit("duplicate Node ID in 16_KG_Nodes")
     domains, clusters, nodes = {}, {}, {}
+    root_id = None
     for nid, r in raw_nodes.items():
         ntype = s(r["Node Type"])
-        if ntype == "DOMAIN":
+        if ntype == "ROOT":
+            root_id = nid
+        elif ntype == "DOMAIN":
             domains[s(r["Domain"])] = {"code": s(r["Domain"]), "node_id": nid, "name": s(r["Node"]),
                                        "subject": s(r["공식과목"]), "memo": s(r["메모"])}
         elif ntype == "CLUSTER":
             clusters[s(r["Cluster"])] = {"code": s(r["Cluster"]), "node_id": nid, "name": s(r["Node"]),
                                          "domain": s(r["Domain"]), "stage": stage_num(r["Learning Stage"]),
                                          "memo": s(r["메모"])}
+    cluster_by_node_id = {c["node_id"]: code for code, c in clusters.items()}
+    domain_by_node_id = {d["node_id"]: code for code, d in domains.items()}
+    cluster_by_name = {c["name"]: code for code, c in clusters.items()}
+    domain_by_name = {d["name"]: code for code, d in domains.items()}
 
     name_to_id: dict[str, str] = {}
     for nid, r in raw_nodes.items():
@@ -143,53 +192,50 @@ def build(xlsx: Path) -> dict:
             continue
         name = s(r["Node"])
         if name in name_to_id:
-            raise ValueError(f"duplicate concept name {name}")
+            raise SystemExit(f"duplicate concept name {name} ({name_to_id[name]}, {nid})")
         name_to_id[name] = nid
         nodes[nid] = {
-            "id": nid,
-            "name": name,
-            "node_type": ntype,
-            "source_cluster": s(r["Cluster"]),
-            "cluster": s(r["Cluster"]),
-            "domain": s(r["Domain"]),
-            "official_subject": s(r["공식과목"]),
-            "source_evidence_status": s(r["Evidence Status"]),
+            "id": nid, "name": name, "node_type": ntype,
+            "source_cluster": s(r["Cluster"]), "cluster": s(r["Cluster"]), "domain": s(r["Domain"]),
+            "official_subject": s(r["공식과목"]), "source_evidence_status": s(r["Evidence Status"]),
             "source_stage_label": s(r["Learning Stage"]),
-            "current_rounds": i(r["현행회차수"]),
-            "old_rounds": i(r["구범위회차수"]),
-            "total_rounds": i(r["전체증거회차수"]),
-            "mindmap_status": s(r["마인드맵 상태"]) or None,
-            "original_parent_label": s(r["기존 상위 Concept"]) or None,
-            "memo": s(r["메모"]) or None,
-            "synthetic": False,
+            "current_rounds": i(r["현행회차수"]), "old_rounds": i(r["구범위회차수"]), "total_rounds": i(r["전체증거회차수"]),
+            "mindmap_status": s(r["마인드맵 상태"]) or None, "original_parent_label": s(r["기존 상위 Concept"]) or None,
+            "memo": s(r["메모"]) or None, "synthetic": False,
         }
-
     source_concept_ids = [nid for nid, n in nodes.items() if n["node_type"] in CONCEPT_TYPES]
     dialect_ids = [nid for nid, n in nodes.items() if n["node_type"] == "DIALECT"]
 
-    # ---- synthetic nodes ---------------------------------------------------
+    # ---- curated (inferred) nodes ------------------------------------------
+    inferred_items = {"nodes": [], "placements": [], "name_aliases": []}
     for sn in st.SYNTHETIC_NODES:
-        if sn["name"] in name_to_id:
-            raise ValueError(f"synthetic node collides with source name: {sn['name']}")
+        if sn["name"] in name_to_id or sn["id"] in raw_nodes:
+            raise SystemExit(f"curated node collides with source: {sn['name']}")
         cl = clusters[sn["cluster"]]
         nodes[sn["id"]] = {
             "id": sn["id"], "name": sn["name"], "node_type": sn["node_type"],
             "source_cluster": None, "cluster": sn["cluster"], "domain": cl["domain"],
-            "official_subject": "과목 II" if cl["domain"] != "D1" else "과목 I",
+            "official_subject": "과목 I" if cl["domain"] == "D1" else "과목 II",
             "source_evidence_status": "SYNTHETIC", "source_stage_label": None,
             "current_rounds": 0, "old_rounds": 0, "total_rounds": 0,
             "mindmap_status": None, "original_parent_label": None, "memo": None,
             "synthetic": True, "synthetic_kind": sn["kind"], "synthetic_basis": sn["basis"],
-            "gap_family": sn.get("gap_family"),
+            "gap_family": sn.get("gap_family"), "inferred": True,
+            "confidence": "medium" if sn["kind"] == "integration" else "high",
         }
         name_to_id[sn["name"]] = sn["id"]
+        inferred_items["nodes"].append({"id": sn["id"], "name": sn["name"], "kind": sn["kind"],
+                                        "cluster": sn["cluster"], "inferred": True, "reason": sn["basis"],
+                                        "confidence": nodes[sn["id"]]["confidence"]})
 
     def nid_of(name: str) -> str:
         if name not in name_to_id:
-            raise KeyError(f"unknown concept name in curation: {name!r}")
+            raise SystemExit(f"unknown concept name in curation: {name!r}")
         return name_to_id[name]
 
-    # ---- placement overrides ----------------------------------------------
+    # ---- placements: structure view = source, learning view = source + inferred placements
+    for n in nodes.values():
+        n["structure_cluster"] = n["source_cluster"] or n["cluster"]
     for name, (new_cluster, reason) in st.PLACEMENT_OVERRIDES.items():
         n = nodes[nid_of(name)]
         old = n["cluster"]
@@ -199,25 +245,34 @@ def build(xlsx: Path) -> dict:
                                    "from_stage": clusters[old]["stage"], "to_cluster": new_cluster,
                                    "to_cluster_name": clusters[new_cluster]["name"],
                                    "to_stage": clusters[new_cluster]["stage"], "reason": reason}
+        inferred_items["placements"].append({"id": n["id"], "name": name, "view": "learning",
+                                             **n["placement_override"], "inferred": True, "confidence": "high"})
     for n in nodes.values():
         cl = clusters[n["cluster"]]
         n["stage"] = cl["stage"]
         n["cluster_name"] = cl["name"]
         n["domain_name"] = domains[n["domain"]]["name"]
+        scl = clusters[n["structure_cluster"]]
+        n["structure_domain"] = scl["domain"]
+        n["source_stage"] = scl["stage"]
 
     # ---- evidence sheets ---------------------------------------------------
     cur_ev = {s(r["Concept"]): r for r in sh["10_Current_Evidence"]}
     leg_ev = {s(r["Concept"]): r for r in sh["11_Legacy_Only"]}
     gap_ev = {s(r["Concept"]): r for r in sh["13_Current_Mindmap_Gaps"]}
     master = {s(r["Concept"]): r for r in sh["02_Concept_Master"]}
+    for sheet, rows in (("10_Current_Evidence", cur_ev), ("11_Legacy_Only", leg_ev),
+                        ("13_Current_Mindmap_Gaps", gap_ev)):
+        for name in rows:
+            if name not in name_to_id:
+                broken_refs.append({"sheet": sheet, "ref": name, "kind": "concept name"})
     round_rows = defaultdict(list)
     for r in sh["03_Round_Concepts"]:
         round_rows[s(r["Concept"])].append({
             "year": i(r["연도"]), "round": i(r["회차"]), "role": s(r["역할"]), "era": s(r["범위시대"]),
             "strength": s(r["증거강도"]), "url": s(r["출처 URL"]), "memo": s(r["증거 메모"]),
         })
-
-    for nid, n in nodes.items():
+    for n in nodes.values():
         name = n["name"]
         m = master.get(name)
         all_rounds = parse_rounds(m["확인 회차"]) if m else []
@@ -240,173 +295,296 @@ def build(xlsx: Path) -> dict:
                                     "last": i(r["최근 구범위"]), "strength": s(r["최고 증거강도"]),
                                     "source": s(r["대표 출처"]), "scope": s(r["범위 상태"]),
                                     "interpretation": s(r["해석"])}
-
-    # cross-check: evidence status vs sheets
     for nid in source_concept_ids:
         n = nodes[nid]
         es = n["source_evidence_status"]
         if es == "CURRENT_EVIDENCE" and not n["in_current_evidence"]:
-            report_notes.append(f"{n['name']}: CURRENT_EVIDENCE but missing from 10_Current_Evidence")
+            notes.append(f"{n['name']}: CURRENT_EVIDENCE but missing from 10_Current_Evidence")
         if es in ("OLDER_EVIDENCE_ONLY", "LEGACY") and not n["in_legacy_only"]:
-            report_notes.append(f"{n['name']}: {es} but missing from 11_Legacy_Only")
-
-    # status classification
+            notes.append(f"{n['name']}: {es} but missing from 11_Legacy_Only")
     for n in nodes.values():
+        n["is_legacy"], n["legacy_kind"] = False, None
         if n["synthetic"]:
             n["evidence_status"] = "integration" if n["synthetic_kind"] == "integration" else "structure"
-            n["is_legacy"] = False
-            n["legacy_kind"] = None
         elif n["node_type"] == "DIALECT":
             n["evidence_status"] = "reference"
-            n["is_legacy"] = False
-            n["legacy_kind"] = None
         elif n["in_current_evidence"]:
             n["evidence_status"] = "current"
-            n["is_legacy"] = False
-            n["legacy_kind"] = None
         elif n["in_legacy_only"]:
             n["evidence_status"] = "legacy_only"
             n["is_legacy"] = True
             n["legacy_kind"] = "out_of_scope" if n["source_evidence_status"] == "LEGACY" else "older_evidence_only"
         else:
             n["evidence_status"] = "reference"
-            n["is_legacy"] = False
-            n["legacy_kind"] = None
 
-    # ---- hierarchy (BELONGS_TO by ID) -------------------------------------
+    # ---- 17 typed relations -------------------------------------------------
     edges_src = sh["17_KG_Edges"]
-    parents = defaultdict(list)
     for r in edges_src:
-        if s(r["Relation Type"]) == "BELONGS_TO":
-            parents[s(r["Target ID"])].append(s(r["Source ID"]))
-
-    for nid, n in nodes.items():
-        if n["synthetic"]:
-            p = st.SYNTHETIC_PARENTS.get(n["name"])
-            n["hierarchy_parent"] = nid_of(p) if p else None
-            continue
-        cands = parents.get(nid, [])
-        concept_parents = [p for p in cands if p in nodes]
-        n["hierarchy_parent"] = concept_parents[-1] if concept_parents else None
-        if len(cands) > 1:
-            n["source_parents"] = [raw_nodes[p]["Node"] for p in cands]
-    for child, parent in st.HIERARCHY_REPARENT.items():
-        nodes[nid_of(child)]["hierarchy_parent"] = nid_of(parent)
-    for name, (parent, reason) in st.PRIMARY_PARENT_OVERRIDES.items():
-        n = nodes[nid_of(name)]
-        n["hierarchy_parent"] = nid_of(parent) if parent else None
-        n["hierarchy_override_reason"] = reason
-        report_notes.append(f"hierarchy override {name} → {parent or '(cluster)'}: {reason}")
-
-    # guard against hierarchy cycles
-    hg = nx.DiGraph()
-    for nid, n in nodes.items():
-        if n["hierarchy_parent"]:
-            hg.add_edge(n["hierarchy_parent"], nid)
-    if not nx.is_directed_acyclic_graph(hg):
-        raise ValueError(f"hierarchy cycle: {nx.find_cycle(hg)}")
-
-    # ---- full source graph (internal validation only) ---------------------
-    full = nx.MultiDiGraph()
+        for k in ("Source ID", "Target ID"):
+            if s(r[k]) not in raw_nodes:
+                broken_refs.append({"sheet": "17_KG_Edges", "ref": s(r[k]), "kind": "Node ID"})
+    relation_counts = Counter(s(r["Relation Type"]) for r in edges_src)
+    pair_relations = defaultdict(list)
+    for r in edges_src:
+        pair_relations[(s(r["Source ID"]), s(r["Target ID"]))].append(s(r["Relation Type"]))
+    full = nx.MultiDiGraph()  # complete source graph, internal validation only
     for nid, r in raw_nodes.items():
         full.add_node(nid, name=s(r["Node"]), node_type=s(r["Node Type"]))
     for r in edges_src:
-        full.add_edge(s(r["Source ID"]), s(r["Target ID"]), relation=s(r["Relation Type"]),
-                      reason=s(r["Reason"]), edge_class=s(r["Edge Class"]))
-    relation_counts = Counter(s(r["Relation Type"]) for r in edges_src)
+        full.add_edge(s(r["Source ID"]), s(r["Target ID"]), relation=s(r["Relation Type"]))
 
-    # ---- explicit prerequisite candidates ---------------------------------
+    def any_name(x):
+        return nodes[x]["name"] if x in nodes else s(raw_nodes[x]["Node"])
+
+    # =======================================================================
+    # A. Concept Structure DAG
+    # =======================================================================
+    struct_nodes = {}
+    struct_nodes[root_id] = {"id": root_id, "name": s(raw_nodes[root_id]["Node"]), "kind": "ROOT"}
+    for code, d in domains.items():
+        struct_nodes[d["node_id"]] = {"id": d["node_id"], "name": d["name"], "kind": "DOMAIN", "domain": code}
+    for code, c in clusters.items():
+        struct_nodes[c["node_id"]] = {"id": c["node_id"], "name": c["name"], "kind": "CLUSTER",
+                                      "cluster": code, "domain": c["domain"]}
+    for nid, n in nodes.items():
+        struct_nodes[nid] = {"id": nid, "name": n["name"], "kind": "CONCEPT"}
+
+    s_cand = {}
+    for r in edges_src:
+        rel = s(r["Relation Type"])
+        if rel not in st.STRUCTURE_RELATIONS:
+            continue
+        a, b = s(r["Source ID"]), s(r["Target ID"])
+        rec = s_cand.setdefault((a, b), {"source": a, "target": b, "relations": [], "reasons": [],
+                                         "inferred": False, "provenance": []})
+        rec["relations"].append(rel)
+        rec["reasons"].append(s(r["Reason"]))
+        rec["provenance"].append(f"17_KG_Edges:{rel}")
+    # 17 links Domain→Cluster by *name*; for clusters whose name equals a concept name the edge points at
+    # the concept's Node ID, leaving the cluster node detached. Attach those clusters from the source
+    # 16_KG_Nodes Domain/Cluster columns (the same Domain > Cluster > Concept path as 19_Study_Outline_v2).
+    has_parent = {b for (_, b) in s_cand}
+    for code, c in clusters.items():
+        if c["node_id"] in has_parent:
+            continue
+        d_id = domains[c["domain"]]["node_id"]
+        s_cand[(d_id, c["node_id"])] = {"source": d_id, "target": c["node_id"], "relations": ["BELONGS_TO"],
+                                        "reasons": ["16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"],
+                                        "inferred": False, "provenance": ["16_KG_Nodes.Domain", "19_Study_Outline_v2"]}
+        same = name_to_id.get(c["name"])
+        if same and nodes[same]["structure_cluster"] == code:
+            s_cand[(c["node_id"], same)] = {"source": c["node_id"], "target": same, "relations": ["BELONGS_TO"],
+                                            "reasons": ["16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"],
+                                            "inferred": False, "provenance": ["16_KG_Nodes.Cluster", "19_Study_Outline_v2"]}
+        notes.append(f"17_KG_Edges의 Domain→Cluster '{c['name']}' edge가 같은 이름 Concept({same})를 가리켜 "
+                     f"Cluster 노드 {c['node_id']}를 16_KG_Nodes 기준으로 연결")
+    struct_inferred = []
+
+    def add_struct_inferred(a, b, reason, confidence="high"):
+        if (a, b) in s_cand:
+            return
+        rec = {"source": a, "target": b, "relations": ["PART_OF"], "reasons": [reason], "inferred": True,
+               "reason": reason, "confidence": confidence, "provenance": ["curation/structure.py"]}
+        s_cand[(a, b)] = rec
+        struct_inferred.append(rec)
+
+    for nid, n in nodes.items():
+        if not n["synthetic"]:
+            continue
+        p = st.SYNTHETIC_PARENTS.get(n["name"])
+        if p:
+            add_struct_inferred(nid_of(p), nid, f"'{n['name']}'은(는) '{p}' 아래의 학습용 그룹 노드. {n['synthetic_basis']}")
+        else:
+            add_struct_inferred(clusters[n["cluster"]]["node_id"], nid,
+                                f"Stage 9 통합 노드를 {n['cluster']} Cluster 아래에 둠. {n['synthetic_basis']}", "medium")
+    for child, parent in st.HIERARCHY_REPARENT.items():
+        add_struct_inferred(nid_of(parent), nid_of(child),
+                            josa(f"{child}은(는) '{parent}' 분류에 속함(원본 BELONGS_TO 부모는 유지)"))
+    for rec in struct_inferred:
+        rec["reason"] = josa(rec["reason"])
+        rec["reasons"] = [rec["reason"]]
+
+    s_excluded = []
+    for (a, b), rec in list(s_cand.items()):
+        if a in nodes and b in nodes:
+            review = st.STRUCTURE_EDGE_REVIEW.get((nodes[a]["name"], nodes[b]["name"]))
+            if review:
+                s_excluded.append({**rec, **review, "source_name": nodes[a]["name"], "target_name": nodes[b]["name"]})
+                del s_cand[(a, b)]
+    s_candidate = nx.DiGraph()
+    s_candidate.add_nodes_from(struct_nodes)
+    s_candidate.add_edges_from(list(s_cand) + [(x["source"], x["target"]) for x in s_excluded])
+    sg = nx.DiGraph()
+    sg.add_nodes_from(struct_nodes)
+    sg.add_edges_from(s_cand)
+    structure_edges = []
+    for (a, b), rec in s_cand.items():
+        structure_edges.append({"source": a, "target": b, "source_name": any_name(a), "target_name": any_name(b),
+                                "relation": rec["relations"][0], "relations": rec["relations"],
+                                "inferred": rec["inferred"], "provenance": rec["provenance"],
+                                "reason": rec.get("reason") or " / ".join(x for x in rec["reasons"] if x),
+                                **({"confidence": rec["confidence"]} if rec["inferred"] else {})})
+
+    # display parent (tree layout): curated grouping > concept parent in same cluster > any concept parent
+    reparent_targets = {nid_of(c): nid_of(p) for c, p in st.HIERARCHY_REPARENT.items()}
+    for nid, n in nodes.items():
+        parents = [p for p in sg.predecessors(nid)]
+        n["structure_parents"] = parents
+        concept_parents = [p for p in parents if p in nodes]
+        if nid in reparent_targets:
+            disp = reparent_targets[nid]
+        else:
+            same = [p for p in concept_parents if nodes[p]["structure_cluster"] == n["structure_cluster"]]
+            pick = same or concept_parents
+            belongs = [p for p in pick if "BELONGS_TO" in s_cand[(p, nid)]["relations"]]
+            disp = (belongs or pick or [None])[-1]
+        n["hierarchy_parent"] = disp
+        n["structure_children"] = sorted([c for c in sg.successors(nid) if c in nodes],
+                                         key=lambda x: nodes[x]["name"])
+
+    # =======================================================================
+    # B. Learning DAG
+    # =======================================================================
+    content_rows = {s(r["Node ID"]): r for r in sh["21_Concept_Content"]}
+    for nid, r in content_rows.items():
+        if nid not in nodes:
+            broken_refs.append({"sheet": "21_Concept_Content", "ref": nid, "kind": "Node ID"})
+        elif s(r["Concept"]) != nodes[nid]["name"]:
+            broken_refs.append({"sheet": "21_Concept_Content", "ref": f"{nid}={r['Concept']}", "kind": "ID/name mismatch"})
+
     explicit = {}
-    rejected_explicit = []
+
+    def add_explicit(a, b, provenance, reason):
+        rec = explicit.setdefault((a, b), {"source": a, "target": b, "origin": "explicit", "inferred": False,
+                                           "provenance": [], "source_reasons": []})
+        if provenance not in rec["provenance"]:
+            rec["provenance"].append(provenance)
+        if reason and reason not in rec["source_reasons"]:
+            rec["source_reasons"].append(reason)
+
     metadata_relations = []
     for r in edges_src:
         rel = s(r["Relation Type"])
-        src, dst = s(r["Source ID"]), s(r["Target ID"])
-        if rel == "BELONGS_TO":
-            continue
-        rec = {"source": src, "target": dst, "relation": rel, "reason": s(r["Reason"]),
-               "edge_class": s(r["Edge Class"]), "source_name": raw_nodes[src]["Node"],
-               "target_name": raw_nodes[dst]["Node"]}
+        a, b = s(r["Source ID"]), s(r["Target ID"])
         if rel in st.DAG_CANDIDATE_RELATIONS:
-            review = st.EXPLICIT_EDGE_REVIEW.get((rec["source_name"], rec["target_name"], rel))
-            if review and review["decision"] != "accept":
-                rejected_explicit.append({**rec, **review})
-                metadata_relations.append({**rec, "relation": "EXECUTION_ORDER", "original_relation": rel,
-                                           "review": review["reason"]})
-                continue
-            key = (src, dst)
-            if key in explicit:
-                explicit[key]["source_relations"].append(rel)
-                explicit[key]["source_reasons"].append(rec["reason"])
+            add_explicit(a, b, f"17_KG_Edges:{rel}", s(r["Reason"]))
+        elif rel not in ("BELONGS_TO",):
+            metadata_relations.append({"source": a, "target": b, "relation": rel, "reason": s(r["Reason"]),
+                                       "edge_class": s(r["Edge Class"]), "source_name": any_name(a),
+                                       "target_name": any_name(b)})
+
+    prereq_context = {}
+    for nid, r in content_rows.items():
+        ctx = {"concepts": [], "clusters": [], "domains": [], "unresolved": [], "raw": s(r["Prerequisites"])}
+        for t in split_names(r["Prerequisites"]):
+            if t in name_to_id and not nodes[name_to_id[t]]["synthetic"]:
+                ctx["concepts"].append(name_to_id[t])
+                if name_to_id[t] != nid:
+                    is_parent = "BELONGS_TO" in pair_relations.get((name_to_id[t], nid), [])
+                    add_explicit(name_to_id[t], nid, "21_Concept_Content.Prerequisites",
+                                 "21_Concept_Content Prerequisites에 명시" + (" (상위 개념)" if is_parent else ""))
+            elif t in cluster_by_name:
+                ctx["clusters"].append(cluster_by_name[t])
+            elif t in domain_by_name:
+                ctx["domains"].append(domain_by_name[t])
             else:
-                explicit[key] = {"source": src, "target": dst, "origin": "explicit", "inferred": False,
-                                 "source_relations": [rel], "source_reasons": [rec["reason"]],
-                                 "reason": rec["reason"]}
-        else:
-            metadata_relations.append(rec)
+                ctx["unresolved"].append(t)
+                broken_refs.append({"sheet": "21_Concept_Content.Prerequisites", "ref": t, "kind": "name"})
+        prereq_context[nid] = ctx
 
-    # ---- inferred (curated) -----------------------------------------------
-    pair_relations = defaultdict(list)
-    for r in edges_src:
-        rel = s(r["Relation Type"])
-        if rel != "BELONGS_TO":
-            a, b = s(r["Source ID"]), s(r["Target ID"])
-            pair_relations[(a, b)].append(rel)
-            pair_relations[(b, a)].append(rel + "(reverse)")
+    excluded_explicit = []
+    for (a, b), rec in list(explicit.items()):
+        rec["relation"] = next((p.split(":")[1] for p in rec["provenance"] if p.startswith("17_KG_Edges:")), "REQUIRES")
+        rec["source_relations"] = sorted(set(pair_relations.get((a, b), [])))
+        rec["reason"] = " / ".join(rec["source_reasons"])
+        review = st.EXPLICIT_EDGE_REVIEW.get((nodes[a]["name"], nodes[b]["name"]))
+        if review:
+            excluded_explicit.append({**rec, **review, "source_name": nodes[a]["name"], "target_name": nodes[b]["name"]})
+            if review["decision"] == "reclassify_as_execution_order":
+                metadata_relations.append({"source": a, "target": b, "relation": "EXECUTION_ORDER",
+                                           "reason": review["reason"], "edge_class": "실행순서",
+                                           "source_name": nodes[a]["name"], "target_name": nodes[b]["name"]})
+            del explicit[(a, b)]
 
-    inferred = {}
-    curated_dup_explicit = []
+    explicit_graph = nx.DiGraph()
+    explicit_graph.add_nodes_from(nodes)
+    explicit_graph.add_edges_from(explicit)
+
+    inferred, redundant_inferred, duplicate_inferred, conflicting_inferred = {}, [], [], []
     for src_name, dst_name, reason in prereq_mod.EDGES:
         a, b = nid_of(src_name), nid_of(dst_name)
-        if a == b:
-            raise ValueError(f"self loop in curation: {src_name}")
         text = josa(reason.format(src=src_name, dst=dst_name))
         if (a, b) in explicit:
             explicit[(a, b)]["curated_reason"] = text
-            curated_dup_explicit.append([src_name, dst_name])
+            duplicate_inferred.append([src_name, dst_name])
             continue
         if (a, b) in inferred:
-            raise ValueError(f"duplicate curated edge {src_name} -> {dst_name}")
-        rec = {"source": a, "target": b, "origin": "inferred", "inferred": True, "reason": text}
-        if (a, b) in pair_relations:
-            rec["related_source_relations"] = sorted(set(pair_relations[(a, b)]))
+            raise SystemExit(f"duplicate curated edge {src_name} -> {dst_name}")
+        if nx.has_path(explicit_graph, a, b):
+            redundant_inferred.append({"source_name": src_name, "target_name": dst_name,
+                                       "why_skipped": "원본 explicit edge 경로로 이미 함의됨"})
+            continue
+        if nx.has_path(explicit_graph, b, a):
+            path = nx.shortest_path(explicit_graph, b, a)
+            conflicting_inferred.append({
+                "source_name": src_name, "target_name": dst_name, "curated_reason": text,
+                "decision": "rejected_conflicts_with_source",
+                "reason": "원본 explicit 경로가 반대 방향(" + " → ".join(nodes[x]["name"] for x in path)
+                          + ")이므로 source of truth를 따르고 이 inferred edge는 쓰지 않음"})
+            continue
+        rec = {"source": a, "target": b, "origin": "inferred", "inferred": True, "relation": "REQUIRES",
+               "reason": text, "confidence": prereq_mod.confidence(src_name, dst_name),
+               "provenance": ["curation/prerequisites.py"]}
+        if pair_relations.get((a, b)) or pair_relations.get((b, a)):
+            rec["related_source_relations"] = sorted(set(pair_relations.get((a, b), []))
+                                                     | {x + "(reverse)" for x in pair_relations.get((b, a), [])})
         inferred[(a, b)] = rec
 
-    prereq_edges = list(explicit.values()) + list(inferred.values())
-    for e in prereq_edges:
+    learning_edges = list(explicit.values()) + list(inferred.values())
+    for e in learning_edges:
         e["source_name"] = nodes[e["source"]]["name"]
         e["target_name"] = nodes[e["target"]]["name"]
 
-    # ---- candidate graph / cycle report -----------------------------------
     dag = nx.DiGraph()
     dag.add_nodes_from(nodes)
-    for e in prereq_edges:
-        dag.add_edge(e["source"], e["target"])
+    dag.add_edges_from((e["source"], e["target"]) for e in learning_edges)
+    l_candidate = dag.copy()
+    l_candidate.add_edges_from((x["source"], x["target"]) for x in excluded_explicit)
+    l_candidate.add_edges_from((nid_of(x["source_name"]), nid_of(x["target_name"])) for x in conflicting_inferred)
+    conflict_pairs = {(nid_of(x["source_name"]), nid_of(x["target_name"])) for x in conflicting_inferred}
 
-    candidate = dag.copy()
-    for rj in rejected_explicit:
-        candidate.add_edge(rj["source"], rj["target"])
-    cand_cycles = list(nx.simple_cycles(candidate)) if not nx.is_directed_acyclic_graph(candidate) else []
-    cand_cycles = sorted(cand_cycles, key=len)[:50]
-    rejected_pairs = {(rj["source"], rj["target"]) for rj in rejected_explicit}
+    # ---- cycle report (both graphs) ----------------------------------------
+    def cyc_names(c, namer):
+        return [namer(x) for x in c] + [namer(c[0])]
 
-    def cyc_names(c):
-        return [nodes[x]["name"] for x in c] + [nodes[c[0]]["name"]]
+    def suspected(cycles, kind_of):
+        cnt = Counter()
+        for c in cycles:
+            for a, b in zip(c, c[1:] + c[:1]):
+                cnt[(a, b)] += 1
+        return [{"source": any_name(a), "target": any_name(b), "cycles_involved": k, "kind": kind_of(a, b)}
+                for (a, b), k in cnt.most_common()]
 
-    suspected = Counter()
-    for c in cand_cycles:
-        for a, b in zip(c, c[1:] + c[:1]):
-            suspected[(a, b)] += 1
+    excl_pairs = {(x["source"], x["target"]): x for x in excluded_explicit}
 
-    def edge_kind(a, b):
-        if (a, b) in rejected_pairs:
-            rel = next(x["relation"] for x in rejected_explicit if (x["source"], x["target"]) == (a, b))
-            return f"explicit:{rel} (재검토 대상)"
+    def l_kind(a, b):
+        if (a, b) in excl_pairs:
+            return "explicit (" + ", ".join(excl_pairs[(a, b)]["provenance"]) + ") — 재검토 대상"
         if (a, b) in explicit:
-            return "explicit:" + ",".join(explicit[(a, b)]["source_relations"])
+            return "explicit (" + ", ".join(explicit[(a, b)]["provenance"]) + ")"
+        if (a, b) in conflict_pairs:
+            return "inferred — 원본과 충돌, 재검토 대상"
         return "inferred"
 
-    # naive diagnostic: every typed source relation as a directed edge (+ symmetric CONTRASTS)
+    s_excl_pairs = {(x["source"], x["target"]) for x in s_excluded}
+
+    def s_kind(a, b):
+        if (a, b) in s_excl_pairs:
+            return "explicit 17_KG_Edges — 재검토 대상"
+        return "inferred" if s_cand.get((a, b), {}).get("inferred") else "explicit 17_KG_Edges"
+
+    l_cand_cycles = cycles_of(l_candidate)
+    s_cand_cycles = cycles_of(s_candidate)
     naive = nx.DiGraph()
     for r in edges_src:
         rel = s(r["Relation Type"])
@@ -416,61 +594,127 @@ def build(xlsx: Path) -> dict:
         naive.add_edge(a, b, relation=rel)
         if rel in ("CONTRASTS", "DIALECT_EQUIVALENT"):
             naive.add_edge(b, a, relation=rel + "(symmetric)")
-    naive_cycles = [] if nx.is_directed_acyclic_graph(naive) else sorted(nx.simple_cycles(naive), key=len)[:30]
-
-    is_dag = nx.is_directed_acyclic_graph(dag)
-    final_cycles = [] if is_dag else [cyc_names(c) for c in sorted(nx.simple_cycles(dag), key=len)[:50]]
-
+    naive_cycles = cycles_of(naive, 30)
+    is_learning_dag = nx.is_directed_acyclic_graph(dag)
+    is_structure_dag = nx.is_directed_acyclic_graph(sg)
     cycle_report = {
-        "is_dag": is_dag,
-        "cycles": final_cycles,
-        "suspected_edges": [] if is_dag else None,
-        "pre_review_candidate_graph": {
-            "description": "명시 후보(REQUIRES/PRECEDES/ENABLES/EXPLAINS) 전부 + curated inferred edge로 만든 후보 그래프. "
-                           "edge를 임의 삭제하지 않고 cycle을 기록한 뒤 prerequisite 관계만 재검토했다.",
-            "is_dag": nx.is_directed_acyclic_graph(candidate),
-            "cycles": [cyc_names(c) for c in cand_cycles],
-            "suspected_edges": [
-                {"source": nodes[a]["name"], "target": nodes[b]["name"], "cycles_involved": cnt,
-                 "kind": edge_kind(a, b)}
-                for (a, b), cnt in suspected.most_common()
-            ],
-            "resolution": [
-                {"edge": f"{rj['source_name']} -[{rj['relation']}]-> {rj['target_name']}",
-                 "decision": rj["decision"], "reason": rj["reason"]}
-                for rj in rejected_explicit
-            ],
+        "learning": {
+            "graph": "learning",
+            "is_dag": is_learning_dag,
+            "cycles": [cyc_names(c, any_name) for c in cycles_of(dag)],
+            "suspectedEdges": suspected(cycles_of(dag), l_kind),
+            "pre_review_candidate_graph": {
+                "description": "explicit 후보(21.Prerequisites Concept 토큰 ∪ 17 REQUIRES/PRECEDES/ENABLES/EXPLAINS) 전부 + "
+                               "inferred edge. edge를 임의 삭제하지 않고 cycle을 기록한 뒤 prerequisite 관계만 재검토했다.",
+                "is_dag": nx.is_directed_acyclic_graph(l_candidate),
+                "cycles": [cyc_names(c, any_name) for c in l_cand_cycles],
+                "suspectedEdges": suspected(l_cand_cycles, l_kind),
+                "resolution": [{"edge": f"{x['source_name']} → {x['target_name']}", "provenance": x["provenance"],
+                                "decision": x["decision"], "confidence": x["confidence"], "reason": x["reason"]}
+                               for x in excluded_explicit]
+                              + [{"edge": f"{x['source_name']} → {x['target_name']}", "provenance": ["curation/prerequisites.py"],
+                                  "decision": x["decision"], "reason": x["reason"]} for x in conflicting_inferred],
+            },
+        },
+        "structure": {
+            "graph": "structure",
+            "is_dag": is_structure_dag,
+            "cycles": [cyc_names(c, any_name) for c in cycles_of(sg)],
+            "suspectedEdges": suspected(cycles_of(sg), s_kind),
+            "pre_review_candidate_graph": {
+                "description": "17 BELONGS_TO + IS_A 전부 + inferred grouping edge.",
+                "is_dag": nx.is_directed_acyclic_graph(s_candidate),
+                "cycles": [cyc_names(c, any_name) for c in s_cand_cycles],
+                "suspectedEdges": suspected(s_cand_cycles, s_kind),
+                "resolution": [{"edge": f"{x['source_name']} → {x['target_name']}", "relations": x["relations"],
+                                "decision": x["decision"], "confidence": x["confidence"], "reason": x["reason"]}
+                               for x in s_excluded],
+            },
         },
         "diagnostic_naive_all_typed_relations": {
-            "description": "진단용: BELONGS_TO를 제외한 원본 typed relation을 전부 방향 간선으로 넣고 "
-                           "CONTRASTS/DIALECT_EQUIVALENT를 대칭으로 취급한 그래프. 이런 관계가 DAG에 들어가면 cycle이 생김을 보여준다.",
+            "description": "진단용: BELONGS_TO를 제외한 원본 typed relation 전부를 방향 간선으로 넣고 "
+                           "CONTRASTS/DIALECT_EQUIVALENT를 대칭으로 취급한 그래프. 이런 관계를 DAG에 넣으면 cycle이 생긴다.",
             "is_dag": nx.is_directed_acyclic_graph(naive),
-            "cycles": [[raw_nodes[x]["Node"] for x in c] + [raw_nodes[c[0]]["Node"]] for c in naive_cycles],
+            "cycles": [cyc_names(c, any_name) for c in naive_cycles],
             "relations_in_cycles": sorted(Counter(
-                naive.edges[a, b]["relation"] for c in naive_cycles for a, b in zip(c, c[1:] + c[:1])
-            ).items()),
+                naive.edges[a, b]["relation"] for c in naive_cycles for a, b in zip(c, c[1:] + c[:1])).items()),
         },
     }
-    if not is_dag:
-        # Do not try to "fix" anything automatically; write the report and stop.
+    if not (is_learning_dag and is_structure_dag):
         DATA.mkdir(exist_ok=True)
         write_json(DATA / "cycle_report.json", cycle_report)
-        raise SystemExit("Learning DAG has cycles — see data/cycle_report.json")
+        raise SystemExit("DAG has cycles — see data/cycle_report.json (no edge was removed automatically)")
 
-    # ---- metadata relations (non-DAG) -------------------------------------
+    # =======================================================================
+    # C. Learning content (Excel 21–25 by Node ID) + supplementary notes
+    # =======================================================================
+    rules_rows = {}
+    rules_by_node = defaultdict(list)
+    for r in sh["22_Rules_And_Traps"]:
+        rid, nid = s(r["Rule ID"]), s(r["Node ID"])
+        if nid not in nodes:
+            broken_refs.append({"sheet": "22_Rules_And_Traps", "ref": f"{rid}:{nid}", "kind": "Node ID"})
+            continue
+        if s(r["Concept"]) != nodes[nid]["name"]:
+            broken_refs.append({"sheet": "22_Rules_And_Traps", "ref": f"{rid}:{nid}={r['Concept']}", "kind": "ID/name mismatch"})
+        rules_rows[rid] = {"id": rid, "node": nid, "type": s(r["Rule Type"]), "rule": s(r["Rule"]), "why": s(r["Why"]),
+                           "example": s(r["Example"]), "counterexample": s(r["Counterexample"]), "dbms": s(r["DBMS"]),
+                           "evidence_status": s(r["Evidence Status"])}
+        rules_by_node[nid].append(rid)
+
+    def resolve_name(name, sheet, ref):
+        if name in name_to_id:
+            return name_to_id[name]
+        if name in DIALECT_NAME_ALIASES:
+            target, reason = DIALECT_NAME_ALIASES[name]
+            inferred_items["name_aliases"].append({"sheet": sheet, "ref": ref, "name": name, "resolved_to": target,
+                                                   "resolved_id": name_to_id[target], "inferred": True,
+                                                   "reason": reason, "confidence": "high"})
+            return name_to_id[target]
+        broken_refs.append({"sheet": sheet, "ref": f"{ref}:{name}", "kind": "concept name"})
+        return None
+
+    comparisons, cmp_by_node = [], defaultdict(list)
+    for r in sh["23_Comparisons"]:
+        cid = s(r["Comparison ID"])
+        a = resolve_name(s(r["Concept A"]), "23_Comparisons", cid)
+        b = resolve_name(s(r["Concept B"]), "23_Comparisons", cid)
+        comparisons.append({"id": cid, "a": a, "b": b, "a_name": s(r["Concept A"]), "b_name": s(r["Concept B"]),
+                            "axis": s(r["Axis"]), "a_rule": s(r["A Rule"]), "b_rule": s(r["B Rule"]),
+                            "example": s(r["Example"]), "exam_focus": s(r["Exam Focus"])})
+        for x in (a, b):
+            if x:
+                cmp_by_node[x].append(cid)
+
+    examples, ex_by_node = [], defaultdict(list)
+    for r in sh["24_SQL_Examples"]:
+        eid, nid = s(r["Example ID"]), s(r["Node ID"])
+        if nid not in nodes:
+            broken_refs.append({"sheet": "24_SQL_Examples", "ref": f"{eid}:{nid}", "kind": "Node ID"})
+            continue
+        examples.append({"id": eid, "node": nid, "type": s(r["Example Type"]), "sql": s(r["SQL / Pattern"]),
+                         "purpose": s(r["Purpose"]), "expected_result": s(r["Expected Result"]), "dbms": s(r["DBMS"])})
+        ex_by_node[nid].append(eid)
+
+    dialects, dl_by_node = [], defaultdict(list)
+    for r in sh["25_Dialect_Notes"]:
+        did = s(r["Dialect ID"])
+        nid = resolve_name(s(r["Concept"]), "25_Dialect_Notes", did)
+        dialects.append({"id": did, "node": nid, "concept_name": s(r["Concept"]), "dbms": s(r["DBMS / Standard"]),
+                         "behavior": s(r["Behavior"]), "exam_note": s(r["Exam Note"])})
+        if nid:
+            dl_by_node[nid].append(did)
+
     hubs = []
     for r in sh["20_Hubs_Rules"]:
         hub = s(r["Hub"])
-        linked_tokens = [t.strip() for t in s(r["Linked Concepts"]).split(",") if t.strip()]
         resolved, unresolved = [], []
-        for t in linked_tokens:
-            names = content_mod.HUB_TOKEN_MAP.get(t)
-            if names is None and t in name_to_id:
-                names = [t]
+        for t in split_names(r["Linked Concepts"]):
+            names = content_mod.HUB_TOKEN_MAP.get(t) or ([t] if t in name_to_id else None)
             if names is None:
                 unresolved.append(t)
-                continue
-            resolved.extend(nid_of(x) for x in names)
+            else:
+                resolved.extend(nid_of(x) for x in names)
         hub_nodes = [nid_of(x) for x in content_mod.HUB_NODE_MAP.get(hub, [])]
         hubs.append({"hub": hub, "role": s(r["Role"]), "core_rule": s(r["Core Rule / Why it matters"]),
                      "edge_types": s(r["Edge Types"]), "study_note": s(r["Study Note"]),
@@ -479,18 +723,78 @@ def build(xlsx: Path) -> dict:
             for t in resolved:
                 if t != h:
                     metadata_relations.append({"source": h, "target": t, "relation": "HUB_LINK",
-                                               "reason": f"20_Hubs_Rules '{hub}' 허브의 Linked Concepts",
-                                               "edge_class": "허브", "source_name": nodes[h]["name"],
-                                               "target_name": nodes[t]["name"]})
-
+                                               "reason": f"20_Hubs_Rules '{hub}' 허브의 Linked Concepts", "edge_class": "허브",
+                                               "source_name": nodes[h]["name"], "target_name": nodes[t]["name"]})
+    hub_by_node = defaultdict(list)
+    for h in hubs:
+        for x in h["hub_nodes"]:
+            hub_by_node[x].append({"hub": h["hub"], "role": h["role"], "core_rule": h["core_rule"],
+                                   "study_note": h["study_note"]})
     for src_name, targets in content_mod.RELATED.items():
         for t in targets:
-            a, b = nid_of(src_name), nid_of(t)
-            metadata_relations.append({"source": a, "target": b, "relation": "RELATED_TO",
-                                       "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
-                                       "edge_class": "관련", "source_name": src_name, "target_name": t})
+            metadata_relations.append({"source": nid_of(src_name), "target": nid_of(t), "relation": "RELATED_TO",
+                                       "reason": "curated(v0.4): 함께 확인하면 좋은 관련 개념 — 선수관계 아님",
+                                       "edge_class": "관련", "source_name": src_name, "target_name": t,
+                                       "inferred": True, "confidence": "medium"})
 
-    # ---- stages -----------------------------------------------------------
+    content = {}
+    for nid, n in nodes.items():
+        r = content_rows.get(nid)
+        if r is None:
+            content[nid] = {"source": "none", "definition": "", "why_it_matters": "", "content_depth": None,
+                            "review_flag": None, "rules": [], "traps": [], "comparisons": [], "examples": [],
+                            "dialects": [], "hubs": hub_by_node.get(nid, []), "prerequisites_context": None}
+            continue
+        cmp_targets = [x for x in (resolve_name(t, "21_Concept_Content.Comparison Targets", nid)
+                                   for t in split_names(r["Comparison Targets"])) if x]
+        dl_targets = [x for x in (resolve_name(t, "21_Concept_Content.Dialect Notes", nid)
+                                  for t in split_names(r["Dialect Notes"])) if x]
+        rids = rules_by_node.get(nid, [])
+        content[nid] = {
+            "source": "21_Concept_Content",
+            "definition": s(r["Definition"]), "why_it_matters": s(r["Why It Matters"]),
+            "prerequisites_text": s(r["Prerequisites"]), "prerequisites_context": prereq_context[nid],
+            "core_rule": s(r["Core Rule"]), "syntax": s(r["Syntax / Pattern"]), "exam_trap": s(r["Exam Trap"]),
+            "comparison_targets": cmp_targets, "dialect_targets": dl_targets,
+            "source_memo": s(r["Source / Memo"]), "content_depth": s(r["Content Depth"]) or None,
+            "review_flag": s(r["Review Flag"]) or None,
+            "rules": [x for x in rids if rules_rows[x]["type"] != "EXAM_TRAP"],
+            "traps": [x for x in rids if rules_rows[x]["type"] == "EXAM_TRAP"],
+            "comparisons": cmp_by_node.get(nid, []), "examples": ex_by_node.get(nid, []),
+            "dialects": dl_by_node.get(nid, []), "hubs": hub_by_node.get(nid, []),
+        }
+        if n["name"] == "SQL 논리 실행 순서":
+            content[nid]["execution_order"] = [{"edge": f"{x['source_name']} → {x['target_name']}", "note": x["reason"]}
+                                               for x in excluded_explicit if x["decision"] == "reclassify_as_execution_order"]
+    for nid in content_rows:
+        if nid in nodes:
+            nodes[nid]["content_depth"] = content[nid]["content_depth"]
+            nodes[nid]["review_flag"] = content[nid]["review_flag"]
+
+    # supplementary (v0.4 curated) — never replaces the workbook content
+    supp_cmp = [{**{k: v for k, v in c.items() if k != "concepts"}, "concepts": [nid_of(x) for x in c["concepts"]],
+                 "source": SUPPLEMENTARY_LABEL} for c in cmp_mod.COMPARISONS]
+    supp_dl = [{**{k: v for k, v in d.items() if k != "concepts"}, "concepts": [nid_of(x) for x in d["concepts"]],
+                "source": SUPPLEMENTARY_LABEL} for d in dialect_mod.DIALECTS]
+    for name in list(content_mod.DEFINITIONS) + list(content_mod.RICH_RULES):
+        nid_of(name)
+    supplementary = {}
+    for nid, n in nodes.items():
+        rr = content_mod.RICH_RULES.get(n["name"], {})
+        entry = {"definition": content_mod.DEFINITIONS.get(n["name"], ""), "why": rr.get("why", ""),
+                 "core_rule": list(rr.get("rules", [])), "exam_traps": list(rr.get("traps", [])),
+                 "dialect_notes": list(rr.get("dialect", [])), "examples": list(rr.get("examples", [])),
+                 "comparisons": [c["id"] for c in supp_cmp if nid in c["concepts"]],
+                 "dialects": [d["id"] for d in supp_dl if nid in d["concepts"]]}
+        if any(entry.values()):
+            supplementary[nid] = {**entry, "source": SUPPLEMENTARY_LABEL}
+        if n["synthetic"]:  # curated nodes have no workbook row; their definition comes from curation
+            content[nid].update({"source": "curated-node", "definition": entry["definition"],
+                                 "why_it_matters": "", "content_depth": None})
+
+    # =======================================================================
+    # D. Stages, anchors, visibility, priority, tiers
+    # =======================================================================
     stages = []
     for r in sh["18_Learning_DAG"]:
         num = i(r["Stage"])
@@ -506,145 +810,81 @@ def build(xlsx: Path) -> dict:
                        "core_concepts_text": s(r["핵심 Concept"]), "meaning": s(r["구조적 의미"])})
     ls = dict(st.LEGACY_STAGE)
     ls["clusters"] = [c for c, v in clusters.items() if v["stage"] == "L"]
-    ls["prereq_text"] = "Stage 9"
-    ls["core_concepts_text"] = "옵티마이저·실행계획·인덱스·물리 조인·분산 DB·PL/SQL·성능 모델링"
-    ls["meaning"] = "기본 화면에서 숨김. Include Legacy 토글로만 표시."
+    ls.update(prereq_text="Stage 9", core_concepts_text="옵티마이저·실행계획·인덱스·물리 조인·분산 DB·PL/SQL·성능 모델링",
+              meaning="기본 화면에서 숨김. Include Legacy 토글로만 표시.")
     stages.append(ls)
-    stage_by_key = {x["stage"]: x for x in stages}
     for x in stages:
         missing = [c for c in x["clusters"] if c not in clusters]
         if missing:
-            raise ValueError(f"stage {x['stage']} references unknown clusters {missing}")
+            raise SystemExit(f"stage {x['stage']} references unknown clusters {missing}")
 
-    # ---- learning graph with anchors --------------------------------------
     lg = nx.DiGraph()
     for x in stages:
-        lg.add_node(f"STAGE_{x['stage']}", kind="stage")
-    for x in stages:
+        lg.add_node(f"STAGE_{x['stage']}")
         for p in x["prereq_stages"]:
-            lg.add_edge(f"STAGE_{p}", f"STAGE_{x['stage']}", kind="backbone")
+            lg.add_edge(f"STAGE_{p}", f"STAGE_{x['stage']}")
     for code, c in clusters.items():
-        lg.add_node(f"CL_{code}", kind="cluster")
-        lg.add_edge(f"STAGE_{c['stage']}", f"CL_{code}", kind="anchor")
-    for nid, n in nodes.items():
-        lg.add_node(nid, kind="concept")
-    for e in prereq_edges:
-        lg.add_edge(e["source"], e["target"], kind="prerequisite")
+        lg.add_edge(f"STAGE_{c['stage']}", f"CL_{code}")
+    lg.add_nodes_from(nodes)
+    lg.add_edges_from(dag.edges())
     roots = [nid for nid in nodes if dag.in_degree(nid) == 0]
     for nid in roots:
-        lg.add_edge(f"CL_{nodes[nid]['cluster']}", nid, kind="anchor")
+        lg.add_edge(f"CL_{nodes[nid]['cluster']}", nid)
     if not nx.is_directed_acyclic_graph(lg):
         raise SystemExit("anchored learning graph is not a DAG")
-    backbone_reduced = nx.transitive_reduction(
-        nx.DiGraph([(a, b) for a, b, d in lg.edges(data=True) if d["kind"] == "backbone"]))
 
-    # ---- rules content ----------------------------------------------------
-    comps = []
-    for c in cmp_mod.COMPARISONS:
-        comps.append({**{k: v for k, v in c.items() if k != "concepts"},
-                      "concepts": [nid_of(x) for x in c["concepts"]]})
-    dials = []
-    for d in dialect_mod.DIALECTS:
-        dials.append({**{k: v for k, v in d.items() if k != "concepts"},
-                      "concepts": [nid_of(x) for x in d["concepts"]]})
-    comp_by_node = defaultdict(list)
-    for c in comps:
-        for x in c["concepts"]:
-            comp_by_node[x].append(c["id"])
-    dial_by_node = defaultdict(list)
-    for d in dials:
-        for x in d["concepts"]:
-            dial_by_node[x].append(d["id"])
-
-    for name in list(content_mod.DEFINITIONS) + list(content_mod.RICH_RULES):
-        nid_of(name)  # raises on typos
-
-    hub_by_node = defaultdict(list)
-    for h in hubs:
-        for x in h["hub_nodes"]:
-            hub_by_node[x].append(h)
-
-    rules = {}
-    for nid, n in nodes.items():
-        rr = content_mod.RICH_RULES.get(n["name"], {})
-        hub_cards = [{"hub": h["hub"], "role": h["role"], "core_rule": h["core_rule"], "study_note": h["study_note"]}
-                     for h in hub_by_node.get(nid, [])]
-        core_rule = list(rr.get("rules", []))
-        for h in hub_cards:
-            if h["core_rule"] not in core_rule:
-                core_rule.insert(0, h["core_rule"])
-        rules[nid] = {
-            "definition": content_mod.DEFINITIONS.get(n["name"], ""),
-            "why_it_matters": rr.get("why", ""),
-            "core_rule": core_rule,
-            "exam_traps": list(rr.get("traps", [])),
-            "comparisons": comp_by_node.get(nid, []),
-            "dialect_notes": list(rr.get("dialect", [])),
-            "dialects": dial_by_node.get(nid, []),
-            "examples": list(rr.get("examples", [])),
-            "hubs": hub_cards,
-        }
-        if n["name"] == "SQL 논리 실행 순서":
-            rules[nid]["execution_order"] = [
-                {"edge": f"{rj['source_name']} → {rj['target_name']}", "note": rj["reason"]} for rj in rejected_explicit
-            ] + [{"edge": "WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
-                  "note": "17_KG_Edges PRECEDES 체인(논리적 실행 순서)"}]
-
-    # ---- visibility / support ---------------------------------------------
     base = {nid for nid, n in nodes.items() if not n["is_legacy"]}
     support = set()
     for nid in base:
-        for a in nx.ancestors(dag, nid):
-            if nodes[a]["is_legacy"]:
-                support.add(a)
+        support |= {a for a in nx.ancestors(dag, nid) if nodes[a]["is_legacy"]}
         p = nodes[nid]["hierarchy_parent"]
         while p:
             if nodes[p]["is_legacy"]:
                 support.add(p)
             p = nodes[p]["hierarchy_parent"]
-    support_sources = defaultdict(set)
-    for s_id in support:
-        for d in nx.descendants(dag, s_id):
-            if d in base:
-                support_sources[s_id].add(d)
     for nid, n in nodes.items():
         n["support"] = nid in support
-        n["visible_by_default"] = (nid in base) or (nid in support)
+        n["visible_by_default"] = nid in base or nid in support
         if nid in support:
-            n["support_for"] = sorted(nodes[x]["name"] for x in support_sources[nid])[:12]
-            n["support_for_count"] = len(support_sources[nid])
+            served = [d for d in nx.descendants(dag, nid) if d in base]
+            n["support_for"] = sorted(nodes[x]["name"] for x in served)[:12]
+            n["support_for_count"] = len(served)
 
-    # ---- priority ---------------------------------------------------------
     current = {nid for nid, n in nodes.items() if n["evidence_status"] == "current"}
     for nid, n in nodes.items():
+        c = content[nid]
+        n["exam_trap_count"] = len(c["traps"]) + (1 if c.get("exam_trap") and all(
+            rules_rows[t]["rule"] != c["exam_trap"] for t in c["traps"]) else 0)
+        n["has_comparison"] = bool(c["comparisons"] or c.get("comparison_targets"))
+        n["current_successors"] = sum(1 for x in dag.successors(nid) if x in current)
+    for nid, n in nodes.items():
         reasons = []
-        succ_current = [x for x in dag.successors(nid) if x in current]
-        traps = len(rules[nid]["exam_traps"])
-        in_cmp = bool(rules[nid]["comparisons"])
         cur = n["current_rounds"]
         if n["synthetic"] and n["synthetic_kind"] == "integration":
-            n["priority"] = None  # decided after every concept has a priority (see below)
+            n["priority"] = None
             continue
         if n["synthetic"] or n["evidence_status"] == "reference":
             n["priority"] = "C"
             reasons.append("현행 직접 증거가 없는 구조/참조 노드 — 다른 Concept 이해를 위한 보조")
         elif n["evidence_status"] == "current":
-            repeated = cur >= 2
-            if cur >= 4 or (repeated and (succ_current or traps >= 2 or in_cmp)):
+            signals = []
+            if n["current_successors"]:
+                signals.append(f"현행 Concept {n['current_successors']}개의 직접 선수")
+            if n["exam_trap_count"]:
+                signals.append(f"원본 시험 함정 {n['exam_trap_count']}개")
+            if n["has_comparison"]:
+                signals.append("원본 비교 카드/비교 대상")
+            if cur >= 4 or (cur >= 2 and signals):
                 n["priority"] = "A"
-                reasons.append(f"현행 {cur}회 출제" + (" (반복)" if repeated else ""))
-                if succ_current:
-                    reasons.append(f"현행 Concept {len(succ_current)}개의 직접 선수")
-                if traps >= 2:
-                    reasons.append(f"시험 함정 {traps}개")
-                if in_cmp:
-                    reasons.append("시험 비교 카드 대상")
+                reasons.append(f"현행 {cur}회 출제" + (" (반복)" if cur >= 2 else ""))
+                reasons.extend(signals)
             else:
                 n["priority"] = "B"
                 reasons.append(f"현행 {cur}회 출제 확인")
         elif n["support"]:
             n["priority"] = "C"
-            reasons.append(f"현행 증거 없음(구범위 {n['old_rounds']}회) — 현행 Concept {n.get('support_for_count', 0)}개의 선수/상위 개념이라 구조적으로 필요")
+            reasons.append(f"현행 증거 없음(구범위 {n['old_rounds']}회) — 현행 Concept "
+                           f"{n.get('support_for_count', 0)}개의 선수/상위 개념이라 구조적으로 필요")
         else:
             n["priority"] = "Legacy"
             reasons.append("52회 이후 현행 출제 증거 없음" + (" · 현행 범위 밖(D7 등)" if n["legacy_kind"] == "out_of_scope" else ""))
@@ -656,109 +896,77 @@ def build(xlsx: Path) -> dict:
             n["priority"] = "A" if len(pa) >= 2 else "B"
             n["priority_reasons"] = [f"Stage 9 통합 복습 노드 — 선수 {len(preds)}개 중 Priority A {len(pa)}개"]
 
-    # ---- display tier -----------------------------------------------------
     hchildren = defaultdict(list)
     for nid, n in nodes.items():
         if n["hierarchy_parent"]:
             hchildren[n["hierarchy_parent"]].append(nid)
     for nid, n in nodes.items():
         vis_children = [c for c in hchildren[nid] if nodes[c]["visible_by_default"]]
-        if n["name"] in st.FORCE_DETAIL:
-            tier = "detail"
-        elif not n["visible_by_default"]:
-            tier = "detail"
-        elif (n["name"] in st.FORCE_CORE or n["priority"] == "A" or n["synthetic"]
-              or len(vis_children) >= 2):
-            tier = "core"
-        else:
-            tier = "detail"
-        n["display_tier"] = tier
+        core = n["name"] in st.FORCE_CORE or n["priority"] == "A" or n["synthetic"] or len(vis_children) >= 2
+        n["display_tier"] = "core" if n["visible_by_default"] and core else "detail"
+        top = n["hierarchy_parent"] is None or nodes[n["hierarchy_parent"]]["structure_cluster"] != n["structure_cluster"]
+        n["structure_top_level"] = top
+        n["structure_tier"] = "core" if n["visible_by_default"] and (
+            (top and n["priority"] in ("A", "B", "C")) or n["name"] in st.FORCE_CORE or len(vis_children) >= 2) else "detail"
         if not n["visible_by_default"]:
-            # tier used only when the viewer turns on "Include Legacy"
             n["legacy_display_tier"] = ("core" if n["name"] in st.FORCE_CORE or len(hchildren[nid]) >= 2
-                                        or n["old_rounds"] >= 3 else "detail")
+                                        or n["old_rounds"] >= 3 or top else "detail")
         n["hierarchy_children"] = sorted(hchildren[nid], key=lambda x: nodes[x]["name"])
 
-    # ---- topological order (default learning path) ------------------------
-    cluster_rank = {}
-    for x in stages:
-        for k, code in enumerate(x["clusters"]):
-            cluster_rank[code] = (stage_order(x["stage"]), k)
+    cluster_rank = {code: (stage_order(x["stage"]), k) for x in stages for k, code in enumerate(x["clusters"])}
     prio_rank = {"A": 0, "B": 1, "C": 2, "Legacy": 3}
     topo = list(nx.lexicographical_topological_sort(
         dag, key=lambda x: (cluster_rank[nodes[x]["cluster"]], prio_rank[nodes[x]["priority"]], nodes[x]["name"])))
     for k, nid in enumerate(topo):
         nodes[nid]["topo_index"] = k
-    for nid, n in nodes.items():
+    for nid in topo:
+        n = nodes[nid]
         n["prerequisites"] = sorted(dag.predecessors(nid), key=lambda x: nodes[x]["topo_index"])
         n["next_concepts"] = sorted(dag.successors(nid), key=lambda x: nodes[x]["topo_index"])
-        n["depth"] = 0
-    for nid in topo:
-        preds = list(dag.predecessors(nid))
-        nodes[nid]["depth"] = 1 + max(nodes[p]["depth"] for p in preds) if preds else 0
-    for nid, n in nodes.items():
+        n["depth"] = 1 + max(nodes[p]["depth"] for p in n["prerequisites"]) if n["prerequisites"] else 0
         n["ancestor_count"] = len(nx.ancestors(dag, nid))
         n["aliases"] = content_mod.ALIASES.get(n["name"], [])
+        n["learning_root"] = nid in roots
 
-    # ---- hierarchy edges --------------------------------------------------
-    hierarchy_edges = []
-    for x in stages:
-        for code in x["clusters"]:
-            hierarchy_edges.append({"source": f"STAGE_{x['stage']}", "target": code, "type": "STAGE_CLUSTER"})
-    for nid, n in nodes.items():
-        hierarchy_edges.append({"source": n["cluster"], "target": nid, "type": "CLUSTER_CONCEPT",
-                                "is_root_anchor": nid in roots,
-                                "is_top_level": n["hierarchy_parent"] is None or nodes[n["hierarchy_parent"]]["cluster"] != n["cluster"]})
-        if n["hierarchy_parent"]:
-            hierarchy_edges.append({"source": n["hierarchy_parent"], "target": nid, "type": "PARENT_CHILD",
-                                    "cross_cluster": nodes[n["hierarchy_parent"]]["cluster"] != n["cluster"]})
-
-    # ---- clusters output --------------------------------------------------
+    # ---- clusters / domains output -----------------------------------------
     cluster_out = []
     for x in stages:
         for k, code in enumerate(x["clusters"]):
             c = clusters[code]
             members = [nid for nid, n in nodes.items() if n["cluster"] == code]
+            smembers = [nid for nid, n in nodes.items() if n["structure_cluster"] == code]
             cluster_out.append({**c, "order": k, "stage_order": stage_order(c["stage"]),
                                 "domain_name": domains[c["domain"]]["name"],
-                                "concept_count": len(members),
+                                "concept_count": len(members), "structure_concept_count": len(smembers),
                                 "current_count": sum(nodes[m]["evidence_status"] == "current" for m in members),
-                                "legacy_hidden_count": sum(not nodes[m]["visible_by_default"] for m in members)})
+                                "legacy_hidden_count": sum(not nodes[m]["visible_by_default"] for m in members),
+                                "root_concepts": [m for m in members if m in roots]})
     for x in stages:
         members = [nid for nid, n in nodes.items() if n["stage"] == x["stage"]]
         x["concept_count"] = len(members)
         x["current_count"] = sum(nodes[m]["evidence_status"] == "current" for m in members)
         x["default_visible_count"] = sum(nodes[m]["visible_by_default"] for m in members)
-        x["backbone_prereq_reduced"] = sorted(
-            int(a.split("_")[1]) if a.split("_")[1] != "L" else "L"
-            for a, b in backbone_reduced.edges() if b == f"STAGE_{x['stage']}")
+    domain_out = []
+    for code, d in domains.items():
+        members = [nid for nid, n in nodes.items() if n["structure_domain"] == code]
+        domain_out.append({**d, "clusters": [c for c, v in clusters.items() if v["domain"] == code],
+                           "concept_count": len(members),
+                           "current_count": sum(nodes[m]["evidence_status"] == "current" for m in members)})
 
-    # ---- gap families -----------------------------------------------------
-    gap_families = []
-    for r in sh["04_Mindmap_Gaps"]:
-        fam = s(r["개념/영역"])
-        gap_families.append({"family": fam, "mindmap_status": s(r["마인드맵 상태"]),
-                             "scope": s(r["범위 상태"]), "evidence": s(r["기출 근거"]),
-                             "action": s(r["추가 방식"]),
-                             "matched_nodes": [nid for nid, n in nodes.items()
-                                               if n["name"] == fam or n.get("gap_family") == fam]})
-
-    # ---- evidence output --------------------------------------------------
+    gap_families = [{"family": s(r["개념/영역"]), "mindmap_status": s(r["마인드맵 상태"]), "scope": s(r["범위 상태"]),
+                     "evidence": s(r["기출 근거"]), "action": s(r["추가 방식"])} for r in sh["04_Mindmap_Gaps"]]
     evidence = {nid: sorted(round_rows.get(n["name"], []), key=lambda r: r["round"]) for nid, n in nodes.items()}
+    legacy_nodes = sorted(
+        ({"id": nid, "name": n["name"], "cluster": n["cluster"], "stage": n["stage"], "legacy_kind": n["legacy_kind"],
+          "old_rounds": n["old_rounds"], "old_round_list": n["old_round_list"],
+          "shown_by_default_as_support": n["support"], "support_for": n.get("support_for", []),
+          "priority": n["priority"]} for nid, n in nodes.items() if n["in_legacy_only"]),
+        key=lambda x: (not x["shown_by_default_as_support"], x["cluster"], x["name"]))
 
-    # ---- legacy nodes -----------------------------------------------------
-    legacy_nodes = []
-    for nid, n in nodes.items():
-        if n["in_legacy_only"]:
-            legacy_nodes.append({"id": nid, "name": n["name"], "cluster": n["cluster"], "stage": n["stage"],
-                                 "legacy_kind": n["legacy_kind"], "old_rounds": n["old_rounds"],
-                                 "old_round_list": n["old_round_list"],
-                                 "shown_by_default_as_support": n["support"],
-                                 "support_for": n.get("support_for", []),
-                                 "priority": n["priority"]})
-    legacy_nodes.sort(key=lambda x: (not x["shown_by_default_as_support"], x["cluster"], x["name"]))
+    vault = scan_vault(nodes, name_to_id)
 
-    # ---- assemble ---------------------------------------------------------
+    inferred_edges = ([{**e, "graph": "learning"} for e in inferred.values()]
+                      + [{**e, "graph": "structure"} for e in structure_edges if e["inferred"]])
     node_list = sorted(nodes.values(), key=lambda n: n["topo_index"])
     meta = {
         "source_file": xlsx.name,
@@ -766,30 +974,54 @@ def build(xlsx: Path) -> dict:
         "dialect_reference_nodes": len(dialect_ids),
         "synthetic_nodes": sum(n["synthetic"] for n in nodes.values()),
         "relation_counts": dict(relation_counts),
-        "curated_edges_duplicating_explicit": curated_dup_explicit,
-        "notes": report_notes,
+        "content_coverage_kpi": sh["26_Content_Coverage"],
+        "curated_edges_duplicating_explicit": duplicate_inferred,
+        "curated_edges_skipped_as_implied": redundant_inferred,
+        "curated_edges_rejected_conflict": conflicting_inferred,
+        "excluded_explicit_edges": [{k: x[k] for k in ("source_name", "target_name", "provenance", "decision", "confidence", "reason")}
+                                    for x in excluded_explicit],
+        "broken_references": broken_refs,
+        "notes": notes,
     }
-    out = {
-        "meta": meta,
-        "stages": stages,
-        "clusters": cluster_out,
-        "domains": list(domains.values()),
+    return {
+        "meta": meta, "stages": stages, "clusters": cluster_out, "domains": domain_out,
+        "structure_nodes": [v for v in struct_nodes.values() if v["kind"] != "CONCEPT"],
         "nodes": node_list,
-        "prerequisite_edges": prereq_edges,
-        "inferred_edges": list(inferred.values()),
-        "hierarchy_edges": hierarchy_edges,
-        "metadata_relations": metadata_relations,
-        "rules": rules,
-        "comparisons": comps,
-        "dialects": dials,
-        "hubs": hubs,
-        "gap_families": gap_families,
-        "legacy_nodes": legacy_nodes,
-        "evidence": evidence,
-        "cycle_report": cycle_report,
-        "_graphs": {"dag": dag, "learning": lg, "full": full, "roots": roots},
+        "learning_edges": learning_edges, "structure_edges": structure_edges, "inferred_edges": inferred_edges,
+        "inferred_items": inferred_items, "metadata_relations": metadata_relations,
+        "content": content, "rules_and_traps": rules_rows, "comparisons": comparisons, "examples": examples,
+        "dialects": dialects, "supplementary": {"label": SUPPLEMENTARY_LABEL, "notes": supplementary,
+                                                "comparisons": supp_cmp, "dialects": supp_dl},
+        "hubs": hubs, "gap_families": gap_families, "legacy_nodes": legacy_nodes, "evidence": evidence,
+        "vault": vault, "cycle_report": cycle_report,
+        "_graphs": {"dag": dag, "learning": lg, "structure": sg, "full": full, "roots": roots, "root_id": root_id},
     }
-    return out
+
+
+# ---------------------------------------------------------------------------
+# Obsidian vault (read only): concept notes and mock-exam questions linking to concepts
+# ---------------------------------------------------------------------------
+WIKILINK = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]")
+
+
+def scan_vault(nodes: dict, name_to_id: dict) -> dict:
+    out = defaultdict(lambda: {"note": None, "questions": []})
+    concepts_dir, questions_dir = REPO / "Concepts", REPO / "Questions"
+    if concepts_dir.is_dir():
+        for p in sorted(concepts_dir.glob("*.md")):
+            nid = name_to_id.get(p.stem)
+            if nid:
+                out[nid]["note"] = f"Concepts/{p.name}"
+    if questions_dir.is_dir():
+        for p in sorted(questions_dir.glob("*.md")):
+            text = p.read_text(encoding="utf-8")
+            m = re.search(r"^#\s+(.+)$", text, re.M)
+            title = m.group(1).strip() if m else p.stem
+            for name in sorted({x.strip() for x in WIKILINK.findall(text)}):
+                nid = name_to_id.get(name)
+                if nid and not any(q["id"] == p.stem for q in out[nid]["questions"]):
+                    out[nid]["questions"].append({"id": p.stem, "title": title, "path": f"Questions/{p.name}"})
+    return {k: v for k, v in out.items() if v["note"] or v["questions"]}
 
 
 # ---------------------------------------------------------------------------
@@ -808,31 +1040,38 @@ def main() -> int:
     graphs = out.pop("_graphs")
     DATA.mkdir(exist_ok=True)
     WEB.mkdir(exist_ok=True)
+    for old in ("hierarchy_edges.json", "rules.json"):  # superseded by concept_structure_edges / content
+        (DATA / old).unlink(missing_ok=True)
 
     files = {
         "nodes.json": out["nodes"],
-        "prerequisite_edges.json": out["prerequisite_edges"],
-        "inferred_edges.json": out["inferred_edges"],
-        "hierarchy_edges.json": out["hierarchy_edges"],
+        "prerequisite_edges.json": out["learning_edges"],
+        "concept_structure_edges.json": {"structure_nodes": out["structure_nodes"], "edges": out["structure_edges"]},
+        "inferred_edges.json": {"edges": out["inferred_edges"], **out["inferred_items"]},
         "metadata_relations.json": out["metadata_relations"],
-        "rules.json": out["rules"],
+        "content.json": out["content"],
+        "rules_and_traps.json": out["rules_and_traps"],
         "comparisons.json": out["comparisons"],
+        "examples.json": out["examples"],
         "dialects.json": out["dialects"],
+        "supplementary_notes.json": out["supplementary"],
         "stages.json": {"stages": out["stages"], "clusters": out["clusters"], "domains": out["domains"],
                         "hubs": out["hubs"], "gap_families": out["gap_families"]},
         "legacy_nodes.json": out["legacy_nodes"],
         "evidence.json": out["evidence"],
+        "vault_links.json": out["vault"],
         "cycle_report.json": out["cycle_report"],
     }
     for fname, obj in files.items():
         write_json(DATA / fname, obj)
 
-    report, ok = validate_graph.validate(DATA, graphs=graphs, meta=out["meta"])
+    report, ok = validate_graph.validate(DATA, meta=out["meta"])
     write_json(DATA / "validation_report.json", report)
 
-    bundle = {k: out[k] for k in ("meta", "stages", "clusters", "domains", "nodes", "prerequisite_edges",
-                                  "hierarchy_edges", "metadata_relations", "rules", "comparisons",
-                                  "dialects", "hubs", "legacy_nodes", "evidence")}
+    bundle = {k: out[k] for k in ("meta", "stages", "clusters", "domains", "structure_nodes", "nodes",
+                                  "learning_edges", "structure_edges", "metadata_relations", "content",
+                                  "rules_and_traps", "comparisons", "examples", "dialects", "supplementary",
+                                  "hubs", "legacy_nodes", "evidence", "vault")}
     bundle["summary"] = report["summary"]
     (WEB / "data.js").write_text(
         "// Generated by scripts/build_learning_graph.py — do not edit by hand.\n"

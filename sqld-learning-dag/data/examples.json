@@ -1,0 +1,587 @@
+[
+ {
+  "id": "E0001",
+  "node": "N0437",
+  "type": "SYNTAX",
+  "sql": "SELECT expr [, ...] FROM source ...",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0002",
+  "node": "N0488",
+  "type": "SYNTAX",
+  "sql": "WHERE condition",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0003",
+  "node": "N0054",
+  "type": "SYNTAX",
+  "sql": "GROUP BY expr [, ...]",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0004",
+  "node": "N0057",
+  "type": "SYNTAX",
+  "sql": "HAVING aggregate_condition",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0005",
+  "node": "N0497",
+  "type": "SYNTAX",
+  "sql": "ORDER BY expr [ASC|DESC] [, ...]",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0006",
+  "node": "N0300",
+  "type": "SYNTAX",
+  "sql": "FROM A INNER JOIN B ON A.key = B.key",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0007",
+  "node": "N0302",
+  "type": "SYNTAX",
+  "sql": "FROM A LEFT JOIN B ON A.key = B.key",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0008",
+  "node": "N0311",
+  "type": "SYNTAX",
+  "sql": "FROM A RIGHT JOIN B ON A.key = B.key",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0009",
+  "node": "N0299",
+  "type": "SYNTAX",
+  "sql": "FROM A FULL OUTER JOIN B ON A.key = B.key",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0010",
+  "node": "N0297",
+  "type": "SYNTAX",
+  "sql": "FROM A CROSS JOIN B",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0011",
+  "node": "N0304",
+  "type": "SYNTAX",
+  "sql": "FROM A NATURAL JOIN B",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0012",
+  "node": "N0436",
+  "type": "SYNTAX",
+  "sql": "expr IN (value1, value2, ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0013",
+  "node": "N0483",
+  "type": "SYNTAX",
+  "sql": "expr NOT IN (value1, value2, ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0014",
+  "node": "N0505",
+  "type": "SYNTAX",
+  "sql": "WHERE EXISTS (SELECT 1 FROM ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0015",
+  "node": "N0506",
+  "type": "SYNTAX",
+  "sql": "WHERE NOT EXISTS (SELECT 1 FROM ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0016",
+  "node": "N0476",
+  "type": "SYNTAX",
+  "sql": "expr BETWEEN low AND high",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0017",
+  "node": "N0479",
+  "type": "SYNTAX",
+  "sql": "expr LIKE 'pattern'",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0018",
+  "node": "N0050",
+  "type": "SYNTAX",
+  "sql": "COUNT(expr)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0019",
+  "node": "N0051",
+  "type": "SYNTAX",
+  "sql": "COUNT(*)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0020",
+  "node": "N0053",
+  "type": "SYNTAX",
+  "sql": "COUNT(column)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0021",
+  "node": "N0062",
+  "type": "SYNTAX",
+  "sql": "SUM(expr)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0022",
+  "node": "N0049",
+  "type": "SYNTAX",
+  "sql": "AVG(expr)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0023",
+  "node": "N0060",
+  "type": "SYNTAX",
+  "sql": "MIN(expr)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0024",
+  "node": "N0059",
+  "type": "SYNTAX",
+  "sql": "MAX(expr)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0025",
+  "node": "N0072",
+  "type": "SYNTAX",
+  "sql": "GROUP BY ROLLUP(a, b)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0026",
+  "node": "N0069",
+  "type": "SYNTAX",
+  "sql": "GROUP BY CUBE(a, b)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0027",
+  "node": "N0071",
+  "type": "SYNTAX",
+  "sql": "GROUP BY GROUPING SETS ((a,b), (a), ())",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0028",
+  "node": "N0090",
+  "type": "SYNTAX",
+  "sql": "RANK() OVER (PARTITION BY ... ORDER BY ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0029",
+  "node": "N0076",
+  "type": "SYNTAX",
+  "sql": "DENSE_RANK() OVER (PARTITION BY ... ORDER BY ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0030",
+  "node": "N0095",
+  "type": "SYNTAX",
+  "sql": "ROW_NUMBER() OVER (PARTITION BY ... ORDER BY ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0031",
+  "node": "N0079",
+  "type": "SYNTAX",
+  "sql": "LAG(expr [, offset [, default]]) OVER (...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0032",
+  "node": "N0081",
+  "type": "SYNTAX",
+  "sql": "LEAD(expr [, offset [, default]]) OVER (...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0033",
+  "node": "N0077",
+  "type": "SYNTAX",
+  "sql": "FIRST_VALUE(expr) OVER (...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0034",
+  "node": "N0080",
+  "type": "SYNTAX",
+  "sql": "LAST_VALUE(expr) OVER (...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0035",
+  "node": "N0083",
+  "type": "SYNTAX",
+  "sql": "NTILE(n) OVER (ORDER BY ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0036",
+  "node": "N0100",
+  "type": "SYNTAX",
+  "sql": "ORDER BY ... FETCH FIRST n ROWS ONLY",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0037",
+  "node": "N0103",
+  "type": "SYNTAX",
+  "sql": "SELECT TOP (n) ...",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0038",
+  "node": "N0102",
+  "type": "SYNTAX",
+  "sql": "WHERE ROWNUM <= n",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0039",
+  "node": "N0287",
+  "type": "SYNTAX",
+  "sql": "START WITH root_condition",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0040",
+  "node": "N0279",
+  "type": "SYNTAX",
+  "sql": "CONNECT BY [NOCYCLE] PRIOR parent_key = child_key",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0041",
+  "node": "N0285",
+  "type": "SYNTAX",
+  "sql": "ORDER SIBLINGS BY expr",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0042",
+  "node": "N0106",
+  "type": "SYNTAX",
+  "sql": "PIVOT (aggregate(expr) FOR pivot_col IN (...))",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0043",
+  "node": "N0108",
+  "type": "SYNTAX",
+  "sql": "UNPIVOT (value_col FOR name_col IN (...))",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0044",
+  "node": "N0362",
+  "type": "SYNTAX",
+  "sql": "INSERT INTO table (col, ...) VALUES (value, ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0045",
+  "node": "N0369",
+  "type": "SYNTAX",
+  "sql": "UPDATE table SET col = expr WHERE condition",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0046",
+  "node": "N0360",
+  "type": "SYNTAX",
+  "sql": "DELETE FROM table WHERE condition",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0047",
+  "node": "N0365",
+  "type": "SYNTAX",
+  "sql": "MERGE INTO target USING source ON (...) WHEN MATCHED THEN ... WHEN NOT MATCHED THEN ...",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0048",
+  "node": "N0379",
+  "type": "SYNTAX",
+  "sql": "CREATE TABLE t (col datatype [constraint], ...)",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0049",
+  "node": "N0373",
+  "type": "SYNTAX",
+  "sql": "ALTER TABLE t ...",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0050",
+  "node": "N0381",
+  "type": "SYNTAX",
+  "sql": "DROP TABLE t",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0051",
+  "node": "N0393",
+  "type": "SYNTAX",
+  "sql": "TRUNCATE TABLE t",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0052",
+  "node": "N0404",
+  "type": "SYNTAX",
+  "sql": "COMMIT",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0053",
+  "node": "N0405",
+  "type": "SYNTAX",
+  "sql": "ROLLBACK",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0054",
+  "node": "N0407",
+  "type": "SYNTAX",
+  "sql": "SAVEPOINT name",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0055",
+  "node": "N0415",
+  "type": "SYNTAX",
+  "sql": "GRANT privilege ON object TO user_or_role",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0056",
+  "node": "N0417",
+  "type": "SYNTAX",
+  "sql": "REVOKE privilege ON object FROM user_or_role",
+  "purpose": "문법 형태를 기억하기 위한 최소 예시",
+  "expected_result": "",
+  "dbms": ""
+ },
+ {
+  "id": "E0057",
+  "node": "N0464",
+  "type": "RESULT",
+  "sql": "SELECT CASE WHEN NULL = NULL THEN 1 ELSE 0 END",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "결과는 0 쪽으로 평가된다. NULL 비교는 TRUE가 아니다.",
+  "dbms": ""
+ },
+ {
+  "id": "E0058",
+  "node": "N0483",
+  "type": "RESULT",
+  "sql": "SELECT * FROM T WHERE id NOT IN (1, 2, NULL)",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "NULL 때문에 조건이 UNKNOWN이 되어 행이 기대와 다르게 사라질 수 있다.",
+  "dbms": ""
+ },
+ {
+  "id": "E0059",
+  "node": "N0090",
+  "type": "RESULT",
+  "sql": "값 100,90,90,80 → RANK",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "1,2,2,4",
+  "dbms": ""
+ },
+ {
+  "id": "E0060",
+  "node": "N0076",
+  "type": "RESULT",
+  "sql": "값 100,90,90,80 → DENSE_RANK",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "1,2,2,3",
+  "dbms": ""
+ },
+ {
+  "id": "E0061",
+  "node": "N0095",
+  "type": "RESULT",
+  "sql": "값 100,90,90,80 → ROW_NUMBER",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "1,2,3,4",
+  "dbms": ""
+ },
+ {
+  "id": "E0062",
+  "node": "N0050",
+  "type": "RESULT",
+  "sql": "3행 중 col 하나가 NULL",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "COUNT(*)=3, COUNT(col)=2",
+  "dbms": ""
+ },
+ {
+  "id": "E0063",
+  "node": "N0072",
+  "type": "RESULT",
+  "sql": "GROUP BY ROLLUP(dept, job)",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "dept+job → dept subtotal → grand total",
+  "dbms": ""
+ },
+ {
+  "id": "E0064",
+  "node": "N0069",
+  "type": "RESULT",
+  "sql": "GROUP BY CUBE(dept, job)",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "dept/job 가능한 모든 조합 집계",
+  "dbms": ""
+ },
+ {
+  "id": "E0065",
+  "node": "N0302",
+  "type": "RESULT",
+  "sql": "A LEFT JOIN B ON ... WHERE B.flag='Y'",
+  "purpose": "결과 판별형 예시",
+  "expected_result": "WHERE 조건이 B의 NULL 확장행을 제거할 수 있음",
+  "dbms": ""
+ }
+]

@@ -10,25 +10,49 @@ concepts; collisions only exist with CLUSTER names, which the build resolves by 
 # Only these relation types may become Learning DAG edges.
 DAG_CANDIDATE_RELATIONS = ("REQUIRES", "PRECEDES", "ENABLES", "EXPLAINS")
 
-# Relations that must never become directed DAG edges (they become metadata / cards).
+# Relations that must never become directed edges in EITHER DAG (they become metadata / cards).
 FORBIDDEN_DAG_RELATIONS = (
     "CONTRASTS", "AFFECTS", "DIALECT", "DIALECT_OF", "DIALECT_EQUIVALENT",
-    "EXCEPTION", "RELATED_TO", "IS_A", "IMPLEMENTS",
+    "EXCEPTION", "RELATED_TO", "CO_OCCURS_WITH",
 )
 
-# Review result for explicit candidates. Anything not listed here is accepted as-is.
-# A candidate is never silently dropped: rejected ones are re-classified as metadata and
-# reported in cycle_report.json / validation_report.json with the reason below.
+# Relations that build the Concept Structure DAG ("where does this concept belong?").
+STRUCTURE_RELATIONS = ("BELONGS_TO", "IS_A", "PART_OF")
+
+# Review result for explicit learning-prerequisite candidates, keyed by (source name, target name).
+# Candidates come from 17_KG_Edges (REQUIRES/PRECEDES/ENABLES/EXPLAINS) and from the concept tokens of
+# 21_Concept_Content.Prerequisites. A candidate is never silently dropped: an excluded one is kept in
+# cycle_report.json / learning excluded list with the reason below.
 EXPLICIT_EDGE_REVIEW = {
-    ("HAVING", "SELECT", "PRECEDES"): {
+    ("HAVING", "SELECT"): {
         "decision": "reclassify_as_execution_order",
+        "confidence": "high",
         "reason": (
-            "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. "
-            "이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 "
-            "WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 "
-            "SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. "
-            "'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
+            "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다(17 PRECEDES, "
+            "21 SELECT의 Prerequisites에도 포함). 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 "
+            "알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. "
+            "'SQL 논리 실행 순서' 노드의 execution_order metadata로 이동한다."
         ),
+    },
+    ("정규표현식 함수", "정규표현식"): {
+        "decision": "exclude_source_mutual_reference",
+        "confidence": "high",
+        "reason": (
+            "원본 21_Concept_Content에서 '정규표현식'의 Prerequisites는 '정규표현식 함수', '정규표현식 함수'의 "
+            "Prerequisites는 '정규표현식'으로 서로를 가리키는 2-cycle이다(17 BELONGS_TO도 상호 참조). "
+            "패턴 언어(정규식 메타문자)를 알아야 REGEXP_* 함수의 패턴 인자를 해석할 수 있으므로 "
+            "'정규표현식 → 정규표현식 함수' 방향만 유지한다."
+        ),
+    },
+}
+
+# Same review for the Concept Structure DAG (BELONGS_TO / IS_A), keyed by (parent name, child name).
+STRUCTURE_EDGE_REVIEW = {
+    ("정규표현식 함수", "정규표현식"): {
+        "decision": "exclude_source_mutual_reference",
+        "confidence": "high",
+        "reason": "원본 BELONGS_TO가 '정규표현식 ↔ 정규표현식 함수'로 서로를 부모로 가리키는 2-cycle. "
+                  "패턴 언어(정규표현식)를 상위로, REGEXP_* 함수군을 하위로 둔다.",
     },
 }
 
@@ -37,6 +61,8 @@ EXPLICIT_EDGE_REVIEW = {
 # ---------------------------------------------------------------------------
 # The source places a few concepts in a cluster/stage that comes *before* their obvious
 # prerequisites, which would force prerequisite edges to run backwards across stages.
+# Applied ONLY to the Learning-DAG view (stage lanes). The Concept Structure DAG keeps the source
+# cluster. Every override is exported as an inferred placement (reason + confidence).
 # name -> (new cluster code, reason)
 PLACEMENT_OVERRIDES = {
     "개체 무결성": ("DM7", "PK(Stage 1 식별자·키)를 알아야 이해되는 무결성 규칙. 원본은 DM0(Stage 0)에 있으나 사용자 Stage 1 정의(개체/참조 무결성)와 같은 DM7로 이동"),
@@ -60,14 +86,7 @@ PLACEMENT_OVERRIDES = {
     "그룹 내 비율 함수": ("AG3", "RATIO_TO_REPORT·PERCENT_RANK·CUME_DIST·NTILE 묶음은 윈도우 함수 분류"),
     "Oracle DDL 자동 커밋": ("MG5", "COMMIT/Transaction(Stage 8)을 알아야 이해되는 동작"),
     "SQL Server 트랜잭션": ("MG5", "Transaction(Stage 8) 개념의 SQL Server 동작"),
-}
-
-# Primary parent overrides when the source gives multiple BELONGS_TO parents or none fits.
-PRIMARY_PARENT_OVERRIDES = {
-    # name -> (parent concept name or None to hang directly under the cluster, reason)
-    "정규표현식": (None, "원본 BELONGS_TO가 '정규표현식 ↔ 정규표현식 함수'로 서로를 부모로 가리키는 2-cycle. "
-                    "패턴 언어(정규표현식)를 상위로, 함수군을 하위로 정리"),
-    "정규표현식 함수": ("정규표현식", "위 2-cycle 해소: REGEXP_* 함수군은 정규표현식 패턴을 인자로 받음"),
+    "도메인 무결성": ("MG3", "원본 Prerequisites가 '제약조건'(학습 화면에서 MG3, Stage 7)이므로 같은 Cluster에 둬야 Stage가 역행하지 않음"),
 }
 
 # ---------------------------------------------------------------------------

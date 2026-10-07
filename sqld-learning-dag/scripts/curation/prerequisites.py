@@ -13,6 +13,25 @@ Rules followed when writing this list (see README):
 
 EDGES = []  # (prerequisite, next, reason)
 
+# Edges below are learning-order judgements rather than definitional prerequisites -> confidence "medium".
+# Everything else is "high". (Source-explicit edges from the workbook carry no confidence; they are data.)
+MEDIUM_CONFIDENCE = {
+    ("관계형 모델", "SQL의 특징"), ("WHERE", "JOIN"), ("DML", "객체 권한"), ("물리적 데이터 모델링", "데이터 용량"),
+    ("셀프 조인", "계층형 질의"), ("순환 관계(자기참조)", "계층형 질의"), ("순환 관계(자기참조)", "재귀 CTE"),
+    ("LIKE", "정규표현식"), ("LIKE", "REGEXP_LIKE"), ("SUBSTR", "REGEXP_SUBSTR"), ("REPLACE", "REGEXP_REPLACE"),
+    ("INSTR", "REGEXP_INSTR"), ("관계 차수", "조인 중복 증폭"), ("복합 식별자", "복합 FK 조인"),
+    ("START WITH", "CONNECT BY"), ("WHERE", "START WITH"), ("중복", "이상현상"), ("데이터 독립성", "분산 데이터베이스"),
+    ("DML", "PL/SQL"), ("SELECT", "실행계획"), ("물리적 데이터 모델링", "성능 데이터 모델링"),
+    ("반정규화", "성능 데이터 모델링"), ("CREATE INDEX", "인덱스"), ("인덱스", "NESTED LOOP JOIN"),
+    ("ORDER BY", "OVER 절"), ("GROUP BY", "PARTITION BY"), ("BETWEEN", "NON-EQUI JOIN"), ("BETWEEN", "날짜 경계"),
+    ("UNIQUE", "NULL 처리 DBMS 차이"), ("RANK", "PERCENT_RANK"), ("NULL", "OUTER JOIN"), ("NULL", "계층 전개 NULL 종료"),
+    ("DDL", "VIEW"), ("FK", "JOIN"),
+}
+
+
+def confidence(src, dst):
+    return "medium" if (src, dst) in MEDIUM_CONFIDENCE else "high"
+
 
 def req(src, dsts, reason):
     """src is a prerequisite of every name in dsts."""

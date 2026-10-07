@@ -45,14 +45,7 @@
   ],
   "shown_by_default_as_support": true,
   "support_for": [
-   "1NF",
-   "2NF",
-   "3NF",
-   "부분 함수 종속",
-   "이행 함수 종속",
-   "정규화",
-   "중복",
-   "함수적 종속"
+   "중복"
   ],
   "priority": "C"
  },
@@ -68,9 +61,6 @@
   ],
   "shown_by_default_as_support": true,
   "support_for": [
-   "1NF",
-   "2NF",
-   "3NF",
    "SQL 비절차성",
    "SQL 선언적 언어",
    "SQL 집합적 언어",
@@ -79,7 +69,10 @@
    "관계형 모델",
    "논리적 데이터 모델링",
    "데이터 관점",
-   "데이터 모델링 3단계"
+   "데이터 모델링 3단계",
+   "데이터 모델링 관점",
+   "데이터 모델링 특징",
+   "데이터 용량"
   ],
   "priority": "C"
  },
@@ -222,29 +215,6 @@
    "CROSS JOIN",
    "DROP CASCADE",
    "EQUI JOIN"
-  ],
-  "priority": "C"
- },
- {
-  "id": "N0218",
-  "name": "이상현상",
-  "cluster": "DM6",
-  "stage": 1,
-  "legacy_kind": "older_evidence_only",
-  "old_rounds": 2,
-  "old_round_list": [
-   27,
-   38
-  ],
-  "shown_by_default_as_support": true,
-  "support_for": [
-   "1NF",
-   "2NF",
-   "3NF",
-   "부분 함수 종속",
-   "이행 함수 종속",
-   "정규화",
-   "함수적 종속"
   ],
   "priority": "C"
  },
@@ -578,6 +548,7 @@
    "NULL 처리 DBMS 차이",
    "PK 제약 비상속",
    "UNIQUE",
+   "도메인 무결성",
    "제약조건"
   ],
   "priority": "C"
@@ -1501,6 +1472,21 @@
   "old_rounds": 1,
   "old_round_list": [
    39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0218",
+  "name": "이상현상",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   27,
+   38
   ],
   "shown_by_default_as_support": false,
   "support_for": [],

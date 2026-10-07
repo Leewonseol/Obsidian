@@ -1,0 +1,736 @@
+{
+ "N0402": {
+  "note": "Concepts/ACID.md",
+  "questions": [
+   {
+    "id": "M01-Q34",
+    "title": "M01-Q34 — 트랜잭션의 원자성",
+    "path": "Questions/M01-Q34.md"
+   }
+  ]
+ },
+ "N0373": {
+  "note": "Concepts/ALTER.md",
+  "questions": [
+   {
+    "id": "M01-Q48",
+    "title": "M01-Q48 — MODIFY(Oracle) vs ALTER COLUMN(SQL Server)",
+    "path": "Questions/M01-Q48.md"
+   }
+  ]
+ },
+ "N0403": {
+  "note": "Concepts/AUTO COMMIT.md",
+  "questions": [
+   {
+    "id": "M01-Q40",
+    "title": "M01-Q40 — DDL 자동 커밋과 ROLLBACK 흐름 추적",
+    "path": "Questions/M01-Q40.md"
+   }
+  ]
+ },
+ "N0404": {
+  "note": "Concepts/COMMIT.md",
+  "questions": []
+ },
+ "N0050": {
+  "note": "Concepts/COUNT.md",
+  "questions": [
+   {
+    "id": "M01-Q19",
+    "title": "M01-Q19 — LEFT OUTER JOIN 결과의 COUNT(열)",
+    "path": "Questions/M01-Q19.md"
+   },
+   {
+    "id": "M01-Q29",
+    "title": "M01-Q29 — 집계 함수와 NULL의 상호작용",
+    "path": "Questions/M01-Q29.md"
+   },
+   {
+    "id": "M01-Q49",
+    "title": "M01-Q49 — SUM/COUNT(*)와 NULL을 이용한 평균 계산",
+    "path": "Questions/M01-Q49.md"
+   }
+  ]
+ },
+ "N0297": {
+  "note": "Concepts/CROSS JOIN.md",
+  "questions": [
+   {
+    "id": "M01-Q39",
+    "title": "M01-Q39 — CROSS JOIN의 카티션 곱",
+    "path": "Questions/M01-Q39.md"
+   }
+  ]
+ },
+ "N0414": {
+  "note": "Concepts/DCL.md",
+  "questions": [
+   {
+    "id": "M01-Q17",
+    "title": "M01-Q17 — SQL 명령어 분류(DCL)",
+    "path": "Questions/M01-Q17.md"
+   },
+   {
+    "id": "M01-Q44",
+    "title": "M01-Q44 — WITH GRANT OPTION의 연쇄 회수",
+    "path": "Questions/M01-Q44.md"
+   },
+   {
+    "id": "M01-Q45",
+    "title": "M01-Q45 — WITH GRANT OPTION의 연쇄 회수(재확인)",
+    "path": "Questions/M01-Q45.md"
+   }
+  ]
+ },
+ "N0380": {
+  "note": "Concepts/DDL.md",
+  "questions": [
+   {
+    "id": "M01-Q40",
+    "title": "M01-Q40 — DDL 자동 커밋과 ROLLBACK 흐름 추적",
+    "path": "Questions/M01-Q40.md"
+   },
+   {
+    "id": "M01-Q46",
+    "title": "M01-Q46 — TRUNCATE의 특징",
+    "path": "Questions/M01-Q46.md"
+   }
+  ]
+ },
+ "N0360": {
+  "note": "Concepts/DELETE.md",
+  "questions": [
+   {
+    "id": "M01-Q47",
+    "title": "M01-Q47 — DROP·DELETE·TRUNCATE 비교",
+    "path": "Questions/M01-Q47.md"
+   }
+  ]
+ },
+ "N0361": {
+  "note": "Concepts/DML.md",
+  "questions": []
+ },
+ "N0381": {
+  "note": "Concepts/DROP.md",
+  "questions": [
+   {
+    "id": "M01-Q47",
+    "title": "M01-Q47 — DROP·DELETE·TRUNCATE 비교",
+    "path": "Questions/M01-Q47.md"
+   }
+  ]
+ },
+ "N0165": {
+  "note": "Concepts/ERD.md",
+  "questions": [
+   {
+    "id": "M01-Q09",
+    "title": "M01-Q09 — IE·Barker 표기법 비교",
+    "path": "Questions/M01-Q09.md"
+   },
+   {
+    "id": "M01-Q10",
+    "title": "M01-Q10 — 고객·리뷰 다이어그램의 식별/비식별 관계 판단",
+    "path": "Questions/M01-Q10.md"
+   }
+  ]
+ },
+ "N0181": {
+  "note": "Concepts/FK.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   },
+   {
+    "id": "M01-Q07",
+    "title": "M01-Q07 — 외래키(FK) 규칙",
+    "path": "Questions/M01-Q07.md"
+   }
+  ]
+ },
+ "N0054": {
+  "note": "Concepts/GROUP BY.md",
+  "questions": [
+   {
+    "id": "M01-Q21",
+    "title": "M01-Q21 — ROLLUP·CUBE·GROUPING SETS 비교",
+    "path": "Questions/M01-Q21.md"
+   },
+   {
+    "id": "M01-Q30",
+    "title": "M01-Q30 — GROUP BY + HAVING 실전 적용",
+    "path": "Questions/M01-Q30.md"
+   },
+   {
+    "id": "M01-Q31",
+    "title": "M01-Q31 — WHERE와 HAVING의 차이",
+    "path": "Questions/M01-Q31.md"
+   }
+  ]
+ },
+ "N0057": {
+  "note": "Concepts/HAVING.md",
+  "questions": [
+   {
+    "id": "M01-Q20",
+    "title": "M01-Q20 — WHERE절의 집계 함수 사용 오류",
+    "path": "Questions/M01-Q20.md"
+   },
+   {
+    "id": "M01-Q30",
+    "title": "M01-Q30 — GROUP BY + HAVING 실전 적용",
+    "path": "Questions/M01-Q30.md"
+   },
+   {
+    "id": "M01-Q31",
+    "title": "M01-Q31 — WHERE와 HAVING의 차이",
+    "path": "Questions/M01-Q31.md"
+   }
+  ]
+ },
+ "N0478": {
+  "note": "Concepts/IN·NOT IN.md",
+  "questions": [
+   {
+    "id": "M01-Q22",
+    "title": "M01-Q22 — NOT IN과 NULL의 상호작용",
+    "path": "Questions/M01-Q22.md"
+   }
+  ]
+ },
+ "N0301": {
+  "note": "Concepts/JOIN.md",
+  "questions": [
+   {
+    "id": "M01-Q39",
+    "title": "M01-Q39 — CROSS JOIN의 카티션 곱",
+    "path": "Questions/M01-Q39.md"
+   }
+  ]
+ },
+ "N0479": {
+  "note": "Concepts/LIKE.md",
+  "questions": []
+ },
+ "N0464": {
+  "note": "Concepts/NULL.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   },
+   {
+    "id": "M01-Q09",
+    "title": "M01-Q09 — IE·Barker 표기법 비교",
+    "path": "Questions/M01-Q09.md"
+   },
+   {
+    "id": "M01-Q13",
+    "title": "M01-Q13 — NVL과 NULL 대체",
+    "path": "Questions/M01-Q13.md"
+   },
+   {
+    "id": "M01-Q19",
+    "title": "M01-Q19 — LEFT OUTER JOIN 결과의 COUNT(열)",
+    "path": "Questions/M01-Q19.md"
+   },
+   {
+    "id": "M01-Q22",
+    "title": "M01-Q22 — NOT IN과 NULL의 상호작용",
+    "path": "Questions/M01-Q22.md"
+   },
+   {
+    "id": "M01-Q26",
+    "title": "M01-Q26 — ISNULL·NVL·NULLIF·COALESCE 비교",
+    "path": "Questions/M01-Q26.md"
+   },
+   {
+    "id": "M01-Q29",
+    "title": "M01-Q29 — 집계 함수와 NULL의 상호작용",
+    "path": "Questions/M01-Q29.md"
+   },
+   {
+    "id": "M01-Q32",
+    "title": "M01-Q32 — NULL 비교의 올바른 방식",
+    "path": "Questions/M01-Q32.md"
+   },
+   {
+    "id": "M01-Q37",
+    "title": "M01-Q37 — NVL·ROUND·LENGTH·MAX 함수 설명",
+    "path": "Questions/M01-Q37.md"
+   },
+   {
+    "id": "M01-Q38",
+    "title": "M01-Q38 — NVL과 SUM의 결합",
+    "path": "Questions/M01-Q38.md"
+   },
+   {
+    "id": "M01-Q49",
+    "title": "M01-Q49 — SUM/COUNT(*)와 NULL을 이용한 평균 계산",
+    "path": "Questions/M01-Q49.md"
+   }
+  ]
+ },
+ "N0497": {
+  "note": "Concepts/ORDER BY.md",
+  "questions": [
+   {
+    "id": "M01-Q15",
+    "title": "M01-Q15 — 문자형 컬럼의 ORDER BY 정렬",
+    "path": "Questions/M01-Q15.md"
+   },
+   {
+    "id": "M01-Q36",
+    "title": "M01-Q36 — ORDER BY 별칭·순서번호 혼용",
+    "path": "Questions/M01-Q36.md"
+   }
+  ]
+ },
+ "N0308": {
+  "note": "Concepts/OUTER JOIN.md",
+  "questions": [
+   {
+    "id": "M01-Q19",
+    "title": "M01-Q19 — LEFT OUTER JOIN 결과의 COUNT(열)",
+    "path": "Questions/M01-Q19.md"
+   },
+   {
+    "id": "M01-Q27",
+    "title": "M01-Q27 — LEFT OUTER JOIN의 기본 특징",
+    "path": "Questions/M01-Q27.md"
+   }
+  ]
+ },
+ "N0107": {
+  "note": "Concepts/PIVOT·UNPIVOT.md",
+  "questions": [
+   {
+    "id": "M01-Q14",
+    "title": "M01-Q14 — UNPIVOT의 NULL 처리 옵션",
+    "path": "Questions/M01-Q14.md"
+   }
+  ]
+ },
+ "N0182": {
+  "note": "Concepts/PK.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   },
+   {
+    "id": "M01-Q07",
+    "title": "M01-Q07 — 외래키(FK) 규칙",
+    "path": "Questions/M01-Q07.md"
+   }
+  ]
+ },
+ "N0405": {
+  "note": "Concepts/ROLLBACK.md",
+  "questions": [
+   {
+    "id": "M01-Q40",
+    "title": "M01-Q40 — DDL 자동 커밋과 ROLLBACK 흐름 추적",
+    "path": "Questions/M01-Q40.md"
+   }
+  ]
+ },
+ "N0408": {
+  "note": "Concepts/TCL.md",
+  "questions": [
+   {
+    "id": "M01-Q17",
+    "title": "M01-Q17 — SQL 명령어 분류(DCL)",
+    "path": "Questions/M01-Q17.md"
+   }
+  ]
+ },
+ "N0393": {
+  "note": "Concepts/TRUNCATE.md",
+  "questions": [
+   {
+    "id": "M01-Q46",
+    "title": "M01-Q46 — TRUNCATE의 특징",
+    "path": "Questions/M01-Q46.md"
+   },
+   {
+    "id": "M01-Q47",
+    "title": "M01-Q47 — DROP·DELETE·TRUNCATE 비교",
+    "path": "Questions/M01-Q47.md"
+   }
+  ]
+ },
+ "N0409": {
+  "note": "Concepts/Transaction.md",
+  "questions": [
+   {
+    "id": "M01-Q34",
+    "title": "M01-Q34 — 트랜잭션의 원자성",
+    "path": "Questions/M01-Q34.md"
+   },
+   {
+    "id": "M01-Q40",
+    "title": "M01-Q40 — DDL 자동 커밋과 ROLLBACK 흐름 추적",
+    "path": "Questions/M01-Q40.md"
+   }
+  ]
+ },
+ "N0400": {
+  "note": "Concepts/VIEW.md",
+  "questions": [
+   {
+    "id": "M01-Q12",
+    "title": "M01-Q12 — VIEW의 DML 가능 여부",
+    "path": "Questions/M01-Q12.md"
+   }
+  ]
+ },
+ "N0488": {
+  "note": "Concepts/WHERE.md",
+  "questions": [
+   {
+    "id": "M01-Q20",
+    "title": "M01-Q20 — WHERE절의 집계 함수 사용 오류",
+    "path": "Questions/M01-Q20.md"
+   },
+   {
+    "id": "M01-Q31",
+    "title": "M01-Q31 — WHERE와 HAVING의 차이",
+    "path": "Questions/M01-Q31.md"
+   }
+  ]
+ },
+ "N0110": {
+  "note": "Concepts/개체 무결성.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   }
+  ]
+ },
+ "N0291": {
+  "note": "Concepts/계층형 질의.md",
+  "questions": [
+   {
+    "id": "M01-Q28",
+    "title": "M01-Q28 — CONNECT BY를 이용한 계층 전개",
+    "path": "Questions/M01-Q28.md"
+   }
+  ]
+ },
+ "N0174": {
+  "note": "Concepts/관계 선택성.md",
+  "questions": [
+   {
+    "id": "M01-Q10",
+    "title": "M01-Q10 — 고객·리뷰 다이어그램의 식별/비식별 관계 판단",
+    "path": "Questions/M01-Q10.md"
+   }
+  ]
+ },
+ "N0175": {
+  "note": "Concepts/관계 차수.md",
+  "questions": []
+ },
+ "N0173": {
+  "note": "Concepts/관계.md",
+  "questions": []
+ },
+ "N0067": {
+  "note": "Concepts/그룹함수 확장.md",
+  "questions": [
+   {
+    "id": "M01-Q21",
+    "title": "M01-Q21 — ROLLUP·CUBE·GROUPING SETS 비교",
+    "path": "Questions/M01-Q21.md"
+   },
+   {
+    "id": "M01-Q33",
+    "title": "M01-Q33 — ROLLUP이 생성하지 않는 집계 수준",
+    "path": "Questions/M01-Q33.md"
+   }
+  ]
+ },
+ "N0114": {
+  "note": "Concepts/데이터 모델링 3단계.md",
+  "questions": [
+   {
+    "id": "M01-Q02",
+    "title": "M01-Q02 — 개념적 데이터 모델링의 특징",
+    "path": "Questions/M01-Q02.md"
+   }
+  ]
+ },
+ "N0116": {
+  "note": "Concepts/데이터 모델링 관점.md",
+  "questions": [
+   {
+    "id": "M01-Q04",
+    "title": "M01-Q04 — 모델링 관점 구분",
+    "path": "Questions/M01-Q04.md"
+   }
+  ]
+ },
+ "N0243": {
+  "note": "Concepts/문자형 함수.md",
+  "questions": [
+   {
+    "id": "M01-Q18",
+    "title": "M01-Q18 — REPLACE와 LOWER 중첩 적용",
+    "path": "Questions/M01-Q18.md"
+   },
+   {
+    "id": "M01-Q37",
+    "title": "M01-Q37 — NVL·ROUND·LENGTH·MAX 함수 설명",
+    "path": "Questions/M01-Q37.md"
+   }
+  ]
+ },
+ "N0191": {
+  "note": "Concepts/비식별 관계.md",
+  "questions": [
+   {
+    "id": "M01-Q10",
+    "title": "M01-Q10 — 고객·리뷰 다이어그램의 식별/비식별 관계 판단",
+    "path": "Questions/M01-Q10.md"
+   }
+  ]
+ },
+ "N0511": {
+  "note": "Concepts/서브쿼리.md",
+  "questions": [
+   {
+    "id": "M01-Q41",
+    "title": "M01-Q41 — 서브쿼리를 사용할 수 있는 절",
+    "path": "Questions/M01-Q41.md"
+   },
+   {
+    "id": "M01-Q43",
+    "title": "M01-Q43 — 서브쿼리와 EXISTS",
+    "path": "Questions/M01-Q43.md"
+   }
+  ]
+ },
+ "N0157": {
+  "note": "Concepts/속성.md",
+  "questions": []
+ },
+ "N0244": {
+  "note": "Concepts/숫자형 함수.md",
+  "questions": [
+   {
+    "id": "M01-Q37",
+    "title": "M01-Q37 — NVL·ROUND·LENGTH·MAX 함수 설명",
+    "path": "Questions/M01-Q37.md"
+   }
+  ]
+ },
+ "N0192": {
+  "note": "Concepts/식별 관계.md",
+  "questions": [
+   {
+    "id": "M01-Q10",
+    "title": "M01-Q10 — 고객·리뷰 다이어그램의 식별/비식별 관계 판단",
+    "path": "Questions/M01-Q10.md"
+   }
+  ]
+ },
+ "N0193": {
+  "note": "Concepts/식별자.md",
+  "questions": [
+   {
+    "id": "M01-Q08",
+    "title": "M01-Q08 — 복합 식별자의 부분 함수 종속과 정규화 실전 적용",
+    "path": "Questions/M01-Q08.md"
+   },
+   {
+    "id": "M01-Q09",
+    "title": "M01-Q09 — IE·Barker 표기법 비교",
+    "path": "Questions/M01-Q09.md"
+   }
+  ]
+ },
+ "N0144": {
+  "note": "Concepts/엔터티 분류.md",
+  "questions": [
+   {
+    "id": "M01-Q05",
+    "title": "M01-Q05 — 엔터티 발생 시점 분류",
+    "path": "Questions/M01-Q05.md"
+   }
+  ]
+ },
+ "N0140": {
+  "note": "Concepts/엔터티.md",
+  "questions": [
+   {
+    "id": "M01-Q05",
+    "title": "M01-Q05 — 엔터티 발생 시점 분류",
+    "path": "Questions/M01-Q05.md"
+   }
+  ]
+ },
+ "N0099": {
+  "note": "Concepts/윈도우 함수.md",
+  "questions": [
+   {
+    "id": "M01-Q23",
+    "title": "M01-Q23 — DENSE_RANK의 순위 부여 방식",
+    "path": "Questions/M01-Q23.md"
+   },
+   {
+    "id": "M01-Q24",
+    "title": "M01-Q24 — TOP WITH TIES와 동점 처리",
+    "path": "Questions/M01-Q24.md"
+   },
+   {
+    "id": "M01-Q35",
+    "title": "M01-Q35 — ROWS BETWEEN을 이용한 이동 합계",
+    "path": "Questions/M01-Q35.md"
+   }
+  ]
+ },
+ "N0456": {
+  "note": "Concepts/자료형.md",
+  "questions": [
+   {
+    "id": "M01-Q15",
+    "title": "M01-Q15 — 문자형 컬럼의 ORDER BY 정렬",
+    "path": "Questions/M01-Q15.md"
+   }
+  ]
+ },
+ "N0278": {
+  "note": "Concepts/정규표현식 함수.md",
+  "questions": [
+   {
+    "id": "M01-Q16",
+    "title": "M01-Q16 — Oracle 정규표현식 함수",
+    "path": "Questions/M01-Q16.md"
+   },
+   {
+    "id": "M01-Q25",
+    "title": "M01-Q25 — REGEXP_SUBSTR의 패턴 추출",
+    "path": "Questions/M01-Q25.md"
+   },
+   {
+    "id": "M01-Q50",
+    "title": "M01-Q50 — REGEXP_LIKE를 이용한 휴대폰 번호 형식 검사",
+    "path": "Questions/M01-Q50.md"
+   }
+  ]
+ },
+ "N0220": {
+  "note": "Concepts/정규화.md",
+  "questions": [
+   {
+    "id": "M01-Q03",
+    "title": "M01-Q03 — 부분 함수 종속 제거와 정규형",
+    "path": "Questions/M01-Q03.md"
+   },
+   {
+    "id": "M01-Q06",
+    "title": "M01-Q06 — 정규화 단계별 수행 작업",
+    "path": "Questions/M01-Q06.md"
+   },
+   {
+    "id": "M01-Q08",
+    "title": "M01-Q08 — 복합 식별자의 부분 함수 종속과 정규화 실전 적용",
+    "path": "Questions/M01-Q08.md"
+   }
+  ]
+ },
+ "N0445": {
+  "note": "Concepts/제약조건.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   }
+  ]
+ },
+ "N0068": {
+  "note": "Concepts/집계 함수.md",
+  "questions": [
+   {
+    "id": "M01-Q11",
+    "title": "M01-Q11 — GROUP BY 없는 SUM과 NULL",
+    "path": "Questions/M01-Q11.md"
+   },
+   {
+    "id": "M01-Q20",
+    "title": "M01-Q20 — WHERE절의 집계 함수 사용 오류",
+    "path": "Questions/M01-Q20.md"
+   },
+   {
+    "id": "M01-Q29",
+    "title": "M01-Q29 — 집계 함수와 NULL의 상호작용",
+    "path": "Questions/M01-Q29.md"
+   },
+   {
+    "id": "M01-Q38",
+    "title": "M01-Q38 — NVL과 SUM의 결합",
+    "path": "Questions/M01-Q38.md"
+   },
+   {
+    "id": "M01-Q49",
+    "title": "M01-Q49 — SUM/COUNT(*)와 NULL을 이용한 평균 계산",
+    "path": "Questions/M01-Q49.md"
+   }
+  ]
+ },
+ "N0520": {
+  "note": "Concepts/집합 연산자.md",
+  "questions": [
+   {
+    "id": "M01-Q42",
+    "title": "M01-Q42 — 차집합 연산자(MINUS)",
+    "path": "Questions/M01-Q42.md"
+   }
+  ]
+ },
+ "N0130": {
+  "note": "Concepts/참조 무결성.md",
+  "questions": [
+   {
+    "id": "M01-Q01",
+    "title": "M01-Q01 — 개체 무결성 위반 판단",
+    "path": "Questions/M01-Q01.md"
+   },
+   {
+    "id": "M01-Q07",
+    "title": "M01-Q07 — 외래키(FK) 규칙",
+    "path": "Questions/M01-Q07.md"
+   }
+  ]
+ },
+ "N0223": {
+  "note": "Concepts/함수적 종속.md",
+  "questions": [
+   {
+    "id": "M01-Q03",
+    "title": "M01-Q03 — 부분 함수 종속 제거와 정규형",
+    "path": "Questions/M01-Q03.md"
+   },
+   {
+    "id": "M01-Q06",
+    "title": "M01-Q06 — 정규화 단계별 수행 작업",
+    "path": "Questions/M01-Q06.md"
+   },
+   {
+    "id": "M01-Q08",
+    "title": "M01-Q08 — 복합 식별자의 부분 함수 종속과 정규화 실전 적용",
+    "path": "Questions/M01-Q08.md"
+   }
+  ]
+ }
+}

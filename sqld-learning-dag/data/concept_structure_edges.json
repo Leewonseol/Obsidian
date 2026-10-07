@@ -1,0 +1,9003 @@
+{
+ "structure_nodes": [
+  {
+   "id": "N0000",
+   "name": "SQLD",
+   "kind": "ROOT"
+  },
+  {
+   "id": "N0001",
+   "name": "데이터 모델링",
+   "kind": "DOMAIN",
+   "domain": "D1"
+  },
+  {
+   "id": "N0002",
+   "name": "SQL 언어·표현식",
+   "kind": "DOMAIN",
+   "domain": "D2"
+  },
+  {
+   "id": "N0003",
+   "name": "관계 결합·집합",
+   "kind": "DOMAIN",
+   "domain": "D3"
+  },
+  {
+   "id": "N0004",
+   "name": "집계·분석·계층",
+   "kind": "DOMAIN",
+   "domain": "D4"
+  },
+  {
+   "id": "N0005",
+   "name": "데이터 관리·트랜잭션",
+   "kind": "DOMAIN",
+   "domain": "D5"
+  },
+  {
+   "id": "N0006",
+   "name": "메타 규칙·DBMS 방언",
+   "kind": "DOMAIN",
+   "domain": "D6"
+  },
+  {
+   "id": "N0007",
+   "name": "LEGACY",
+   "kind": "DOMAIN",
+   "domain": "D7"
+  },
+  {
+   "id": "N0008",
+   "name": "데이터 모델링 원리",
+   "kind": "CLUSTER",
+   "cluster": "DM0",
+   "domain": "D1"
+  },
+  {
+   "id": "N0009",
+   "name": "스키마·독립성",
+   "kind": "CLUSTER",
+   "cluster": "DM1",
+   "domain": "D1"
+  },
+  {
+   "id": "N0010",
+   "name": "엔터티",
+   "kind": "CLUSTER",
+   "cluster": "DM2",
+   "domain": "D1"
+  },
+  {
+   "id": "N0011",
+   "name": "속성·도메인",
+   "kind": "CLUSTER",
+   "cluster": "DM3",
+   "domain": "D1"
+  },
+  {
+   "id": "N0012",
+   "name": "관계·ERD",
+   "kind": "CLUSTER",
+   "cluster": "DM4",
+   "domain": "D1"
+  },
+  {
+   "id": "N0013",
+   "name": "식별자·키",
+   "kind": "CLUSTER",
+   "cluster": "DM5",
+   "domain": "D1"
+  },
+  {
+   "id": "N0014",
+   "name": "정규화·반정규화",
+   "kind": "CLUSTER",
+   "cluster": "DM6",
+   "domain": "D1"
+  },
+  {
+   "id": "N0015",
+   "name": "무결성·제약 개념",
+   "kind": "CLUSTER",
+   "cluster": "DM7",
+   "domain": "D1"
+  },
+  {
+   "id": "N0016",
+   "name": "SQL 언어 특성·논리 실행순서",
+   "kind": "CLUSTER",
+   "cluster": "SQ0",
+   "domain": "D2"
+  },
+  {
+   "id": "N0017",
+   "name": "SELECT·FROM·별칭",
+   "kind": "CLUSTER",
+   "cluster": "SQ1",
+   "domain": "D2"
+  },
+  {
+   "id": "N0018",
+   "name": "자료형·리터럴·형변환",
+   "kind": "CLUSTER",
+   "cluster": "SQ2",
+   "domain": "D2"
+  },
+  {
+   "id": "N0019",
+   "name": "NULL·3값 논리",
+   "kind": "CLUSTER",
+   "cluster": "SQ3",
+   "domain": "D2"
+  },
+  {
+   "id": "N0020",
+   "name": "WHERE·조건·패턴",
+   "kind": "CLUSTER",
+   "cluster": "SQ4",
+   "domain": "D2"
+  },
+  {
+   "id": "N0021",
+   "name": "ORDER BY·정렬",
+   "kind": "CLUSTER",
+   "cluster": "SQ5",
+   "domain": "D2"
+  },
+  {
+   "id": "N0022",
+   "name": "문자 함수",
+   "kind": "CLUSTER",
+   "cluster": "FN1",
+   "domain": "D2"
+  },
+  {
+   "id": "N0023",
+   "name": "숫자 함수",
+   "kind": "CLUSTER",
+   "cluster": "FN2",
+   "domain": "D2"
+  },
+  {
+   "id": "N0024",
+   "name": "날짜 함수",
+   "kind": "CLUSTER",
+   "cluster": "FN3",
+   "domain": "D2"
+  },
+  {
+   "id": "N0025",
+   "name": "조건·NULL·형변환 함수",
+   "kind": "CLUSTER",
+   "cluster": "FN4",
+   "domain": "D2"
+  },
+  {
+   "id": "N0026",
+   "name": "정규표현식",
+   "kind": "CLUSTER",
+   "cluster": "FN5",
+   "domain": "D2"
+  },
+  {
+   "id": "N0027",
+   "name": "JOIN",
+   "kind": "CLUSTER",
+   "cluster": "JN1",
+   "domain": "D3"
+  },
+  {
+   "id": "N0028",
+   "name": "서브쿼리·WITH/CTE",
+   "kind": "CLUSTER",
+   "cluster": "SQ6",
+   "domain": "D3"
+  },
+  {
+   "id": "N0029",
+   "name": "집합 연산자",
+   "kind": "CLUSTER",
+   "cluster": "SQ7",
+   "domain": "D3"
+  },
+  {
+   "id": "N0030",
+   "name": "집계·GROUP BY·HAVING",
+   "kind": "CLUSTER",
+   "cluster": "AG1",
+   "domain": "D4"
+  },
+  {
+   "id": "N0031",
+   "name": "그룹함수 확장",
+   "kind": "CLUSTER",
+   "cluster": "AG2",
+   "domain": "D4"
+  },
+  {
+   "id": "N0032",
+   "name": "윈도우 함수",
+   "kind": "CLUSTER",
+   "cluster": "AG3",
+   "domain": "D4"
+  },
+  {
+   "id": "N0033",
+   "name": "Top-N",
+   "kind": "CLUSTER",
+   "cluster": "AG4",
+   "domain": "D4"
+  },
+  {
+   "id": "N0034",
+   "name": "PIVOT·UNPIVOT",
+   "kind": "CLUSTER",
+   "cluster": "AG5",
+   "domain": "D4"
+  },
+  {
+   "id": "N0035",
+   "name": "계층형 질의",
+   "kind": "CLUSTER",
+   "cluster": "HQ1",
+   "domain": "D4"
+  },
+  {
+   "id": "N0036",
+   "name": "DML",
+   "kind": "CLUSTER",
+   "cluster": "MG1",
+   "domain": "D5"
+  },
+  {
+   "id": "N0037",
+   "name": "DDL·객체",
+   "kind": "CLUSTER",
+   "cluster": "MG2",
+   "domain": "D5"
+  },
+  {
+   "id": "N0038",
+   "name": "제약조건·참조동작",
+   "kind": "CLUSTER",
+   "cluster": "MG3",
+   "domain": "D5"
+  },
+  {
+   "id": "N0039",
+   "name": "VIEW",
+   "kind": "CLUSTER",
+   "cluster": "MG4",
+   "domain": "D5"
+  },
+  {
+   "id": "N0040",
+   "name": "Transaction·TCL·ACID",
+   "kind": "CLUSTER",
+   "cluster": "MG5",
+   "domain": "D5"
+  },
+  {
+   "id": "N0041",
+   "name": "DCL·권한",
+   "kind": "CLUSTER",
+   "cluster": "MG6",
+   "domain": "D5"
+  },
+  {
+   "id": "N0042",
+   "name": "DBMS 방언",
+   "kind": "CLUSTER",
+   "cluster": "XC1",
+   "domain": "D6"
+  },
+  {
+   "id": "N0043",
+   "name": "실행순서·시험 함정",
+   "kind": "CLUSTER",
+   "cluster": "XC2",
+   "domain": "D6"
+  },
+  {
+   "id": "N0044",
+   "name": "성능·인덱스·옵티마이저",
+   "kind": "CLUSTER",
+   "cluster": "LG1",
+   "domain": "D7"
+  },
+  {
+   "id": "N0045",
+   "name": "분산 데이터베이스",
+   "kind": "CLUSTER",
+   "cluster": "LG2",
+   "domain": "D7"
+  },
+  {
+   "id": "N0046",
+   "name": "PL/SQL",
+   "kind": "CLUSTER",
+   "cluster": "LG3",
+   "domain": "D7"
+  },
+  {
+   "id": "N0047",
+   "name": "물리 조인 알고리즘",
+   "kind": "CLUSTER",
+   "cluster": "LG4",
+   "domain": "D7"
+  },
+  {
+   "id": "N0048",
+   "name": "성능 데이터 모델링",
+   "kind": "CLUSTER",
+   "cluster": "LG5",
+   "domain": "D7"
+  }
+ ],
+ "edges": [
+  {
+   "source": "N0000",
+   "target": "N0001",
+   "source_name": "SQLD",
+   "target_name": "데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0002",
+   "source_name": "SQLD",
+   "target_name": "SQL 언어·표현식",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0003",
+   "source_name": "SQLD",
+   "target_name": "관계 결합·집합",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0004",
+   "source_name": "SQLD",
+   "target_name": "집계·분석·계층",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0005",
+   "source_name": "SQLD",
+   "target_name": "데이터 관리·트랜잭션",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0006",
+   "source_name": "SQLD",
+   "target_name": "메타 규칙·DBMS 방언",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0000",
+   "target": "N0007",
+   "source_name": "SQLD",
+   "target_name": "LEGACY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "최상위 지식 영역"
+  },
+  {
+   "source": "N0001",
+   "target": "N0008",
+   "source_name": "데이터 모델링",
+   "target_name": "데이터 모델링 원리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0009",
+   "source_name": "데이터 모델링",
+   "target_name": "스키마·독립성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0140",
+   "source_name": "데이터 모델링",
+   "target_name": "엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0011",
+   "source_name": "데이터 모델링",
+   "target_name": "속성·도메인",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0012",
+   "source_name": "데이터 모델링",
+   "target_name": "관계·ERD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0013",
+   "source_name": "데이터 모델링",
+   "target_name": "식별자·키",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0014",
+   "source_name": "데이터 모델링",
+   "target_name": "정규화·반정규화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0001",
+   "target": "N0015",
+   "source_name": "데이터 모델링",
+   "target_name": "무결성·제약 개념",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0016",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "SQL 언어 특성·논리 실행순서",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0017",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "SELECT·FROM·별칭",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0018",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "자료형·리터럴·형변환",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0019",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "NULL·3값 논리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0020",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "WHERE·조건·패턴",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0021",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "ORDER BY·정렬",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0022",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "문자 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0023",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "숫자 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0024",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "날짜 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0025",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "조건·NULL·형변환 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0002",
+   "target": "N0277",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "정규표현식",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0003",
+   "target": "N0301",
+   "source_name": "관계 결합·집합",
+   "target_name": "JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0003",
+   "target": "N0028",
+   "source_name": "관계 결합·집합",
+   "target_name": "서브쿼리·WITH/CTE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0003",
+   "target": "N0520",
+   "source_name": "관계 결합·집합",
+   "target_name": "집합 연산자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0030",
+   "source_name": "집계·분석·계층",
+   "target_name": "집계·GROUP BY·HAVING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0067",
+   "source_name": "집계·분석·계층",
+   "target_name": "그룹함수 확장",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0099",
+   "source_name": "집계·분석·계층",
+   "target_name": "윈도우 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0104",
+   "source_name": "집계·분석·계층",
+   "target_name": "Top-N",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0107",
+   "source_name": "집계·분석·계층",
+   "target_name": "PIVOT·UNPIVOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0004",
+   "target": "N0291",
+   "source_name": "집계·분석·계층",
+   "target_name": "계층형 질의",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0361",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "DML",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0037",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "DDL·객체",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0038",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "제약조건·참조동작",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0400",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "VIEW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0040",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "Transaction·TCL·ACID",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0005",
+   "target": "N0041",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "DCL·권한",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0006",
+   "target": "N0042",
+   "source_name": "메타 규칙·DBMS 방언",
+   "target_name": "DBMS 방언",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0006",
+   "target": "N0043",
+   "source_name": "메타 규칙·DBMS 방언",
+   "target_name": "실행순서·시험 함정",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0007",
+   "target": "N0044",
+   "source_name": "LEGACY",
+   "target_name": "성능·인덱스·옵티마이저",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0007",
+   "target": "N0340",
+   "source_name": "LEGACY",
+   "target_name": "분산 데이터베이스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0007",
+   "target": "N0349",
+   "source_name": "LEGACY",
+   "target_name": "PL/SQL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0007",
+   "target": "N0047",
+   "source_name": "LEGACY",
+   "target_name": "물리 조인 알고리즘",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0007",
+   "target": "N0359",
+   "source_name": "LEGACY",
+   "target_name": "성능 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "영역 내부 학습 클러스터"
+  },
+  {
+   "source": "N0030",
+   "target": "N0049",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "AVG",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0030",
+   "target": "N0050",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "COUNT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0050",
+   "target": "N0051",
+   "source_name": "COUNT",
+   "target_name": "COUNT(*)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0050",
+   "target": "N0052",
+   "source_name": "COUNT",
+   "target_name": "COUNT(DISTINCT)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0050",
+   "target": "N0053",
+   "source_name": "COUNT",
+   "target_name": "COUNT(열)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0030",
+   "target": "N0054",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "GROUP BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0030",
+   "target": "N0055",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "GROUP BY 확장",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0054",
+   "target": "N0056",
+   "source_name": "GROUP BY",
+   "target_name": "GROUP BY 후 ORDER BY 제약",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0030",
+   "target": "N0057",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "HAVING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0057",
+   "target": "N0058",
+   "source_name": "HAVING",
+   "target_name": "HAVING without GROUP BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0068",
+   "target": "N0059",
+   "source_name": "집계 함수",
+   "target_name": "MAX",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0068",
+   "target": "N0060",
+   "source_name": "집계 함수",
+   "target_name": "MIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0068",
+   "target": "N0061",
+   "source_name": "집계 함수",
+   "target_name": "NULL 집계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0030",
+   "target": "N0062",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "SUM",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0062",
+   "target": "N0063",
+   "source_name": "SUM",
+   "target_name": "SUM(열1+열2) vs SUM(열1)+SUM(열2)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0488",
+   "target": "N0064",
+   "source_name": "WHERE",
+   "target_name": "WHERE 집계함수 사용 불가",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0068",
+   "target": "N0065",
+   "source_name": "집계 함수",
+   "target_name": "공집합 집계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0030",
+   "target": "N0066",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "그룹 내 비율 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0030",
+   "target": "N0067",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "그룹함수 확장",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0030",
+   "target": "N0068",
+   "source_name": "집계·GROUP BY·HAVING",
+   "target_name": "집계 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0067",
+   "target": "N0069",
+   "source_name": "그룹함수 확장",
+   "target_name": "CUBE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0067",
+   "target": "N0070",
+   "source_name": "그룹함수 확장",
+   "target_name": "GROUPING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0067",
+   "target": "N0071",
+   "source_name": "그룹함수 확장",
+   "target_name": "GROUPING SETS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0067",
+   "target": "N0072",
+   "source_name": "그룹함수 확장",
+   "target_name": "ROLLUP",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0071",
+   "target": "N0073",
+   "source_name": "GROUPING SETS",
+   "target_name": "전체 총계 ()",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0074",
+   "source_name": "윈도우 함수",
+   "target_name": "CUME_DIST",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0075",
+   "source_name": "윈도우 함수",
+   "target_name": "CURRENT ROW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0076",
+   "source_name": "윈도우 함수",
+   "target_name": "DENSE_RANK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 순위 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0077",
+   "source_name": "윈도우 함수",
+   "target_name": "FIRST_VALUE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 행 위치/값 탐색 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0078",
+   "source_name": "윈도우 함수",
+   "target_name": "GROUP BY 후 윈도우 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0079",
+   "source_name": "윈도우 함수",
+   "target_name": "LAG",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 행 위치/값 탐색 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0080",
+   "source_name": "윈도우 함수",
+   "target_name": "LAST_VALUE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 행 위치/값 탐색 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0081",
+   "source_name": "윈도우 함수",
+   "target_name": "LEAD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 행 위치/값 탐색 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0082",
+   "source_name": "윈도우 함수",
+   "target_name": "MAX() OVER(PARTITION BY)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0083",
+   "source_name": "윈도우 함수",
+   "target_name": "NTILE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0084",
+   "source_name": "윈도우 함수",
+   "target_name": "PARTITION BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0085",
+   "source_name": "윈도우 함수",
+   "target_name": "PERCENT_RANK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0086",
+   "source_name": "윈도우 함수",
+   "target_name": "PRECEDING/FOLLOWING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0087",
+   "source_name": "윈도우 함수",
+   "target_name": "RANGE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0088",
+   "source_name": "윈도우 함수",
+   "target_name": "RANGE BETWEEN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0089",
+   "source_name": "윈도우 함수",
+   "target_name": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0090",
+   "source_name": "윈도우 함수",
+   "target_name": "RANK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 순위 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0091",
+   "source_name": "윈도우 함수",
+   "target_name": "RATIO_TO_REPORT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0092",
+   "source_name": "윈도우 함수",
+   "target_name": "ROWS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0093",
+   "source_name": "윈도우 함수",
+   "target_name": "ROWS PRECEDING/FOLLOWING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0094",
+   "source_name": "윈도우 함수",
+   "target_name": "ROWS/RANGE 프레임",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0095",
+   "source_name": "윈도우 함수",
+   "target_name": "ROW_NUMBER",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 순위 함수"
+  },
+  {
+   "source": "N0099",
+   "target": "N0096",
+   "source_name": "윈도우 함수",
+   "target_name": "UNBOUNDED FOLLOWING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0097",
+   "source_name": "윈도우 함수",
+   "target_name": "UNBOUNDED PRECEDING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0099",
+   "target": "N0098",
+   "source_name": "윈도우 함수",
+   "target_name": "윈도우 RANGE 프레임",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0104",
+   "target": "N0100",
+   "source_name": "Top-N",
+   "target_name": "FETCH FIRST",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0104",
+   "target": "N0101",
+   "source_name": "Top-N",
+   "target_name": "LIMIT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0104",
+   "target": "N0102",
+   "source_name": "Top-N",
+   "target_name": "ROWNUM",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0104",
+   "target": "N0103",
+   "source_name": "Top-N",
+   "target_name": "TOP",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0104",
+   "target": "N0105",
+   "source_name": "Top-N",
+   "target_name": "WITH TIES",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0107",
+   "target": "N0106",
+   "source_name": "PIVOT·UNPIVOT",
+   "target_name": "PIVOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0107",
+   "target": "N0108",
+   "source_name": "PIVOT·UNPIVOT",
+   "target_name": "UNPIVOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0114",
+   "target": "N0109",
+   "source_name": "데이터 모델링 3단계",
+   "target_name": "개념적 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0008",
+   "target": "N0110",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "개체 무결성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0008",
+   "target": "N0111",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "논리적 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0119",
+   "target": "N0112",
+   "source_name": "데이터 모델링 특징",
+   "target_name": "단순화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0116",
+   "target": "N0113",
+   "source_name": "데이터 모델링 관점",
+   "target_name": "데이터 관점",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0008",
+   "target": "N0114",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 모델링 3단계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0001",
+   "target": "N0115",
+   "source_name": "데이터 모델링",
+   "target_name": "데이터 모델링 3대 유의점",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0008",
+   "target": "N0116",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 모델링 관점",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0008",
+   "target": "N0117",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 모델링 재사용성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0008",
+   "target": "N0118",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 모델링 정의",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0008",
+   "target": "N0119",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 모델링 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0008",
+   "target": "N0120",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "데이터 용량",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0119",
+   "target": "N0121",
+   "source_name": "데이터 모델링 특징",
+   "target_name": "명확화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0114",
+   "target": "N0122",
+   "source_name": "데이터 모델링 3단계",
+   "target_name": "물리적 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0115",
+   "target": "N0123",
+   "source_name": "데이터 모델링 3대 유의점",
+   "target_name": "비유연성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0115",
+   "target": "N0124",
+   "source_name": "데이터 모델링 3대 유의점",
+   "target_name": "비일관성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0008",
+   "target": "N0125",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "슈퍼타입/서브타입",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0001",
+   "target": "N0126",
+   "source_name": "데이터 모델링",
+   "target_name": "업무 규칙",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0119",
+   "target": "N0127",
+   "source_name": "데이터 모델링 특징",
+   "target_name": "완전성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0115",
+   "target": "N0128",
+   "source_name": "데이터 모델링 3대 유의점",
+   "target_name": "중복",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0119",
+   "target": "N0129",
+   "source_name": "데이터 모델링 특징",
+   "target_name": "중복 배제",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0008",
+   "target": "N0130",
+   "source_name": "데이터 모델링 원리",
+   "target_name": "참조 무결성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0119",
+   "target": "N0131",
+   "source_name": "데이터 모델링 특징",
+   "target_name": "추상화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0009",
+   "target": "N0132",
+   "source_name": "스키마·독립성",
+   "target_name": "3단계 스키마",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0132",
+   "target": "N0133",
+   "source_name": "3단계 스키마",
+   "target_name": "개념 스키마",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0132",
+   "target": "N0134",
+   "source_name": "3단계 스키마",
+   "target_name": "내부 스키마",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0132",
+   "target": "N0135",
+   "source_name": "3단계 스키마",
+   "target_name": "데이터 독립성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0132",
+   "target": "N0136",
+   "source_name": "3단계 스키마",
+   "target_name": "외부 스키마",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0137",
+   "source_name": "관계",
+   "target_name": "관계 엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0137",
+   "target": "N0138",
+   "source_name": "관계 엔터티",
+   "target_name": "교차 엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0143",
+   "target": "N0139",
+   "source_name": "엔터티 발생시점 분류",
+   "target_name": "기본 엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0141",
+   "source_name": "엔터티",
+   "target_name": "엔터티 도출",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0140",
+   "target": "N0142",
+   "source_name": "엔터티",
+   "target_name": "엔터티 명명 규칙",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0143",
+   "source_name": "엔터티",
+   "target_name": "엔터티 발생시점 분류",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0144",
+   "source_name": "엔터티",
+   "target_name": "엔터티 분류",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0145",
+   "source_name": "엔터티",
+   "target_name": "엔터티 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0146",
+   "source_name": "엔터티",
+   "target_name": "엔터티/속성/인스턴스 구분",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0001",
+   "target": "N0147",
+   "source_name": "데이터 모델링",
+   "target_name": "엔터티/인스턴스/속성 관계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0140",
+   "target": "N0148",
+   "source_name": "엔터티",
+   "target_name": "인스턴스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0143",
+   "target": "N0149",
+   "source_name": "엔터티 발생시점 분류",
+   "target_name": "중심 엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0143",
+   "target": "N0150",
+   "source_name": "엔터티 발생시점 분류",
+   "target_name": "행위 엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0151",
+   "source_name": "속성",
+   "target_name": "기본 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0152",
+   "source_name": "속성",
+   "target_name": "다중값 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0153",
+   "source_name": "속성",
+   "target_name": "단일값 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0154",
+   "source_name": "속성",
+   "target_name": "도메인",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0155",
+   "source_name": "속성",
+   "target_name": "복합 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0159",
+   "target": "N0156",
+   "source_name": "속성 분류",
+   "target_name": "설계 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0011",
+   "target": "N0157",
+   "source_name": "속성·도메인",
+   "target_name": "속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0157",
+   "target": "N0158",
+   "source_name": "속성",
+   "target_name": "속성 명명",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0159",
+   "source_name": "속성",
+   "target_name": "속성 분류",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0160",
+   "source_name": "속성",
+   "target_name": "속성 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0161",
+   "source_name": "속성",
+   "target_name": "속성값",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0162",
+   "source_name": "속성",
+   "target_name": "일반 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0157",
+   "target": "N0163",
+   "source_name": "속성",
+   "target_name": "파생 속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0165",
+   "target": "N0164",
+   "source_name": "ERD",
+   "target_name": "Barker 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0012",
+   "target": "N0165",
+   "source_name": "관계·ERD",
+   "target_name": "ERD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0165",
+   "target": "N0166",
+   "source_name": "ERD",
+   "target_name": "ERD 선택성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0165",
+   "target": "N0167",
+   "source_name": "ERD",
+   "target_name": "ERD 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0167",
+   "target": "N0168",
+   "source_name": "ERD 표기법",
+   "target_name": "IDEFIX 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0165",
+   "target": "N0169",
+   "source_name": "ERD",
+   "target_name": "IE 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0170",
+   "source_name": "관계",
+   "target_name": "M:N 해소",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0167",
+   "target": "N0171",
+   "source_name": "ERD 표기법",
+   "target_name": "Peter Chen 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0167",
+   "target": "N0172",
+   "source_name": "ERD 표기법",
+   "target_name": "UML 표기법",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0012",
+   "target": "N0173",
+   "source_name": "관계·ERD",
+   "target_name": "관계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0173",
+   "target": "N0174",
+   "source_name": "관계",
+   "target_name": "관계 선택성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0175",
+   "source_name": "관계",
+   "target_name": "관계 차수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0176",
+   "source_name": "관계",
+   "target_name": "관계명",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0001",
+   "target": "N0177",
+   "source_name": "데이터 모델링",
+   "target_name": "관계형 모델",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0178",
+   "source_name": "관계",
+   "target_name": "상호배타 관계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0174",
+   "target": "N0179",
+   "source_name": "관계 선택성",
+   "target_name": "선택 참여",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0174",
+   "target": "N0180",
+   "source_name": "관계 선택성",
+   "target_name": "필수 참여",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0181",
+   "source_name": "식별자",
+   "target_name": "FK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0182",
+   "source_name": "식별자",
+   "target_name": "PK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0183",
+   "source_name": "식별자",
+   "target_name": "내부 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0184",
+   "source_name": "식별자",
+   "target_name": "단일 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0197",
+   "target": "N0185",
+   "source_name": "인조 식별자",
+   "target_name": "대리키",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0192",
+   "target": "N0186",
+   "source_name": "식별 관계",
+   "target_name": "동일 생명주기",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0187",
+   "source_name": "식별자",
+   "target_name": "보조 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0188",
+   "source_name": "식별자",
+   "target_name": "복합 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0189",
+   "source_name": "식별자",
+   "target_name": "복합키",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0190",
+   "source_name": "식별자",
+   "target_name": "본질 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0191",
+   "source_name": "관계",
+   "target_name": "비식별 관계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0173",
+   "target": "N0192",
+   "source_name": "관계",
+   "target_name": "식별 관계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0013",
+   "target": "N0193",
+   "source_name": "식별자·키",
+   "target_name": "식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0193",
+   "target": "N0194",
+   "source_name": "식별자",
+   "target_name": "식별자 명명 규칙",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0195",
+   "source_name": "식별자",
+   "target_name": "식별자 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0196",
+   "source_name": "식별자",
+   "target_name": "외부 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0197",
+   "source_name": "식별자",
+   "target_name": "인조 식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0198",
+   "source_name": "식별자",
+   "target_name": "주식별자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0199",
+   "source_name": "주식별자",
+   "target_name": "주식별자 도출",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0200",
+   "source_name": "주식별자",
+   "target_name": "주식별자 불변성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0192",
+   "target": "N0201",
+   "source_name": "식별 관계",
+   "target_name": "주식별자 상속",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0202",
+   "source_name": "주식별자",
+   "target_name": "주식별자 선정",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0203",
+   "source_name": "주식별자",
+   "target_name": "주식별자 선택",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0204",
+   "source_name": "주식별자",
+   "target_name": "주식별자 유일성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0205",
+   "source_name": "주식별자",
+   "target_name": "주식별자 존재성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0206",
+   "source_name": "주식별자",
+   "target_name": "주식별자 최소성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0198",
+   "target": "N0207",
+   "source_name": "주식별자",
+   "target_name": "주식별자 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0193",
+   "target": "N0208",
+   "source_name": "식별자",
+   "target_name": "후보키",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0209",
+   "source_name": "정규화",
+   "target_name": "1NF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0210",
+   "source_name": "정규화",
+   "target_name": "2NF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0211",
+   "source_name": "정규화",
+   "target_name": "3NF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0212",
+   "source_name": "정규화",
+   "target_name": "BCNF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0213",
+   "source_name": "반정규화",
+   "target_name": "관계 반정규화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0214",
+   "source_name": "반정규화",
+   "target_name": "무결성 저하",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0014",
+   "target": "N0215",
+   "source_name": "정규화·반정규화",
+   "target_name": "반정규화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0223",
+   "target": "N0216",
+   "source_name": "함수적 종속",
+   "target_name": "부분 함수 종속",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0217",
+   "source_name": "반정규화",
+   "target_name": "수직 분할",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0218",
+   "source_name": "정규화",
+   "target_name": "이상현상",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0223",
+   "target": "N0219",
+   "source_name": "함수적 종속",
+   "target_name": "이행 함수 종속",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0014",
+   "target": "N0220",
+   "source_name": "정규화·반정규화",
+   "target_name": "정규화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0215",
+   "target": "N0221",
+   "source_name": "반정규화",
+   "target_name": "컬럼 반정규화",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0222",
+   "source_name": "반정규화",
+   "target_name": "컬럼 중복",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0220",
+   "target": "N0223",
+   "source_name": "정규화",
+   "target_name": "함수적 종속",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0130",
+   "target": "N0224",
+   "source_name": "참조 무결성",
+   "target_name": "ON DELETE CASCADE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0445",
+   "target": "N0225",
+   "source_name": "제약조건",
+   "target_name": "도메인 무결성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0226",
+   "source_name": "문자형 함수",
+   "target_name": "ASCII",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0227",
+   "source_name": "문자형 함수",
+   "target_name": "CONCAT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0228",
+   "source_name": "문자형 함수",
+   "target_name": "INSTR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0229",
+   "source_name": "문자형 함수",
+   "target_name": "LEN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0230",
+   "source_name": "문자형 함수",
+   "target_name": "LENGTH",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0231",
+   "source_name": "문자형 함수",
+   "target_name": "LENGTHB",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0232",
+   "source_name": "문자형 함수",
+   "target_name": "LOWER",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0233",
+   "source_name": "문자형 함수",
+   "target_name": "LPAD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0234",
+   "source_name": "문자형 함수",
+   "target_name": "LTRIM",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0235",
+   "source_name": "문자형 함수",
+   "target_name": "REPLACE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0236",
+   "source_name": "문자형 함수",
+   "target_name": "RTRIM",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0237",
+   "source_name": "문자형 함수",
+   "target_name": "SUBSTR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0237",
+   "target": "N0238",
+   "source_name": "SUBSTR",
+   "target_name": "SUBSTR 음수 위치",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0239",
+   "source_name": "문자형 함수",
+   "target_name": "TRIM",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0243",
+   "target": "N0240",
+   "source_name": "문자형 함수",
+   "target_name": "UPPER",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0022",
+   "target": "N0241",
+   "source_name": "문자 함수",
+   "target_name": "단일행 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0068",
+   "target": "N0242",
+   "source_name": "집계 함수",
+   "target_name": "문자형 MIN/MAX",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0022",
+   "target": "N0243",
+   "source_name": "문자 함수",
+   "target_name": "문자형 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0022",
+   "target": "N0244",
+   "source_name": "문자 함수",
+   "target_name": "숫자형 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0244",
+   "target": "N0245",
+   "source_name": "숫자형 함수",
+   "target_name": "CEIL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0244",
+   "target": "N0246",
+   "source_name": "숫자형 함수",
+   "target_name": "FLOOR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0244",
+   "target": "N0247",
+   "source_name": "숫자형 함수",
+   "target_name": "MOD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0244",
+   "target": "N0248",
+   "source_name": "숫자형 함수",
+   "target_name": "ROUND",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0244",
+   "target": "N0249",
+   "source_name": "숫자형 함수",
+   "target_name": "TRUNC",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0024",
+   "target": "N0250",
+   "source_name": "날짜 함수",
+   "target_name": "DATE_FORMAT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0024",
+   "target": "N0251",
+   "source_name": "날짜 함수",
+   "target_name": "EXTRACT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0024",
+   "target": "N0252",
+   "source_name": "날짜 함수",
+   "target_name": "Oracle 날짜 연산",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0255",
+   "target": "N0253",
+   "source_name": "TO_CHAR",
+   "target_name": "Oracle 날짜 포맷",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0024",
+   "target": "N0254",
+   "source_name": "날짜 함수",
+   "target_name": "SYSDATE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0024",
+   "target": "N0255",
+   "source_name": "날짜 함수",
+   "target_name": "TO_CHAR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0024",
+   "target": "N0256",
+   "source_name": "날짜 함수",
+   "target_name": "TO_DATE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0256",
+   "target": "N0257",
+   "source_name": "TO_DATE",
+   "target_name": "TO_DATE 기본값",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0025",
+   "target": "N0258",
+   "source_name": "조건·NULL·형변환 함수",
+   "target_name": "CASE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0464",
+   "target": "N0259",
+   "source_name": "NULL",
+   "target_name": "COALESCE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0025",
+   "target": "N0260",
+   "source_name": "조건·NULL·형변환 함수",
+   "target_name": "DECODE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0464",
+   "target": "N0261",
+   "source_name": "NULL",
+   "target_name": "NULLIF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0262",
+   "source_name": "NULL",
+   "target_name": "NVL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0263",
+   "source_name": "NULL",
+   "target_name": "NVL2",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0278",
+   "target": "N0264",
+   "source_name": "정규표현식 함수",
+   "target_name": "REGEXP_COUNT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0278",
+   "target": "N0265",
+   "source_name": "정규표현식 함수",
+   "target_name": "REGEXP_INSTR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0278",
+   "target": "N0266",
+   "source_name": "정규표현식 함수",
+   "target_name": "REGEXP_LIKE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0278",
+   "target": "N0267",
+   "source_name": "정규표현식 함수",
+   "target_name": "REGEXP_REPLACE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0278",
+   "target": "N0268",
+   "source_name": "정규표현식 함수",
+   "target_name": "REGEXP_SUBSTR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0269",
+   "source_name": "정규표현식",
+   "target_name": "정규식 $",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0270",
+   "source_name": "정규표현식",
+   "target_name": "정규식 *",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0271",
+   "source_name": "정규표현식",
+   "target_name": "정규식 +",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0272",
+   "source_name": "정규표현식",
+   "target_name": "정규식 ?",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0273",
+   "source_name": "정규표현식",
+   "target_name": "정규식 \\w",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0274",
+   "source_name": "정규표현식",
+   "target_name": "정규식 ^",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0275",
+   "source_name": "정규표현식",
+   "target_name": "정규식 {m,}",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0276",
+   "source_name": "정규표현식",
+   "target_name": "정규식 메타문자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0277",
+   "target": "N0278",
+   "source_name": "정규표현식",
+   "target_name": "정규표현식 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0291",
+   "target": "N0279",
+   "source_name": "계층형 질의",
+   "target_name": "CONNECT BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0280",
+   "source_name": "계층형 질의",
+   "target_name": "CONNECT_BY_ISCYCLE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0281",
+   "source_name": "계층형 질의",
+   "target_name": "CONNECT_BY_ISLEAF",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0282",
+   "source_name": "계층형 질의",
+   "target_name": "CONNECT_BY_ROOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0283",
+   "source_name": "계층형 질의",
+   "target_name": "LEVEL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0284",
+   "source_name": "계층형 질의",
+   "target_name": "NOCYCLE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0285",
+   "source_name": "계층형 질의",
+   "target_name": "ORDER SIBLINGS BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0286",
+   "source_name": "계층형 질의",
+   "target_name": "PRIOR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0287",
+   "source_name": "계층형 질의",
+   "target_name": "START WITH",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0288",
+   "source_name": "계층형 질의",
+   "target_name": "SYS_CONNECT_BY_PATH",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0289",
+   "source_name": "계층형 질의",
+   "target_name": "WHERE 후 계층 필터",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0290",
+   "source_name": "계층형 질의",
+   "target_name": "계층 전개 NULL 종료",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0292",
+   "source_name": "계층형 질의",
+   "target_name": "계층형 질의 WHERE 후필터",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0293",
+   "source_name": "계층형 질의",
+   "target_name": "순방향 계층 전개",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0294",
+   "source_name": "계층형 질의",
+   "target_name": "역방향 계층 전개",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0291",
+   "target": "N0295",
+   "source_name": "계층형 질의",
+   "target_name": "재귀 CTE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0296",
+   "source_name": "JOIN",
+   "target_name": "CARTESIAN PRODUCT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0297",
+   "source_name": "JOIN",
+   "target_name": "CROSS JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0298",
+   "source_name": "JOIN",
+   "target_name": "EQUI JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0308",
+   "target": "N0299",
+   "source_name": "OUTER JOIN",
+   "target_name": "FULL OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / OUTER JOIN 종류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0300",
+   "source_name": "JOIN",
+   "target_name": "INNER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0308",
+   "target": "N0302",
+   "source_name": "OUTER JOIN",
+   "target_name": "LEFT OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / OUTER JOIN 종류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0303",
+   "source_name": "JOIN",
+   "target_name": "N-1 조인 조건",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0304",
+   "source_name": "JOIN",
+   "target_name": "NATURAL JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0305",
+   "source_name": "JOIN",
+   "target_name": "NON-EQUI JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0306",
+   "source_name": "JOIN",
+   "target_name": "ON",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0307",
+   "source_name": "JOIN",
+   "target_name": "ON vs WHERE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0308",
+   "source_name": "JOIN",
+   "target_name": "OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0308",
+   "target": "N0309",
+   "source_name": "OUTER JOIN",
+   "target_name": "OUTER JOIN 조건 위치",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0308",
+   "target": "N0310",
+   "source_name": "OUTER JOIN",
+   "target_name": "Oracle (+) OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0308",
+   "target": "N0311",
+   "source_name": "OUTER JOIN",
+   "target_name": "RIGHT OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / OUTER JOIN 종류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0312",
+   "source_name": "JOIN",
+   "target_name": "USING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0301",
+   "target": "N0313",
+   "source_name": "JOIN",
+   "target_name": "모호한 컬럼",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0308",
+   "target": "N0314",
+   "source_name": "OUTER JOIN",
+   "target_name": "보존 테이블",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0315",
+   "source_name": "JOIN",
+   "target_name": "복합 FK 조인",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0316",
+   "source_name": "JOIN",
+   "target_name": "셀프 조인",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0308",
+   "target": "N0317",
+   "source_name": "OUTER JOIN",
+   "target_name": "연속 OUTER JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0318",
+   "source_name": "JOIN",
+   "target_name": "조인 중복 증폭",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0319",
+   "source_name": "인덱스",
+   "target_name": "B-Tree 인덱스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0320",
+   "source_name": "인덱스",
+   "target_name": "CLUSTERED INDEX",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0321",
+   "source_name": "인덱스",
+   "target_name": "FK 인덱스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0322",
+   "source_name": "인덱스",
+   "target_name": "Full Table Scan",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0339",
+   "target": "N0323",
+   "source_name": "파티셔닝",
+   "target_name": "HASH 파티션",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0324",
+   "source_name": "인덱스",
+   "target_name": "IOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0325",
+   "source_name": "인덱스",
+   "target_name": "Index Scan",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0339",
+   "target": "N0326",
+   "source_name": "파티셔닝",
+   "target_name": "LIST 파티션",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0339",
+   "target": "N0327",
+   "source_name": "파티셔닝",
+   "target_name": "RANGE 파티션",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0335",
+   "target": "N0328",
+   "source_name": "인덱스",
+   "target_name": "UNIQUE INDEX SCAN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0125",
+   "target": "N0329",
+   "source_name": "슈퍼타입/서브타입",
+   "target_name": "개별 타입",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0044",
+   "target": "N0330",
+   "source_name": "성능·인덱스·옵티마이저",
+   "target_name": "규칙 기반 옵티마이저",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0044",
+   "target": "N0331",
+   "source_name": "성능·인덱스·옵티마이저",
+   "target_name": "비용 기반 옵티마이저",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0125",
+   "target": "N0332",
+   "source_name": "슈퍼타입/서브타입",
+   "target_name": "슈퍼/서브타입 변환",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0044",
+   "target": "N0333",
+   "source_name": "성능·인덱스·옵티마이저",
+   "target_name": "실행계획",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0333",
+   "target": "N0334",
+   "source_name": "실행계획",
+   "target_name": "실행계획 읽기 순서",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0044",
+   "target": "N0335",
+   "source_name": "성능·인덱스·옵티마이저",
+   "target_name": "인덱스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0215",
+   "target": "N0336",
+   "source_name": "반정규화",
+   "target_name": "컬럼 분할",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0337",
+   "source_name": "반정규화",
+   "target_name": "테이블 병합",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0215",
+   "target": "N0338",
+   "source_name": "반정규화",
+   "target_name": "통계 테이블 추가",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0044",
+   "target": "N0339",
+   "source_name": "성능·인덱스·옵티마이저",
+   "target_name": "파티셔닝",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0340",
+   "target": "N0341",
+   "source_name": "분산 데이터베이스",
+   "target_name": "분할 투명성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0340",
+   "target": "N0342",
+   "source_name": "분산 데이터베이스",
+   "target_name": "위치 투명성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0340",
+   "target": "N0343",
+   "source_name": "분산 데이터베이스",
+   "target_name": "중복 투명성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0340",
+   "target": "N0344",
+   "source_name": "분산 데이터베이스",
+   "target_name": "지역사상 투명성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0349",
+   "target": "N0345",
+   "source_name": "PL/SQL",
+   "target_name": "CURSOR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0345",
+   "target": "N0346",
+   "source_name": "CURSOR",
+   "target_name": "CURSOR CLOSE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0345",
+   "target": "N0347",
+   "source_name": "CURSOR",
+   "target_name": "CURSOR FETCH",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0345",
+   "target": "N0348",
+   "source_name": "CURSOR",
+   "target_name": "CURSOR OPEN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0349",
+   "target": "N0350",
+   "source_name": "PL/SQL",
+   "target_name": "PL/SQL 변수 범위",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0349",
+   "target": "N0351",
+   "source_name": "PL/SQL",
+   "target_name": "PL/SQL 블록",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0356",
+   "target": "N0352",
+   "source_name": "조인 수행 원리",
+   "target_name": "HASH JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0352",
+   "target": "N0353",
+   "source_name": "HASH JOIN",
+   "target_name": "Hash Join Build/Probe",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0356",
+   "target": "N0354",
+   "source_name": "조인 수행 원리",
+   "target_name": "NESTED LOOP JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0356",
+   "target": "N0355",
+   "source_name": "조인 수행 원리",
+   "target_name": "Sort Merge Join",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0301",
+   "target": "N0356",
+   "source_name": "JOIN",
+   "target_name": "조인 수행 원리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0359",
+   "target": "N0357",
+   "source_name": "성능 데이터 모델링",
+   "target_name": "Row Chaining",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0359",
+   "target": "N0358",
+   "source_name": "성능 데이터 모델링",
+   "target_name": "Row Migration",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0001",
+   "target": "N0359",
+   "source_name": "데이터 모델링",
+   "target_name": "성능 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0361",
+   "target": "N0360",
+   "source_name": "DML",
+   "target_name": "DELETE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0361",
+   "target": "N0362",
+   "source_name": "DML",
+   "target_name": "INSERT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0362",
+   "target": "N0363",
+   "source_name": "INSERT",
+   "target_name": "INSERT ALL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0362",
+   "target": "N0364",
+   "source_name": "INSERT",
+   "target_name": "INSERT FIRST",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0361",
+   "target": "N0365",
+   "source_name": "DML",
+   "target_name": "MERGE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0365",
+   "target": "N0366",
+   "source_name": "MERGE",
+   "target_name": "MERGE DELETE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0365",
+   "target": "N0367",
+   "source_name": "MERGE",
+   "target_name": "MERGE MATCHED",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0365",
+   "target": "N0368",
+   "source_name": "MERGE",
+   "target_name": "MERGE NOT MATCHED",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0361",
+   "target": "N0369",
+   "source_name": "DML",
+   "target_name": "UPDATE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0365",
+   "target": "N0370",
+   "source_name": "MERGE",
+   "target_name": "UPSERT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0371",
+   "source_name": "ALTER",
+   "target_name": "ADD COLUMN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0372",
+   "source_name": "ALTER",
+   "target_name": "ADD CONSTRAINT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0373",
+   "source_name": "DDL",
+   "target_name": "ALTER",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0374",
+   "source_name": "ALTER",
+   "target_name": "ALTER COLUMN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0375",
+   "source_name": "ALTER",
+   "target_name": "ALTER TABLE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0376",
+   "source_name": "ALTER",
+   "target_name": "ALTER TABLE ADD",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0377",
+   "source_name": "ALTER",
+   "target_name": "ALTER/MODIFY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0378",
+   "source_name": "DDL",
+   "target_name": "CREATE INDEX",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0379",
+   "source_name": "DDL",
+   "target_name": "CREATE TABLE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0037",
+   "target": "N0380",
+   "source_name": "DDL·객체",
+   "target_name": "DDL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0380",
+   "target": "N0381",
+   "source_name": "DDL",
+   "target_name": "DROP",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0382",
+   "source_name": "ALTER",
+   "target_name": "DROP COLUMN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0383",
+   "source_name": "ALTER",
+   "target_name": "DROP CONSTRAINT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0384",
+   "source_name": "DDL",
+   "target_name": "DROP INDEX",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0381",
+   "target": "N0385",
+   "source_name": "DROP",
+   "target_name": "DROP 의존성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0386",
+   "source_name": "DDL",
+   "target_name": "IDENTITY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0387",
+   "source_name": "ALTER",
+   "target_name": "MODIFY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0037",
+   "target": "N0388",
+   "source_name": "DDL·객체",
+   "target_name": "Oracle DDL 자동 커밋",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0380",
+   "target": "N0389",
+   "source_name": "DDL",
+   "target_name": "Oracle/SQL Server DDL 차이",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0390",
+   "source_name": "DDL",
+   "target_name": "RENAME",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0373",
+   "target": "N0391",
+   "source_name": "ALTER",
+   "target_name": "RENAME COLUMN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0037",
+   "target": "N0392",
+   "source_name": "DDL·객체",
+   "target_name": "SQL Server 트랜잭션",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0380",
+   "target": "N0393",
+   "source_name": "DDL",
+   "target_name": "TRUNCATE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0399",
+   "target": "N0394",
+   "source_name": "데이터 무결성 유지",
+   "target_name": "트리거",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0038",
+   "target": "N0395",
+   "source_name": "제약조건·참조동작",
+   "target_name": "CASCADE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0381",
+   "target": "N0396",
+   "source_name": "DROP",
+   "target_name": "CASCADE CONSTRAINTS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0038",
+   "target": "N0397",
+   "source_name": "제약조건·참조동작",
+   "target_name": "DROP CASCADE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0432",
+   "target": "N0398",
+   "source_name": "CTAS",
+   "target_name": "PK 제약 비상속",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0445",
+   "target": "N0399",
+   "source_name": "제약조건",
+   "target_name": "데이터 무결성 유지",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0400",
+   "target": "N0401",
+   "source_name": "VIEW",
+   "target_name": "VIEW 의존성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0409",
+   "target": "N0402",
+   "source_name": "Transaction",
+   "target_name": "ACID",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0409",
+   "target": "N0403",
+   "source_name": "Transaction",
+   "target_name": "AUTO COMMIT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0408",
+   "target": "N0404",
+   "source_name": "TCL",
+   "target_name": "COMMIT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0408",
+   "target": "N0405",
+   "source_name": "TCL",
+   "target_name": "ROLLBACK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0407",
+   "target": "N0406",
+   "source_name": "SAVEPOINT",
+   "target_name": "ROLLBACK TO SAVEPOINT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0408",
+   "target": "N0407",
+   "source_name": "TCL",
+   "target_name": "SAVEPOINT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0040",
+   "target": "N0408",
+   "source_name": "Transaction·TCL·ACID",
+   "target_name": "TCL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0040",
+   "target": "N0409",
+   "source_name": "Transaction·TCL·ACID",
+   "target_name": "Transaction",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0402",
+   "target": "N0410",
+   "source_name": "ACID",
+   "target_name": "격리성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0402",
+   "target": "N0411",
+   "source_name": "ACID",
+   "target_name": "원자성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0402",
+   "target": "N0412",
+   "source_name": "ACID",
+   "target_name": "일관성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0402",
+   "target": "N0413",
+   "source_name": "ACID",
+   "target_name": "지속성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0041",
+   "target": "N0414",
+   "source_name": "DCL·권한",
+   "target_name": "DCL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0414",
+   "target": "N0415",
+   "source_name": "DCL",
+   "target_name": "GRANT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0416",
+   "source_name": "DCL",
+   "target_name": "GRANT OPTION",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0417",
+   "source_name": "DCL",
+   "target_name": "REVOKE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0418",
+   "source_name": "DCL",
+   "target_name": "REVOKE RESTRICT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0419",
+   "source_name": "DCL",
+   "target_name": "ROLE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0415",
+   "target": "N0420",
+   "source_name": "GRANT",
+   "target_name": "TO",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0422",
+   "target": "N0421",
+   "source_name": "객체 권한",
+   "target_name": "UPDATE 권한",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0422",
+   "source_name": "DCL",
+   "target_name": "객체 권한",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0423",
+   "source_name": "DCL",
+   "target_name": "권한 연쇄 회수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0414",
+   "target": "N0424",
+   "source_name": "DCL",
+   "target_name": "시스템 권한",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0016",
+   "target": "N0425",
+   "source_name": "SQL 언어 특성·논리 실행순서",
+   "target_name": "SQL 논리 실행 순서",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0429",
+   "target": "N0426",
+   "source_name": "SQL의 특징",
+   "target_name": "SQL 비절차성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0429",
+   "target": "N0427",
+   "source_name": "SQL의 특징",
+   "target_name": "SQL 선언적 언어",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0429",
+   "target": "N0428",
+   "source_name": "SQL의 특징",
+   "target_name": "SQL 집합적 언어",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0016",
+   "target": "N0429",
+   "source_name": "SQL 언어 특성·논리 실행순서",
+   "target_name": "SQL의 특징",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0437",
+   "target": "N0430",
+   "source_name": "SELECT",
+   "target_name": "ALIAS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0445",
+   "target": "N0431",
+   "source_name": "제약조건",
+   "target_name": "CHECK",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0017",
+   "target": "N0432",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "CTAS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0380",
+   "target": "N0433",
+   "source_name": "DDL",
+   "target_name": "DEFAULT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0433",
+   "target": "N0434",
+   "source_name": "DEFAULT",
+   "target_name": "DEFAULT 변경",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0017",
+   "target": "N0435",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "DISTINCT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0017",
+   "target": "N0436",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "IN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0017",
+   "target": "N0437",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "SELECT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0445",
+   "target": "N0438",
+   "source_name": "제약조건",
+   "target_name": "UNIQUE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0438",
+   "target": "N0439",
+   "source_name": "UNIQUE",
+   "target_name": "UNIQUE 키워드",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0380",
+   "target": "N0440",
+   "source_name": "DDL",
+   "target_name": "객체명 규칙",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0437",
+   "target": "N0441",
+   "source_name": "SELECT",
+   "target_name": "공집합",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0248",
+   "target": "N0442",
+   "source_name": "ROUND",
+   "target_name": "날짜 ROUND",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0249",
+   "target": "N0443",
+   "source_name": "TRUNC",
+   "target_name": "날짜 TRUNC",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0017",
+   "target": "N0444",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "문자 비교",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0017",
+   "target": "N0445",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "제약조건",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0430",
+   "target": "N0446",
+   "source_name": "ALIAS",
+   "target_name": "컬럼 별칭 대소문자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0017",
+   "target": "N0447",
+   "source_name": "SELECT·FROM·별칭",
+   "target_name": "테이블 별칭",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0456",
+   "target": "N0448",
+   "source_name": "자료형",
+   "target_name": "CHAR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0448",
+   "target": "N0449",
+   "source_name": "CHAR",
+   "target_name": "CHAR 후행 공백",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0456",
+   "target": "N0450",
+   "source_name": "자료형",
+   "target_name": "DATE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0456",
+   "target": "N0451",
+   "source_name": "자료형",
+   "target_name": "NUMERIC",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0456",
+   "target": "N0452",
+   "source_name": "자료형",
+   "target_name": "VARCHAR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0456",
+   "target": "N0453",
+   "source_name": "자료형",
+   "target_name": "명시적 형변환",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0018",
+   "target": "N0454",
+   "source_name": "자료형·리터럴·형변환",
+   "target_name": "문자 리터럴 따옴표 이스케이프",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0456",
+   "target": "N0455",
+   "source_name": "자료형",
+   "target_name": "암시적 형변환",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0018",
+   "target": "N0456",
+   "source_name": "자료형·리터럴·형변환",
+   "target_name": "자료형",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0373",
+   "target": "N0457",
+   "source_name": "ALTER",
+   "target_name": "자료형 변경",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0458",
+   "source_name": "NULL",
+   "target_name": "DISTINCT NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0459",
+   "source_name": "NULL",
+   "target_name": "GROUP BY NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0460",
+   "source_name": "NULL",
+   "target_name": "IN + NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0461",
+   "source_name": "NULL",
+   "target_name": "IS NOT NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0019",
+   "target": "N0462",
+   "source_name": "NULL·3값 논리",
+   "target_name": "IS NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0019",
+   "target": "N0463",
+   "source_name": "NULL·3값 논리",
+   "target_name": "NOT NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0019",
+   "target": "N0464",
+   "source_name": "NULL·3값 논리",
+   "target_name": "NULL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0464",
+   "target": "N0465",
+   "source_name": "NULL",
+   "target_name": "NULL 비교",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0466",
+   "source_name": "NULL",
+   "target_name": "NULL 산술 연산",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0019",
+   "target": "N0467",
+   "source_name": "NULL·3값 논리",
+   "target_name": "NULL 정렬",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0497",
+   "target": "N0468",
+   "source_name": "ORDER BY",
+   "target_name": "NULLS FIRST",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0469",
+   "source_name": "ORDER BY",
+   "target_name": "NULLS LAST",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0470",
+   "source_name": "ORDER BY",
+   "target_name": "Oracle NULL 정렬",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0471",
+   "source_name": "ORDER BY",
+   "target_name": "SQL Server NULL 정렬",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0472",
+   "source_name": "NULL",
+   "target_name": "UNKNOWN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0464",
+   "target": "N0473",
+   "source_name": "NULL",
+   "target_name": "빈 문자열과 NULL(Oracle)",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0020",
+   "target": "N0474",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "AND",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0020",
+   "target": "N0475",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "AND/OR 우선순위",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0020",
+   "target": "N0476",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "BETWEEN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0476",
+   "target": "N0477",
+   "source_name": "BETWEEN",
+   "target_name": "BETWEEN 경계 포함",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0020",
+   "target": "N0478",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "IN·NOT IN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0020",
+   "target": "N0479",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "LIKE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0479",
+   "target": "N0480",
+   "source_name": "LIKE",
+   "target_name": "LIKE ESCAPE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0479",
+   "target": "N0481",
+   "source_name": "LIKE",
+   "target_name": "LIKE 컬럼 패턴",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0020",
+   "target": "N0482",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "NOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0020",
+   "target": "N0483",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "NOT IN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0020",
+   "target": "N0484",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "OR",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0437",
+   "target": "N0485",
+   "source_name": "SELECT",
+   "target_name": "SELECT INTO",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0430",
+   "target": "N0486",
+   "source_name": "ALIAS",
+   "target_name": "SELECT 별칭 WHERE 사용 불가",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0479",
+   "target": "N0487",
+   "source_name": "LIKE",
+   "target_name": "SQL Server LIKE []",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0020",
+   "target": "N0488",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "WHERE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0488",
+   "target": "N0489",
+   "source_name": "WHERE",
+   "target_name": "날짜 경계",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0488",
+   "target": "N0490",
+   "source_name": "WHERE",
+   "target_name": "날짜 반개방 구간",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0488",
+   "target": "N0491",
+   "source_name": "WHERE",
+   "target_name": "날짜 범위 조회",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0488",
+   "target": "N0492",
+   "source_name": "WHERE",
+   "target_name": "연산자 우선순위",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0479",
+   "target": "N0493",
+   "source_name": "LIKE",
+   "target_name": "와일드카드",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0020",
+   "target": "N0494",
+   "source_name": "WHERE·조건·패턴",
+   "target_name": "행값 IN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0497",
+   "target": "N0495",
+   "source_name": "ORDER BY",
+   "target_name": "ASC",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0496",
+   "source_name": "ORDER BY",
+   "target_name": "DESC",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0021",
+   "target": "N0497",
+   "source_name": "ORDER BY·정렬",
+   "target_name": "ORDER BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0497",
+   "target": "N0498",
+   "source_name": "ORDER BY",
+   "target_name": "ORDER BY CASE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0499",
+   "source_name": "ORDER BY",
+   "target_name": "ORDER BY 별칭",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0500",
+   "source_name": "ORDER BY",
+   "target_name": "ORDER BY 순서번호",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0497",
+   "target": "N0501",
+   "source_name": "ORDER BY",
+   "target_name": "다중 열 ORDER BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0511",
+   "target": "N0502",
+   "source_name": "서브쿼리",
+   "target_name": "ALL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0511",
+   "target": "N0503",
+   "source_name": "서브쿼리",
+   "target_name": "ANY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0507",
+   "target": "N0504",
+   "source_name": "WITH 절",
+   "target_name": "CTE",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0028",
+   "target": "N0505",
+   "source_name": "서브쿼리·WITH/CTE",
+   "target_name": "EXISTS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0511",
+   "target": "N0506",
+   "source_name": "서브쿼리",
+   "target_name": "NOT EXISTS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0511",
+   "target": "N0507",
+   "source_name": "서브쿼리",
+   "target_name": "WITH 절",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0511",
+   "target": "N0508",
+   "source_name": "서브쿼리",
+   "target_name": "다중행 서브쿼리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 서브쿼리 유형"
+  },
+  {
+   "source": "N0511",
+   "target": "N0509",
+   "source_name": "서브쿼리",
+   "target_name": "단일행 서브쿼리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 서브쿼리 유형"
+  },
+  {
+   "source": "N0511",
+   "target": "N0510",
+   "source_name": "서브쿼리",
+   "target_name": "상관 서브쿼리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 서브쿼리 유형"
+  },
+  {
+   "source": "N0028",
+   "target": "N0511",
+   "source_name": "서브쿼리·WITH/CTE",
+   "target_name": "서브쿼리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "재구성한 1차 분류"
+  },
+  {
+   "source": "N0511",
+   "target": "N0512",
+   "source_name": "서브쿼리",
+   "target_name": "서브쿼리 ORDER BY 제한",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0511",
+   "target": "N0513",
+   "source_name": "서브쿼리",
+   "target_name": "스칼라 서브쿼리",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 서브쿼리 유형"
+  },
+  {
+   "source": "N0511",
+   "target": "N0514",
+   "source_name": "서브쿼리",
+   "target_name": "인라인 뷰",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO",
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO",
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "Concept Master의 상위 Concept / 서브쿼리 유형"
+  },
+  {
+   "source": "N0520",
+   "target": "N0515",
+   "source_name": "집합 연산자",
+   "target_name": "EXCEPT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0516",
+   "source_name": "집합 연산자",
+   "target_name": "INTERSECT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0517",
+   "source_name": "집합 연산자",
+   "target_name": "MINUS",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0518",
+   "source_name": "집합 연산자",
+   "target_name": "UNION",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0519",
+   "source_name": "집합 연산자",
+   "target_name": "UNION ALL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0521",
+   "source_name": "집합 연산자",
+   "target_name": "집합 연산자 ORDER BY",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0522",
+   "source_name": "집합 연산자",
+   "target_name": "집합 연산자 우선순위",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0520",
+   "target": "N0523",
+   "source_name": "집합 연산자",
+   "target_name": "집합 연산자 컬럼 호환성",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "Concept Master의 상위 Concept"
+  },
+  {
+   "source": "N0042",
+   "target": "N0524",
+   "source_name": "DBMS 방언",
+   "target_name": "ANSI/ISO SQL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "DBMS/표준별 문법 기준"
+  },
+  {
+   "source": "N0042",
+   "target": "N0525",
+   "source_name": "DBMS 방언",
+   "target_name": "Oracle SQL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "DBMS/표준별 문법 기준"
+  },
+  {
+   "source": "N0042",
+   "target": "N0526",
+   "source_name": "DBMS 방언",
+   "target_name": "SQL Server",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "DBMS/표준별 문법 기준"
+  },
+  {
+   "source": "N0094",
+   "target": "N0075",
+   "source_name": "ROWS/RANGE 프레임",
+   "target_name": "CURRENT ROW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "윈도우 프레임 경계"
+  },
+  {
+   "source": "N0094",
+   "target": "N0097",
+   "source_name": "ROWS/RANGE 프레임",
+   "target_name": "UNBOUNDED PRECEDING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "윈도우 프레임 경계"
+  },
+  {
+   "source": "N0094",
+   "target": "N0096",
+   "source_name": "ROWS/RANGE 프레임",
+   "target_name": "UNBOUNDED FOLLOWING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "윈도우 프레임 경계"
+  },
+  {
+   "source": "N0094",
+   "target": "N0086",
+   "source_name": "ROWS/RANGE 프레임",
+   "target_name": "PRECEDING/FOLLOWING",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:BELONGS_TO"
+   ],
+   "reason": "윈도우 프레임 경계"
+  },
+  {
+   "source": "N0504",
+   "target": "N0295",
+   "source_name": "CTE",
+   "target_name": "재귀 CTE",
+   "relation": "IS_A",
+   "relations": [
+    "IS_A"
+   ],
+   "inferred": false,
+   "provenance": [
+    "17_KG_Edges:IS_A"
+   ],
+   "reason": "재귀적 계층 표현"
+  },
+  {
+   "source": "N0001",
+   "target": "N0010",
+   "source_name": "데이터 모델링",
+   "target_name": "엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0010",
+   "target": "N0140",
+   "source_name": "엔터티",
+   "target_name": "엔터티",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0002",
+   "target": "N0026",
+   "source_name": "SQL 언어·표현식",
+   "target_name": "정규표현식",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0026",
+   "target": "N0277",
+   "source_name": "정규표현식",
+   "target_name": "정규표현식",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0003",
+   "target": "N0027",
+   "source_name": "관계 결합·집합",
+   "target_name": "JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0027",
+   "target": "N0301",
+   "source_name": "JOIN",
+   "target_name": "JOIN",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0003",
+   "target": "N0029",
+   "source_name": "관계 결합·집합",
+   "target_name": "집합 연산자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0029",
+   "target": "N0520",
+   "source_name": "집합 연산자",
+   "target_name": "집합 연산자",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0004",
+   "target": "N0031",
+   "source_name": "집계·분석·계층",
+   "target_name": "그룹함수 확장",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0004",
+   "target": "N0032",
+   "source_name": "집계·분석·계층",
+   "target_name": "윈도우 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0032",
+   "target": "N0099",
+   "source_name": "윈도우 함수",
+   "target_name": "윈도우 함수",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0004",
+   "target": "N0033",
+   "source_name": "집계·분석·계층",
+   "target_name": "Top-N",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0033",
+   "target": "N0104",
+   "source_name": "Top-N",
+   "target_name": "Top-N",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0004",
+   "target": "N0034",
+   "source_name": "집계·분석·계층",
+   "target_name": "PIVOT·UNPIVOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0034",
+   "target": "N0107",
+   "source_name": "PIVOT·UNPIVOT",
+   "target_name": "PIVOT·UNPIVOT",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0004",
+   "target": "N0035",
+   "source_name": "집계·분석·계층",
+   "target_name": "계층형 질의",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0035",
+   "target": "N0291",
+   "source_name": "계층형 질의",
+   "target_name": "계층형 질의",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0005",
+   "target": "N0036",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "DML",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0036",
+   "target": "N0361",
+   "source_name": "DML",
+   "target_name": "DML",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0005",
+   "target": "N0039",
+   "source_name": "데이터 관리·트랜잭션",
+   "target_name": "VIEW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0039",
+   "target": "N0400",
+   "source_name": "VIEW",
+   "target_name": "VIEW",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0007",
+   "target": "N0045",
+   "source_name": "LEGACY",
+   "target_name": "분산 데이터베이스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0045",
+   "target": "N0340",
+   "source_name": "분산 데이터베이스",
+   "target_name": "분산 데이터베이스",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0007",
+   "target": "N0046",
+   "source_name": "LEGACY",
+   "target_name": "PL/SQL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0046",
+   "target": "N0349",
+   "source_name": "PL/SQL",
+   "target_name": "PL/SQL",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0007",
+   "target": "N0048",
+   "source_name": "LEGACY",
+   "target_name": "성능 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Domain",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Domain (19_Study_Outline_v2 Domain > Cluster)"
+  },
+  {
+   "source": "N0048",
+   "target": "N0359",
+   "source_name": "성능 데이터 모델링",
+   "target_name": "성능 데이터 모델링",
+   "relation": "BELONGS_TO",
+   "relations": [
+    "BELONGS_TO"
+   ],
+   "inferred": false,
+   "provenance": [
+    "16_KG_Nodes.Cluster",
+    "19_Study_Outline_v2"
+   ],
+   "reason": "16_KG_Nodes.Cluster (같은 이름 Concept의 소속 Cluster)"
+  },
+  {
+   "source": "N0173",
+   "target": "X001",
+   "source_name": "관계",
+   "target_name": "순환 관계(자기참조)",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "'순환 관계(자기참조)'은(는) '관계' 아래의 학습용 그룹 노드. 사용자 예시 경로 'JOIN/관계 개념 → 부모-자식/self-referencing 구조 → 계층형 질의'. 데이터 모델링의 순환(재귀) 관계에 해당하며 셀프 조인·계층형 질의의 공통 선수 구조.",
+   "confidence": "high"
+  },
+  {
+   "source": "N0099",
+   "target": "X002",
+   "source_name": "윈도우 함수",
+   "target_name": "OVER 절",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "'OVER 절'은(는) '윈도우 함수' 아래의 학습용 그룹 노드. 사용자 예시 경로 '윈도우 함수 → OVER → PARTITION BY / ORDER BY → 순위 함수'. 04_Mindmap_Gaps '윈도우 함수: OVER/PARTITION/ORDER/프레임으로 분해'.",
+   "confidence": "high"
+  },
+  {
+   "source": "N0099",
+   "target": "X003",
+   "source_name": "윈도우 함수",
+   "target_name": "순위 함수",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "'순위 함수'은(는) '윈도우 함수' 아래의 학습용 그룹 노드. SQL 전문가 가이드의 '그룹 내 순위 함수' 분류(RANK·DENSE_RANK·ROW_NUMBER). 17_KG_Edges의 IS_A reason '순위 함수'.",
+   "confidence": "high"
+  },
+  {
+   "source": "N0099",
+   "target": "X004",
+   "source_name": "윈도우 함수",
+   "target_name": "행 순서 함수",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "'행 순서 함수'은(는) '윈도우 함수' 아래의 학습용 그룹 노드. SQL 전문가 가이드의 '그룹 내 행 순서 함수' 분류(FIRST_VALUE·LAST_VALUE·LAG·LEAD). 17_KG_Edges의 IS_A reason '행 위치/값 탐색 함수'.",
+   "confidence": "high"
+  },
+  {
+   "source": "N0042",
+   "target": "X101",
+   "source_name": "DBMS 방언",
+   "target_name": "NULL 처리 DBMS 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 사용자 Stage 9 정의 'NULL 차이'. 20_Hubs_Rules NULL 허브의 DIALECT 관계(빈 문자열과 NULL(Oracle)).",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0042",
+   "target": "X102",
+   "source_name": "DBMS 방언",
+   "target_name": "NULL 정렬 DBMS 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 04_Mindmap_Gaps gap family 'NULL 정렬 DBMS 차이'(현행). 사용자 Stage 9 정의 'NULL 정렬 차이'.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0042",
+   "target": "X103",
+   "source_name": "DBMS 방언",
+   "target_name": "Top-N 문법 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 04_Mindmap_Gaps gap family 'Top-N DBMS 방언'(현행). DIALECT_OF: Oracle→ROWNUM, SQL Server→TOP, ANSI→FETCH FIRST.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0042",
+   "target": "X104",
+   "source_name": "DBMS 방언",
+   "target_name": "차집합 MINUS/EXCEPT 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 17_KG_Edges MINUS DIALECT_EQUIVALENT EXCEPT. 사용자 Stage 9 정의 'MINUS / EXCEPT'.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0042",
+   "target": "X105",
+   "source_name": "DBMS 방언",
+   "target_name": "DDL 커밋 동작 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 17_KG_Edges DDL DIALECT Oracle DDL 자동 커밋. 사용자 Stage 9 정의 'DDL commit 차이'.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0042",
+   "target": "X106",
+   "source_name": "DBMS 방언",
+   "target_name": "문자열 함수 DBMS 차이",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC1 Cluster 아래에 둠. 04_Mindmap_Gaps gap family '문자열 함수 DBMS 차이'(현행/공통).",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0043",
+   "target": "X201",
+   "source_name": "실행순서·시험 함정",
+   "target_name": "별칭 가시성 종합",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC2 Cluster 아래에 둠. 04_Mindmap_Gaps gap family '별칭 가시성'(현행). 20_Hubs_Rules 'SQL 논리 실행 순서' 허브.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0043",
+   "target": "X202",
+   "source_name": "실행순서·시험 함정",
+   "target_name": "NULL 함정 종합",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC2 Cluster 아래에 둠. 04_Mindmap_Gaps gap family 'NULL 3값 논리 확장', '집계식의 NULL 위치', '공집합·집계 반환값'. 20_Hubs_Rules NULL 허브.",
+   "confidence": "medium"
+  },
+  {
+   "source": "N0043",
+   "target": "X203",
+   "source_name": "실행순서·시험 함정",
+   "target_name": "OUTER JOIN 필터 위치 종합",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "Stage 9 통합 노드를 XC2 Cluster 아래에 둠. 04_Mindmap_Gaps gap family 'OUTER JOIN 필터 위치', 'OUTER JOIN 보존 규칙'(현행). 20_Hubs_Rules JOIN 허브.",
+   "confidence": "medium"
+  },
+  {
+   "source": "X003",
+   "target": "N0090",
+   "source_name": "순위 함수",
+   "target_name": "RANK",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "RANK은(는) '순위 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X003",
+   "target": "N0076",
+   "source_name": "순위 함수",
+   "target_name": "DENSE_RANK",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "DENSE_RANK은(는) '순위 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X003",
+   "target": "N0095",
+   "source_name": "순위 함수",
+   "target_name": "ROW_NUMBER",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "ROW_NUMBER은(는) '순위 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X004",
+   "target": "N0079",
+   "source_name": "행 순서 함수",
+   "target_name": "LAG",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "LAG은(는) '행 순서 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X004",
+   "target": "N0081",
+   "source_name": "행 순서 함수",
+   "target_name": "LEAD",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "LEAD은(는) '행 순서 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X004",
+   "target": "N0077",
+   "source_name": "행 순서 함수",
+   "target_name": "FIRST_VALUE",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "FIRST_VALUE은(는) '행 순서 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X004",
+   "target": "N0080",
+   "source_name": "행 순서 함수",
+   "target_name": "LAST_VALUE",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "LAST_VALUE은(는) '행 순서 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X002",
+   "target": "N0084",
+   "source_name": "OVER 절",
+   "target_name": "PARTITION BY",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "PARTITION BY은(는) 'OVER 절' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "X002",
+   "target": "N0094",
+   "source_name": "OVER 절",
+   "target_name": "ROWS/RANGE 프레임",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "ROWS/RANGE 프레임은 'OVER 절' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "N0066",
+   "target": "N0091",
+   "source_name": "그룹 내 비율 함수",
+   "target_name": "RATIO_TO_REPORT",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "RATIO_TO_REPORT은(는) '그룹 내 비율 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "N0066",
+   "target": "N0085",
+   "source_name": "그룹 내 비율 함수",
+   "target_name": "PERCENT_RANK",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "PERCENT_RANK은(는) '그룹 내 비율 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "N0066",
+   "target": "N0074",
+   "source_name": "그룹 내 비율 함수",
+   "target_name": "CUME_DIST",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "CUME_DIST은(는) '그룹 내 비율 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  },
+  {
+   "source": "N0066",
+   "target": "N0083",
+   "source_name": "그룹 내 비율 함수",
+   "target_name": "NTILE",
+   "relation": "PART_OF",
+   "relations": [
+    "PART_OF"
+   ],
+   "inferred": true,
+   "provenance": [
+    "curation/structure.py"
+   ],
+   "reason": "NTILE은(는) '그룹 내 비율 함수' 분류에 속함(원본 BELONGS_TO 부모는 유지)",
+   "confidence": "high"
+  }
+ ]
+}

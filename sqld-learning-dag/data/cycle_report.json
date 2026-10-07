@@ -1,74 +1,193 @@
 {
- "is_dag": true,
- "cycles": [],
- "suspected_edges": [],
- "pre_review_candidate_graph": {
-  "description": "명시 후보(REQUIRES/PRECEDES/ENABLES/EXPLAINS) 전부 + curated inferred edge로 만든 후보 그래프. edge를 임의 삭제하지 않고 cycle을 기록한 뒤 prerequisite 관계만 재검토했다.",
-  "is_dag": false,
-  "cycles": [
-   [
-    "WHERE",
-    "GROUP BY",
-    "HAVING",
-    "SELECT",
-    "WHERE"
+ "learning": {
+  "graph": "learning",
+  "is_dag": true,
+  "cycles": [],
+  "suspectedEdges": [],
+  "pre_review_candidate_graph": {
+   "description": "explicit 후보(21.Prerequisites Concept 토큰 ∪ 17 REQUIRES/PRECEDES/ENABLES/EXPLAINS) 전부 + inferred edge. edge를 임의 삭제하지 않고 cycle을 기록한 뒤 prerequisite 관계만 재검토했다.",
+   "is_dag": false,
+   "cycles": [
+    [
+     "정규화",
+     "이상현상",
+     "정규화"
+    ],
+    [
+     "정규표현식",
+     "정규표현식 함수",
+     "정규표현식"
+    ],
+    [
+     "정규식 메타문자",
+     "정규표현식 함수",
+     "정규표현식",
+     "정규식 메타문자"
+    ],
+    [
+     "WHERE",
+     "GROUP BY",
+     "HAVING",
+     "SELECT",
+     "WHERE"
+    ],
+    [
+     "집계 함수",
+     "GROUP BY",
+     "HAVING",
+     "SELECT",
+     "집계 함수"
+    ]
    ],
-   [
-    "GROUP BY",
-    "HAVING",
-    "SELECT",
-    "집계 함수",
-    "GROUP BY"
+   "suspectedEdges": [
+    {
+     "source": "정규표현식 함수",
+     "target": "정규표현식",
+     "cycles_involved": 2,
+     "kind": "explicit (21_Concept_Content.Prerequisites) — 재검토 대상"
+    },
+    {
+     "source": "GROUP BY",
+     "target": "HAVING",
+     "cycles_involved": 2,
+     "kind": "explicit (17_KG_Edges:PRECEDES, 17_KG_Edges:REQUIRES, 21_Concept_Content.Prerequisites)"
+    },
+    {
+     "source": "HAVING",
+     "target": "SELECT",
+     "cycles_involved": 2,
+     "kind": "explicit (17_KG_Edges:PRECEDES, 21_Concept_Content.Prerequisites) — 재검토 대상"
+    },
+    {
+     "source": "정규화",
+     "target": "이상현상",
+     "cycles_involved": 1,
+     "kind": "explicit (21_Concept_Content.Prerequisites)"
+    },
+    {
+     "source": "이상현상",
+     "target": "정규화",
+     "cycles_involved": 1,
+     "kind": "inferred — 원본과 충돌, 재검토 대상"
+    },
+    {
+     "source": "정규표현식",
+     "target": "정규표현식 함수",
+     "cycles_involved": 1,
+     "kind": "explicit (21_Concept_Content.Prerequisites)"
+    },
+    {
+     "source": "정규식 메타문자",
+     "target": "정규표현식 함수",
+     "cycles_involved": 1,
+     "kind": "inferred"
+    },
+    {
+     "source": "정규표현식",
+     "target": "정규식 메타문자",
+     "cycles_involved": 1,
+     "kind": "explicit (21_Concept_Content.Prerequisites)"
+    },
+    {
+     "source": "WHERE",
+     "target": "GROUP BY",
+     "cycles_involved": 1,
+     "kind": "explicit (17_KG_Edges:PRECEDES, 21_Concept_Content.Prerequisites)"
+    },
+    {
+     "source": "SELECT",
+     "target": "WHERE",
+     "cycles_involved": 1,
+     "kind": "inferred"
+    },
+    {
+     "source": "집계 함수",
+     "target": "GROUP BY",
+     "cycles_involved": 1,
+     "kind": "inferred"
+    },
+    {
+     "source": "SELECT",
+     "target": "집계 함수",
+     "cycles_involved": 1,
+     "kind": "inferred"
+    }
+   ],
+   "resolution": [
+    {
+     "edge": "HAVING → SELECT",
+     "provenance": [
+      "17_KG_Edges:PRECEDES",
+      "21_Concept_Content.Prerequisites"
+     ],
+     "decision": "reclassify_as_execution_order",
+     "confidence": "high",
+     "reason": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다(17 PRECEDES, 21 SELECT의 Prerequisites에도 포함). 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order metadata로 이동한다."
+    },
+    {
+     "edge": "정규표현식 함수 → 정규표현식",
+     "provenance": [
+      "21_Concept_Content.Prerequisites"
+     ],
+     "decision": "exclude_source_mutual_reference",
+     "confidence": "high",
+     "reason": "원본 21_Concept_Content에서 '정규표현식'의 Prerequisites는 '정규표현식 함수', '정규표현식 함수'의 Prerequisites는 '정규표현식'으로 서로를 가리키는 2-cycle이다(17 BELONGS_TO도 상호 참조). 패턴 언어(정규식 메타문자)를 알아야 REGEXP_* 함수의 패턴 인자를 해석할 수 있으므로 '정규표현식 → 정규표현식 함수' 방향만 유지한다."
+    },
+    {
+     "edge": "이상현상 → 정규화",
+     "provenance": [
+      "curation/prerequisites.py"
+     ],
+     "decision": "rejected_conflicts_with_source",
+     "reason": "원본 explicit 경로가 반대 방향(정규화 → 이상현상)이므로 source of truth를 따르고 이 inferred edge는 쓰지 않음"
+    }
    ]
-  ],
-  "suspected_edges": [
-   {
-    "source": "GROUP BY",
-    "target": "HAVING",
-    "cycles_involved": 2,
-    "kind": "explicit:PRECEDES,REQUIRES"
-   },
-   {
-    "source": "HAVING",
-    "target": "SELECT",
-    "cycles_involved": 2,
-    "kind": "explicit:PRECEDES (재검토 대상)"
-   },
-   {
-    "source": "WHERE",
-    "target": "GROUP BY",
-    "cycles_involved": 1,
-    "kind": "explicit:PRECEDES"
-   },
-   {
-    "source": "SELECT",
-    "target": "WHERE",
-    "cycles_involved": 1,
-    "kind": "inferred"
-   },
-   {
-    "source": "SELECT",
-    "target": "집계 함수",
-    "cycles_involved": 1,
-    "kind": "inferred"
-   },
-   {
-    "source": "집계 함수",
-    "target": "GROUP BY",
-    "cycles_involved": 1,
-    "kind": "inferred"
-   }
-  ],
-  "resolution": [
-   {
-    "edge": "HAVING -[PRECEDES]-> SELECT",
-    "decision": "reclassify_as_execution_order",
-    "reason": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
-   }
-  ]
+  }
+ },
+ "structure": {
+  "graph": "structure",
+  "is_dag": true,
+  "cycles": [],
+  "suspectedEdges": [],
+  "pre_review_candidate_graph": {
+   "description": "17 BELONGS_TO + IS_A 전부 + inferred grouping edge.",
+   "is_dag": false,
+   "cycles": [
+    [
+     "정규표현식",
+     "정규표현식 함수",
+     "정규표현식"
+    ]
+   ],
+   "suspectedEdges": [
+    {
+     "source": "정규표현식",
+     "target": "정규표현식 함수",
+     "cycles_involved": 1,
+     "kind": "explicit 17_KG_Edges"
+    },
+    {
+     "source": "정규표현식 함수",
+     "target": "정규표현식",
+     "cycles_involved": 1,
+     "kind": "explicit 17_KG_Edges — 재검토 대상"
+    }
+   ],
+   "resolution": [
+    {
+     "edge": "정규표현식 함수 → 정규표현식",
+     "relations": [
+      "BELONGS_TO"
+     ],
+     "decision": "exclude_source_mutual_reference",
+     "confidence": "high",
+     "reason": "원본 BELONGS_TO가 '정규표현식 ↔ 정규표현식 함수'로 서로를 부모로 가리키는 2-cycle. 패턴 언어(정규표현식)를 상위로, REGEXP_* 함수군을 하위로 둔다."
+    }
+   ]
+  }
  },
  "diagnostic_naive_all_typed_relations": {
-  "description": "진단용: BELONGS_TO를 제외한 원본 typed relation을 전부 방향 간선으로 넣고 CONTRASTS/DIALECT_EQUIVALENT를 대칭으로 취급한 그래프. 이런 관계가 DAG에 들어가면 cycle이 생김을 보여준다.",
+  "description": "진단용: BELONGS_TO를 제외한 원본 typed relation 전부를 방향 간선으로 넣고 CONTRASTS/DIALECT_EQUIVALENT를 대칭으로 취급한 그래프. 이런 관계를 DAG에 넣으면 cycle이 생긴다.",
   "is_dag": false,
   "cycles": [
    [
@@ -87,24 +206,24 @@
     "TRUNCATE"
    ],
    [
-    "ROW_NUMBER",
     "DENSE_RANK",
-    "ROW_NUMBER"
-   ],
-   [
     "RANK",
+    "DENSE_RANK"
+   ],
+   [
     "DENSE_RANK",
-    "RANK"
+    "ROW_NUMBER",
+    "DENSE_RANK"
    ],
    [
-    "UNION ALL",
     "UNION",
-    "UNION ALL"
+    "UNION ALL",
+    "UNION"
    ],
    [
-    "정규화",
     "반정규화",
-    "정규화"
+    "정규화",
+    "반정규화"
    ],
    [
     "EXCEPT",
@@ -122,20 +241,20 @@
     "COUNT(열)"
    ],
    [
+    "ON",
+    "WHERE",
+    "ON"
+   ],
+   [
     "WHERE",
     "HAVING",
     "WHERE"
    ],
    [
-    "WHERE",
-    "ON",
-    "WHERE"
-   ],
-   [
-    "WHERE",
     "GROUP BY",
     "HAVING",
-    "WHERE"
+    "WHERE",
+    "GROUP BY"
    ]
   ],
   "relations_in_cycles": [
