@@ -1,0 +1,572 @@
+{
+ "ok": true,
+ "summary": {
+  "Total source concepts": 475,
+  "Current concepts": 286,
+  "Legacy-only concepts": 185,
+  "Learning DAG nodes": 491,
+  "Explicit prerequisite edges": 11,
+  "Inferred prerequisite edges": 644,
+  "Hierarchy edges": 916,
+  "Is DAG": true,
+  "Number of weakly connected components": 1,
+  "Orphan concepts": 0,
+  "Current concepts not included in DAG": 0,
+  "Mindmap-gap concepts not included in DAG": 0
+ },
+ "details": {
+  "learning_dag_node_breakdown": {
+   "source_concepts": 475,
+   "dialect_reference_nodes": 3,
+   "synthetic_structure_nodes": 4,
+   "synthetic_integration_nodes": 9
+  },
+  "stage_cluster_anchor_nodes": 52,
+  "weakly_connected_components_concept_only_prerequisite_graph": 6,
+  "standalone_concepts_cluster_root_anchored": {
+   "count": 3,
+   "names": [
+    "ANSI/ISO SQL",
+    "Oracle SQL",
+    "SQL Server"
+   ]
+  },
+  "cluster_root_concepts(no prerequisite)": 14,
+  "legacy_only_shown_by_default_as_support(Priority C)": 39,
+  "legacy_only_hidden_by_default": 146,
+  "default_visible_nodes": 345,
+  "default_core_tier_nodes": 153,
+  "priority_distribution": {
+   "C": 50,
+   "B": 183,
+   "Legacy": 146,
+   "A": 112
+  },
+  "priority_distribution_current_concepts": {
+   "B": 177,
+   "A": 109
+  },
+  "evidence_status_distribution": {
+   "legacy_only": 185,
+   "current": 286,
+   "reference": 7,
+   "structure": 4,
+   "integration": 9
+  },
+  "explicit_edges_by_relation": {
+   "PRECEDES": 3,
+   "REQUIRES": 3,
+   "ENABLES": 3,
+   "EXPLAINS": 3
+  },
+  "inferred_edges_overlapping_source_relations": {
+   "RESOLVED_BY": 1,
+   "IMPLEMENTS": 2,
+   "CONTRASTS": 2,
+   "REMOVED_BY": 2,
+   "ENFORCES": 2,
+   "AFFECTS(reverse)": 1,
+   "AFFECTS": 15,
+   "DIALECT": 2,
+   "EXCEPTION": 3,
+   "USES(reverse)": 1,
+   "IS_A": 8,
+   "USES": 2
+  },
+  "transitively_redundant_prerequisite_edges(info)": {
+   "count": 40,
+   "examples": [
+    "순환 관계(자기참조) → 계층형 질의",
+    "후보키 → BCNF",
+    "PK → 제약조건",
+    "FK → CASCADE",
+    "함수적 종속 → 2NF",
+    "함수적 종속 → 3NF",
+    "SELECT → ORDER BY 별칭",
+    "SELECT → JOIN",
+    "SELECT → 서브쿼리",
+    "NULL → IS NULL",
+    "NULL → NVL2",
+    "NULL 산술 연산 → NULL 함정 종합",
+    "WHERE → EQUI JOIN",
+    "WHERE → ON vs WHERE",
+    "WHERE → START WITH"
+   ]
+  },
+  "max_prerequisite_depth": 12,
+  "placement_overrides": [
+   {
+    "name": "참조 무결성",
+    "from_cluster": "DM0",
+    "from_cluster_name": "데이터 모델링 원리",
+    "from_stage": 0,
+    "to_cluster": "DM7",
+    "to_cluster_name": "무결성·제약 개념",
+    "to_stage": 1,
+    "reason": "FK를 전제로 하는 무결성 규칙. DM0(Stage 0) → DM7(Stage 1)"
+   },
+   {
+    "name": "개체 무결성",
+    "from_cluster": "DM0",
+    "from_cluster_name": "데이터 모델링 원리",
+    "from_stage": 0,
+    "to_cluster": "DM7",
+    "to_cluster_name": "무결성·제약 개념",
+    "to_stage": 1,
+    "reason": "PK(Stage 1 식별자·키)를 알아야 이해되는 무결성 규칙. 원본은 DM0(Stage 0)에 있으나 사용자 Stage 1 정의(개체/참조 무결성)와 같은 DM7로 이동"
+   },
+   {
+    "name": "IN",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "SQ4",
+    "to_cluster_name": "WHERE·조건·패턴",
+    "to_stage": 2,
+    "reason": "IN은 WHERE 조건 연산자. IN·NOT IN, NOT IN과 같은 Cluster로 이동"
+   },
+   {
+    "name": "날짜 ROUND",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "FN3",
+    "to_cluster_name": "날짜 함수",
+    "to_stage": 3,
+    "reason": "ROUND(숫자 함수)와 DATE를 모두 알아야 하는 날짜 함수. SQ1 → FN3"
+   },
+   {
+    "name": "날짜 TRUNC",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "FN3",
+    "to_cluster_name": "날짜 함수",
+    "to_stage": 3,
+    "reason": "TRUNC(숫자 함수)와 DATE를 모두 알아야 하는 날짜 함수. SQ1 → FN3"
+   },
+   {
+    "name": "ORDER BY CASE",
+    "from_cluster": "SQ5",
+    "from_cluster_name": "ORDER BY·정렬",
+    "from_stage": 2,
+    "to_cluster": "FN4",
+    "to_cluster_name": "조건·NULL·형변환 함수",
+    "to_stage": 3,
+    "reason": "CASE 식을 알아야 이해되는 정렬 기법. SQ5(Stage 2) → FN4(Stage 3)"
+   },
+   {
+    "name": "GROUP BY NULL",
+    "from_cluster": "SQ3",
+    "from_cluster_name": "NULL·3값 논리",
+    "from_stage": 2,
+    "to_cluster": "AG1",
+    "to_cluster_name": "집계·GROUP BY·HAVING",
+    "to_stage": 5,
+    "reason": "GROUP BY가 NULL을 하나의 그룹으로 묶는 규칙. GROUP BY(Stage 5)를 먼저 알아야 함"
+   },
+   {
+    "name": "문자형 MIN/MAX",
+    "from_cluster": "FN1",
+    "from_cluster_name": "문자 함수",
+    "from_stage": 3,
+    "to_cluster": "AG1",
+    "to_cluster_name": "집계·GROUP BY·HAVING",
+    "to_stage": 5,
+    "reason": "집계 함수(MIN/MAX)를 문자형에 적용하는 규칙. 원본 상위 Concept가 집계 함수"
+   },
+   {
+    "name": "그룹 내 비율 함수",
+    "from_cluster": "AG1",
+    "from_cluster_name": "집계·GROUP BY·HAVING",
+    "from_stage": 5,
+    "to_cluster": "AG3",
+    "to_cluster_name": "윈도우 함수",
+    "to_stage": 6,
+    "reason": "RATIO_TO_REPORT·PERCENT_RANK·CUME_DIST·NTILE 묶음은 윈도우 함수 분류"
+   },
+   {
+    "name": "객체명 규칙",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG2",
+    "to_cluster_name": "DDL·객체",
+    "to_stage": 7,
+    "reason": "테이블/컬럼 객체 이름 규칙은 CREATE TABLE(DDL) 문맥. 원본 상위 Concept도 DDL"
+   },
+   {
+    "name": "자료형 변경",
+    "from_cluster": "SQ2",
+    "from_cluster_name": "자료형·리터럴·형변환",
+    "from_stage": 2,
+    "to_cluster": "MG2",
+    "to_cluster_name": "DDL·객체",
+    "to_stage": 7,
+    "reason": "ALTER TABLE MODIFY/ALTER COLUMN으로 자료형을 바꾸는 DDL. 원본 상위 Concept가 ALTER"
+   },
+   {
+    "name": "CTAS",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG2",
+    "to_cluster_name": "DDL·객체",
+    "to_stage": 7,
+    "reason": "CREATE TABLE ... AS SELECT는 DDL. SELECT와 CREATE TABLE을 모두 알아야 함"
+   },
+   {
+    "name": "DEFAULT",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG2",
+    "to_cluster_name": "DDL·객체",
+    "to_stage": 7,
+    "reason": "DEFAULT는 CREATE/ALTER TABLE의 컬럼 정의. 원본 상위 Concept도 DDL"
+   },
+   {
+    "name": "DEFAULT 변경",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG2",
+    "to_cluster_name": "DDL·객체",
+    "to_stage": 7,
+    "reason": "ALTER TABLE로 DEFAULT를 바꾸는 DDL"
+   },
+   {
+    "name": "제약조건",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG3",
+    "to_cluster_name": "제약조건·참조동작",
+    "to_stage": 7,
+    "reason": "제약조건 상위 개념은 '제약조건·참조동작' Cluster(MG3)에 속함"
+   },
+   {
+    "name": "UNIQUE",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG3",
+    "to_cluster_name": "제약조건·참조동작",
+    "to_stage": 7,
+    "reason": "UNIQUE는 DDL 제약조건. SQ1(Stage 2) → MG3(Stage 7)"
+   },
+   {
+    "name": "CHECK",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG3",
+    "to_cluster_name": "제약조건·참조동작",
+    "to_stage": 7,
+    "reason": "CHECK는 DDL 제약조건이며 SELECT 조회 문맥(SQ1)과 무관"
+   },
+   {
+    "name": "NOT NULL",
+    "from_cluster": "SQ3",
+    "from_cluster_name": "NULL·3값 논리",
+    "from_stage": 2,
+    "to_cluster": "MG3",
+    "to_cluster_name": "제약조건·참조동작",
+    "to_stage": 7,
+    "reason": "NOT NULL 제약조건(IS NOT NULL 조건과 별개). CTAS 상속 규칙과 함께 출제되므로 MG3로 이동"
+   },
+   {
+    "name": "UNIQUE 키워드",
+    "from_cluster": "SQ1",
+    "from_cluster_name": "SELECT·FROM·별칭",
+    "from_stage": 2,
+    "to_cluster": "MG3",
+    "to_cluster_name": "제약조건·참조동작",
+    "to_stage": 7,
+    "reason": "원본 상위 Concept가 UNIQUE이므로 UNIQUE와 같은 Cluster로 이동"
+   },
+   {
+    "name": "Oracle DDL 자동 커밋",
+    "from_cluster": "MG2",
+    "from_cluster_name": "DDL·객체",
+    "from_stage": 7,
+    "to_cluster": "MG5",
+    "to_cluster_name": "Transaction·TCL·ACID",
+    "to_stage": 8,
+    "reason": "COMMIT/Transaction(Stage 8)을 알아야 이해되는 동작"
+   },
+   {
+    "name": "SQL Server 트랜잭션",
+    "from_cluster": "MG2",
+    "from_cluster_name": "DDL·객체",
+    "from_stage": 7,
+    "to_cluster": "MG5",
+    "to_cluster_name": "Transaction·TCL·ACID",
+    "to_stage": 8,
+    "reason": "Transaction(Stage 8) 개념의 SQL Server 동작"
+   }
+  ],
+  "nodes_without_definition": [],
+  "per_stage": [
+   {
+    "stage": 0,
+    "title": "모델링 기초",
+    "concepts": 71,
+    "current": 44,
+    "default_visible": 51
+   },
+   {
+    "stage": 1,
+    "title": "키·정규화·무결성",
+    "concepts": 47,
+    "current": 24,
+    "default_visible": 29
+   },
+   {
+    "stage": 2,
+    "title": "SQL 실행 모델",
+    "concepts": 63,
+    "current": 43,
+    "default_visible": 52
+   },
+   {
+    "stage": 3,
+    "title": "표현식·함수",
+    "concepts": 55,
+    "current": 33,
+    "default_visible": 40
+   },
+   {
+    "stage": 4,
+    "title": "관계 결합",
+    "concepts": 45,
+    "current": 33,
+    "default_visible": 41
+   },
+   {
+    "stage": 5,
+    "title": "집계",
+    "concepts": 26,
+    "current": 25,
+    "default_visible": 25
+   },
+   {
+    "stage": 6,
+    "title": "고급 조회",
+    "concepts": 56,
+    "current": 37,
+    "default_visible": 43
+   },
+   {
+    "stage": 7,
+    "title": "데이터/객체 관리",
+    "concepts": 50,
+    "current": 28,
+    "default_visible": 31
+   },
+   {
+    "stage": 8,
+    "title": "트랜잭션·권한",
+    "concepts": 25,
+    "current": 19,
+    "default_visible": 21
+   },
+   {
+    "stage": 9,
+    "title": "방언·함정 통합",
+    "concepts": 12,
+    "current": 0,
+    "default_visible": 12
+   },
+   {
+    "stage": "L",
+    "title": "구범위·레거시 (선택)",
+    "concepts": 41,
+    "current": 0,
+    "default_visible": 0
+   }
+  ],
+  "build_notes": [
+   "hierarchy override 정규표현식 → (cluster): 원본 BELONGS_TO가 '정규표현식 ↔ 정규표현식 함수'로 서로를 부모로 가리키는 2-cycle. 패턴 언어(정규표현식)를 상위로, 함수군을 하위로 정리",
+   "hierarchy override 정규표현식 함수 → 정규표현식: 위 2-cycle 해소: REGEXP_* 함수군은 정규표현식 패턴을 인자로 받음"
+  ],
+  "curated_edges_duplicating_explicit": []
+ },
+ "checks": [
+  {
+   "check": "모든 prerequisite edge의 노드가 존재",
+   "ok": true,
+   "detail": "0 unknown",
+   "severity": "error"
+  },
+  {
+   "check": "networkx.is_directed_acyclic_graph(learning_graph) — Concept prerequisite DAG",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Stage/Cluster anchor를 포함한 learning graph도 DAG",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "cycle_report.is_dag와 일치",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "명시 prerequisite edge는 REQUIRES/PRECEDES/ENABLES/EXPLAINS만",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "CONTRASTS/AFFECTS/DIALECT*/EXCEPTION/IS_A/IMPLEMENTS 관계가 DAG edge로 쓰이지 않음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "모든 inferred edge에 inferred:true와 reason 존재",
+   "ok": true,
+   "detail": "0 missing",
+   "severity": "error"
+  },
+  {
+   "check": "중복 prerequisite edge 없음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "self-loop 없음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Stage 단조성: 선수 Concept의 Stage ≤ 다음 Concept의 Stage",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Total source concepts = 475",
+   "ok": true,
+   "detail": "475",
+   "severity": "error"
+  },
+  {
+   "check": "Current concepts = 286 (10_Current_Evidence)",
+   "ok": true,
+   "detail": "286",
+   "severity": "error"
+  },
+  {
+   "check": "Legacy-only concepts = 185 보존 (11_Legacy_Only)",
+   "ok": true,
+   "detail": "185 / legacy_nodes.json 185",
+   "severity": "error"
+  },
+  {
+   "check": "Mindmap-gap concepts = 191 (13_Current_Mindmap_Gaps)",
+   "ok": true,
+   "detail": "191",
+   "severity": "error"
+  },
+  {
+   "check": "Orphan concept 없음 (모든 Concept이 Stage root에서 도달 가능)",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Current concepts not included in DAG = 0",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Current concepts가 기본 화면에서 숨겨지지 않음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Mindmap-gap concepts not included in DAG = 0",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "Mindmap-gap concepts가 기본 화면에서 숨겨지지 않음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "기본 화면 노드의 선수 노드도 기본 화면에 있음(경로 끊김 없음)",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "현행 범위 밖 Legacy(D7 등)는 기본 화면에서 숨김",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "hierarchy edge 그래프도 cycle 없음",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "모든 Concept이 Cluster에 배치됨",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "모든 노드에 definition 존재",
+   "ok": true,
+   "detail": "",
+   "severity": "warning"
+  },
+  {
+   "check": "Priority A 노드에 core_rule 또는 exam_traps 존재",
+   "ok": true,
+   "detail": "",
+   "severity": "warning"
+  },
+  {
+   "check": "comparison/dialect 카드의 Concept 참조 유효",
+   "ok": true,
+   "detail": "",
+   "severity": "error"
+  },
+  {
+   "check": "20_Hubs_Rules Linked Concepts 해석 완료",
+   "ok": true,
+   "detail": "[]",
+   "severity": "warning"
+  },
+  {
+   "check": "Stage backbone 포함 learning graph가 단일 weakly connected component",
+   "ok": true,
+   "detail": "1",
+   "severity": "error"
+  }
+ ],
+ "cycle_report_pre_review": [
+  {
+   "edge": "HAVING -[PRECEDES]-> SELECT",
+   "decision": "reclassify_as_execution_order",
+   "reason": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
+  }
+ ]
+}

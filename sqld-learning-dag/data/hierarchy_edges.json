@@ -1,0 +1,5948 @@
+[
+ {
+  "source": "STAGE_0",
+  "target": "DM0",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_0",
+  "target": "DM1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_0",
+  "target": "DM2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_0",
+  "target": "DM3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_0",
+  "target": "DM4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_1",
+  "target": "DM5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_1",
+  "target": "DM6",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_1",
+  "target": "DM7",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ0",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_2",
+  "target": "SQ5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_3",
+  "target": "FN1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_3",
+  "target": "FN2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_3",
+  "target": "FN3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_3",
+  "target": "FN4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_3",
+  "target": "FN5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_4",
+  "target": "JN1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_4",
+  "target": "SQ6",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_4",
+  "target": "SQ7",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_5",
+  "target": "AG1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_5",
+  "target": "AG2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_6",
+  "target": "AG3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_6",
+  "target": "AG4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_6",
+  "target": "AG5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_6",
+  "target": "HQ1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_7",
+  "target": "MG1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_7",
+  "target": "MG2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_7",
+  "target": "MG3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_7",
+  "target": "MG4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_8",
+  "target": "MG5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_8",
+  "target": "MG6",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_9",
+  "target": "XC1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_9",
+  "target": "XC2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_L",
+  "target": "LG1",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_L",
+  "target": "LG2",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_L",
+  "target": "LG3",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_L",
+  "target": "LG4",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "STAGE_L",
+  "target": "LG5",
+  "type": "STAGE_CLUSTER"
+ },
+ {
+  "source": "AG1",
+  "target": "N0049",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0050",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0051",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0050",
+  "target": "N0051",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0052",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0050",
+  "target": "N0052",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0053",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0050",
+  "target": "N0053",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0054",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0055",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0056",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0054",
+  "target": "N0056",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0057",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0058",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0057",
+  "target": "N0058",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0059",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0068",
+  "target": "N0059",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0060",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0068",
+  "target": "N0060",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0061",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0068",
+  "target": "N0061",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0062",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0063",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0062",
+  "target": "N0063",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0064",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0488",
+  "target": "N0064",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0065",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0068",
+  "target": "N0065",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0066",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0067",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0068",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG2",
+  "target": "N0069",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0067",
+  "target": "N0069",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "AG2",
+  "target": "N0070",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0067",
+  "target": "N0070",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "AG2",
+  "target": "N0071",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0067",
+  "target": "N0071",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "AG2",
+  "target": "N0072",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0067",
+  "target": "N0072",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "AG2",
+  "target": "N0073",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0071",
+  "target": "N0073",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0074",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0066",
+  "target": "N0074",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0075",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0094",
+  "target": "N0075",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0076",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X003",
+  "target": "N0076",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0077",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X004",
+  "target": "N0077",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0078",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0078",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0079",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X004",
+  "target": "N0079",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0080",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X004",
+  "target": "N0080",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0081",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X004",
+  "target": "N0081",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0082",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0082",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0083",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0066",
+  "target": "N0083",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0084",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X002",
+  "target": "N0084",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0085",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0066",
+  "target": "N0085",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0086",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0094",
+  "target": "N0086",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0087",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0087",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0088",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0088",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0089",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0089",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0090",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X003",
+  "target": "N0090",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0091",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0066",
+  "target": "N0091",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0092",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0092",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0093",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0093",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0094",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X002",
+  "target": "N0094",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0095",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "X003",
+  "target": "N0095",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0096",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0094",
+  "target": "N0096",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0097",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0094",
+  "target": "N0097",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0098",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "N0098",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "N0099",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG4",
+  "target": "N0100",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0104",
+  "target": "N0100",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG4",
+  "target": "N0101",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0104",
+  "target": "N0101",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG4",
+  "target": "N0102",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0104",
+  "target": "N0102",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG4",
+  "target": "N0103",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0104",
+  "target": "N0103",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG4",
+  "target": "N0104",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG4",
+  "target": "N0105",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0104",
+  "target": "N0105",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG5",
+  "target": "N0106",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0107",
+  "target": "N0106",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG5",
+  "target": "N0107",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "AG5",
+  "target": "N0108",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0107",
+  "target": "N0108",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0109",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0114",
+  "target": "N0109",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM7",
+  "target": "N0110",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0111",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0112",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0119",
+  "target": "N0112",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0113",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0116",
+  "target": "N0113",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0114",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0115",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0116",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0117",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0118",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0119",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0120",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0121",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0119",
+  "target": "N0121",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0122",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0114",
+  "target": "N0122",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0123",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0115",
+  "target": "N0123",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0124",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0115",
+  "target": "N0124",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0125",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0126",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0127",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0119",
+  "target": "N0127",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0128",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0115",
+  "target": "N0128",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM0",
+  "target": "N0129",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0119",
+  "target": "N0129",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM7",
+  "target": "N0130",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM0",
+  "target": "N0131",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0119",
+  "target": "N0131",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM1",
+  "target": "N0132",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "DM1",
+  "target": "N0133",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0132",
+  "target": "N0133",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM1",
+  "target": "N0134",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0132",
+  "target": "N0134",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM1",
+  "target": "N0135",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0132",
+  "target": "N0135",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM1",
+  "target": "N0136",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0132",
+  "target": "N0136",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0137",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0173",
+  "target": "N0137",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "DM2",
+  "target": "N0138",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0137",
+  "target": "N0138",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0139",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0143",
+  "target": "N0139",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0140",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "DM2",
+  "target": "N0141",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0141",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0142",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0142",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0143",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0143",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0144",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0144",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0145",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0145",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0146",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0146",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0147",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM2",
+  "target": "N0148",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0140",
+  "target": "N0148",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0149",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0143",
+  "target": "N0149",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM2",
+  "target": "N0150",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0143",
+  "target": "N0150",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0151",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0151",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0152",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0152",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0153",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0153",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0154",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0154",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0155",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0155",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0156",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0159",
+  "target": "N0156",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0157",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM3",
+  "target": "N0158",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0158",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0159",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0159",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0160",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0160",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0161",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0161",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0162",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0162",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM3",
+  "target": "N0163",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0157",
+  "target": "N0163",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0164",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0165",
+  "target": "N0164",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0165",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM4",
+  "target": "N0166",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0165",
+  "target": "N0166",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0167",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0165",
+  "target": "N0167",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0168",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0167",
+  "target": "N0168",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0169",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0165",
+  "target": "N0169",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0170",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "N0170",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0171",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0167",
+  "target": "N0171",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0172",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0167",
+  "target": "N0172",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0173",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM4",
+  "target": "N0174",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "N0174",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0175",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "N0175",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0176",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "N0176",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0177",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM4",
+  "target": "N0178",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "N0178",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0179",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0174",
+  "target": "N0179",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM4",
+  "target": "N0180",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0174",
+  "target": "N0180",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0181",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0181",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0182",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0182",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0183",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0183",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0184",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0184",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0185",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0197",
+  "target": "N0185",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0186",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0192",
+  "target": "N0186",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0187",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0187",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0188",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0188",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0189",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0189",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0190",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0190",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0191",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0173",
+  "target": "N0191",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "DM5",
+  "target": "N0192",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0173",
+  "target": "N0192",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "DM5",
+  "target": "N0193",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM5",
+  "target": "N0194",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0194",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0195",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0195",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0196",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0196",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0197",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0197",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0198",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0198",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0199",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0199",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0200",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0200",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0201",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0192",
+  "target": "N0201",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0202",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0202",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0203",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0203",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0204",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0204",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0205",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0205",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0206",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0206",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0207",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0198",
+  "target": "N0207",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM5",
+  "target": "N0208",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0193",
+  "target": "N0208",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0209",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0209",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0210",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0210",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0211",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0211",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0212",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0212",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0213",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0215",
+  "target": "N0213",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0214",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0215",
+  "target": "N0214",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0215",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM6",
+  "target": "N0216",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0223",
+  "target": "N0216",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0217",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0215",
+  "target": "N0217",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0218",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0218",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0219",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0223",
+  "target": "N0219",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0220",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "DM6",
+  "target": "N0221",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0215",
+  "target": "N0221",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0222",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0215",
+  "target": "N0222",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM6",
+  "target": "N0223",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0220",
+  "target": "N0223",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM7",
+  "target": "N0224",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0130",
+  "target": "N0224",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "DM7",
+  "target": "N0225",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0445",
+  "target": "N0225",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN1",
+  "target": "N0226",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0226",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0227",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0227",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0228",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0228",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0229",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0229",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0230",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0230",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0231",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0231",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0232",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0232",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0233",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0233",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0234",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0234",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0235",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0235",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0236",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0236",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0237",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0237",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0238",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0237",
+  "target": "N0238",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0239",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0239",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0240",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0243",
+  "target": "N0240",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0241",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "AG1",
+  "target": "N0242",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0068",
+  "target": "N0242",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN1",
+  "target": "N0243",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN1",
+  "target": "N0244",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN2",
+  "target": "N0245",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0244",
+  "target": "N0245",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN2",
+  "target": "N0246",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0244",
+  "target": "N0246",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN2",
+  "target": "N0247",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0244",
+  "target": "N0247",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN2",
+  "target": "N0248",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0244",
+  "target": "N0248",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN2",
+  "target": "N0249",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0244",
+  "target": "N0249",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0250",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0251",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0252",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0253",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0255",
+  "target": "N0253",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN3",
+  "target": "N0254",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0255",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0256",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0257",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0256",
+  "target": "N0257",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN4",
+  "target": "N0258",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0259",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0464",
+  "target": "N0259",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0260",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0261",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0464",
+  "target": "N0261",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0262",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0464",
+  "target": "N0262",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0263",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0464",
+  "target": "N0263",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN5",
+  "target": "N0264",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0278",
+  "target": "N0264",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0265",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0278",
+  "target": "N0265",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0266",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0278",
+  "target": "N0266",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0267",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0278",
+  "target": "N0267",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0268",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0278",
+  "target": "N0268",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0269",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0269",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0270",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0270",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0271",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0271",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0272",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0272",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0273",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0273",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0274",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0274",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0275",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0275",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0276",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0276",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN5",
+  "target": "N0277",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN5",
+  "target": "N0278",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0277",
+  "target": "N0278",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0279",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0279",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0280",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0280",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0281",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0281",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0282",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0282",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0283",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0283",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0284",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0284",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0285",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0285",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0286",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0286",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0287",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0287",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0288",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0288",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0289",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0289",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0290",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0290",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0291",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "HQ1",
+  "target": "N0292",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0292",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0293",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0293",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0294",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0294",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "HQ1",
+  "target": "N0295",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0291",
+  "target": "N0295",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0296",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0296",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0297",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0297",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0298",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0298",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0299",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0299",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0300",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0300",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0301",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "JN1",
+  "target": "N0302",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0302",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0303",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0303",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0304",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0304",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0305",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0305",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0306",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0306",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0307",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0307",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0308",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0308",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0309",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0309",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0310",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0310",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0311",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0311",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0312",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0312",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0313",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0313",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0314",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0314",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0315",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0315",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0316",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0316",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0317",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0308",
+  "target": "N0317",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "JN1",
+  "target": "N0318",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0301",
+  "target": "N0318",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0319",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0319",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0320",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0320",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0321",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0321",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0322",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0322",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0323",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0339",
+  "target": "N0323",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0324",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0324",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0325",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0325",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0326",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0339",
+  "target": "N0326",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0327",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0339",
+  "target": "N0327",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0328",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0335",
+  "target": "N0328",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0329",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0125",
+  "target": "N0329",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0330",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0331",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0332",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0125",
+  "target": "N0332",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0333",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0334",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0333",
+  "target": "N0334",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG1",
+  "target": "N0335",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0336",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0215",
+  "target": "N0336",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0337",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0215",
+  "target": "N0337",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0338",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0215",
+  "target": "N0338",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG1",
+  "target": "N0339",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "LG2",
+  "target": "N0340",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG2",
+  "target": "N0341",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0340",
+  "target": "N0341",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG2",
+  "target": "N0342",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0340",
+  "target": "N0342",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG2",
+  "target": "N0343",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0340",
+  "target": "N0343",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG2",
+  "target": "N0344",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0340",
+  "target": "N0344",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0345",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0349",
+  "target": "N0345",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0346",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0345",
+  "target": "N0346",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0347",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0345",
+  "target": "N0347",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0348",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0345",
+  "target": "N0348",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0349",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "LG3",
+  "target": "N0350",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0349",
+  "target": "N0350",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG3",
+  "target": "N0351",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0349",
+  "target": "N0351",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG4",
+  "target": "N0352",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0356",
+  "target": "N0352",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG4",
+  "target": "N0353",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0352",
+  "target": "N0353",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG4",
+  "target": "N0354",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0356",
+  "target": "N0354",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG4",
+  "target": "N0355",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0356",
+  "target": "N0355",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG4",
+  "target": "N0356",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0301",
+  "target": "N0356",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "LG5",
+  "target": "N0357",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0359",
+  "target": "N0357",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG5",
+  "target": "N0358",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0359",
+  "target": "N0358",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "LG5",
+  "target": "N0359",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG1",
+  "target": "N0360",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0361",
+  "target": "N0360",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0361",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "MG1",
+  "target": "N0362",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0361",
+  "target": "N0362",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0363",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0362",
+  "target": "N0363",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0364",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0362",
+  "target": "N0364",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0365",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0361",
+  "target": "N0365",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0366",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0365",
+  "target": "N0366",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0367",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0365",
+  "target": "N0367",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0368",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0365",
+  "target": "N0368",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0369",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0361",
+  "target": "N0369",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG1",
+  "target": "N0370",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0365",
+  "target": "N0370",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0371",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0371",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0372",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0372",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0373",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0373",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0374",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0374",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0375",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0375",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0376",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0376",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0377",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0377",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0378",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0378",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0379",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0379",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0380",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "MG2",
+  "target": "N0381",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0381",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0382",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0382",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0383",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0383",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0384",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0384",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0385",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0381",
+  "target": "N0385",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0386",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0386",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0387",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0387",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0388",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG2",
+  "target": "N0389",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0389",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0390",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0390",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0391",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0391",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0392",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG2",
+  "target": "N0393",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0393",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0394",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0399",
+  "target": "N0394",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0395",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0396",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0381",
+  "target": "N0396",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0397",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0398",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0432",
+  "target": "N0398",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0399",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0445",
+  "target": "N0399",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG4",
+  "target": "N0400",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG4",
+  "target": "N0401",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0400",
+  "target": "N0401",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0402",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0409",
+  "target": "N0402",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0403",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0409",
+  "target": "N0403",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0404",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0408",
+  "target": "N0404",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0405",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0408",
+  "target": "N0405",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0406",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0407",
+  "target": "N0406",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0407",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0408",
+  "target": "N0407",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0408",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG5",
+  "target": "N0409",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG5",
+  "target": "N0410",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0402",
+  "target": "N0410",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0411",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0402",
+  "target": "N0411",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0412",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0402",
+  "target": "N0412",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG5",
+  "target": "N0413",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0402",
+  "target": "N0413",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0414",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "MG6",
+  "target": "N0415",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0415",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0416",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0416",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0417",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0417",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0418",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0418",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0419",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0419",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0420",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0415",
+  "target": "N0420",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0421",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0422",
+  "target": "N0421",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0422",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0422",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0423",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0423",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG6",
+  "target": "N0424",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0414",
+  "target": "N0424",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ0",
+  "target": "N0425",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ0",
+  "target": "N0426",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0429",
+  "target": "N0426",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ0",
+  "target": "N0427",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0429",
+  "target": "N0427",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ0",
+  "target": "N0428",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0429",
+  "target": "N0428",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ0",
+  "target": "N0429",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ1",
+  "target": "N0430",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0437",
+  "target": "N0430",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG3",
+  "target": "N0431",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0445",
+  "target": "N0431",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0432",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG2",
+  "target": "N0433",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0433",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0434",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0433",
+  "target": "N0434",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ1",
+  "target": "N0435",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0436",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ1",
+  "target": "N0437",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0438",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0445",
+  "target": "N0438",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG3",
+  "target": "N0439",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0438",
+  "target": "N0439",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "MG2",
+  "target": "N0440",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0380",
+  "target": "N0440",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ1",
+  "target": "N0441",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0437",
+  "target": "N0441",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "FN3",
+  "target": "N0442",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0248",
+  "target": "N0442",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "FN3",
+  "target": "N0443",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0249",
+  "target": "N0443",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ1",
+  "target": "N0444",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0445",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ1",
+  "target": "N0446",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0430",
+  "target": "N0446",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ1",
+  "target": "N0447",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ2",
+  "target": "N0448",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0448",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0449",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0448",
+  "target": "N0449",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0450",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0450",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0451",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0451",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0452",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0452",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0453",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0453",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0454",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ2",
+  "target": "N0455",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0456",
+  "target": "N0455",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ2",
+  "target": "N0456",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "MG2",
+  "target": "N0457",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0373",
+  "target": "N0457",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0458",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0458",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG1",
+  "target": "N0459",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0464",
+  "target": "N0459",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0460",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0460",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0461",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0461",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0462",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "MG3",
+  "target": "N0463",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0464",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0465",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0465",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0466",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0466",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0467",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0468",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0497",
+  "target": "N0468",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0469",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0497",
+  "target": "N0469",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0470",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0497",
+  "target": "N0470",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0471",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0497",
+  "target": "N0471",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ3",
+  "target": "N0472",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0472",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ3",
+  "target": "N0473",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0464",
+  "target": "N0473",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0474",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0475",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0476",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0477",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0476",
+  "target": "N0477",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0478",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0479",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0480",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0479",
+  "target": "N0480",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0481",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0479",
+  "target": "N0481",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0482",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0483",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0484",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0485",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0437",
+  "target": "N0485",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0486",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0430",
+  "target": "N0486",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0487",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0479",
+  "target": "N0487",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0488",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ4",
+  "target": "N0489",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0488",
+  "target": "N0489",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0490",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0488",
+  "target": "N0490",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0491",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0488",
+  "target": "N0491",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0492",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0488",
+  "target": "N0492",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0493",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0479",
+  "target": "N0493",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ4",
+  "target": "N0494",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ5",
+  "target": "N0495",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0497",
+  "target": "N0495",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ5",
+  "target": "N0496",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0497",
+  "target": "N0496",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ5",
+  "target": "N0497",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "FN4",
+  "target": "N0498",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "N0497",
+  "target": "N0498",
+  "type": "PARENT_CHILD",
+  "cross_cluster": true
+ },
+ {
+  "source": "SQ5",
+  "target": "N0499",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0497",
+  "target": "N0499",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ5",
+  "target": "N0500",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0497",
+  "target": "N0500",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ5",
+  "target": "N0501",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0497",
+  "target": "N0501",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0502",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0502",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0503",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0503",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0504",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0507",
+  "target": "N0504",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0505",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ6",
+  "target": "N0506",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0506",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0507",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0507",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0508",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0508",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0509",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0509",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0510",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0510",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0511",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ6",
+  "target": "N0512",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0512",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0513",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0513",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ6",
+  "target": "N0514",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0511",
+  "target": "N0514",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0515",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0515",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0516",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0516",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0517",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0517",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0518",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0518",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0519",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0519",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0520",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "SQ7",
+  "target": "N0521",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0521",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0522",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0522",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "SQ7",
+  "target": "N0523",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0520",
+  "target": "N0523",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "XC1",
+  "target": "N0524",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "N0525",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "N0526",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": true,
+  "is_top_level": true
+ },
+ {
+  "source": "DM4",
+  "target": "X001",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0173",
+  "target": "X001",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "X002",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "X002",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "X003",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "X003",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "AG3",
+  "target": "X004",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": false
+ },
+ {
+  "source": "N0099",
+  "target": "X004",
+  "type": "PARENT_CHILD",
+  "cross_cluster": false
+ },
+ {
+  "source": "XC1",
+  "target": "X101",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "X102",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "X103",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "X104",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "X105",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC1",
+  "target": "X106",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC2",
+  "target": "X201",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC2",
+  "target": "X202",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ },
+ {
+  "source": "XC2",
+  "target": "X203",
+  "type": "CLUSTER_CONCEPT",
+  "is_root_anchor": false,
+  "is_top_level": true
+ }
+]

@@ -1,0 +1,2947 @@
+[
+ {
+  "id": "N0092",
+  "name": "ROWS",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   49
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "ROWS PRECEDING/FOLLOWING"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0066",
+  "name": "그룹 내 비율 함수",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NTILE",
+   "PERCENT_RANK"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0115",
+  "name": "데이터 모델링 3대 유의점",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   45
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "1NF",
+   "2NF",
+   "3NF",
+   "부분 함수 종속",
+   "이행 함수 종속",
+   "정규화",
+   "중복",
+   "함수적 종속"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0118",
+  "name": "데이터 모델링 정의",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "1NF",
+   "2NF",
+   "3NF",
+   "SQL 비절차성",
+   "SQL 선언적 언어",
+   "SQL 집합적 언어",
+   "SQL의 특징",
+   "개념적 데이터 모델링",
+   "관계형 모델",
+   "논리적 데이터 모델링",
+   "데이터 관점",
+   "데이터 모델링 3단계"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0122",
+  "name": "물리적 데이터 모델링",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   46
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "데이터 용량"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0154",
+  "name": "도메인",
+  "cluster": "DM3",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 8,
+  "old_round_list": [
+   30,
+   34,
+   37,
+   39,
+   43,
+   44,
+   49,
+   50
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CHECK",
+   "도메인 무결성"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0188",
+  "name": "복합 식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   34
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "복합 FK 조인"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0193",
+  "name": "식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   27,
+   30,
+   34,
+   41
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "2NF",
+   "3NF",
+   "CARTESIAN PRODUCT",
+   "CASCADE CONSTRAINTS",
+   "CHECK",
+   "CONNECT BY",
+   "CONNECT_BY_ISCYCLE",
+   "CONNECT_BY_ISLEAF",
+   "CONNECT_BY_ROOT",
+   "CROSS JOIN",
+   "DROP CASCADE",
+   "EQUI JOIN"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0198",
+  "name": "주식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   27,
+   34,
+   39
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "2NF",
+   "3NF",
+   "CARTESIAN PRODUCT",
+   "CASCADE CONSTRAINTS",
+   "CHECK",
+   "CONNECT BY",
+   "CONNECT_BY_ISCYCLE",
+   "CONNECT_BY_ISLEAF",
+   "CONNECT_BY_ROOT",
+   "CROSS JOIN",
+   "DROP CASCADE",
+   "EQUI JOIN"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0208",
+  "name": "후보키",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   49
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "2NF",
+   "3NF",
+   "CARTESIAN PRODUCT",
+   "CASCADE CONSTRAINTS",
+   "CHECK",
+   "CONNECT BY",
+   "CONNECT_BY_ISCYCLE",
+   "CONNECT_BY_ISLEAF",
+   "CONNECT_BY_ROOT",
+   "CROSS JOIN",
+   "DROP CASCADE",
+   "EQUI JOIN"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0218",
+  "name": "이상현상",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   27,
+   38
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "1NF",
+   "2NF",
+   "3NF",
+   "부분 함수 종속",
+   "이행 함수 종속",
+   "정규화",
+   "함수적 종속"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0227",
+  "name": "CONCAT",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   26,
+   35,
+   43,
+   47
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "문자열 함수 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0228",
+  "name": "INSTR",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "REGEXP_INSTR"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0229",
+  "name": "LEN",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   26
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "문자열 함수 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0241",
+  "name": "단일행 함수",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CASE",
+   "CEIL",
+   "LENGTH",
+   "LTRIM",
+   "REGEXP_INSTR",
+   "REGEXP_REPLACE",
+   "REGEXP_SUBSTR",
+   "REPLACE",
+   "ROUND",
+   "RTRIM",
+   "SUBSTR",
+   "TRIM"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0243",
+  "name": "문자형 함수",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   26
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "LENGTH",
+   "LTRIM",
+   "REGEXP_INSTR",
+   "REGEXP_REPLACE",
+   "REGEXP_SUBSTR",
+   "REPLACE",
+   "RTRIM",
+   "SUBSTR",
+   "TRIM",
+   "UPPER",
+   "문자열 함수 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0244",
+  "name": "숫자형 함수",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   29,
+   30
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CEIL",
+   "ROUND",
+   "날짜 ROUND",
+   "날짜 TRUNC"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0249",
+  "name": "TRUNC",
+  "cluster": "FN2",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   29,
+   30,
+   33,
+   45
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "날짜 TRUNC"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0301",
+  "name": "JOIN",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   30,
+   38
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CARTESIAN PRODUCT",
+   "CONNECT BY",
+   "CONNECT_BY_ISCYCLE",
+   "CONNECT_BY_ISLEAF",
+   "CONNECT_BY_ROOT",
+   "CROSS JOIN",
+   "EQUI JOIN",
+   "FULL OUTER JOIN",
+   "INNER JOIN",
+   "LEFT OUTER JOIN",
+   "LEVEL",
+   "NATURAL JOIN"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0308",
+  "name": "OUTER JOIN",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   39,
+   46,
+   51
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "FULL OUTER JOIN",
+   "LEFT OUTER JOIN",
+   "ON vs WHERE",
+   "OUTER JOIN 필터 위치 종합",
+   "RIGHT OUTER JOIN"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0309",
+  "name": "OUTER JOIN 조건 위치",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   44,
+   46
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "ON vs WHERE",
+   "OUTER JOIN 필터 위치 종합"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0310",
+  "name": "Oracle (+) OUTER JOIN",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   44,
+   45
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "OUTER JOIN 필터 위치 종합"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0314",
+  "name": "보존 테이블",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   46
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "ON vs WHERE",
+   "OUTER JOIN 필터 위치 종합"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0317",
+  "name": "연속 OUTER JOIN",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "OUTER JOIN 필터 위치 종합"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0362",
+  "name": "INSERT",
+  "cluster": "MG1",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 7,
+  "old_round_list": [
+   32,
+   37,
+   39,
+   40,
+   43,
+   44,
+   45
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "INSERT FIRST",
+   "MERGE",
+   "UPSERT"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0373",
+  "name": "ALTER",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   30,
+   32,
+   38
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "ALTER COLUMN",
+   "ALTER TABLE",
+   "ALTER TABLE ADD",
+   "DEFAULT 변경",
+   "자료형 변경"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0379",
+  "name": "CREATE TABLE",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   34,
+   44,
+   46
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CHECK",
+   "CTAS",
+   "DEFAULT",
+   "DEFAULT 변경",
+   "IDENTITY",
+   "NOT NULL",
+   "NULL 처리 DBMS 차이",
+   "PK 제약 비상속",
+   "UNIQUE",
+   "제약조건"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0403",
+  "name": "AUTO COMMIT",
+  "cluster": "MG5",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   34,
+   50
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "DDL 커밋 동작 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0392",
+  "name": "SQL Server 트랜잭션",
+  "cluster": "MG5",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   34,
+   46
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "DDL 커밋 동작 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0437",
+  "name": "SELECT",
+  "cluster": "SQ1",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "ALIAS",
+   "ALL",
+   "AND",
+   "AND/OR 우선순위",
+   "ANY",
+   "ASC",
+   "AVG",
+   "BETWEEN",
+   "CARTESIAN PRODUCT",
+   "CASE",
+   "CEIL",
+   "CONNECT BY"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0450",
+  "name": "DATE",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "DATE_FORMAT",
+   "TO_CHAR",
+   "날짜 ROUND",
+   "날짜 TRUNC",
+   "날짜 경계",
+   "날짜 반개방 구간",
+   "날짜 범위 조회"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0456",
+  "name": "자료형",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "CHECK",
+   "CTAS",
+   "DATE_FORMAT",
+   "DEFAULT",
+   "DEFAULT 변경",
+   "IDENTITY",
+   "NOT NULL",
+   "NULL 처리 DBMS 차이",
+   "PK 제약 비상속",
+   "TO_CHAR",
+   "UNIQUE",
+   "날짜 ROUND"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0467",
+  "name": "NULL 정렬",
+  "cluster": "SQ3",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NULL 정렬 DBMS 차이",
+   "NULLS LAST"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0468",
+  "name": "NULLS FIRST",
+  "cluster": "SQ3",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NULL 정렬 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0470",
+  "name": "Oracle NULL 정렬",
+  "cluster": "SQ3",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NULL 정렬 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0471",
+  "name": "SQL Server NULL 정렬",
+  "cluster": "SQ3",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   31,
+   41
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NULL 정렬 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0473",
+  "name": "빈 문자열과 NULL(Oracle)",
+  "cluster": "SQ3",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   26,
+   47
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "NULL 처리 DBMS 차이"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0504",
+  "name": "CTE",
+  "cluster": "SQ6",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   47
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "재귀 CTE"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0507",
+  "name": "WITH 절",
+  "cluster": "SQ6",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   47
+  ],
+  "shown_by_default_as_support": true,
+  "support_for": [
+   "재귀 CTE"
+  ],
+  "priority": "C"
+ },
+ {
+  "id": "N0056",
+  "name": "GROUP BY 후 ORDER BY 제약",
+  "cluster": "AG1",
+  "stage": 5,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0074",
+  "name": "CUME_DIST",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   47
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0075",
+  "name": "CURRENT ROW",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   25,
+   37,
+   38,
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0078",
+  "name": "GROUP BY 후 윈도우 함수",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0080",
+  "name": "LAST_VALUE",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   30,
+   37,
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0088",
+  "name": "RANGE BETWEEN",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0089",
+  "name": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   25
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0091",
+  "name": "RATIO_TO_REPORT",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   47
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0096",
+  "name": "UNBOUNDED FOLLOWING",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   37,
+   38,
+   45,
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0097",
+  "name": "UNBOUNDED PRECEDING",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 5,
+  "old_round_list": [
+   31,
+   37,
+   38,
+   45,
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0098",
+  "name": "윈도우 RANGE 프레임",
+  "cluster": "AG3",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0101",
+  "name": "LIMIT",
+  "cluster": "AG4",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0112",
+  "name": "단순화",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0117",
+  "name": "데이터 모델링 재사용성",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   27
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0121",
+  "name": "명확화",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0123",
+  "name": "비유연성",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0124",
+  "name": "비일관성",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0125",
+  "name": "슈퍼타입/서브타입",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   37,
+   39,
+   46,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0127",
+  "name": "완전성",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   41
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0129",
+  "name": "중복 배제",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   41
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0131",
+  "name": "추상화",
+  "cluster": "DM0",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0138",
+  "name": "교차 엔터티",
+  "cluster": "DM2",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0141",
+  "name": "엔터티 도출",
+  "cluster": "DM2",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   27
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0146",
+  "name": "엔터티/속성/인스턴스 구분",
+  "cluster": "DM2",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0160",
+  "name": "속성 특징",
+  "cluster": "DM3",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   34,
+   40
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0162",
+  "name": "일반 속성",
+  "cluster": "DM3",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0166",
+  "name": "ERD 선택성",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0168",
+  "name": "IDEFIX 표기법",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0172",
+  "name": "UML 표기법",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0176",
+  "name": "관계명",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0179",
+  "name": "선택 참여",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0180",
+  "name": "필수 참여",
+  "cluster": "DM4",
+  "stage": 0,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0184",
+  "name": "단일 식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   34
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0185",
+  "name": "대리키",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0187",
+  "name": "보조 식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   34,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0189",
+  "name": "복합키",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   30,
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0190",
+  "name": "본질 식별자",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   34,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0194",
+  "name": "식별자 명명 규칙",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   50
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0195",
+  "name": "식별자 특징",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0199",
+  "name": "주식별자 도출",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   40
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0201",
+  "name": "주식별자 상속",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   46
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0202",
+  "name": "주식별자 선정",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0203",
+  "name": "주식별자 선택",
+  "cluster": "DM5",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0212",
+  "name": "BCNF",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0213",
+  "name": "관계 반정규화",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   34
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0214",
+  "name": "무결성 저하",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   50
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0215",
+  "name": "반정규화",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 8,
+  "old_round_list": [
+   27,
+   30,
+   34,
+   35,
+   39,
+   48,
+   50,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0217",
+  "name": "수직 분할",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0221",
+  "name": "컬럼 반정규화",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   34
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0222",
+  "name": "컬럼 중복",
+  "cluster": "DM6",
+  "stage": 1,
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0226",
+  "name": "ASCII",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   26
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0231",
+  "name": "LENGTHB",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0232",
+  "name": "LOWER",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   26
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0233",
+  "name": "LPAD",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   24,
+   33,
+   37,
+   47
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0238",
+  "name": "SUBSTR 음수 위치",
+  "cluster": "FN1",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   49,
+   50
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0246",
+  "name": "FLOOR",
+  "cluster": "FN2",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   29,
+   30,
+   33,
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0247",
+  "name": "MOD",
+  "cluster": "FN2",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   24
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0251",
+  "name": "EXTRACT",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   33,
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0252",
+  "name": "Oracle 날짜 연산",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   33,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0253",
+  "name": "Oracle 날짜 포맷",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0254",
+  "name": "SYSDATE",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   32,
+   39,
+   43
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0256",
+  "name": "TO_DATE",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0257",
+  "name": "TO_DATE 기본값",
+  "cluster": "FN3",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0260",
+  "name": "DECODE",
+  "cluster": "FN4",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   50
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0498",
+  "name": "ORDER BY CASE",
+  "cluster": "FN4",
+  "stage": 3,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   41,
+   48,
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0288",
+  "name": "SYS_CONNECT_BY_PATH",
+  "cluster": "HQ1",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0290",
+  "name": "계층 전개 NULL 종료",
+  "cluster": "HQ1",
+  "stage": 6,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0303",
+  "name": "N-1 조인 조건",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   41,
+   45,
+   47
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0305",
+  "name": "NON-EQUI JOIN",
+  "cluster": "JN1",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0319",
+  "name": "B-Tree 인덱스",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0320",
+  "name": "CLUSTERED INDEX",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   41
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0321",
+  "name": "FK 인덱스",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0322",
+  "name": "Full Table Scan",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0323",
+  "name": "HASH 파티션",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0324",
+  "name": "IOT",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0325",
+  "name": "Index Scan",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0326",
+  "name": "LIST 파티션",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 3,
+  "old_round_list": [
+   30,
+   33,
+   41
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0327",
+  "name": "RANGE 파티션",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0328",
+  "name": "UNIQUE INDEX SCAN",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0329",
+  "name": "개별 타입",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0330",
+  "name": "규칙 기반 옵티마이저",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0331",
+  "name": "비용 기반 옵티마이저",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   25,
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0332",
+  "name": "슈퍼/서브타입 변환",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0333",
+  "name": "실행계획",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 4,
+  "old_round_list": [
+   33,
+   34,
+   37,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0334",
+  "name": "실행계획 읽기 순서",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0335",
+  "name": "인덱스",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 3,
+  "old_round_list": [
+   31,
+   39,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0336",
+  "name": "컬럼 분할",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0337",
+  "name": "테이블 병합",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0338",
+  "name": "통계 테이블 추가",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0339",
+  "name": "파티셔닝",
+  "cluster": "LG1",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   30,
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0340",
+  "name": "분산 데이터베이스",
+  "cluster": "LG2",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 5,
+  "old_round_list": [
+   27,
+   29,
+   30,
+   35,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0341",
+  "name": "분할 투명성",
+  "cluster": "LG2",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   29
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0342",
+  "name": "위치 투명성",
+  "cluster": "LG2",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   29,
+   30
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0343",
+  "name": "중복 투명성",
+  "cluster": "LG2",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   29
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0344",
+  "name": "지역사상 투명성",
+  "cluster": "LG2",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   29
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0345",
+  "name": "CURSOR",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   33,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0346",
+  "name": "CURSOR CLOSE",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0347",
+  "name": "CURSOR FETCH",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0348",
+  "name": "CURSOR OPEN",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0349",
+  "name": "PL/SQL",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 4,
+  "old_round_list": [
+   31,
+   37,
+   38,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0350",
+  "name": "PL/SQL 변수 범위",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0351",
+  "name": "PL/SQL 블록",
+  "cluster": "LG3",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0352",
+  "name": "HASH JOIN",
+  "cluster": "LG4",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 5,
+  "old_round_list": [
+   26,
+   33,
+   35,
+   37,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0353",
+  "name": "Hash Join Build/Probe",
+  "cluster": "LG4",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0354",
+  "name": "NESTED LOOP JOIN",
+  "cluster": "LG4",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 5,
+  "old_round_list": [
+   25,
+   33,
+   34,
+   37,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0355",
+  "name": "Sort Merge Join",
+  "cluster": "LG4",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 4,
+  "old_round_list": [
+   30,
+   37,
+   38,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0356",
+  "name": "조인 수행 원리",
+  "cluster": "LG4",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   26
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0357",
+  "name": "Row Chaining",
+  "cluster": "LG5",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   30,
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0358",
+  "name": "Row Migration",
+  "cluster": "LG5",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 1,
+  "old_round_list": [
+   30
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0359",
+  "name": "성능 데이터 모델링",
+  "cluster": "LG5",
+  "stage": "L",
+  "legacy_kind": "out_of_scope",
+  "old_rounds": 2,
+  "old_round_list": [
+   37,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0363",
+  "name": "INSERT ALL",
+  "cluster": "MG1",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   45,
+   51
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0366",
+  "name": "MERGE DELETE",
+  "cluster": "MG1",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0367",
+  "name": "MERGE MATCHED",
+  "cluster": "MG1",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0368",
+  "name": "MERGE NOT MATCHED",
+  "cluster": "MG1",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   37
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0371",
+  "name": "ADD COLUMN",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0372",
+  "name": "ADD CONSTRAINT",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0377",
+  "name": "ALTER/MODIFY",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   43
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0378",
+  "name": "CREATE INDEX",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   38,
+   39
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0382",
+  "name": "DROP COLUMN",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0383",
+  "name": "DROP CONSTRAINT",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0384",
+  "name": "DROP INDEX",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0387",
+  "name": "MODIFY",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0389",
+  "name": "Oracle/SQL Server DDL 차이",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0390",
+  "name": "RENAME",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0391",
+  "name": "RENAME COLUMN",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   32
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0394",
+  "name": "트리거",
+  "cluster": "MG2",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   41,
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0395",
+  "name": "CASCADE",
+  "cluster": "MG3",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   40
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0439",
+  "name": "UNIQUE 키워드",
+  "cluster": "MG3",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0399",
+  "name": "데이터 무결성 유지",
+  "cluster": "MG3",
+  "stage": 7,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   30,
+   45
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0406",
+  "name": "ROLLBACK TO SAVEPOINT",
+  "cluster": "MG5",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   38,
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0407",
+  "name": "SAVEPOINT",
+  "cluster": "MG5",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 5,
+  "old_round_list": [
+   30,
+   38,
+   41,
+   48,
+   50
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0420",
+  "name": "TO",
+  "cluster": "MG6",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0421",
+  "name": "UPDATE 권한",
+  "cluster": "MG6",
+  "stage": 8,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0444",
+  "name": "문자 비교",
+  "cluster": "SQ1",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0446",
+  "name": "컬럼 별칭 대소문자",
+  "cluster": "SQ1",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   35
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0448",
+  "name": "CHAR",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 4,
+  "old_round_list": [
+   26,
+   31,
+   35,
+   40
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0449",
+  "name": "CHAR 후행 공백",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   26,
+   31
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0451",
+  "name": "NUMERIC",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   38,
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0452",
+  "name": "VARCHAR",
+  "cluster": "SQ2",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 3,
+  "old_round_list": [
+   31,
+   35,
+   40
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0477",
+  "name": "BETWEEN 경계 포함",
+  "cluster": "SQ4",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   48
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0481",
+  "name": "LIKE 컬럼 패턴",
+  "cluster": "SQ4",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   49
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0485",
+  "name": "SELECT INTO",
+  "cluster": "SQ4",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0492",
+  "name": "연산자 우선순위",
+  "cluster": "SQ4",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 2,
+  "old_round_list": [
+   29,
+   38
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0500",
+  "name": "ORDER BY 순서번호",
+  "cluster": "SQ5",
+  "stage": 2,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   44
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0512",
+  "name": "서브쿼리 ORDER BY 제한",
+  "cluster": "SQ6",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   33
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ },
+ {
+  "id": "N0522",
+  "name": "집합 연산자 우선순위",
+  "cluster": "SQ7",
+  "stage": 4,
+  "legacy_kind": "older_evidence_only",
+  "old_rounds": 1,
+  "old_round_list": [
+   46
+  ],
+  "shown_by_default_as_support": false,
+  "support_for": [],
+  "priority": "Legacy"
+ }
+]

@@ -1,0 +1,6088 @@
+[
+ {
+  "source": "N0488",
+  "target": "N0054",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "PRECEDES"
+  ],
+  "source_reasons": [
+   "논리적 실행 순서"
+  ],
+  "reason": "논리적 실행 순서",
+  "source_name": "WHERE",
+  "target_name": "GROUP BY"
+ },
+ {
+  "source": "N0054",
+  "target": "N0057",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "PRECEDES",
+   "REQUIRES"
+  ],
+  "source_reasons": [
+   "논리적 실행 순서",
+   "그룹 필터 문맥"
+  ],
+  "reason": "논리적 실행 순서",
+  "source_name": "GROUP BY",
+  "target_name": "HAVING"
+ },
+ {
+  "source": "N0437",
+  "target": "N0497",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "PRECEDES"
+  ],
+  "source_reasons": [
+   "논리적 실행 순서"
+  ],
+  "reason": "논리적 실행 순서",
+  "source_name": "SELECT",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0437",
+  "target": "N0499",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "ENABLES"
+  ],
+  "source_reasons": [
+   "SELECT 후 ORDER BY에서 별칭 사용 가능"
+  ],
+  "reason": "SELECT 후 ORDER BY에서 별칭 사용 가능",
+  "source_name": "SELECT",
+  "target_name": "ORDER BY 별칭"
+ },
+ {
+  "source": "N0425",
+  "target": "N0486",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "EXPLAINS"
+  ],
+  "source_reasons": [
+   "논리 실행순서로 설명"
+  ],
+  "reason": "논리 실행순서로 설명",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "SELECT 별칭 WHERE 사용 불가"
+ },
+ {
+  "source": "N0425",
+  "target": "N0499",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "EXPLAINS"
+  ],
+  "source_reasons": [
+   "ORDER BY는 SELECT 이후"
+  ],
+  "reason": "ORDER BY는 SELECT 이후",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "ORDER BY 별칭"
+ },
+ {
+  "source": "N0309",
+  "target": "N0307",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "EXPLAINS"
+  ],
+  "source_reasons": [
+   "ON/WHERE 배치 차이"
+  ],
+  "reason": "ON/WHERE 배치 차이",
+  "source_name": "OUTER JOIN 조건 위치",
+  "target_name": "ON vs WHERE"
+ },
+ {
+  "source": "N0223",
+  "target": "N0210",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "REQUIRES"
+  ],
+  "source_reasons": [
+   "부분 함수 종속 제거"
+  ],
+  "reason": "부분 함수 종속 제거",
+  "source_name": "함수적 종속",
+  "target_name": "2NF"
+ },
+ {
+  "source": "N0223",
+  "target": "N0211",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "REQUIRES"
+  ],
+  "source_reasons": [
+   "이행 함수 종속 제거"
+  ],
+  "reason": "이행 함수 종속 제거",
+  "source_name": "함수적 종속",
+  "target_name": "3NF"
+ },
+ {
+  "source": "N0284",
+  "target": "N0280",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "ENABLES"
+  ],
+  "source_reasons": [
+   "순환 여부 표시"
+  ],
+  "reason": "순환 여부 표시",
+  "source_name": "NOCYCLE",
+  "target_name": "CONNECT_BY_ISCYCLE"
+ },
+ {
+  "source": "N0407",
+  "target": "N0406",
+  "origin": "explicit",
+  "inferred": false,
+  "source_relations": [
+   "ENABLES"
+  ],
+  "source_reasons": [
+   "부분 롤백"
+  ],
+  "reason": "부분 롤백",
+  "source_name": "SAVEPOINT",
+  "target_name": "ROLLBACK TO SAVEPOINT"
+ },
+ {
+  "source": "N0118",
+  "target": "N0119",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 모델링 특징은 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "데이터 모델링 특징"
+ },
+ {
+  "source": "N0118",
+  "target": "N0116",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 모델링 관점은 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "데이터 모델링 관점"
+ },
+ {
+  "source": "N0118",
+  "target": "N0114",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 모델링 3단계는 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "데이터 모델링 3단계"
+ },
+ {
+  "source": "N0118",
+  "target": "N0115",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 모델링 3대 유의점은 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "데이터 모델링 3대 유의점"
+ },
+ {
+  "source": "N0118",
+  "target": "N0126",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "업무 규칙은 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "업무 규칙"
+ },
+ {
+  "source": "N0118",
+  "target": "N0117",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 모델링 재사용성은 데이터 모델링이 무엇인지(현실 업무를 데이터 구조로 추상화) 알아야 이해할 수 있음",
+  "source_name": "데이터 모델링 정의",
+  "target_name": "데이터 모델링 재사용성"
+ },
+ {
+  "source": "N0119",
+  "target": "N0131",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "추상화는 '데이터 모델링 특징' 목록의 한 항목이므로 특징 전체 맥락을 먼저 학습",
+  "source_name": "데이터 모델링 특징",
+  "target_name": "추상화"
+ },
+ {
+  "source": "N0119",
+  "target": "N0112",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "단순화는 '데이터 모델링 특징' 목록의 한 항목이므로 특징 전체 맥락을 먼저 학습",
+  "source_name": "데이터 모델링 특징",
+  "target_name": "단순화"
+ },
+ {
+  "source": "N0119",
+  "target": "N0121",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "명확화는 '데이터 모델링 특징' 목록의 한 항목이므로 특징 전체 맥락을 먼저 학습",
+  "source_name": "데이터 모델링 특징",
+  "target_name": "명확화"
+ },
+ {
+  "source": "N0119",
+  "target": "N0127",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "완전성은 '데이터 모델링 특징' 목록의 한 항목이므로 특징 전체 맥락을 먼저 학습",
+  "source_name": "데이터 모델링 특징",
+  "target_name": "완전성"
+ },
+ {
+  "source": "N0119",
+  "target": "N0129",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "중복 배제는 '데이터 모델링 특징' 목록의 한 항목이므로 특징 전체 맥락을 먼저 학습",
+  "source_name": "데이터 모델링 특징",
+  "target_name": "중복 배제"
+ },
+ {
+  "source": "N0116",
+  "target": "N0113",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 관점은 데이터/프로세스/상관 관점 중 하나이므로 관점 분류를 먼저 알아야 함",
+  "source_name": "데이터 모델링 관점",
+  "target_name": "데이터 관점"
+ },
+ {
+  "source": "N0114",
+  "target": "N0109",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "개념적 모델링은 3단계(개념→논리→물리) 중 첫 단계",
+  "source_name": "데이터 모델링 3단계",
+  "target_name": "개념적 데이터 모델링"
+ },
+ {
+  "source": "N0109",
+  "target": "N0111",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "모델링 단계는 개념→논리→물리 순으로 구체화되며 이전 단계의 산출물을 입력으로 받음",
+  "source_name": "개념적 데이터 모델링",
+  "target_name": "논리적 데이터 모델링"
+ },
+ {
+  "source": "N0111",
+  "target": "N0122",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "모델링 단계는 개념→논리→물리 순으로 구체화되며 이전 단계의 산출물을 입력으로 받음",
+  "source_name": "논리적 데이터 모델링",
+  "target_name": "물리적 데이터 모델링"
+ },
+ {
+  "source": "N0115",
+  "target": "N0128",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "중복은 데이터 모델링 3대 유의점(중복·비유연성·비일관성)의 한 항목",
+  "source_name": "데이터 모델링 3대 유의점",
+  "target_name": "중복"
+ },
+ {
+  "source": "N0115",
+  "target": "N0123",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "비유연성은 데이터 모델링 3대 유의점(중복·비유연성·비일관성)의 한 항목",
+  "source_name": "데이터 모델링 3대 유의점",
+  "target_name": "비유연성"
+ },
+ {
+  "source": "N0115",
+  "target": "N0124",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "비일관성은 데이터 모델링 3대 유의점(중복·비유연성·비일관성)의 한 항목",
+  "source_name": "데이터 모델링 3대 유의점",
+  "target_name": "비일관성"
+ },
+ {
+  "source": "N0122",
+  "target": "N0120",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 용량 산정은 물리적 데이터 모델링 단계의 고려사항",
+  "source_name": "물리적 데이터 모델링",
+  "target_name": "데이터 용량"
+ },
+ {
+  "source": "N0140",
+  "target": "N0125",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "슈퍼타입/서브타입은 엔터티를 공통/개별 속성으로 나누는 구조이므로 엔터티 개념 선행",
+  "source_name": "엔터티",
+  "target_name": "슈퍼타입/서브타입"
+ },
+ {
+  "source": "N0132",
+  "target": "N0136",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "외부 스키마는 ANSI/SPARC 3단계 스키마 구조의 한 계층",
+  "source_name": "3단계 스키마",
+  "target_name": "외부 스키마"
+ },
+ {
+  "source": "N0132",
+  "target": "N0133",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "개념 스키마는 ANSI/SPARC 3단계 스키마 구조의 한 계층",
+  "source_name": "3단계 스키마",
+  "target_name": "개념 스키마"
+ },
+ {
+  "source": "N0132",
+  "target": "N0134",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "내부 스키마는 ANSI/SPARC 3단계 스키마 구조의 한 계층",
+  "source_name": "3단계 스키마",
+  "target_name": "내부 스키마"
+ },
+ {
+  "source": "N0136",
+  "target": "N0135",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "논리적 독립성(외부↔개념)과 물리적 독립성(개념↔내부)은 각 스키마 사이의 매핑으로 정의되므로 외부 스키마를 알아야 함",
+  "source_name": "외부 스키마",
+  "target_name": "데이터 독립성"
+ },
+ {
+  "source": "N0133",
+  "target": "N0135",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "논리적 독립성(외부↔개념)과 물리적 독립성(개념↔내부)은 각 스키마 사이의 매핑으로 정의되므로 개념 스키마를 알아야 함",
+  "source_name": "개념 스키마",
+  "target_name": "데이터 독립성"
+ },
+ {
+  "source": "N0134",
+  "target": "N0135",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "논리적 독립성(외부↔개념)과 물리적 독립성(개념↔내부)은 각 스키마 사이의 매핑으로 정의되므로 내부 스키마를 알아야 함",
+  "source_name": "내부 스키마",
+  "target_name": "데이터 독립성"
+ },
+ {
+  "source": "N0140",
+  "target": "N0148",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "인스턴스는 엔터티 개념을 전제로 함",
+  "source_name": "엔터티",
+  "target_name": "인스턴스"
+ },
+ {
+  "source": "N0140",
+  "target": "N0145",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티 특징은 엔터티 개념을 전제로 함",
+  "source_name": "엔터티",
+  "target_name": "엔터티 특징"
+ },
+ {
+  "source": "N0140",
+  "target": "N0144",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티 분류는 엔터티 개념을 전제로 함",
+  "source_name": "엔터티",
+  "target_name": "엔터티 분류"
+ },
+ {
+  "source": "N0140",
+  "target": "N0142",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티 명명 규칙은 엔터티 개념을 전제로 함",
+  "source_name": "엔터티",
+  "target_name": "엔터티 명명 규칙"
+ },
+ {
+  "source": "N0140",
+  "target": "N0141",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티 도출은 엔터티 개념을 전제로 함",
+  "source_name": "엔터티",
+  "target_name": "엔터티 도출"
+ },
+ {
+  "source": "N0144",
+  "target": "N0143",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "발생시점 분류(기본/중심/행위)는 엔터티 분류 기준 중 하나",
+  "source_name": "엔터티 분류",
+  "target_name": "엔터티 발생시점 분류"
+ },
+ {
+  "source": "N0143",
+  "target": "N0139",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "기본 엔터티는 발생시점 분류의 첫 유형",
+  "source_name": "엔터티 발생시점 분류",
+  "target_name": "기본 엔터티"
+ },
+ {
+  "source": "N0139",
+  "target": "N0149",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "중심 엔터티는 기본 엔터티로부터, 행위 엔터티는 두 개 이상의 부모(기본/중심) 엔터티로부터 발생하므로 앞 유형을 먼저 알아야 구분 가능",
+  "source_name": "기본 엔터티",
+  "target_name": "중심 엔터티"
+ },
+ {
+  "source": "N0149",
+  "target": "N0150",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "중심 엔터티는 기본 엔터티로부터, 행위 엔터티는 두 개 이상의 부모(기본/중심) 엔터티로부터 발생하므로 앞 유형을 먼저 알아야 구분 가능",
+  "source_name": "중심 엔터티",
+  "target_name": "행위 엔터티"
+ },
+ {
+  "source": "N0148",
+  "target": "N0147",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티·인스턴스·속성의 관계를 판단하려면 인스턴스 개념이 먼저 필요",
+  "source_name": "인스턴스",
+  "target_name": "엔터티/인스턴스/속성 관계"
+ },
+ {
+  "source": "N0157",
+  "target": "N0147",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티·인스턴스·속성의 관계를 판단하려면 속성 개념이 먼저 필요",
+  "source_name": "속성",
+  "target_name": "엔터티/인스턴스/속성 관계"
+ },
+ {
+  "source": "N0148",
+  "target": "N0146",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티·속성·인스턴스를 구분하려면 인스턴스 개념이 먼저 필요",
+  "source_name": "인스턴스",
+  "target_name": "엔터티/속성/인스턴스 구분"
+ },
+ {
+  "source": "N0157",
+  "target": "N0146",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "엔터티·속성·인스턴스를 구분하려면 속성 개념이 먼저 필요",
+  "source_name": "속성",
+  "target_name": "엔터티/속성/인스턴스 구분"
+ },
+ {
+  "source": "N0175",
+  "target": "N0170",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "M:N 해소는 관계 차수 중 M:N을 이해해야 필요성이 보임",
+  "source_name": "관계 차수",
+  "target_name": "M:N 해소"
+ },
+ {
+  "source": "N0170",
+  "target": "N0137",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계 엔터티는 M:N 관계를 1:M + M:1로 분해(해소)한 결과물",
+  "related_source_relations": [
+   "RESOLVED_BY"
+  ],
+  "source_name": "M:N 해소",
+  "target_name": "관계 엔터티"
+ },
+ {
+  "source": "N0137",
+  "target": "N0138",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "교차 엔터티는 관계 엔터티의 다른 이름/형태",
+  "source_name": "관계 엔터티",
+  "target_name": "교차 엔터티"
+ },
+ {
+  "source": "N0140",
+  "target": "N0157",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "속성은 엔터티가 가지는 성질(정보 항목)",
+  "source_name": "엔터티",
+  "target_name": "속성"
+ },
+ {
+  "source": "N0157",
+  "target": "N0160",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "속성 특징은 속성 개념을 전제로 함",
+  "source_name": "속성",
+  "target_name": "속성 특징"
+ },
+ {
+  "source": "N0157",
+  "target": "N0161",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "속성값은 속성 개념을 전제로 함",
+  "source_name": "속성",
+  "target_name": "속성값"
+ },
+ {
+  "source": "N0157",
+  "target": "N0158",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "속성 명명은 속성 개념을 전제로 함",
+  "source_name": "속성",
+  "target_name": "속성 명명"
+ },
+ {
+  "source": "N0157",
+  "target": "N0154",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "도메인은 속성 개념을 전제로 함",
+  "source_name": "속성",
+  "target_name": "도메인"
+ },
+ {
+  "source": "N0157",
+  "target": "N0159",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "속성 분류는 속성 개념을 전제로 함",
+  "source_name": "속성",
+  "target_name": "속성 분류"
+ },
+ {
+  "source": "N0159",
+  "target": "N0151",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "기본 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "기본 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0156",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "설계 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "설계 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0163",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "파생 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "파생 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0162",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "일반 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "일반 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0153",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "단일값 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "단일값 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0152",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중값 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "다중값 속성"
+ },
+ {
+  "source": "N0159",
+  "target": "N0155",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "복합 속성은 속성 분류 체계(특성별·구성방식별·값 개수별)의 한 유형",
+  "source_name": "속성 분류",
+  "target_name": "복합 속성"
+ },
+ {
+  "source": "N0140",
+  "target": "N0173",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계는 엔터티(인스턴스) 사이의 연관이므로 엔터티 선행",
+  "source_name": "엔터티",
+  "target_name": "관계"
+ },
+ {
+  "source": "N0173",
+  "target": "N0176",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계명은 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "관계명"
+ },
+ {
+  "source": "N0173",
+  "target": "N0175",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계 차수는 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "관계 차수"
+ },
+ {
+  "source": "N0173",
+  "target": "N0174",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계 선택성은 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "관계 선택성"
+ },
+ {
+  "source": "N0173",
+  "target": "N0178",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "상호배타 관계는 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "상호배타 관계"
+ },
+ {
+  "source": "N0173",
+  "target": "N0165",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ERD은(는) 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "ERD"
+ },
+ {
+  "source": "N0173",
+  "target": "X001",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "순환 관계(자기참조)은(는) 관계 개념을 전제로 함",
+  "source_name": "관계",
+  "target_name": "순환 관계(자기참조)"
+ },
+ {
+  "source": "N0174",
+  "target": "N0179",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "선택 참여는 관계 선택성(필수/선택 참여)의 세부 내용",
+  "source_name": "관계 선택성",
+  "target_name": "선택 참여"
+ },
+ {
+  "source": "N0174",
+  "target": "N0180",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "필수 참여는 관계 선택성(필수/선택 참여)의 세부 내용",
+  "source_name": "관계 선택성",
+  "target_name": "필수 참여"
+ },
+ {
+  "source": "N0174",
+  "target": "N0166",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ERD 선택성은 관계 선택성(필수/선택 참여)의 세부 내용",
+  "source_name": "관계 선택성",
+  "target_name": "ERD 선택성"
+ },
+ {
+  "source": "N0165",
+  "target": "N0167",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "표기법은 ERD를 그리는 방법이므로 ERD 개념 선행",
+  "source_name": "ERD",
+  "target_name": "ERD 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0169",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IE 표기법은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "IE 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0164",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Barker 표기법은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "Barker 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0171",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Peter Chen 표기법은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "Peter Chen 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0168",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IDEFIX 표기법은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "IDEFIX 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0172",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UML 표기법은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "UML 표기법"
+ },
+ {
+  "source": "N0167",
+  "target": "N0166",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ERD 선택성은 ERD 표기법의 한 종류/요소",
+  "source_name": "ERD 표기법",
+  "target_name": "ERD 선택성"
+ },
+ {
+  "source": "N0111",
+  "target": "N0177",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계형 모델(테이블·행·열)은 논리적 데이터 모델링 단계에서 사용하는 표현 모델",
+  "source_name": "논리적 데이터 모델링",
+  "target_name": "관계형 모델"
+ },
+ {
+  "source": "N0140",
+  "target": "N0193",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별자는 엔터티의 인스턴스를 유일하게 구분하는 속성",
+  "source_name": "엔터티",
+  "target_name": "식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0195",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별자 특징은 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "식별자 특징"
+ },
+ {
+  "source": "N0193",
+  "target": "N0194",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별자 명명 규칙은 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "식별자 명명 규칙"
+ },
+ {
+  "source": "N0193",
+  "target": "N0198",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "주식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0187",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "보조 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "보조 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0183",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "내부 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "내부 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0196",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "외부 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "외부 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0184",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "단일 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "단일 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0188",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "복합 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "복합 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0190",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "본질 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "본질 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0197",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "인조 식별자는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "인조 식별자"
+ },
+ {
+  "source": "N0193",
+  "target": "N0208",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "후보키는 식별자 개념과 분류 체계를 전제로 함",
+  "source_name": "식별자",
+  "target_name": "후보키"
+ },
+ {
+  "source": "N0198",
+  "target": "N0207",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자의 특징(유일성·최소성·불변성·존재성)은 주식별자 개념 선행",
+  "source_name": "주식별자",
+  "target_name": "주식별자 특징"
+ },
+ {
+  "source": "N0207",
+  "target": "N0204",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 유일성은 주식별자 4대 특징 중 하나",
+  "source_name": "주식별자 특징",
+  "target_name": "주식별자 유일성"
+ },
+ {
+  "source": "N0207",
+  "target": "N0206",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 최소성은 주식별자 4대 특징 중 하나",
+  "source_name": "주식별자 특징",
+  "target_name": "주식별자 최소성"
+ },
+ {
+  "source": "N0207",
+  "target": "N0200",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 불변성은 주식별자 4대 특징 중 하나",
+  "source_name": "주식별자 특징",
+  "target_name": "주식별자 불변성"
+ },
+ {
+  "source": "N0207",
+  "target": "N0205",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 존재성은 주식별자 4대 특징 중 하나",
+  "source_name": "주식별자 특징",
+  "target_name": "주식별자 존재성"
+ },
+ {
+  "source": "N0207",
+  "target": "N0199",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자는 4대 특징을 만족하는 속성으로 도출",
+  "source_name": "주식별자 특징",
+  "target_name": "주식별자 도출"
+ },
+ {
+  "source": "N0199",
+  "target": "N0202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 선정은 주식별자 도출 기준을 적용하는 과정",
+  "source_name": "주식별자 도출",
+  "target_name": "주식별자 선정"
+ },
+ {
+  "source": "N0199",
+  "target": "N0203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 선택은 주식별자 도출 기준을 적용하는 과정",
+  "source_name": "주식별자 도출",
+  "target_name": "주식별자 선택"
+ },
+ {
+  "source": "N0188",
+  "target": "N0189",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "복합키는 복합 식별자를 물리 테이블 키로 구현한 것",
+  "source_name": "복합 식별자",
+  "target_name": "복합키"
+ },
+ {
+  "source": "N0197",
+  "target": "N0185",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "대리키는 인조 식별자의 물리적 구현",
+  "source_name": "인조 식별자",
+  "target_name": "대리키"
+ },
+ {
+  "source": "N0208",
+  "target": "N0182",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PK(기본키)는 후보키 중에서 선택한 키",
+  "source_name": "후보키",
+  "target_name": "PK"
+ },
+ {
+  "source": "N0198",
+  "target": "N0182",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "논리 모델의 주식별자가 물리 테이블의 PK로 구현됨",
+  "source_name": "주식별자",
+  "target_name": "PK"
+ },
+ {
+  "source": "N0182",
+  "target": "N0181",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FK는 부모 테이블의 PK(또는 UNIQUE 키)를 참조",
+  "source_name": "PK",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0173",
+  "target": "N0181",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FK는 엔터티 간 관계를 테이블에 구현하는 수단",
+  "related_source_relations": [
+   "IMPLEMENTS"
+  ],
+  "source_name": "관계",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0196",
+  "target": "N0181",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "외부 식별자(다른 엔터티에서 온 식별자)가 물리적으로 FK가 됨",
+  "source_name": "외부 식별자",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0173",
+  "target": "N0192",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별 관계는 부모의 식별자가 자식의 주식별자에 포함되는 관계이므로 관계를 알아야 판별 가능",
+  "source_name": "관계",
+  "target_name": "식별 관계"
+ },
+ {
+  "source": "N0196",
+  "target": "N0192",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별 관계는 부모의 식별자가 자식의 주식별자에 포함되는 관계이므로 외부 식별자를 알아야 판별 가능",
+  "source_name": "외부 식별자",
+  "target_name": "식별 관계"
+ },
+ {
+  "source": "N0198",
+  "target": "N0192",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "식별 관계는 부모의 식별자가 자식의 주식별자에 포함되는 관계이므로 주식별자를 알아야 판별 가능",
+  "source_name": "주식별자",
+  "target_name": "식별 관계"
+ },
+ {
+  "source": "N0173",
+  "target": "N0191",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "비식별 관계는 부모 식별자가 자식의 일반 속성(FK)으로만 전이되는 관계이므로 관계를 알아야 판별 가능",
+  "source_name": "관계",
+  "target_name": "비식별 관계"
+ },
+ {
+  "source": "N0196",
+  "target": "N0191",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "비식별 관계는 부모 식별자가 자식의 일반 속성(FK)으로만 전이되는 관계이므로 외부 식별자를 알아야 판별 가능",
+  "source_name": "외부 식별자",
+  "target_name": "비식별 관계"
+ },
+ {
+  "source": "N0192",
+  "target": "N0201",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "주식별자 상속은 식별 관계의 성질(부모 키 상속 / 부모와 생명주기 공유)",
+  "source_name": "식별 관계",
+  "target_name": "주식별자 상속"
+ },
+ {
+  "source": "N0192",
+  "target": "N0186",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "동일 생명주기는 식별 관계의 성질(부모 키 상속 / 부모와 생명주기 공유)",
+  "source_name": "식별 관계",
+  "target_name": "동일 생명주기"
+ },
+ {
+  "source": "N0128",
+  "target": "N0218",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "삽입·갱신·삭제 이상은 데이터 중복에서 발생",
+  "source_name": "중복",
+  "target_name": "이상현상"
+ },
+ {
+  "source": "N0218",
+  "target": "N0220",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규화는 이상현상을 제거하기 위한 절차",
+  "source_name": "이상현상",
+  "target_name": "정규화"
+ },
+ {
+  "source": "N0220",
+  "target": "N0209",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "1NF은(는) 정규화의 목적과 절차를 먼저 알아야 이해 가능",
+  "source_name": "정규화",
+  "target_name": "1NF"
+ },
+ {
+  "source": "N0220",
+  "target": "N0223",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "함수적 종속은 정규화의 목적과 절차를 먼저 알아야 이해 가능",
+  "source_name": "정규화",
+  "target_name": "함수적 종속"
+ },
+ {
+  "source": "N0220",
+  "target": "N0215",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "반정규화는 정규화의 목적과 절차를 먼저 알아야 이해 가능",
+  "related_source_relations": [
+   "CONTRASTS"
+  ],
+  "source_name": "정규화",
+  "target_name": "반정규화"
+ },
+ {
+  "source": "N0152",
+  "target": "N0209",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "1NF는 다중값(반복) 속성을 원자값으로 분리하는 단계",
+  "source_name": "다중값 속성",
+  "target_name": "1NF"
+ },
+ {
+  "source": "N0223",
+  "target": "N0216",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "부분 함수 종속은 함수적 종속(결정자→종속자)의 특수한 형태",
+  "source_name": "함수적 종속",
+  "target_name": "부분 함수 종속"
+ },
+ {
+  "source": "N0223",
+  "target": "N0219",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "이행 함수 종속은 함수적 종속(결정자→종속자)의 특수한 형태",
+  "source_name": "함수적 종속",
+  "target_name": "이행 함수 종속"
+ },
+ {
+  "source": "N0182",
+  "target": "N0216",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "부분 함수 종속은 복합 PK의 '일부'에만 종속되는 것이므로 PK 개념 필요",
+  "source_name": "PK",
+  "target_name": "부분 함수 종속"
+ },
+ {
+  "source": "N0209",
+  "target": "N0210",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "2NF는 1NF를 만족한 릴레이션에 적용",
+  "source_name": "1NF",
+  "target_name": "2NF"
+ },
+ {
+  "source": "N0216",
+  "target": "N0210",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "부분 함수 종속 개념을 알아야 2NF를 판별할 수 있음",
+  "related_source_relations": [
+   "REMOVED_BY"
+  ],
+  "source_name": "부분 함수 종속",
+  "target_name": "2NF"
+ },
+ {
+  "source": "N0210",
+  "target": "N0211",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "3NF는 2NF를 만족한 릴레이션에 적용",
+  "source_name": "2NF",
+  "target_name": "3NF"
+ },
+ {
+  "source": "N0219",
+  "target": "N0211",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "이행 함수 종속 개념을 알아야 3NF를 판별할 수 있음",
+  "related_source_relations": [
+   "REMOVED_BY"
+  ],
+  "source_name": "이행 함수 종속",
+  "target_name": "3NF"
+ },
+ {
+  "source": "N0211",
+  "target": "N0212",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "BCNF는 3NF를 강화한 정규형",
+  "source_name": "3NF",
+  "target_name": "BCNF"
+ },
+ {
+  "source": "N0208",
+  "target": "N0212",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "BCNF는 '모든 결정자가 후보키'라는 조건이므로 후보키 개념 필요",
+  "source_name": "후보키",
+  "target_name": "BCNF"
+ },
+ {
+  "source": "N0215",
+  "target": "N0213",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "관계 반정규화는 반정규화 기법/부작용의 하나",
+  "source_name": "반정규화",
+  "target_name": "관계 반정규화"
+ },
+ {
+  "source": "N0215",
+  "target": "N0221",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "컬럼 반정규화는 반정규화 기법/부작용의 하나",
+  "source_name": "반정규화",
+  "target_name": "컬럼 반정규화"
+ },
+ {
+  "source": "N0215",
+  "target": "N0222",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "컬럼 중복은 반정규화 기법/부작용의 하나",
+  "source_name": "반정규화",
+  "target_name": "컬럼 중복"
+ },
+ {
+  "source": "N0215",
+  "target": "N0217",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "수직 분할은 반정규화 기법/부작용의 하나",
+  "source_name": "반정규화",
+  "target_name": "수직 분할"
+ },
+ {
+  "source": "N0215",
+  "target": "N0214",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "무결성 저하는 반정규화 기법/부작용의 하나",
+  "source_name": "반정규화",
+  "target_name": "무결성 저하"
+ },
+ {
+  "source": "N0182",
+  "target": "N0110",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "개체 무결성(PK는 NULL·중복 불가)은 PK가 보장하는 규칙",
+  "related_source_relations": [
+   "ENFORCES"
+  ],
+  "source_name": "PK",
+  "target_name": "개체 무결성"
+ },
+ {
+  "source": "N0181",
+  "target": "N0130",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "참조 무결성은 FK 값이 부모 PK에 존재(또는 NULL)해야 한다는 규칙",
+  "related_source_relations": [
+   "ENFORCES"
+  ],
+  "source_name": "FK",
+  "target_name": "참조 무결성"
+ },
+ {
+  "source": "N0130",
+  "target": "N0224",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ON DELETE CASCADE는 부모 삭제 시 참조 무결성을 유지하는 참조 동작",
+  "related_source_relations": [
+   "AFFECTS(reverse)"
+  ],
+  "source_name": "참조 무결성",
+  "target_name": "ON DELETE CASCADE"
+ },
+ {
+  "source": "N0154",
+  "target": "N0225",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "도메인 무결성은 속성 값이 정의된 도메인 안에 있어야 한다는 규칙",
+  "source_name": "도메인",
+  "target_name": "도메인 무결성"
+ },
+ {
+  "source": "N0177",
+  "target": "N0429",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL은 관계형 모델(테이블)을 다루는 집합 기반 언어이므로 관계형 모델 선행",
+  "source_name": "관계형 모델",
+  "target_name": "SQL의 특징"
+ },
+ {
+  "source": "N0429",
+  "target": "N0426",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL 비절차성은 SQL 언어 특징의 한 항목",
+  "source_name": "SQL의 특징",
+  "target_name": "SQL 비절차성"
+ },
+ {
+  "source": "N0429",
+  "target": "N0427",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL 선언적 언어는 SQL 언어 특징의 한 항목",
+  "source_name": "SQL의 특징",
+  "target_name": "SQL 선언적 언어"
+ },
+ {
+  "source": "N0429",
+  "target": "N0428",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL 집합적 언어는 SQL 언어 특징의 한 항목",
+  "source_name": "SQL의 특징",
+  "target_name": "SQL 집합적 언어"
+ },
+ {
+  "source": "N0437",
+  "target": "N0425",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SELECT 문장의 각 절을 알아야 그 평가 순서를 이해할 수 있음",
+  "source_name": "SELECT",
+  "target_name": "SQL 논리 실행 순서"
+ },
+ {
+  "source": "N0437",
+  "target": "N0430",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALIAS은(는) SELECT 문장의 구성 요소",
+  "source_name": "SELECT",
+  "target_name": "ALIAS"
+ },
+ {
+  "source": "N0437",
+  "target": "N0447",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "테이블 별칭은 SELECT 문장의 구성 요소",
+  "source_name": "SELECT",
+  "target_name": "테이블 별칭"
+ },
+ {
+  "source": "N0437",
+  "target": "N0435",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DISTINCT은(는) SELECT 문장의 구성 요소",
+  "source_name": "SELECT",
+  "target_name": "DISTINCT"
+ },
+ {
+  "source": "N0430",
+  "target": "N0446",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "컬럼 별칭의 대소문자 규칙은 별칭(ALIAS) 개념 선행",
+  "source_name": "ALIAS",
+  "target_name": "컬럼 별칭 대소문자"
+ },
+ {
+  "source": "N0448",
+  "target": "N0444",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자 비교 규칙(공백 패딩 비교 vs 비패딩 비교)은 CHAR 자료형의 저장 방식을 알아야 이해 가능",
+  "source_name": "CHAR",
+  "target_name": "문자 비교"
+ },
+ {
+  "source": "N0452",
+  "target": "N0444",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자 비교 규칙(공백 패딩 비교 vs 비패딩 비교)은 VARCHAR 자료형의 저장 방식을 알아야 이해 가능",
+  "source_name": "VARCHAR",
+  "target_name": "문자 비교"
+ },
+ {
+  "source": "N0437",
+  "target": "N0485",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SELECT INTO는 SELECT 결과를 변수/새 테이블에 넣는 변형 문법",
+  "source_name": "SELECT",
+  "target_name": "SELECT INTO"
+ },
+ {
+  "source": "N0456",
+  "target": "N0448",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CHAR은(는) 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "CHAR"
+ },
+ {
+  "source": "N0456",
+  "target": "N0452",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "VARCHAR은(는) 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "VARCHAR"
+ },
+ {
+  "source": "N0456",
+  "target": "N0451",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NUMERIC은(는) 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "NUMERIC"
+ },
+ {
+  "source": "N0456",
+  "target": "N0450",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DATE은(는) 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "DATE"
+ },
+ {
+  "source": "N0456",
+  "target": "N0455",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "암시적 형변환은 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "암시적 형변환"
+ },
+ {
+  "source": "N0456",
+  "target": "N0453",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "명시적 형변환은 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "명시적 형변환"
+ },
+ {
+  "source": "N0456",
+  "target": "N0454",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자 리터럴 따옴표 이스케이프는 자료형 개념을 전제로 함",
+  "source_name": "자료형",
+  "target_name": "문자 리터럴 따옴표 이스케이프"
+ },
+ {
+  "source": "N0448",
+  "target": "N0449",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CHAR는 고정 길이라 남는 자리를 공백으로 채우므로 CHAR 개념 선행",
+  "source_name": "CHAR",
+  "target_name": "CHAR 후행 공백"
+ },
+ {
+  "source": "N0464",
+  "target": "N0465",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 비교는 NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "NULL 비교"
+ },
+ {
+  "source": "N0464",
+  "target": "N0462",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IS NULL은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "IS NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0466",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 산술 연산은 NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "NULL 산술 연산"
+ },
+ {
+  "source": "N0464",
+  "target": "N0473",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "빈 문자열과 NULL(Oracle)은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "DIALECT"
+  ],
+  "source_name": "NULL",
+  "target_name": "빈 문자열과 NULL(Oracle)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0458",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DISTINCT NULL은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "DISTINCT NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0467",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 정렬은 NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0464",
+  "target": "N0463",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT NULL은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "NOT NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0262",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NVL은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0263",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NVL2은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "NVL2"
+ },
+ {
+  "source": "N0464",
+  "target": "N0259",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COALESCE은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0464",
+  "target": "N0261",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULLIF은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "NULLIF"
+ },
+ {
+  "source": "N0464",
+  "target": "N0061",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 집계는 NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "NULL 집계"
+ },
+ {
+  "source": "N0464",
+  "target": "N0053",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT(열)은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0459",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY NULL은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "GROUP BY NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0308",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "OUTER JOIN은(는) NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "NULL",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0290",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "계층 전개 NULL 종료는 NULL이 '값이 없음/알 수 없음' 상태라는 것을 알아야 이해 가능",
+  "source_name": "NULL",
+  "target_name": "계층 전개 NULL 종료"
+ },
+ {
+  "source": "N0488",
+  "target": "N0465",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 비교는 WHERE 조건식에서 발생하는 문제",
+  "source_name": "WHERE",
+  "target_name": "NULL 비교"
+ },
+ {
+  "source": "N0465",
+  "target": "N0472",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL과의 비교 결과가 TRUE/FALSE가 아닌 UNKNOWN이 됨을 알아야 UNKNOWN을(를) 이해 가능",
+  "source_name": "NULL 비교",
+  "target_name": "UNKNOWN"
+ },
+ {
+  "source": "N0465",
+  "target": "N0462",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL과의 비교 결과가 TRUE/FALSE가 아닌 UNKNOWN이 됨을 알아야 IS NULL을(를) 이해 가능",
+  "source_name": "NULL 비교",
+  "target_name": "IS NULL"
+ },
+ {
+  "source": "N0462",
+  "target": "N0461",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IS NOT NULL은 IS NULL의 부정형",
+  "source_name": "IS NULL",
+  "target_name": "IS NOT NULL"
+ },
+ {
+  "source": "N0435",
+  "target": "N0458",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DISTINCT가 NULL을 하나로 묶는 규칙은 DISTINCT 개념 선행",
+  "source_name": "DISTINCT",
+  "target_name": "DISTINCT NULL"
+ },
+ {
+  "source": "N0472",
+  "target": "N0460",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IN + NULL의 결과는 UNKNOWN(3값 논리)과 WHERE가 TRUE만 통과시키는 규칙으로 설명됨",
+  "source_name": "UNKNOWN",
+  "target_name": "IN + NULL"
+ },
+ {
+  "source": "N0472",
+  "target": "N0483",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT IN의 결과는 UNKNOWN(3값 논리)과 WHERE가 TRUE만 통과시키는 규칙으로 설명됨",
+  "source_name": "UNKNOWN",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0497",
+  "target": "N0467",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 정렬 위치 규칙은 ORDER BY 개념 선행",
+  "source_name": "ORDER BY",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0467",
+  "target": "N0470",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle NULL 정렬은 NULL 정렬 규칙의 DBMS별 동작/제어 문법",
+  "source_name": "NULL 정렬",
+  "target_name": "Oracle NULL 정렬"
+ },
+ {
+  "source": "N0467",
+  "target": "N0471",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server NULL 정렬은 NULL 정렬 규칙의 DBMS별 동작/제어 문법",
+  "source_name": "NULL 정렬",
+  "target_name": "SQL Server NULL 정렬"
+ },
+ {
+  "source": "N0467",
+  "target": "N0468",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULLS FIRST은(는) NULL 정렬 규칙의 DBMS별 동작/제어 문법",
+  "source_name": "NULL 정렬",
+  "target_name": "NULLS FIRST"
+ },
+ {
+  "source": "N0467",
+  "target": "N0469",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULLS LAST은(는) NULL 정렬 규칙의 DBMS별 동작/제어 문법",
+  "source_name": "NULL 정렬",
+  "target_name": "NULLS LAST"
+ },
+ {
+  "source": "N0437",
+  "target": "N0488",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WHERE는 SELECT 문장의 행 필터 절",
+  "source_name": "SELECT",
+  "target_name": "WHERE"
+ },
+ {
+  "source": "N0488",
+  "target": "N0474",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "AND은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "AND"
+ },
+ {
+  "source": "N0488",
+  "target": "N0484",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "OR은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "OR"
+ },
+ {
+  "source": "N0488",
+  "target": "N0482",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "NOT"
+ },
+ {
+  "source": "N0488",
+  "target": "N0476",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "BETWEEN은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "BETWEEN"
+ },
+ {
+  "source": "N0488",
+  "target": "N0478",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IN·NOT IN은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "IN·NOT IN"
+ },
+ {
+  "source": "N0488",
+  "target": "N0479",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LIKE은(는) WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "LIKE"
+ },
+ {
+  "source": "N0488",
+  "target": "N0491",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 범위 조회는 WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "날짜 범위 조회"
+ },
+ {
+  "source": "N0488",
+  "target": "N0492",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "연산자 우선순위는 WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "연산자 우선순위"
+ },
+ {
+  "source": "N0488",
+  "target": "N0486",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SELECT 별칭 WHERE 사용 불가는 WHERE 조건절의 문맥에서 학습",
+  "related_source_relations": [
+   "EXCEPTION"
+  ],
+  "source_name": "WHERE",
+  "target_name": "SELECT 별칭 WHERE 사용 불가"
+ },
+ {
+  "source": "N0488",
+  "target": "N0441",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "공집합은 WHERE 조건절의 문맥에서 학습",
+  "source_name": "WHERE",
+  "target_name": "공집합"
+ },
+ {
+  "source": "N0474",
+  "target": "N0475",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위(NOT > AND > OR)를 따지려면 AND 연산자를 먼저 알아야 함",
+  "source_name": "AND",
+  "target_name": "AND/OR 우선순위"
+ },
+ {
+  "source": "N0484",
+  "target": "N0475",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위(NOT > AND > OR)를 따지려면 OR 연산자를 먼저 알아야 함",
+  "source_name": "OR",
+  "target_name": "AND/OR 우선순위"
+ },
+ {
+  "source": "N0482",
+  "target": "N0475",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위(NOT > AND > OR)를 따지려면 NOT 연산자를 먼저 알아야 함",
+  "source_name": "NOT",
+  "target_name": "AND/OR 우선순위"
+ },
+ {
+  "source": "N0476",
+  "target": "N0477",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "BETWEEN 경계 포함은 BETWEEN의 양 끝 포함 범위 비교를 전제로 함",
+  "source_name": "BETWEEN",
+  "target_name": "BETWEEN 경계 포함"
+ },
+ {
+  "source": "N0476",
+  "target": "N0489",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 경계는 BETWEEN의 양 끝 포함 범위 비교를 전제로 함",
+  "source_name": "BETWEEN",
+  "target_name": "날짜 경계"
+ },
+ {
+  "source": "N0476",
+  "target": "N0305",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NON-EQUI JOIN은(는) BETWEEN의 양 끝 포함 범위 비교를 전제로 함",
+  "source_name": "BETWEEN",
+  "target_name": "NON-EQUI JOIN"
+ },
+ {
+  "source": "N0478",
+  "target": "N0436",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IN은 IN·NOT IN 조건 묶음의 기본 형태",
+  "source_name": "IN·NOT IN",
+  "target_name": "IN"
+ },
+ {
+  "source": "N0436",
+  "target": "N0483",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT IN은(는) IN(목록 중 하나와 일치) 연산자를 전제로 함",
+  "source_name": "IN",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0436",
+  "target": "N0494",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "행값 IN은(는) IN(목록 중 하나와 일치) 연산자를 전제로 함",
+  "source_name": "IN",
+  "target_name": "행값 IN"
+ },
+ {
+  "source": "N0436",
+  "target": "N0460",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IN + NULL은(는) IN(목록 중 하나와 일치) 연산자를 전제로 함",
+  "source_name": "IN",
+  "target_name": "IN + NULL"
+ },
+ {
+  "source": "N0436",
+  "target": "N0508",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중행 서브쿼리는 IN(목록 중 하나와 일치) 연산자를 전제로 함",
+  "related_source_relations": [
+   "USES(reverse)"
+  ],
+  "source_name": "IN",
+  "target_name": "다중행 서브쿼리"
+ },
+ {
+  "source": "N0482",
+  "target": "N0483",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT IN은 IN 조건의 부정(NOT)",
+  "source_name": "NOT",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0479",
+  "target": "N0493",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "와일드카드는 LIKE 패턴 매칭 개념을 전제로 함",
+  "source_name": "LIKE",
+  "target_name": "와일드카드"
+ },
+ {
+  "source": "N0479",
+  "target": "N0481",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LIKE 컬럼 패턴은 LIKE 패턴 매칭 개념을 전제로 함",
+  "source_name": "LIKE",
+  "target_name": "LIKE 컬럼 패턴"
+ },
+ {
+  "source": "N0479",
+  "target": "N0487",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server LIKE []은(는) LIKE 패턴 매칭 개념을 전제로 함",
+  "source_name": "LIKE",
+  "target_name": "SQL Server LIKE []"
+ },
+ {
+  "source": "N0479",
+  "target": "N0277",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규표현식은 LIKE 패턴 매칭 개념을 전제로 함",
+  "source_name": "LIKE",
+  "target_name": "정규표현식"
+ },
+ {
+  "source": "N0479",
+  "target": "N0266",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_LIKE은(는) LIKE 패턴 매칭 개념을 전제로 함",
+  "source_name": "LIKE",
+  "target_name": "REGEXP_LIKE"
+ },
+ {
+  "source": "N0493",
+  "target": "N0480",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LIKE ESCAPE은(는) 와일드카드(%, _)의 의미를 알아야 이해 가능",
+  "source_name": "와일드카드",
+  "target_name": "LIKE ESCAPE"
+ },
+ {
+  "source": "N0493",
+  "target": "N0487",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server LIKE []은(는) 와일드카드(%, _)의 의미를 알아야 이해 가능",
+  "source_name": "와일드카드",
+  "target_name": "SQL Server LIKE []"
+ },
+ {
+  "source": "N0450",
+  "target": "N0491",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DATE가 시·분·초를 포함한다는 것을 알아야 날짜 범위 조건을 정확히 작성 가능",
+  "source_name": "DATE",
+  "target_name": "날짜 범위 조회"
+ },
+ {
+  "source": "N0491",
+  "target": "N0489",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 경계는 날짜 범위 조회의 경계 처리 규칙",
+  "source_name": "날짜 범위 조회",
+  "target_name": "날짜 경계"
+ },
+ {
+  "source": "N0491",
+  "target": "N0490",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 반개방 구간은 날짜 범위 조회의 경계 처리 규칙",
+  "source_name": "날짜 범위 조회",
+  "target_name": "날짜 반개방 구간"
+ },
+ {
+  "source": "N0430",
+  "target": "N0486",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SELECT 별칭 WHERE 사용 불가 규칙은 컬럼 별칭(ALIAS)을 알아야 이해 가능",
+  "source_name": "ALIAS",
+  "target_name": "SELECT 별칭 WHERE 사용 불가"
+ },
+ {
+  "source": "N0430",
+  "target": "N0499",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY 별칭 규칙은 컬럼 별칭(ALIAS)을 알아야 이해 가능",
+  "source_name": "ALIAS",
+  "target_name": "ORDER BY 별칭"
+ },
+ {
+  "source": "N0497",
+  "target": "N0495",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ASC은(는) ORDER BY 정렬 문법의 구성 요소",
+  "source_name": "ORDER BY",
+  "target_name": "ASC"
+ },
+ {
+  "source": "N0497",
+  "target": "N0496",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DESC은(는) ORDER BY 정렬 문법의 구성 요소",
+  "source_name": "ORDER BY",
+  "target_name": "DESC"
+ },
+ {
+  "source": "N0497",
+  "target": "N0501",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중 열 ORDER BY은(는) ORDER BY 정렬 문법의 구성 요소",
+  "source_name": "ORDER BY",
+  "target_name": "다중 열 ORDER BY"
+ },
+ {
+  "source": "N0497",
+  "target": "N0500",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY 순서번호는 ORDER BY 정렬 문법의 구성 요소",
+  "source_name": "ORDER BY",
+  "target_name": "ORDER BY 순서번호"
+ },
+ {
+  "source": "N0437",
+  "target": "N0241",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "단일행 함수는 SELECT/WHERE 절의 각 행에 적용되는 함수",
+  "source_name": "SELECT",
+  "target_name": "단일행 함수"
+ },
+ {
+  "source": "N0241",
+  "target": "N0243",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자형 함수는 단일행 함수의 한 분류",
+  "source_name": "단일행 함수",
+  "target_name": "문자형 함수"
+ },
+ {
+  "source": "N0241",
+  "target": "N0244",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "숫자형 함수는 단일행 함수의 한 분류",
+  "source_name": "단일행 함수",
+  "target_name": "숫자형 함수"
+ },
+ {
+  "source": "N0241",
+  "target": "N0258",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CASE은(는) 단일행 함수의 한 분류",
+  "source_name": "단일행 함수",
+  "target_name": "CASE"
+ },
+ {
+  "source": "N0243",
+  "target": "N0232",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LOWER은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "LOWER"
+ },
+ {
+  "source": "N0243",
+  "target": "N0240",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UPPER은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "UPPER"
+ },
+ {
+  "source": "N0243",
+  "target": "N0226",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ASCII은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "ASCII"
+ },
+ {
+  "source": "N0243",
+  "target": "N0227",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONCAT은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "CONCAT"
+ },
+ {
+  "source": "N0243",
+  "target": "N0237",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SUBSTR은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "SUBSTR"
+ },
+ {
+  "source": "N0243",
+  "target": "N0230",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LENGTH은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "LENGTH"
+ },
+ {
+  "source": "N0243",
+  "target": "N0229",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEN은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "LEN"
+ },
+ {
+  "source": "N0243",
+  "target": "N0228",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INSTR은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "INSTR"
+ },
+ {
+  "source": "N0243",
+  "target": "N0233",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LPAD은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "LPAD"
+ },
+ {
+  "source": "N0243",
+  "target": "N0234",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LTRIM은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "LTRIM"
+ },
+ {
+  "source": "N0243",
+  "target": "N0236",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RTRIM은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "RTRIM"
+ },
+ {
+  "source": "N0243",
+  "target": "N0239",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TRIM은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "TRIM"
+ },
+ {
+  "source": "N0243",
+  "target": "N0235",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REPLACE은(는) 문자형 단일행 함수",
+  "source_name": "문자형 함수",
+  "target_name": "REPLACE"
+ },
+ {
+  "source": "N0230",
+  "target": "N0231",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LENGTHB는 LENGTH의 바이트 단위 버전",
+  "source_name": "LENGTH",
+  "target_name": "LENGTHB"
+ },
+ {
+  "source": "N0237",
+  "target": "N0238",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "음수 시작 위치 규칙은 SUBSTR(문자열, 시작, 길이) 동작을 알아야 이해 가능",
+  "source_name": "SUBSTR",
+  "target_name": "SUBSTR 음수 위치"
+ },
+ {
+  "source": "N0244",
+  "target": "N0248",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROUND은(는) 숫자형 단일행 함수",
+  "source_name": "숫자형 함수",
+  "target_name": "ROUND"
+ },
+ {
+  "source": "N0244",
+  "target": "N0249",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TRUNC은(는) 숫자형 단일행 함수",
+  "source_name": "숫자형 함수",
+  "target_name": "TRUNC"
+ },
+ {
+  "source": "N0244",
+  "target": "N0245",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CEIL은(는) 숫자형 단일행 함수",
+  "source_name": "숫자형 함수",
+  "target_name": "CEIL"
+ },
+ {
+  "source": "N0244",
+  "target": "N0246",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FLOOR은(는) 숫자형 단일행 함수",
+  "source_name": "숫자형 함수",
+  "target_name": "FLOOR"
+ },
+ {
+  "source": "N0244",
+  "target": "N0247",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MOD은(는) 숫자형 단일행 함수",
+  "source_name": "숫자형 함수",
+  "target_name": "MOD"
+ },
+ {
+  "source": "N0450",
+  "target": "N0254",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SYSDATE은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "SYSDATE"
+ },
+ {
+  "source": "N0450",
+  "target": "N0252",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle 날짜 연산은 DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "Oracle 날짜 연산"
+ },
+ {
+  "source": "N0450",
+  "target": "N0255",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TO_CHAR은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "TO_CHAR"
+ },
+ {
+  "source": "N0450",
+  "target": "N0256",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TO_DATE은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "TO_DATE"
+ },
+ {
+  "source": "N0450",
+  "target": "N0251",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "EXTRACT은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "EXTRACT"
+ },
+ {
+  "source": "N0450",
+  "target": "N0250",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DATE_FORMAT은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "DATE_FORMAT"
+ },
+ {
+  "source": "N0450",
+  "target": "N0442",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 ROUND은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "날짜 ROUND"
+ },
+ {
+  "source": "N0450",
+  "target": "N0443",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 TRUNC은(는) DATE 자료형(날짜+시각)을 다루는 함수/연산",
+  "source_name": "DATE",
+  "target_name": "날짜 TRUNC"
+ },
+ {
+  "source": "N0453",
+  "target": "N0255",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TO_CHAR은(는) 명시적 형변환 함수",
+  "source_name": "명시적 형변환",
+  "target_name": "TO_CHAR"
+ },
+ {
+  "source": "N0453",
+  "target": "N0256",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TO_DATE은(는) 명시적 형변환 함수",
+  "source_name": "명시적 형변환",
+  "target_name": "TO_DATE"
+ },
+ {
+  "source": "N0255",
+  "target": "N0253",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 포맷 모델(YYYY, MM, HH24 …)은 TO_CHAR 사용법 선행",
+  "source_name": "TO_CHAR",
+  "target_name": "Oracle 날짜 포맷"
+ },
+ {
+  "source": "N0256",
+  "target": "N0257",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "생략된 날짜 요소의 기본값 규칙은 TO_DATE 동작 선행",
+  "source_name": "TO_DATE",
+  "target_name": "TO_DATE 기본값"
+ },
+ {
+  "source": "N0248",
+  "target": "N0442",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 ROUND는 숫자 ROUND의 반올림 개념을 날짜 단위에 적용",
+  "source_name": "ROUND",
+  "target_name": "날짜 ROUND"
+ },
+ {
+  "source": "N0249",
+  "target": "N0443",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "날짜 TRUNC는 숫자 TRUNC의 절삭 개념을 날짜 단위에 적용",
+  "source_name": "TRUNC",
+  "target_name": "날짜 TRUNC"
+ },
+ {
+  "source": "N0258",
+  "target": "N0260",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DECODE은(는) CASE 조건 분기 개념을 전제로 함",
+  "source_name": "CASE",
+  "target_name": "DECODE"
+ },
+ {
+  "source": "N0258",
+  "target": "N0498",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY CASE은(는) CASE 조건 분기 개념을 전제로 함",
+  "source_name": "CASE",
+  "target_name": "ORDER BY CASE"
+ },
+ {
+  "source": "N0497",
+  "target": "N0498",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY CASE는 ORDER BY에 CASE 식을 넣는 기법",
+  "source_name": "ORDER BY",
+  "target_name": "ORDER BY CASE"
+ },
+ {
+  "source": "N0262",
+  "target": "N0263",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NVL2는 NVL에 'NULL이 아닐 때 값'을 추가한 확장",
+  "source_name": "NVL",
+  "target_name": "NVL2"
+ },
+ {
+  "source": "N0277",
+  "target": "N0276",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 메타문자는 정규표현식 패턴 개념을 전제로 함",
+  "source_name": "정규표현식",
+  "target_name": "정규식 메타문자"
+ },
+ {
+  "source": "N0277",
+  "target": "N0278",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규표현식 함수는 정규표현식 패턴 개념을 전제로 함",
+  "source_name": "정규표현식",
+  "target_name": "정규표현식 함수"
+ },
+ {
+  "source": "N0276",
+  "target": "N0270",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 *은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 *"
+ },
+ {
+  "source": "N0276",
+  "target": "N0271",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 +은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 +"
+ },
+ {
+  "source": "N0276",
+  "target": "N0272",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 ?은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 ?"
+ },
+ {
+  "source": "N0276",
+  "target": "N0274",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 ^은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 ^"
+ },
+ {
+  "source": "N0276",
+  "target": "N0269",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 $은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 $"
+ },
+ {
+  "source": "N0276",
+  "target": "N0273",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 \\w은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 \\w"
+ },
+ {
+  "source": "N0276",
+  "target": "N0275",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "정규식 {m,}은(는) 정규식 메타문자의 하나",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규식 {m,}"
+ },
+ {
+  "source": "N0276",
+  "target": "N0278",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_* 함수의 패턴 인자를 해석하려면 메타문자를 알아야 함",
+  "source_name": "정규식 메타문자",
+  "target_name": "정규표현식 함수"
+ },
+ {
+  "source": "N0278",
+  "target": "N0266",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_LIKE은(는) 정규표현식 함수군의 하나",
+  "source_name": "정규표현식 함수",
+  "target_name": "REGEXP_LIKE"
+ },
+ {
+  "source": "N0278",
+  "target": "N0267",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_REPLACE은(는) 정규표현식 함수군의 하나",
+  "source_name": "정규표현식 함수",
+  "target_name": "REGEXP_REPLACE"
+ },
+ {
+  "source": "N0278",
+  "target": "N0268",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_SUBSTR은(는) 정규표현식 함수군의 하나",
+  "source_name": "정규표현식 함수",
+  "target_name": "REGEXP_SUBSTR"
+ },
+ {
+  "source": "N0278",
+  "target": "N0265",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_INSTR은(는) 정규표현식 함수군의 하나",
+  "source_name": "정규표현식 함수",
+  "target_name": "REGEXP_INSTR"
+ },
+ {
+  "source": "N0278",
+  "target": "N0264",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_COUNT은(는) 정규표현식 함수군의 하나",
+  "source_name": "정규표현식 함수",
+  "target_name": "REGEXP_COUNT"
+ },
+ {
+  "source": "N0237",
+  "target": "N0268",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_SUBSTR은 SUBSTR의 '패턴으로 잘라내기' 버전",
+  "source_name": "SUBSTR",
+  "target_name": "REGEXP_SUBSTR"
+ },
+ {
+  "source": "N0235",
+  "target": "N0267",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_REPLACE는 REPLACE의 '패턴으로 치환' 버전",
+  "source_name": "REPLACE",
+  "target_name": "REGEXP_REPLACE"
+ },
+ {
+  "source": "N0228",
+  "target": "N0265",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REGEXP_INSTR은 INSTR의 '패턴 위치 찾기' 버전",
+  "source_name": "INSTR",
+  "target_name": "REGEXP_INSTR"
+ },
+ {
+  "source": "N0437",
+  "target": "N0301",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "JOIN은 SELECT의 FROM 절에서 여러 테이블을 결합",
+  "source_name": "SELECT",
+  "target_name": "JOIN"
+ },
+ {
+  "source": "N0181",
+  "target": "N0301",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "조인 조건은 보통 PK-FK 관계로 작성되므로 FK 개념 선행",
+  "source_name": "FK",
+  "target_name": "JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0296",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CARTESIAN PRODUCT은(는) JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "CARTESIAN PRODUCT"
+ },
+ {
+  "source": "N0301",
+  "target": "N0298",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "EQUI JOIN은(는) JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "EQUI JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0303",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "N-1 조인 조건은 JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "N-1 조인 조건"
+ },
+ {
+  "source": "N0301",
+  "target": "N0313",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "모호한 컬럼은 JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "모호한 컬럼"
+ },
+ {
+  "source": "N0301",
+  "target": "N0316",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "셀프 조인은 JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "셀프 조인"
+ },
+ {
+  "source": "N0301",
+  "target": "N0318",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "조인 중복 증폭은 JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "조인 중복 증폭"
+ },
+ {
+  "source": "N0301",
+  "target": "N0305",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NON-EQUI JOIN은(는) JOIN의 기본 개념(테이블 결합과 조인 조건)을 전제로 함",
+  "source_name": "JOIN",
+  "target_name": "NON-EQUI JOIN"
+ },
+ {
+  "source": "N0488",
+  "target": "N0298",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전통적 EQUI JOIN은 WHERE 절의 등호 조건으로 작성",
+  "source_name": "WHERE",
+  "target_name": "EQUI JOIN"
+ },
+ {
+  "source": "N0488",
+  "target": "N0301",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "조인 조건은 WHERE(전통 문법) 또는 ON에 쓰는 조건식이므로 WHERE 조건식을 먼저 알아야 함",
+  "source_name": "WHERE",
+  "target_name": "JOIN"
+ },
+ {
+  "source": "N0298",
+  "target": "N0300",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INNER JOIN은 조인 조건을 만족하는 행만 남기는 (주로 등가) 조인의 ANSI 표기",
+  "source_name": "EQUI JOIN",
+  "target_name": "INNER JOIN"
+ },
+ {
+  "source": "N0296",
+  "target": "N0297",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CROSS JOIN은 카티션 곱을 명시적으로 만드는 문법",
+  "source_name": "CARTESIAN PRODUCT",
+  "target_name": "CROSS JOIN"
+ },
+ {
+  "source": "N0447",
+  "target": "N0313",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "모호한 컬럼은 테이블 별칭으로 컬럼 소속을 구분해야 해결/작성 가능",
+  "source_name": "테이블 별칭",
+  "target_name": "모호한 컬럼"
+ },
+ {
+  "source": "N0447",
+  "target": "N0316",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "셀프 조인은 테이블 별칭으로 컬럼 소속을 구분해야 해결/작성 가능",
+  "source_name": "테이블 별칭",
+  "target_name": "셀프 조인"
+ },
+ {
+  "source": "X001",
+  "target": "N0316",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "셀프 조인은 한 테이블 안의 자기참조(부모-자식) 관계를 조인으로 펼치는 것",
+  "source_name": "순환 관계(자기참조)",
+  "target_name": "셀프 조인"
+ },
+ {
+  "source": "N0175",
+  "target": "N0318",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "1:M 조인에서 1쪽 행이 M배로 늘어나는 현상은 관계 차수 이해가 선행",
+  "source_name": "관계 차수",
+  "target_name": "조인 중복 증폭"
+ },
+ {
+  "source": "N0300",
+  "target": "N0306",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ON은(는) INNER JOIN(매칭 행 결합)을 먼저 알아야 이해 가능",
+  "source_name": "INNER JOIN",
+  "target_name": "ON"
+ },
+ {
+  "source": "N0300",
+  "target": "N0308",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "OUTER JOIN은(는) INNER JOIN(매칭 행 결합)을 먼저 알아야 이해 가능",
+  "related_source_relations": [
+   "CONTRASTS"
+  ],
+  "source_name": "INNER JOIN",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0300",
+  "target": "N0315",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "복합 FK 조인은 INNER JOIN(매칭 행 결합)을 먼저 알아야 이해 가능",
+  "source_name": "INNER JOIN",
+  "target_name": "복합 FK 조인"
+ },
+ {
+  "source": "N0188",
+  "target": "N0315",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "복합 FK 조인은 여러 컬럼으로 된 키를 모두 조인 조건에 걸어야 함",
+  "source_name": "복합 식별자",
+  "target_name": "복합 FK 조인"
+ },
+ {
+  "source": "N0306",
+  "target": "N0312",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "USING은 같은 이름 컬럼에 대한 ON 등가 조건의 축약",
+  "source_name": "ON",
+  "target_name": "USING"
+ },
+ {
+  "source": "N0312",
+  "target": "N0304",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NATURAL JOIN은 모든 동일 이름 컬럼에 대한 암묵적 USING",
+  "source_name": "USING",
+  "target_name": "NATURAL JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0314",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "보존 테이블은 OUTER JOIN(비매칭 행 보존) 개념을 전제로 함",
+  "source_name": "OUTER JOIN",
+  "target_name": "보존 테이블"
+ },
+ {
+  "source": "N0308",
+  "target": "N0302",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEFT OUTER JOIN은(는) OUTER JOIN(비매칭 행 보존) 개념을 전제로 함",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "OUTER JOIN",
+  "target_name": "LEFT OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0311",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RIGHT OUTER JOIN은(는) OUTER JOIN(비매칭 행 보존) 개념을 전제로 함",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "OUTER JOIN",
+  "target_name": "RIGHT OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0310",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle (+) OUTER JOIN은(는) OUTER JOIN(비매칭 행 보존) 개념을 전제로 함",
+  "source_name": "OUTER JOIN",
+  "target_name": "Oracle (+) OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0309",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "OUTER JOIN 조건 위치는 OUTER JOIN(비매칭 행 보존) 개념을 전제로 함",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "OUTER JOIN",
+  "target_name": "OUTER JOIN 조건 위치"
+ },
+ {
+  "source": "N0302",
+  "target": "N0299",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FULL OUTER JOIN = LEFT와 RIGHT OUTER JOIN 결과의 합(중복 제외)이므로 LEFT OUTER JOIN 선행",
+  "source_name": "LEFT OUTER JOIN",
+  "target_name": "FULL OUTER JOIN"
+ },
+ {
+  "source": "N0311",
+  "target": "N0299",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FULL OUTER JOIN = LEFT와 RIGHT OUTER JOIN 결과의 합(중복 제외)이므로 RIGHT OUTER JOIN 선행",
+  "source_name": "RIGHT OUTER JOIN",
+  "target_name": "FULL OUTER JOIN"
+ },
+ {
+  "source": "N0302",
+  "target": "N0317",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "연속 OUTER JOIN은 OUTER JOIN 결과에 다시 OUTER JOIN을 거는 것",
+  "source_name": "LEFT OUTER JOIN",
+  "target_name": "연속 OUTER JOIN"
+ },
+ {
+  "source": "N0314",
+  "target": "N0309",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "조건 위치에 따라 보존 테이블의 행이 남는지가 달라짐",
+  "source_name": "보존 테이블",
+  "target_name": "OUTER JOIN 조건 위치"
+ },
+ {
+  "source": "N0306",
+  "target": "N0309",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ON 절과 WHERE 절의 역할 차이를 알아야 조건 위치 규칙을 이해",
+  "source_name": "ON",
+  "target_name": "OUTER JOIN 조건 위치"
+ },
+ {
+  "source": "N0488",
+  "target": "N0307",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ON vs WHERE는 WHERE의 후필터 동작을 알아야 이해 가능",
+  "source_name": "WHERE",
+  "target_name": "ON vs WHERE"
+ },
+ {
+  "source": "N0437",
+  "target": "N0511",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "서브쿼리는 SELECT 결과를 다른 SQL(WHERE 등)의 입력으로 쓰는 구조",
+  "source_name": "SELECT",
+  "target_name": "서브쿼리"
+ },
+ {
+  "source": "N0488",
+  "target": "N0511",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "서브쿼리는 SELECT 결과를 다른 SQL(WHERE 등)의 입력으로 쓰는 구조",
+  "source_name": "WHERE",
+  "target_name": "서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0509",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "단일행 서브쿼리는 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "서브쿼리",
+  "target_name": "단일행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0508",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중행 서브쿼리는 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "서브쿼리",
+  "target_name": "다중행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0513",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "스칼라 서브쿼리는 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "서브쿼리",
+  "target_name": "스칼라 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0510",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "상관 서브쿼리는 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "서브쿼리",
+  "target_name": "상관 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0514",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "인라인 뷰는 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "서브쿼리",
+  "target_name": "인라인 뷰"
+ },
+ {
+  "source": "N0511",
+  "target": "N0512",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "서브쿼리 ORDER BY 제한은 서브쿼리를 위치/결과 행수/외부 참조로 구분한 유형·규칙",
+  "source_name": "서브쿼리",
+  "target_name": "서브쿼리 ORDER BY 제한"
+ },
+ {
+  "source": "N0508",
+  "target": "N0503",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ANY은(는) 다중행 결과와 비교하는 연산자",
+  "related_source_relations": [
+   "USES"
+  ],
+  "source_name": "다중행 서브쿼리",
+  "target_name": "ANY"
+ },
+ {
+  "source": "N0508",
+  "target": "N0502",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALL은(는) 다중행 결과와 비교하는 연산자",
+  "related_source_relations": [
+   "USES"
+  ],
+  "source_name": "다중행 서브쿼리",
+  "target_name": "ALL"
+ },
+ {
+  "source": "N0509",
+  "target": "N0513",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "스칼라 서브쿼리는 1행 1열을 반환해야 하는 단일행 서브쿼리의 특수형",
+  "source_name": "단일행 서브쿼리",
+  "target_name": "스칼라 서브쿼리"
+ },
+ {
+  "source": "N0510",
+  "target": "N0505",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "EXISTS는 주로 외부 행을 참조하는 상관 서브쿼리로 존재 여부를 판단",
+  "source_name": "상관 서브쿼리",
+  "target_name": "EXISTS"
+ },
+ {
+  "source": "N0505",
+  "target": "N0506",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT EXISTS는 EXISTS의 부정",
+  "source_name": "EXISTS",
+  "target_name": "NOT EXISTS"
+ },
+ {
+  "source": "N0497",
+  "target": "N0512",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "서브쿼리 안 ORDER BY 제한 규칙은 ORDER BY 개념 선행",
+  "source_name": "ORDER BY",
+  "target_name": "서브쿼리 ORDER BY 제한"
+ },
+ {
+  "source": "N0514",
+  "target": "N0507",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH 절은 이름을 붙여 재사용하는 인라인 뷰",
+  "source_name": "인라인 뷰",
+  "target_name": "WITH 절"
+ },
+ {
+  "source": "N0507",
+  "target": "N0504",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CTE(공통 테이블 표현식)는 WITH 절로 정의",
+  "related_source_relations": [
+   "IMPLEMENTS"
+  ],
+  "source_name": "WITH 절",
+  "target_name": "CTE"
+ },
+ {
+  "source": "N0437",
+  "target": "N0520",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "집합 연산자는 두 SELECT 결과 집합을 결합",
+  "source_name": "SELECT",
+  "target_name": "집합 연산자"
+ },
+ {
+  "source": "N0520",
+  "target": "N0518",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNION은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "UNION"
+ },
+ {
+  "source": "N0520",
+  "target": "N0519",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNION ALL은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "UNION ALL"
+ },
+ {
+  "source": "N0520",
+  "target": "N0516",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INTERSECT은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "INTERSECT"
+ },
+ {
+  "source": "N0520",
+  "target": "N0517",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MINUS은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "MINUS"
+ },
+ {
+  "source": "N0520",
+  "target": "N0515",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "EXCEPT은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0520",
+  "target": "N0523",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "집합 연산자 컬럼 호환성은 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "집합 연산자 컬럼 호환성"
+ },
+ {
+  "source": "N0520",
+  "target": "N0521",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "집합 연산자 ORDER BY은(는) 집합 연산자 개념을 전제로 함",
+  "source_name": "집합 연산자",
+  "target_name": "집합 연산자 ORDER BY"
+ },
+ {
+  "source": "N0518",
+  "target": "N0522",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위를 따지려면 UNION의 결과를 먼저 알아야 함",
+  "source_name": "UNION",
+  "target_name": "집합 연산자 우선순위"
+ },
+ {
+  "source": "N0516",
+  "target": "N0522",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위를 따지려면 INTERSECT의 결과를 먼저 알아야 함",
+  "source_name": "INTERSECT",
+  "target_name": "집합 연산자 우선순위"
+ },
+ {
+  "source": "N0517",
+  "target": "N0522",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "우선순위를 따지려면 MINUS의 결과를 먼저 알아야 함",
+  "source_name": "MINUS",
+  "target_name": "집합 연산자 우선순위"
+ },
+ {
+  "source": "N0497",
+  "target": "N0521",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "집합 연산 결과 정렬 규칙은 ORDER BY 개념 선행",
+  "source_name": "ORDER BY",
+  "target_name": "집합 연산자 ORDER BY"
+ },
+ {
+  "source": "N0437",
+  "target": "N0068",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "집계 함수는 SELECT 결과의 여러 행을 하나의 값으로 축약",
+  "source_name": "SELECT",
+  "target_name": "집계 함수"
+ },
+ {
+  "source": "N0068",
+  "target": "N0050",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "COUNT"
+ },
+ {
+  "source": "N0068",
+  "target": "N0062",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SUM은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "SUM"
+ },
+ {
+  "source": "N0068",
+  "target": "N0049",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "AVG은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0068",
+  "target": "N0060",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MIN은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "MIN"
+ },
+ {
+  "source": "N0068",
+  "target": "N0059",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MAX은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "MAX"
+ },
+ {
+  "source": "N0068",
+  "target": "N0061",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULL 집계는 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "NULL 집계"
+ },
+ {
+  "source": "N0068",
+  "target": "N0065",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "공집합 집계는 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "공집합 집계"
+ },
+ {
+  "source": "N0068",
+  "target": "N0054",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "GROUP BY"
+ },
+ {
+  "source": "N0068",
+  "target": "N0064",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WHERE 집계함수 사용 불가는 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "WHERE 집계함수 사용 불가"
+ },
+ {
+  "source": "N0068",
+  "target": "N0099",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "윈도우 함수는 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "윈도우 함수"
+ },
+ {
+  "source": "N0068",
+  "target": "N0106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PIVOT은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "PIVOT"
+ },
+ {
+  "source": "N0068",
+  "target": "N0082",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MAX() OVER(PARTITION BY)은(는) 집계 함수(여러 행 → 한 값) 개념을 전제로 함",
+  "source_name": "집계 함수",
+  "target_name": "MAX() OVER(PARTITION BY)"
+ },
+ {
+  "source": "N0050",
+  "target": "N0051",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT(*)은(는) COUNT의 인자 형태별 동작",
+  "source_name": "COUNT",
+  "target_name": "COUNT(*)"
+ },
+ {
+  "source": "N0050",
+  "target": "N0053",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT(열)은(는) COUNT의 인자 형태별 동작",
+  "source_name": "COUNT",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0050",
+  "target": "N0052",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT(DISTINCT)은(는) COUNT의 인자 형태별 동작",
+  "source_name": "COUNT",
+  "target_name": "COUNT(DISTINCT)"
+ },
+ {
+  "source": "N0435",
+  "target": "N0052",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COUNT(DISTINCT)는 중복 제거 후 개수",
+  "source_name": "DISTINCT",
+  "target_name": "COUNT(DISTINCT)"
+ },
+ {
+  "source": "N0441",
+  "target": "N0065",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "공집합 집계 규칙은 '결과 행이 없는 상황'을 먼저 알아야 이해",
+  "source_name": "공집합",
+  "target_name": "공집합 집계"
+ },
+ {
+  "source": "N0062",
+  "target": "N0063",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SUM의 NULL 무시 규칙을 알아야 두 식의 차이를 설명 가능",
+  "related_source_relations": [
+   "EXCEPTION"
+  ],
+  "source_name": "SUM",
+  "target_name": "SUM(열1+열2) vs SUM(열1)+SUM(열2)"
+ },
+ {
+  "source": "N0466",
+  "target": "N0063",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "행 단위 열1+열2가 NULL이 되는 규칙이 차이의 원인",
+  "source_name": "NULL 산술 연산",
+  "target_name": "SUM(열1+열2) vs SUM(열1)+SUM(열2)"
+ },
+ {
+  "source": "N0060",
+  "target": "N0242",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자형 MIN/MAX는 MIN를 문자열 정렬 순서에 적용",
+  "source_name": "MIN",
+  "target_name": "문자형 MIN/MAX"
+ },
+ {
+  "source": "N0059",
+  "target": "N0242",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "문자형 MIN/MAX는 MAX를 문자열 정렬 순서에 적용",
+  "source_name": "MAX",
+  "target_name": "문자형 MIN/MAX"
+ },
+ {
+  "source": "N0054",
+  "target": "N0459",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY NULL은(는) GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "GROUP BY NULL"
+ },
+ {
+  "source": "N0054",
+  "target": "N0056",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 후 ORDER BY 제약은 GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "GROUP BY 후 ORDER BY 제약"
+ },
+ {
+  "source": "N0054",
+  "target": "N0055",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 확장은 GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "GROUP BY 확장"
+ },
+ {
+  "source": "N0054",
+  "target": "N0067",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "그룹함수 확장은 GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "그룹함수 확장"
+ },
+ {
+  "source": "N0054",
+  "target": "N0084",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PARTITION BY은(는) GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "PARTITION BY"
+ },
+ {
+  "source": "N0054",
+  "target": "N0078",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 후 윈도우 함수는 GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "GROUP BY 후 윈도우 함수"
+ },
+ {
+  "source": "N0054",
+  "target": "N0106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PIVOT은(는) GROUP BY의 그룹화 개념을 전제로 함",
+  "source_name": "GROUP BY",
+  "target_name": "PIVOT"
+ },
+ {
+  "source": "N0057",
+  "target": "N0058",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 없는 HAVING은 HAVING(그룹 필터) 개념의 특수 사례",
+  "source_name": "HAVING",
+  "target_name": "HAVING without GROUP BY"
+ },
+ {
+  "source": "N0497",
+  "target": "N0056",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 이후 ORDER BY가 참조할 수 있는 대상 규칙",
+  "source_name": "ORDER BY",
+  "target_name": "GROUP BY 후 ORDER BY 제약"
+ },
+ {
+  "source": "N0488",
+  "target": "N0064",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WHERE 절이 그룹 이전 행 단계에서 평가된다는 것을 알아야 함",
+  "source_name": "WHERE",
+  "target_name": "WHERE 집계함수 사용 불가"
+ },
+ {
+  "source": "N0425",
+  "target": "N0064",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WHERE가 GROUP BY보다 먼저 평가되는 실행 순서로 설명",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "WHERE 집계함수 사용 불가"
+ },
+ {
+  "source": "N0067",
+  "target": "N0072",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROLLUP은(는) 그룹함수 확장(소계/총계 생성) 문법",
+  "source_name": "그룹함수 확장",
+  "target_name": "ROLLUP"
+ },
+ {
+  "source": "N0067",
+  "target": "N0069",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CUBE은(는) 그룹함수 확장(소계/총계 생성) 문법",
+  "source_name": "그룹함수 확장",
+  "target_name": "CUBE"
+ },
+ {
+  "source": "N0067",
+  "target": "N0071",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUPING SETS은(는) 그룹함수 확장(소계/총계 생성) 문법",
+  "source_name": "그룹함수 확장",
+  "target_name": "GROUPING SETS"
+ },
+ {
+  "source": "N0072",
+  "target": "N0070",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUPING은 ROLLUP가 만든 소계 행의 NULL을 구분하는 함수",
+  "source_name": "ROLLUP",
+  "target_name": "GROUPING"
+ },
+ {
+  "source": "N0069",
+  "target": "N0070",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUPING은 CUBE가 만든 소계 행의 NULL을 구분하는 함수",
+  "source_name": "CUBE",
+  "target_name": "GROUPING"
+ },
+ {
+  "source": "N0071",
+  "target": "N0073",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "빈 그룹 ()는 GROUPING SETS 안에서 전체 총계를 지정",
+  "source_name": "GROUPING SETS",
+  "target_name": "전체 총계 ()"
+ },
+ {
+  "source": "N0099",
+  "target": "X002",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "윈도우 함수는 OVER 절로 계산 범위(윈도우)를 지정",
+  "source_name": "윈도우 함수",
+  "target_name": "OVER 절"
+ },
+ {
+  "source": "N0497",
+  "target": "X002",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "OVER 절 안의 ORDER BY는 정렬 개념을 전제로 함",
+  "source_name": "ORDER BY",
+  "target_name": "OVER 절"
+ },
+ {
+  "source": "X002",
+  "target": "N0084",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PARTITION BY은(는) OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "PARTITION BY"
+ },
+ {
+  "source": "X002",
+  "target": "N0094",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWS/RANGE 프레임은 OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "ROWS/RANGE 프레임"
+ },
+ {
+  "source": "X002",
+  "target": "X003",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "순위 함수는 OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "순위 함수"
+ },
+ {
+  "source": "X002",
+  "target": "X004",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "행 순서 함수는 OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "행 순서 함수"
+ },
+ {
+  "source": "X002",
+  "target": "N0066",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "그룹 내 비율 함수는 OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "그룹 내 비율 함수"
+ },
+ {
+  "source": "X002",
+  "target": "N0082",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MAX() OVER(PARTITION BY)은(는) OVER 절 문맥 안에서만 의미를 가짐",
+  "source_name": "OVER 절",
+  "target_name": "MAX() OVER(PARTITION BY)"
+ },
+ {
+  "source": "N0084",
+  "target": "X003",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "순위 함수는 PARTITION BY로 나눈 그룹 단위로 계산됨",
+  "source_name": "PARTITION BY",
+  "target_name": "순위 함수"
+ },
+ {
+  "source": "N0084",
+  "target": "N0082",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MAX() OVER(PARTITION BY)은(는) PARTITION BY로 나눈 그룹 단위로 계산됨",
+  "source_name": "PARTITION BY",
+  "target_name": "MAX() OVER(PARTITION BY)"
+ },
+ {
+  "source": "X003",
+  "target": "N0090",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RANK은(는) 윈도우 함수의 OVER(ORDER BY) 문맥을 전제로 하는 순위 함수",
+  "source_name": "순위 함수",
+  "target_name": "RANK"
+ },
+ {
+  "source": "X003",
+  "target": "N0076",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DENSE_RANK은(는) 윈도우 함수의 OVER(ORDER BY) 문맥을 전제로 하는 순위 함수",
+  "source_name": "순위 함수",
+  "target_name": "DENSE_RANK"
+ },
+ {
+  "source": "X003",
+  "target": "N0095",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROW_NUMBER은(는) 윈도우 함수의 OVER(ORDER BY) 문맥을 전제로 하는 순위 함수",
+  "source_name": "순위 함수",
+  "target_name": "ROW_NUMBER"
+ },
+ {
+  "source": "X004",
+  "target": "N0079",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LAG은(는) 정렬된 윈도우 안에서 다른 행의 값을 가져오는 행 순서 함수",
+  "source_name": "행 순서 함수",
+  "target_name": "LAG"
+ },
+ {
+  "source": "X004",
+  "target": "N0081",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEAD은(는) 정렬된 윈도우 안에서 다른 행의 값을 가져오는 행 순서 함수",
+  "source_name": "행 순서 함수",
+  "target_name": "LEAD"
+ },
+ {
+  "source": "X004",
+  "target": "N0077",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FIRST_VALUE은(는) 정렬된 윈도우 안에서 다른 행의 값을 가져오는 행 순서 함수",
+  "source_name": "행 순서 함수",
+  "target_name": "FIRST_VALUE"
+ },
+ {
+  "source": "X004",
+  "target": "N0080",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LAST_VALUE은(는) 정렬된 윈도우 안에서 다른 행의 값을 가져오는 행 순서 함수",
+  "source_name": "행 순서 함수",
+  "target_name": "LAST_VALUE"
+ },
+ {
+  "source": "N0094",
+  "target": "N0080",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LAST_VALUE는 기본 프레임(…CURRENT ROW)에서 현재 행 값을 돌려주는 함정이 있어 프레임 개념이 선행",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "LAST_VALUE"
+ },
+ {
+  "source": "N0066",
+  "target": "N0091",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RATIO_TO_REPORT은(는) 그룹 내 비율/분포 함수",
+  "source_name": "그룹 내 비율 함수",
+  "target_name": "RATIO_TO_REPORT"
+ },
+ {
+  "source": "N0066",
+  "target": "N0085",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PERCENT_RANK은(는) 그룹 내 비율/분포 함수",
+  "source_name": "그룹 내 비율 함수",
+  "target_name": "PERCENT_RANK"
+ },
+ {
+  "source": "N0066",
+  "target": "N0074",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CUME_DIST은(는) 그룹 내 비율/분포 함수",
+  "source_name": "그룹 내 비율 함수",
+  "target_name": "CUME_DIST"
+ },
+ {
+  "source": "N0066",
+  "target": "N0083",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NTILE은(는) 그룹 내 비율/분포 함수",
+  "source_name": "그룹 내 비율 함수",
+  "target_name": "NTILE"
+ },
+ {
+  "source": "N0090",
+  "target": "N0085",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PERCENT_RANK = (RANK - 1) / (파티션 행 수 - 1)",
+  "source_name": "RANK",
+  "target_name": "PERCENT_RANK"
+ },
+ {
+  "source": "N0094",
+  "target": "N0092",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWS은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "ROWS"
+ },
+ {
+  "source": "N0094",
+  "target": "N0087",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RANGE은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "RANGE"
+ },
+ {
+  "source": "N0094",
+  "target": "N0075",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CURRENT ROW은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "CURRENT ROW"
+ },
+ {
+  "source": "N0094",
+  "target": "N0097",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNBOUNDED PRECEDING은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "UNBOUNDED PRECEDING"
+ },
+ {
+  "source": "N0094",
+  "target": "N0096",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNBOUNDED FOLLOWING은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "UNBOUNDED FOLLOWING"
+ },
+ {
+  "source": "N0094",
+  "target": "N0086",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PRECEDING/FOLLOWING은(는) 윈도우 프레임 절의 구성 요소",
+  "source_name": "ROWS/RANGE 프레임",
+  "target_name": "PRECEDING/FOLLOWING"
+ },
+ {
+  "source": "N0092",
+  "target": "N0093",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWS n PRECEDING/FOLLOWING은 ROWS의 조합",
+  "source_name": "ROWS",
+  "target_name": "ROWS PRECEDING/FOLLOWING"
+ },
+ {
+  "source": "N0086",
+  "target": "N0093",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWS n PRECEDING/FOLLOWING은 PRECEDING/FOLLOWING의 조합",
+  "source_name": "PRECEDING/FOLLOWING",
+  "target_name": "ROWS PRECEDING/FOLLOWING"
+ },
+ {
+  "source": "N0087",
+  "target": "N0088",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RANGE BETWEEN은(는) RANGE(값 기준 범위) 프레임의 문법",
+  "source_name": "RANGE",
+  "target_name": "RANGE BETWEEN"
+ },
+ {
+  "source": "N0087",
+  "target": "N0098",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "윈도우 RANGE 프레임은 RANGE(값 기준 범위) 프레임의 문법",
+  "source_name": "RANGE",
+  "target_name": "윈도우 RANGE 프레임"
+ },
+ {
+  "source": "N0088",
+  "target": "N0089",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY가 있을 때의 기본 프레임으로, RANGE BETWEEN의 조합",
+  "source_name": "RANGE BETWEEN",
+  "target_name": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW"
+ },
+ {
+  "source": "N0097",
+  "target": "N0089",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY가 있을 때의 기본 프레임으로, UNBOUNDED PRECEDING의 조합",
+  "source_name": "UNBOUNDED PRECEDING",
+  "target_name": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW"
+ },
+ {
+  "source": "N0075",
+  "target": "N0089",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER BY가 있을 때의 기본 프레임으로, CURRENT ROW의 조합",
+  "source_name": "CURRENT ROW",
+  "target_name": "RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW"
+ },
+ {
+  "source": "N0099",
+  "target": "N0078",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GROUP BY 결과 위에 윈도우 함수를 적용하는 순서 규칙",
+  "source_name": "윈도우 함수",
+  "target_name": "GROUP BY 후 윈도우 함수"
+ },
+ {
+  "source": "N0497",
+  "target": "N0104",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Top-N은 정렬 후 상위 N행을 자르는 패턴",
+  "source_name": "ORDER BY",
+  "target_name": "Top-N"
+ },
+ {
+  "source": "N0104",
+  "target": "N0102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWNUM은(는) Top-N을 구현하는 DBMS별 문법",
+  "source_name": "Top-N",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0104",
+  "target": "N0103",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TOP은(는) Top-N을 구현하는 DBMS별 문법",
+  "source_name": "Top-N",
+  "target_name": "TOP"
+ },
+ {
+  "source": "N0104",
+  "target": "N0100",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FETCH FIRST은(는) Top-N을 구현하는 DBMS별 문법",
+  "source_name": "Top-N",
+  "target_name": "FETCH FIRST"
+ },
+ {
+  "source": "N0104",
+  "target": "N0101",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LIMIT은(는) Top-N을 구현하는 DBMS별 문법",
+  "source_name": "Top-N",
+  "target_name": "LIMIT"
+ },
+ {
+  "source": "N0514",
+  "target": "N0102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWNUM은 ORDER BY 이전에 부여되므로 정렬 후 Top-N에는 인라인 뷰가 필요",
+  "source_name": "인라인 뷰",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0103",
+  "target": "N0105",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH TIES는 TOP에 붙어 마지막 동순위 행까지 포함",
+  "source_name": "TOP",
+  "target_name": "WITH TIES"
+ },
+ {
+  "source": "N0100",
+  "target": "N0105",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH TIES는 FETCH FIRST에 붙어 마지막 동순위 행까지 포함",
+  "source_name": "FETCH FIRST",
+  "target_name": "WITH TIES"
+ },
+ {
+  "source": "N0107",
+  "target": "N0106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PIVOT은(는) 행↔열 재구성 문법",
+  "source_name": "PIVOT·UNPIVOT",
+  "target_name": "PIVOT"
+ },
+ {
+  "source": "N0107",
+  "target": "N0108",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNPIVOT은(는) 행↔열 재구성 문법",
+  "source_name": "PIVOT·UNPIVOT",
+  "target_name": "UNPIVOT"
+ },
+ {
+  "source": "N0106",
+  "target": "N0108",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNPIVOT은 PIVOT의 역변환(열→행)",
+  "source_name": "PIVOT",
+  "target_name": "UNPIVOT"
+ },
+ {
+  "source": "X001",
+  "target": "N0291",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "계층형 질의는 같은 테이블 안의 부모-자식(자기참조) 구조를 전개",
+  "source_name": "순환 관계(자기참조)",
+  "target_name": "계층형 질의"
+ },
+ {
+  "source": "X001",
+  "target": "N0295",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "재귀 CTE은(는) 같은 테이블 안의 부모-자식(자기참조) 구조를 전개",
+  "source_name": "순환 관계(자기참조)",
+  "target_name": "재귀 CTE"
+ },
+ {
+  "source": "N0316",
+  "target": "N0291",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "계층형 질의는 셀프 조인으로 한 단계씩 하던 부모-자식 연결을 반복 전개",
+  "source_name": "셀프 조인",
+  "target_name": "계층형 질의"
+ },
+ {
+  "source": "N0291",
+  "target": "N0287",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "START WITH은(는) 계층형 질의 문법의 구성 요소",
+  "source_name": "계층형 질의",
+  "target_name": "START WITH"
+ },
+ {
+  "source": "N0291",
+  "target": "N0279",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONNECT BY은(는) 계층형 질의 문법의 구성 요소",
+  "source_name": "계층형 질의",
+  "target_name": "CONNECT BY"
+ },
+ {
+  "source": "N0291",
+  "target": "N0283",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEVEL은(는) 계층형 질의 문법의 구성 요소",
+  "source_name": "계층형 질의",
+  "target_name": "LEVEL"
+ },
+ {
+  "source": "N0488",
+  "target": "N0287",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "START WITH는 루트 행을 고르는 조건절(WHERE와 같은 조건식)",
+  "source_name": "WHERE",
+  "target_name": "START WITH"
+ },
+ {
+  "source": "N0287",
+  "target": "N0279",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전개는 START WITH로 정한 루트에서 시작해 CONNECT BY로 자식을 연결하므로 루트 지정을 먼저 학습",
+  "source_name": "START WITH",
+  "target_name": "CONNECT BY"
+ },
+ {
+  "source": "N0279",
+  "target": "N0286",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PRIOR은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "PRIOR"
+ },
+ {
+  "source": "N0279",
+  "target": "N0284",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOCYCLE은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "NOCYCLE"
+ },
+ {
+  "source": "N0279",
+  "target": "N0281",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONNECT_BY_ISLEAF은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "CONNECT_BY_ISLEAF"
+ },
+ {
+  "source": "N0279",
+  "target": "N0282",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONNECT_BY_ROOT은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "CONNECT_BY_ROOT"
+ },
+ {
+  "source": "N0279",
+  "target": "N0288",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SYS_CONNECT_BY_PATH은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "SYS_CONNECT_BY_PATH"
+ },
+ {
+  "source": "N0279",
+  "target": "N0285",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER SIBLINGS BY은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "ORDER SIBLINGS BY"
+ },
+ {
+  "source": "N0279",
+  "target": "N0289",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WHERE 후 계층 필터는 CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "WHERE 후 계층 필터"
+ },
+ {
+  "source": "N0279",
+  "target": "N0290",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "계층 전개 NULL 종료는 CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "계층 전개 NULL 종료"
+ },
+ {
+  "source": "N0279",
+  "target": "N0283",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEVEL은(는) CONNECT BY로 전개된 계층 결과를 전제로 함",
+  "source_name": "CONNECT BY",
+  "target_name": "LEVEL"
+ },
+ {
+  "source": "N0287",
+  "target": "N0293",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전개 방향은 루트(START WITH)와 PRIOR가 붙은 컬럼 위치로 결정되므로 START WITH 선행",
+  "source_name": "START WITH",
+  "target_name": "순방향 계층 전개"
+ },
+ {
+  "source": "N0286",
+  "target": "N0293",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전개 방향은 루트(START WITH)와 PRIOR가 붙은 컬럼 위치로 결정되므로 PRIOR 선행",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "PRIOR",
+  "target_name": "순방향 계층 전개"
+ },
+ {
+  "source": "N0287",
+  "target": "N0294",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전개 방향은 루트(START WITH)와 PRIOR가 붙은 컬럼 위치로 결정되므로 START WITH 선행",
+  "source_name": "START WITH",
+  "target_name": "역방향 계층 전개"
+ },
+ {
+  "source": "N0286",
+  "target": "N0294",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "전개 방향은 루트(START WITH)와 PRIOR가 붙은 컬럼 위치로 결정되므로 PRIOR 선행",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "PRIOR",
+  "target_name": "역방향 계층 전개"
+ },
+ {
+  "source": "N0287",
+  "target": "N0282",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONNECT_BY_ROOT는 START WITH로 정한 루트 행의 값을 반환",
+  "source_name": "START WITH",
+  "target_name": "CONNECT_BY_ROOT"
+ },
+ {
+  "source": "N0497",
+  "target": "N0285",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ORDER SIBLINGS BY는 계층 구조를 유지한 채 형제끼리 ORDER BY",
+  "source_name": "ORDER BY",
+  "target_name": "ORDER SIBLINGS BY"
+ },
+ {
+  "source": "N0488",
+  "target": "N0289",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "계층 전개 후 WHERE가 개별 행만 걸러낸다는 규칙은 WHERE 개념 선행",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "WHERE",
+  "target_name": "WHERE 후 계층 필터"
+ },
+ {
+  "source": "N0289",
+  "target": "N0292",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "같은 규칙의 시험 함정 버전(가지치기 vs 후필터)",
+  "source_name": "WHERE 후 계층 필터",
+  "target_name": "계층형 질의 WHERE 후필터"
+ },
+ {
+  "source": "N0504",
+  "target": "N0295",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "재귀 CTE는 CTE가 자기 자신을 참조하는 형태",
+  "related_source_relations": [
+   "IS_A"
+  ],
+  "source_name": "CTE",
+  "target_name": "재귀 CTE"
+ },
+ {
+  "source": "N0519",
+  "target": "N0295",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "재귀 CTE는 앵커 멤버와 재귀 멤버를 UNION ALL로 결합",
+  "source_name": "UNION ALL",
+  "target_name": "재귀 CTE"
+ },
+ {
+  "source": "N0361",
+  "target": "N0362",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INSERT은(는) DML(데이터 조작) 문장/개념",
+  "source_name": "DML",
+  "target_name": "INSERT"
+ },
+ {
+  "source": "N0361",
+  "target": "N0369",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UPDATE은(는) DML(데이터 조작) 문장/개념",
+  "source_name": "DML",
+  "target_name": "UPDATE"
+ },
+ {
+  "source": "N0361",
+  "target": "N0360",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DELETE은(는) DML(데이터 조작) 문장/개념",
+  "source_name": "DML",
+  "target_name": "DELETE"
+ },
+ {
+  "source": "N0361",
+  "target": "N0365",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE은(는) DML(데이터 조작) 문장/개념",
+  "source_name": "DML",
+  "target_name": "MERGE"
+ },
+ {
+  "source": "N0361",
+  "target": "N0394",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "트리거는 DML(데이터 조작) 문장/개념",
+  "source_name": "DML",
+  "target_name": "트리거"
+ },
+ {
+  "source": "N0488",
+  "target": "N0369",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UPDATE은(는) WHERE로 대상 행을 지정",
+  "source_name": "WHERE",
+  "target_name": "UPDATE"
+ },
+ {
+  "source": "N0488",
+  "target": "N0360",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DELETE은(는) WHERE로 대상 행을 지정",
+  "source_name": "WHERE",
+  "target_name": "DELETE"
+ },
+ {
+  "source": "N0362",
+  "target": "N0363",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INSERT ALL은(는) INSERT 문법을 전제로 함",
+  "source_name": "INSERT",
+  "target_name": "INSERT ALL"
+ },
+ {
+  "source": "N0362",
+  "target": "N0364",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "INSERT FIRST은(는) INSERT 문법을 전제로 함",
+  "source_name": "INSERT",
+  "target_name": "INSERT FIRST"
+ },
+ {
+  "source": "N0362",
+  "target": "N0365",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE은(는) INSERT 문법을 전제로 함",
+  "source_name": "INSERT",
+  "target_name": "MERGE"
+ },
+ {
+  "source": "N0511",
+  "target": "N0363",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중 테이블 INSERT는 서브쿼리 결과를 조건별로 분배",
+  "source_name": "서브쿼리",
+  "target_name": "INSERT ALL"
+ },
+ {
+  "source": "N0511",
+  "target": "N0364",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "다중 테이블 INSERT는 서브쿼리 결과를 조건별로 분배",
+  "source_name": "서브쿼리",
+  "target_name": "INSERT FIRST"
+ },
+ {
+  "source": "N0369",
+  "target": "N0365",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE는 일치하면 UPDATE, 없으면 INSERT하는 문장",
+  "source_name": "UPDATE",
+  "target_name": "MERGE"
+ },
+ {
+  "source": "N0365",
+  "target": "N0367",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE MATCHED은(는) MERGE의 구성/용도",
+  "source_name": "MERGE",
+  "target_name": "MERGE MATCHED"
+ },
+ {
+  "source": "N0365",
+  "target": "N0368",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE NOT MATCHED은(는) MERGE의 구성/용도",
+  "source_name": "MERGE",
+  "target_name": "MERGE NOT MATCHED"
+ },
+ {
+  "source": "N0365",
+  "target": "N0370",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UPSERT은(는) MERGE의 구성/용도",
+  "source_name": "MERGE",
+  "target_name": "UPSERT"
+ },
+ {
+  "source": "N0367",
+  "target": "N0366",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE DELETE는 WHEN MATCHED UPDATE 후 조건에 맞는 행을 삭제",
+  "source_name": "MERGE MATCHED",
+  "target_name": "MERGE DELETE"
+ },
+ {
+  "source": "N0360",
+  "target": "N0366",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MERGE DELETE는 WHEN MATCHED UPDATE 후 조건에 맞는 행을 삭제",
+  "source_name": "DELETE",
+  "target_name": "MERGE DELETE"
+ },
+ {
+  "source": "N0380",
+  "target": "N0379",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CREATE TABLE은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "CREATE TABLE"
+ },
+ {
+  "source": "N0380",
+  "target": "N0373",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALTER은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "ALTER"
+ },
+ {
+  "source": "N0380",
+  "target": "N0381",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "DROP"
+ },
+ {
+  "source": "N0380",
+  "target": "N0393",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TRUNCATE은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "TRUNCATE"
+ },
+ {
+  "source": "N0380",
+  "target": "N0390",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RENAME은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "RENAME"
+ },
+ {
+  "source": "N0380",
+  "target": "N0378",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CREATE INDEX은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "CREATE INDEX"
+ },
+ {
+  "source": "N0380",
+  "target": "N0440",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "객체명 규칙은 DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "객체명 규칙"
+ },
+ {
+  "source": "N0380",
+  "target": "N0389",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle/SQL Server DDL 차이는 DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "Oracle/SQL Server DDL 차이"
+ },
+ {
+  "source": "N0380",
+  "target": "N0400",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "VIEW은(는) DDL(객체 정의) 문장/규칙",
+  "source_name": "DDL",
+  "target_name": "VIEW"
+ },
+ {
+  "source": "N0456",
+  "target": "N0379",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CREATE TABLE은 각 컬럼의 자료형을 정의",
+  "source_name": "자료형",
+  "target_name": "CREATE TABLE"
+ },
+ {
+  "source": "N0379",
+  "target": "N0433",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DEFAULT은(는) CREATE TABLE 컬럼/테이블 정의의 일부",
+  "source_name": "CREATE TABLE",
+  "target_name": "DEFAULT"
+ },
+ {
+  "source": "N0379",
+  "target": "N0386",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IDENTITY은(는) CREATE TABLE 컬럼/테이블 정의의 일부",
+  "source_name": "CREATE TABLE",
+  "target_name": "IDENTITY"
+ },
+ {
+  "source": "N0379",
+  "target": "N0432",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CTAS은(는) CREATE TABLE 컬럼/테이블 정의의 일부",
+  "source_name": "CREATE TABLE",
+  "target_name": "CTAS"
+ },
+ {
+  "source": "N0379",
+  "target": "N0445",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "제약조건은 CREATE TABLE 컬럼/테이블 정의의 일부",
+  "source_name": "CREATE TABLE",
+  "target_name": "제약조건"
+ },
+ {
+  "source": "N0437",
+  "target": "N0432",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CTAS는 SELECT 결과로 새 테이블을 만듦",
+  "source_name": "SELECT",
+  "target_name": "CTAS"
+ },
+ {
+  "source": "N0373",
+  "target": "N0375",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALTER TABLE은 ALTER의 테이블 대상 문장",
+  "source_name": "ALTER",
+  "target_name": "ALTER TABLE"
+ },
+ {
+  "source": "N0375",
+  "target": "N0376",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALTER TABLE ADD은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "ALTER TABLE ADD"
+ },
+ {
+  "source": "N0375",
+  "target": "N0371",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ADD COLUMN은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "ADD COLUMN"
+ },
+ {
+  "source": "N0375",
+  "target": "N0372",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ADD CONSTRAINT은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "ADD CONSTRAINT"
+ },
+ {
+  "source": "N0375",
+  "target": "N0374",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALTER COLUMN은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "ALTER COLUMN"
+ },
+ {
+  "source": "N0375",
+  "target": "N0377",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ALTER/MODIFY은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "ALTER/MODIFY"
+ },
+ {
+  "source": "N0375",
+  "target": "N0387",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MODIFY은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "MODIFY"
+ },
+ {
+  "source": "N0375",
+  "target": "N0382",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP COLUMN은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "DROP COLUMN"
+ },
+ {
+  "source": "N0375",
+  "target": "N0383",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP CONSTRAINT은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "DROP CONSTRAINT"
+ },
+ {
+  "source": "N0375",
+  "target": "N0391",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RENAME COLUMN은(는) ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "RENAME COLUMN"
+ },
+ {
+  "source": "N0375",
+  "target": "N0457",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "자료형 변경은 ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "자료형 변경"
+ },
+ {
+  "source": "N0375",
+  "target": "N0434",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DEFAULT 변경은 ALTER TABLE의 하위 절",
+  "source_name": "ALTER TABLE",
+  "target_name": "DEFAULT 변경"
+ },
+ {
+  "source": "N0433",
+  "target": "N0434",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DEFAULT 변경은 이미 정의된 DEFAULT 값을 바꾸는 것",
+  "source_name": "DEFAULT",
+  "target_name": "DEFAULT 변경"
+ },
+ {
+  "source": "N0456",
+  "target": "N0457",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "자료형 변경 가능 조건은 자료형 개념 선행",
+  "source_name": "자료형",
+  "target_name": "자료형 변경"
+ },
+ {
+  "source": "N0381",
+  "target": "N0385",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP 의존성은 DROP 동작(객체 삭제)을 전제로 함",
+  "source_name": "DROP",
+  "target_name": "DROP 의존성"
+ },
+ {
+  "source": "N0381",
+  "target": "N0396",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CASCADE CONSTRAINTS은(는) DROP 동작(객체 삭제)을 전제로 함",
+  "source_name": "DROP",
+  "target_name": "CASCADE CONSTRAINTS"
+ },
+ {
+  "source": "N0381",
+  "target": "N0397",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP CASCADE은(는) DROP 동작(객체 삭제)을 전제로 함",
+  "source_name": "DROP",
+  "target_name": "DROP CASCADE"
+ },
+ {
+  "source": "N0381",
+  "target": "N0401",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "VIEW 의존성은 DROP 동작(객체 삭제)을 전제로 함",
+  "source_name": "DROP",
+  "target_name": "VIEW 의존성"
+ },
+ {
+  "source": "N0390",
+  "target": "N0391",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RENAME COLUMN은 RENAME의 컬럼 대상 형태",
+  "source_name": "RENAME",
+  "target_name": "RENAME COLUMN"
+ },
+ {
+  "source": "N0378",
+  "target": "N0384",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP INDEX은(는) CREATE INDEX로 만든 인덱스 객체를 다룸",
+  "source_name": "CREATE INDEX",
+  "target_name": "DROP INDEX"
+ },
+ {
+  "source": "N0378",
+  "target": "N0335",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "인덱스는 CREATE INDEX로 만든 인덱스 객체를 다룸",
+  "source_name": "CREATE INDEX",
+  "target_name": "인덱스"
+ },
+ {
+  "source": "N0182",
+  "target": "N0445",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "제약조건 종류 중 PK/FK는 Stage 1에서 배운 키를 DDL로 구현한 것이므로 PK 선행",
+  "source_name": "PK",
+  "target_name": "제약조건"
+ },
+ {
+  "source": "N0181",
+  "target": "N0445",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "제약조건 종류 중 PK/FK는 Stage 1에서 배운 키를 DDL로 구현한 것이므로 FK 선행",
+  "source_name": "FK",
+  "target_name": "제약조건"
+ },
+ {
+  "source": "N0445",
+  "target": "N0431",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CHECK은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "CHECK"
+ },
+ {
+  "source": "N0445",
+  "target": "N0438",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNIQUE은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "UNIQUE"
+ },
+ {
+  "source": "N0445",
+  "target": "N0463",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NOT NULL은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "NOT NULL"
+ },
+ {
+  "source": "N0445",
+  "target": "N0399",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 무결성 유지는 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "데이터 무결성 유지"
+ },
+ {
+  "source": "N0445",
+  "target": "N0395",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CASCADE은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "CASCADE"
+ },
+ {
+  "source": "N0445",
+  "target": "N0398",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PK 제약 비상속은 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "PK 제약 비상속"
+ },
+ {
+  "source": "N0445",
+  "target": "N0372",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ADD CONSTRAINT은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "ADD CONSTRAINT"
+ },
+ {
+  "source": "N0445",
+  "target": "N0383",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP CONSTRAINT은(는) 제약조건 개념을 전제로 함",
+  "source_name": "제약조건",
+  "target_name": "DROP CONSTRAINT"
+ },
+ {
+  "source": "N0438",
+  "target": "N0439",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNIQUE 키워드 용법은 UNIQUE 제약 개념 선행",
+  "source_name": "UNIQUE",
+  "target_name": "UNIQUE 키워드"
+ },
+ {
+  "source": "N0225",
+  "target": "N0431",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CHECK 제약은 도메인 무결성을 DDL로 구현",
+  "source_name": "도메인 무결성",
+  "target_name": "CHECK"
+ },
+ {
+  "source": "N0130",
+  "target": "N0399",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "데이터 무결성 유지 수단(제약/트리거)은 무결성 규칙 선행",
+  "source_name": "참조 무결성",
+  "target_name": "데이터 무결성 유지"
+ },
+ {
+  "source": "N0399",
+  "target": "N0394",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "트리거는 제약조건으로 표현하기 어려운 무결성을 유지하는 수단",
+  "source_name": "데이터 무결성 유지",
+  "target_name": "트리거"
+ },
+ {
+  "source": "N0432",
+  "target": "N0398",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CTAS가 어떤 제약을 복사하지 않는지는 CTAS 동작 선행",
+  "related_source_relations": [
+   "EXCEPTION"
+  ],
+  "source_name": "CTAS",
+  "target_name": "PK 제약 비상속"
+ },
+ {
+  "source": "N0181",
+  "target": "N0395",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CASCADE은(는) FK 참조 관계를 함께 처리하는 옵션",
+  "source_name": "FK",
+  "target_name": "CASCADE"
+ },
+ {
+  "source": "N0181",
+  "target": "N0396",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CASCADE CONSTRAINTS은(는) FK 참조 관계를 함께 처리하는 옵션",
+  "source_name": "FK",
+  "target_name": "CASCADE CONSTRAINTS"
+ },
+ {
+  "source": "N0181",
+  "target": "N0397",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "DROP CASCADE은(는) FK 참조 관계를 함께 처리하는 옵션",
+  "source_name": "FK",
+  "target_name": "DROP CASCADE"
+ },
+ {
+  "source": "N0437",
+  "target": "N0400",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "VIEW는 저장된 SELECT 문",
+  "source_name": "SELECT",
+  "target_name": "VIEW"
+ },
+ {
+  "source": "N0400",
+  "target": "N0401",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "VIEW 의존성은 VIEW가 기반 테이블을 참조한다는 것을 전제",
+  "source_name": "VIEW",
+  "target_name": "VIEW 의존성"
+ },
+ {
+  "source": "N0361",
+  "target": "N0409",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "트랜잭션은 DML 변경을 묶는 논리적 작업 단위",
+  "source_name": "DML",
+  "target_name": "Transaction"
+ },
+ {
+  "source": "N0409",
+  "target": "N0402",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ACID은(는) 트랜잭션 개념을 전제로 함",
+  "source_name": "Transaction",
+  "target_name": "ACID"
+ },
+ {
+  "source": "N0409",
+  "target": "N0408",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TCL은(는) 트랜잭션 개념을 전제로 함",
+  "source_name": "Transaction",
+  "target_name": "TCL"
+ },
+ {
+  "source": "N0409",
+  "target": "N0403",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "AUTO COMMIT은(는) 트랜잭션 개념을 전제로 함",
+  "source_name": "Transaction",
+  "target_name": "AUTO COMMIT"
+ },
+ {
+  "source": "N0409",
+  "target": "N0392",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server 트랜잭션은 트랜잭션 개념을 전제로 함",
+  "source_name": "Transaction",
+  "target_name": "SQL Server 트랜잭션"
+ },
+ {
+  "source": "N0402",
+  "target": "N0411",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "원자성은 ACID 특성의 한 항목",
+  "source_name": "ACID",
+  "target_name": "원자성"
+ },
+ {
+  "source": "N0402",
+  "target": "N0412",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "일관성은 ACID 특성의 한 항목",
+  "source_name": "ACID",
+  "target_name": "일관성"
+ },
+ {
+  "source": "N0402",
+  "target": "N0410",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "격리성은 ACID 특성의 한 항목",
+  "source_name": "ACID",
+  "target_name": "격리성"
+ },
+ {
+  "source": "N0402",
+  "target": "N0413",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "지속성은 ACID 특성의 한 항목",
+  "source_name": "ACID",
+  "target_name": "지속성"
+ },
+ {
+  "source": "N0408",
+  "target": "N0404",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COMMIT은(는) TCL(트랜잭션 제어) 명령",
+  "source_name": "TCL",
+  "target_name": "COMMIT"
+ },
+ {
+  "source": "N0408",
+  "target": "N0405",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROLLBACK은(는) TCL(트랜잭션 제어) 명령",
+  "source_name": "TCL",
+  "target_name": "ROLLBACK"
+ },
+ {
+  "source": "N0408",
+  "target": "N0407",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SAVEPOINT은(는) TCL(트랜잭션 제어) 명령",
+  "source_name": "TCL",
+  "target_name": "SAVEPOINT"
+ },
+ {
+  "source": "N0405",
+  "target": "N0406",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROLLBACK TO SAVEPOINT는 ROLLBACK의 부분 롤백 형태",
+  "source_name": "ROLLBACK",
+  "target_name": "ROLLBACK TO SAVEPOINT"
+ },
+ {
+  "source": "N0404",
+  "target": "N0403",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "AUTO COMMIT은(는) COMMIT이 언제 일어나는지에 관한 규칙",
+  "source_name": "COMMIT",
+  "target_name": "AUTO COMMIT"
+ },
+ {
+  "source": "N0404",
+  "target": "N0388",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle DDL 자동 커밋은 COMMIT이 언제 일어나는지에 관한 규칙",
+  "source_name": "COMMIT",
+  "target_name": "Oracle DDL 자동 커밋"
+ },
+ {
+  "source": "N0380",
+  "target": "N0388",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle이 DDL 전후로 자동 COMMIT한다는 규칙은 DDL 개념 선행",
+  "related_source_relations": [
+   "DIALECT"
+  ],
+  "source_name": "DDL",
+  "target_name": "Oracle DDL 자동 커밋"
+ },
+ {
+  "source": "N0403",
+  "target": "N0392",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server는 기본 AUTO COMMIT 모드로 동작",
+  "source_name": "AUTO COMMIT",
+  "target_name": "SQL Server 트랜잭션"
+ },
+ {
+  "source": "N0414",
+  "target": "N0415",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GRANT은(는) DCL(권한 제어) 개념",
+  "source_name": "DCL",
+  "target_name": "GRANT"
+ },
+ {
+  "source": "N0414",
+  "target": "N0417",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REVOKE은(는) DCL(권한 제어) 개념",
+  "source_name": "DCL",
+  "target_name": "REVOKE"
+ },
+ {
+  "source": "N0414",
+  "target": "N0419",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROLE은(는) DCL(권한 제어) 개념",
+  "source_name": "DCL",
+  "target_name": "ROLE"
+ },
+ {
+  "source": "N0414",
+  "target": "N0422",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "객체 권한은 DCL(권한 제어) 개념",
+  "source_name": "DCL",
+  "target_name": "객체 권한"
+ },
+ {
+  "source": "N0414",
+  "target": "N0424",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "시스템 권한은 DCL(권한 제어) 개념",
+  "source_name": "DCL",
+  "target_name": "시스템 권한"
+ },
+ {
+  "source": "N0422",
+  "target": "N0415",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GRANT로 무엇을 부여하는지 알려면 객체 권한 종류 선행",
+  "source_name": "객체 권한",
+  "target_name": "GRANT"
+ },
+ {
+  "source": "N0424",
+  "target": "N0415",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GRANT로 무엇을 부여하는지 알려면 시스템 권한 종류 선행",
+  "source_name": "시스템 권한",
+  "target_name": "GRANT"
+ },
+ {
+  "source": "N0422",
+  "target": "N0421",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UPDATE 권한은 객체 권한의 하나",
+  "source_name": "객체 권한",
+  "target_name": "UPDATE 권한"
+ },
+ {
+  "source": "N0361",
+  "target": "N0422",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "객체 권한(SELECT/INSERT/UPDATE/DELETE)은 DML 문장 종류에 대응하므로 DML을 먼저 알아야 함",
+  "source_name": "DML",
+  "target_name": "객체 권한"
+ },
+ {
+  "source": "N0415",
+  "target": "N0420",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TO은(는) GRANT(권한 부여) 동작을 전제로 함",
+  "source_name": "GRANT",
+  "target_name": "TO"
+ },
+ {
+  "source": "N0415",
+  "target": "N0416",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "GRANT OPTION은(는) GRANT(권한 부여) 동작을 전제로 함",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "GRANT",
+  "target_name": "GRANT OPTION"
+ },
+ {
+  "source": "N0415",
+  "target": "N0417",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REVOKE은(는) GRANT(권한 부여) 동작을 전제로 함",
+  "source_name": "GRANT",
+  "target_name": "REVOKE"
+ },
+ {
+  "source": "N0415",
+  "target": "N0419",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROLE은(는) GRANT(권한 부여) 동작을 전제로 함",
+  "source_name": "GRANT",
+  "target_name": "ROLE"
+ },
+ {
+  "source": "N0416",
+  "target": "N0423",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH GRANT OPTION으로 재부여된 권한이 REVOKE 시 연쇄 회수되는 규칙이므로 GRANT OPTION 선행",
+  "source_name": "GRANT OPTION",
+  "target_name": "권한 연쇄 회수"
+ },
+ {
+  "source": "N0417",
+  "target": "N0423",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH GRANT OPTION으로 재부여된 권한이 REVOKE 시 연쇄 회수되는 규칙이므로 REVOKE 선행",
+  "related_source_relations": [
+   "AFFECTS"
+  ],
+  "source_name": "REVOKE",
+  "target_name": "권한 연쇄 회수"
+ },
+ {
+  "source": "N0417",
+  "target": "N0418",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "REVOKE RESTRICT는 REVOKE의 회수 옵션",
+  "source_name": "REVOKE",
+  "target_name": "REVOKE RESTRICT"
+ },
+ {
+  "source": "N0473",
+  "target": "X101",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "빈 문자열과 NULL(Oracle)의 NULL 처리 동작을 알아야 Oracle/SQL Server의 NULL 차이를 비교할 수 있음",
+  "source_name": "빈 문자열과 NULL(Oracle)",
+  "target_name": "NULL 처리 DBMS 차이"
+ },
+ {
+  "source": "N0262",
+  "target": "X101",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NVL의 NULL 처리 동작을 알아야 Oracle/SQL Server의 NULL 차이를 비교할 수 있음",
+  "source_name": "NVL",
+  "target_name": "NULL 처리 DBMS 차이"
+ },
+ {
+  "source": "N0259",
+  "target": "X101",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "COALESCE의 NULL 처리 동작을 알아야 Oracle/SQL Server의 NULL 차이를 비교할 수 있음",
+  "source_name": "COALESCE",
+  "target_name": "NULL 처리 DBMS 차이"
+ },
+ {
+  "source": "N0438",
+  "target": "X101",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNIQUE의 NULL 처리 동작을 알아야 Oracle/SQL Server의 NULL 차이를 비교할 수 있음",
+  "source_name": "UNIQUE",
+  "target_name": "NULL 처리 DBMS 차이"
+ },
+ {
+  "source": "N0470",
+  "target": "X102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle NULL 정렬 규칙을 알아야 DBMS별 NULL 정렬 위치를 비교할 수 있음",
+  "source_name": "Oracle NULL 정렬",
+  "target_name": "NULL 정렬 DBMS 차이"
+ },
+ {
+  "source": "N0471",
+  "target": "X102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server NULL 정렬 규칙을 알아야 DBMS별 NULL 정렬 위치를 비교할 수 있음",
+  "source_name": "SQL Server NULL 정렬",
+  "target_name": "NULL 정렬 DBMS 차이"
+ },
+ {
+  "source": "N0468",
+  "target": "X102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULLS FIRST 규칙을 알아야 DBMS별 NULL 정렬 위치를 비교할 수 있음",
+  "source_name": "NULLS FIRST",
+  "target_name": "NULL 정렬 DBMS 차이"
+ },
+ {
+  "source": "N0469",
+  "target": "X102",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NULLS LAST 규칙을 알아야 DBMS별 NULL 정렬 위치를 비교할 수 있음",
+  "source_name": "NULLS LAST",
+  "target_name": "NULL 정렬 DBMS 차이"
+ },
+ {
+  "source": "N0102",
+  "target": "X103",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "ROWNUM의 동작(적용 시점·동순위 처리)을 알아야 DBMS별 Top-N 문법을 비교할 수 있음",
+  "source_name": "ROWNUM",
+  "target_name": "Top-N 문법 차이"
+ },
+ {
+  "source": "N0103",
+  "target": "X103",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TOP의 동작(적용 시점·동순위 처리)을 알아야 DBMS별 Top-N 문법을 비교할 수 있음",
+  "source_name": "TOP",
+  "target_name": "Top-N 문법 차이"
+ },
+ {
+  "source": "N0100",
+  "target": "X103",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FETCH FIRST의 동작(적용 시점·동순위 처리)을 알아야 DBMS별 Top-N 문법을 비교할 수 있음",
+  "source_name": "FETCH FIRST",
+  "target_name": "Top-N 문법 차이"
+ },
+ {
+  "source": "N0105",
+  "target": "X103",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "WITH TIES의 동작(적용 시점·동순위 처리)을 알아야 DBMS별 Top-N 문법을 비교할 수 있음",
+  "source_name": "WITH TIES",
+  "target_name": "Top-N 문법 차이"
+ },
+ {
+  "source": "N0517",
+  "target": "X104",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "MINUS의 의미를 알아야 차집합 연산자의 DBMS별 이름 차이를 정리할 수 있음",
+  "source_name": "MINUS",
+  "target_name": "차집합 MINUS/EXCEPT 차이"
+ },
+ {
+  "source": "N0515",
+  "target": "X104",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "EXCEPT의 의미를 알아야 차집합 연산자의 DBMS별 이름 차이를 정리할 수 있음",
+  "source_name": "EXCEPT",
+  "target_name": "차집합 MINUS/EXCEPT 차이"
+ },
+ {
+  "source": "N0388",
+  "target": "X105",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Oracle DDL 자동 커밋의 COMMIT/ROLLBACK 동작을 알아야 DBMS별 DDL 트랜잭션 차이를 비교할 수 있음",
+  "source_name": "Oracle DDL 자동 커밋",
+  "target_name": "DDL 커밋 동작 차이"
+ },
+ {
+  "source": "N0392",
+  "target": "X105",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SQL Server 트랜잭션의 COMMIT/ROLLBACK 동작을 알아야 DBMS별 DDL 트랜잭션 차이를 비교할 수 있음",
+  "source_name": "SQL Server 트랜잭션",
+  "target_name": "DDL 커밋 동작 차이"
+ },
+ {
+  "source": "N0393",
+  "target": "X105",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "TRUNCATE의 COMMIT/ROLLBACK 동작을 알아야 DBMS별 DDL 트랜잭션 차이를 비교할 수 있음",
+  "source_name": "TRUNCATE",
+  "target_name": "DDL 커밋 동작 차이"
+ },
+ {
+  "source": "N0230",
+  "target": "X106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LENGTH의 동작을 알아야 DBMS별 문자열 함수 이름·동작 차이를 비교할 수 있음",
+  "source_name": "LENGTH",
+  "target_name": "문자열 함수 DBMS 차이"
+ },
+ {
+  "source": "N0229",
+  "target": "X106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LEN의 동작을 알아야 DBMS별 문자열 함수 이름·동작 차이를 비교할 수 있음",
+  "source_name": "LEN",
+  "target_name": "문자열 함수 DBMS 차이"
+ },
+ {
+  "source": "N0227",
+  "target": "X106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CONCAT의 동작을 알아야 DBMS별 문자열 함수 이름·동작 차이를 비교할 수 있음",
+  "source_name": "CONCAT",
+  "target_name": "문자열 함수 DBMS 차이"
+ },
+ {
+  "source": "N0237",
+  "target": "X106",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "SUBSTR의 동작을 알아야 DBMS별 문자열 함수 이름·동작 차이를 비교할 수 있음",
+  "source_name": "SUBSTR",
+  "target_name": "문자열 함수 DBMS 차이"
+ },
+ {
+  "source": "N0486",
+  "target": "X201",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'SELECT 별칭 WHERE 사용 불가' 규칙은 별칭·집계가 어느 절에서 보이는지 종합하는 데 필요한 조각",
+  "source_name": "SELECT 별칭 WHERE 사용 불가",
+  "target_name": "별칭 가시성 종합"
+ },
+ {
+  "source": "N0499",
+  "target": "X201",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'ORDER BY 별칭' 규칙은 별칭·집계가 어느 절에서 보이는지 종합하는 데 필요한 조각",
+  "source_name": "ORDER BY 별칭",
+  "target_name": "별칭 가시성 종합"
+ },
+ {
+  "source": "N0064",
+  "target": "X201",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'WHERE 집계함수 사용 불가' 규칙은 별칭·집계가 어느 절에서 보이는지 종합하는 데 필요한 조각",
+  "source_name": "WHERE 집계함수 사용 불가",
+  "target_name": "별칭 가시성 종합"
+ },
+ {
+  "source": "N0521",
+  "target": "X201",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'집합 연산자 ORDER BY' 규칙은 별칭·집계가 어느 절에서 보이는지 종합하는 데 필요한 조각",
+  "source_name": "집합 연산자 ORDER BY",
+  "target_name": "별칭 가시성 종합"
+ },
+ {
+  "source": "N0483",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'NOT IN'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "NOT IN",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0460",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'IN + NULL'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "IN + NULL",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0053",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'COUNT(열)'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "COUNT(열)",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0466",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'NULL 산술 연산'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "NULL 산술 연산",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0065",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'공집합 집계'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "공집합 집계",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0063",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'SUM(열1+열2) vs SUM(열1)+SUM(열2)'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "SUM(열1+열2) vs SUM(열1)+SUM(열2)",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0458",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'DISTINCT NULL'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "DISTINCT NULL",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0459",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'GROUP BY NULL'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "GROUP BY NULL",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0061",
+  "target": "X202",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'NULL 집계'은(는) NULL 함정 총정리에 들어가는 개별 규칙",
+  "source_name": "NULL 집계",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0307",
+  "target": "X203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'ON vs WHERE'을(를) 알아야 OUTER JOIN 결과(보존 행)를 종합 판단할 수 있음",
+  "source_name": "ON vs WHERE",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0309",
+  "target": "X203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'OUTER JOIN 조건 위치'을(를) 알아야 OUTER JOIN 결과(보존 행)를 종합 판단할 수 있음",
+  "source_name": "OUTER JOIN 조건 위치",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0299",
+  "target": "X203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'FULL OUTER JOIN'을(를) 알아야 OUTER JOIN 결과(보존 행)를 종합 판단할 수 있음",
+  "source_name": "FULL OUTER JOIN",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0317",
+  "target": "X203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'연속 OUTER JOIN'을(를) 알아야 OUTER JOIN 결과(보존 행)를 종합 판단할 수 있음",
+  "source_name": "연속 OUTER JOIN",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0310",
+  "target": "X203",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "'Oracle (+) OUTER JOIN'을(를) 알아야 OUTER JOIN 결과(보존 행)를 종합 판단할 수 있음",
+  "source_name": "Oracle (+) OUTER JOIN",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0437",
+  "target": "N0333",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "실행계획은 SELECT 문이 어떻게 수행되는지 보여줌",
+  "source_name": "SELECT",
+  "target_name": "실행계획"
+ },
+ {
+  "source": "N0333",
+  "target": "N0334",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "실행계획 읽기 순서는 실행계획 해석을 전제로 함",
+  "source_name": "실행계획",
+  "target_name": "실행계획 읽기 순서"
+ },
+ {
+  "source": "N0333",
+  "target": "N0322",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Full Table Scan은(는) 실행계획 해석을 전제로 함",
+  "source_name": "실행계획",
+  "target_name": "Full Table Scan"
+ },
+ {
+  "source": "N0333",
+  "target": "N0325",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Index Scan은(는) 실행계획 해석을 전제로 함",
+  "source_name": "실행계획",
+  "target_name": "Index Scan"
+ },
+ {
+  "source": "N0333",
+  "target": "N0356",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "조인 수행 원리는 실행계획 해석을 전제로 함",
+  "source_name": "실행계획",
+  "target_name": "조인 수행 원리"
+ },
+ {
+  "source": "N0333",
+  "target": "N0330",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "옵티마이저는 실행계획을 선택하는 주체",
+  "source_name": "실행계획",
+  "target_name": "규칙 기반 옵티마이저"
+ },
+ {
+  "source": "N0333",
+  "target": "N0331",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "옵티마이저는 실행계획을 선택하는 주체",
+  "source_name": "실행계획",
+  "target_name": "비용 기반 옵티마이저"
+ },
+ {
+  "source": "N0335",
+  "target": "N0319",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "B-Tree 인덱스는 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "B-Tree 인덱스"
+ },
+ {
+  "source": "N0335",
+  "target": "N0320",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CLUSTERED INDEX은(는) 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "CLUSTERED INDEX"
+ },
+ {
+  "source": "N0335",
+  "target": "N0321",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FK 인덱스는 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "FK 인덱스"
+ },
+ {
+  "source": "N0335",
+  "target": "N0324",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "IOT은(는) 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "IOT"
+ },
+ {
+  "source": "N0335",
+  "target": "N0325",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Index Scan은(는) 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "Index Scan"
+ },
+ {
+  "source": "N0335",
+  "target": "N0328",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "UNIQUE INDEX SCAN은(는) 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "UNIQUE INDEX SCAN"
+ },
+ {
+  "source": "N0335",
+  "target": "N0354",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NESTED LOOP JOIN은(는) 인덱스 구조/접근 방식을 전제로 함",
+  "source_name": "인덱스",
+  "target_name": "NESTED LOOP JOIN"
+ },
+ {
+  "source": "N0181",
+  "target": "N0321",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "FK 인덱스는 FK 컬럼에 거는 인덱스",
+  "source_name": "FK",
+  "target_name": "FK 인덱스"
+ },
+ {
+  "source": "N0339",
+  "target": "N0327",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "RANGE 파티션은 파티셔닝 방식의 하나",
+  "source_name": "파티셔닝",
+  "target_name": "RANGE 파티션"
+ },
+ {
+  "source": "N0339",
+  "target": "N0326",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "LIST 파티션은 파티셔닝 방식의 하나",
+  "source_name": "파티셔닝",
+  "target_name": "LIST 파티션"
+ },
+ {
+  "source": "N0339",
+  "target": "N0323",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "HASH 파티션은 파티셔닝 방식의 하나",
+  "source_name": "파티셔닝",
+  "target_name": "HASH 파티션"
+ },
+ {
+  "source": "N0125",
+  "target": "N0332",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "변환 방식은 슈퍼타입/서브타입 구조 선행",
+  "source_name": "슈퍼타입/서브타입",
+  "target_name": "슈퍼/서브타입 변환"
+ },
+ {
+  "source": "N0332",
+  "target": "N0329",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "개별 타입(1:1 타입)은 슈퍼/서브타입 변환 방식의 하나",
+  "source_name": "슈퍼/서브타입 변환",
+  "target_name": "개별 타입"
+ },
+ {
+  "source": "N0215",
+  "target": "N0336",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "컬럼 분할은 반정규화(성능 목적 구조 변경)의 기법/확장",
+  "source_name": "반정규화",
+  "target_name": "컬럼 분할"
+ },
+ {
+  "source": "N0215",
+  "target": "N0337",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "테이블 병합은 반정규화(성능 목적 구조 변경)의 기법/확장",
+  "source_name": "반정규화",
+  "target_name": "테이블 병합"
+ },
+ {
+  "source": "N0215",
+  "target": "N0338",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "통계 테이블 추가는 반정규화(성능 목적 구조 변경)의 기법/확장",
+  "source_name": "반정규화",
+  "target_name": "통계 테이블 추가"
+ },
+ {
+  "source": "N0215",
+  "target": "N0359",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "성능 데이터 모델링은 반정규화(성능 목적 구조 변경)의 기법/확장",
+  "source_name": "반정규화",
+  "target_name": "성능 데이터 모델링"
+ },
+ {
+  "source": "N0135",
+  "target": "N0340",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "분산 DB의 투명성은 데이터 독립성 개념의 확장",
+  "source_name": "데이터 독립성",
+  "target_name": "분산 데이터베이스"
+ },
+ {
+  "source": "N0340",
+  "target": "N0341",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "분할 투명성은 분산 데이터베이스 투명성의 한 종류",
+  "source_name": "분산 데이터베이스",
+  "target_name": "분할 투명성"
+ },
+ {
+  "source": "N0340",
+  "target": "N0342",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "위치 투명성은 분산 데이터베이스 투명성의 한 종류",
+  "source_name": "분산 데이터베이스",
+  "target_name": "위치 투명성"
+ },
+ {
+  "source": "N0340",
+  "target": "N0343",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "중복 투명성은 분산 데이터베이스 투명성의 한 종류",
+  "source_name": "분산 데이터베이스",
+  "target_name": "중복 투명성"
+ },
+ {
+  "source": "N0340",
+  "target": "N0344",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "지역사상 투명성은 분산 데이터베이스 투명성의 한 종류",
+  "source_name": "분산 데이터베이스",
+  "target_name": "지역사상 투명성"
+ },
+ {
+  "source": "N0361",
+  "target": "N0349",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PL/SQL은 SQL(DML)을 절차적 블록으로 감싼 언어",
+  "source_name": "DML",
+  "target_name": "PL/SQL"
+ },
+ {
+  "source": "N0349",
+  "target": "N0351",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PL/SQL 블록(DECLARE-BEGIN-EXCEPTION-END)은 PL/SQL 구조",
+  "source_name": "PL/SQL",
+  "target_name": "PL/SQL 블록"
+ },
+ {
+  "source": "N0351",
+  "target": "N0350",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "PL/SQL 변수 범위는 PL/SQL 블록 안에서 정의/사용",
+  "source_name": "PL/SQL 블록",
+  "target_name": "PL/SQL 변수 범위"
+ },
+ {
+  "source": "N0351",
+  "target": "N0345",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "CURSOR은(는) PL/SQL 블록 안에서 정의/사용",
+  "source_name": "PL/SQL 블록",
+  "target_name": "CURSOR"
+ },
+ {
+  "source": "N0345",
+  "target": "N0348",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "커서 사용 순서: 선언 → OPEN",
+  "source_name": "CURSOR",
+  "target_name": "CURSOR OPEN"
+ },
+ {
+  "source": "N0348",
+  "target": "N0347",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "커서 사용 순서: OPEN → FETCH → CLOSE",
+  "source_name": "CURSOR OPEN",
+  "target_name": "CURSOR FETCH"
+ },
+ {
+  "source": "N0347",
+  "target": "N0346",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "커서 사용 순서: OPEN → FETCH → CLOSE",
+  "source_name": "CURSOR FETCH",
+  "target_name": "CURSOR CLOSE"
+ },
+ {
+  "source": "N0301",
+  "target": "N0356",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "물리 조인 방식은 논리적 JOIN 개념 선행",
+  "source_name": "JOIN",
+  "target_name": "조인 수행 원리"
+ },
+ {
+  "source": "N0356",
+  "target": "N0354",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "NESTED LOOP JOIN은(는) 물리 조인 수행 방식",
+  "source_name": "조인 수행 원리",
+  "target_name": "NESTED LOOP JOIN"
+ },
+ {
+  "source": "N0356",
+  "target": "N0355",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Sort Merge Join은(는) 물리 조인 수행 방식",
+  "source_name": "조인 수행 원리",
+  "target_name": "Sort Merge Join"
+ },
+ {
+  "source": "N0356",
+  "target": "N0352",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "HASH JOIN은(는) 물리 조인 수행 방식",
+  "source_name": "조인 수행 원리",
+  "target_name": "HASH JOIN"
+ },
+ {
+  "source": "N0352",
+  "target": "N0353",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Build/Probe 단계는 HASH JOIN의 내부 동작",
+  "source_name": "HASH JOIN",
+  "target_name": "Hash Join Build/Probe"
+ },
+ {
+  "source": "N0122",
+  "target": "N0359",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "성능 데이터 모델링은 물리 설계 단계의 성능 고려",
+  "source_name": "물리적 데이터 모델링",
+  "target_name": "성능 데이터 모델링"
+ },
+ {
+  "source": "N0359",
+  "target": "N0357",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Row Chaining은(는) 성능 모델링에서 다루는 저장 현상",
+  "source_name": "성능 데이터 모델링",
+  "target_name": "Row Chaining"
+ },
+ {
+  "source": "N0359",
+  "target": "N0358",
+  "origin": "inferred",
+  "inferred": true,
+  "reason": "Row Migration은(는) 성능 모델링에서 다루는 저장 현상",
+  "source_name": "성능 데이터 모델링",
+  "target_name": "Row Migration"
+ }
+]

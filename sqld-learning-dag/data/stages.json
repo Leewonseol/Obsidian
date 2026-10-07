@@ -1,0 +1,1567 @@
+{
+ "stages": [
+  {
+   "stage": 0,
+   "order": 0,
+   "title": "모델링 기초",
+   "goal": "업무를 엔터티·속성·관계로 구조화",
+   "prereq_text": "없음",
+   "prereq_stages": [],
+   "clusters": [
+    "DM0",
+    "DM1",
+    "DM2",
+    "DM3",
+    "DM4"
+   ],
+   "core_concepts_text": "엔터티·속성·관계·ERD",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 71,
+   "current_count": 44,
+   "default_visible_count": 51,
+   "backbone_prereq_reduced": []
+  },
+  {
+   "stage": 1,
+   "order": 1,
+   "title": "키·정규화·무결성",
+   "goal": "식별자와 함수적 종속으로 안정된 관계 모델 설계",
+   "prereq_text": "Stage 0",
+   "prereq_stages": [
+    0
+   ],
+   "clusters": [
+    "DM5",
+    "DM6",
+    "DM7"
+   ],
+   "core_concepts_text": "식별자·정규화·PK/FK",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 47,
+   "current_count": 24,
+   "default_visible_count": 29,
+   "backbone_prereq_reduced": [
+    0
+   ]
+  },
+  {
+   "stage": 2,
+   "order": 2,
+   "title": "SQL 실행 모델",
+   "goal": "SELECT 문장의 평가 순서와 값의 기본 semantics 이해",
+   "prereq_text": "Stage 1",
+   "prereq_stages": [
+    1
+   ],
+   "clusters": [
+    "SQ0",
+    "SQ1",
+    "SQ2",
+    "SQ3",
+    "SQ4",
+    "SQ5"
+   ],
+   "core_concepts_text": "SQL 실행순서·NULL·WHERE·ORDER BY",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 63,
+   "current_count": 43,
+   "default_visible_count": 52,
+   "backbone_prereq_reduced": [
+    1
+   ]
+  },
+  {
+   "stage": 3,
+   "order": 3,
+   "title": "표현식·함수",
+   "goal": "문자/숫자/날짜/조건/정규식 계산",
+   "prereq_text": "Stage 2",
+   "prereq_stages": [
+    2
+   ],
+   "clusters": [
+    "FN1",
+    "FN2",
+    "FN3",
+    "FN4",
+    "FN5"
+   ],
+   "core_concepts_text": "형변환·CASE·NVL/COALESCE",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 55,
+   "current_count": 33,
+   "default_visible_count": 40,
+   "backbone_prereq_reduced": [
+    2
+   ]
+  },
+  {
+   "stage": 4,
+   "order": 4,
+   "title": "관계 결합",
+   "goal": "정규화된 데이터를 JOIN·서브쿼리·집합연산으로 결합",
+   "prereq_text": "Stage 2–3",
+   "prereq_stages": [
+    2,
+    3
+   ],
+   "clusters": [
+    "JN1",
+    "SQ6",
+    "SQ7"
+   ],
+   "core_concepts_text": "JOIN·서브쿼리·UNION",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 45,
+   "current_count": 33,
+   "default_visible_count": 41,
+   "backbone_prereq_reduced": [
+    3
+   ]
+  },
+  {
+   "stage": 5,
+   "order": 5,
+   "title": "집계",
+   "goal": "행 집합을 그룹으로 축약하고 그룹 필터링",
+   "prereq_text": "Stage 2–4",
+   "prereq_stages": [
+    2,
+    3,
+    4
+   ],
+   "clusters": [
+    "AG1",
+    "AG2"
+   ],
+   "core_concepts_text": "GROUP BY·HAVING·ROLLUP",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 26,
+   "current_count": 25,
+   "default_visible_count": 25,
+   "backbone_prereq_reduced": [
+    4
+   ]
+  },
+  {
+   "stage": 6,
+   "order": 6,
+   "title": "고급 조회",
+   "goal": "행을 유지하면서 분석하거나 계층/Top-N/Pivot 처리",
+   "prereq_text": "Stage 4–5",
+   "prereq_stages": [
+    4,
+    5
+   ],
+   "clusters": [
+    "AG3",
+    "AG4",
+    "AG5",
+    "HQ1"
+   ],
+   "core_concepts_text": "윈도우·Top-N·계층형",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 56,
+   "current_count": 37,
+   "default_visible_count": 43,
+   "backbone_prereq_reduced": [
+    5
+   ]
+  },
+  {
+   "stage": 7,
+   "order": 7,
+   "title": "데이터/객체 관리",
+   "goal": "데이터와 객체를 생성·변경·삭제하고 제약을 적용",
+   "prereq_text": "Stage 1–6",
+   "prereq_stages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "clusters": [
+    "MG1",
+    "MG2",
+    "MG3",
+    "MG4"
+   ],
+   "core_concepts_text": "DML·DDL·제약조건·VIEW",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 50,
+   "current_count": 28,
+   "default_visible_count": 31,
+   "backbone_prereq_reduced": [
+    6
+   ]
+  },
+  {
+   "stage": 8,
+   "order": 8,
+   "title": "트랜잭션·권한",
+   "goal": "변경의 원자성·복구·동시성과 권한을 통제",
+   "prereq_text": "Stage 7",
+   "prereq_stages": [
+    7
+   ],
+   "clusters": [
+    "MG5",
+    "MG6"
+   ],
+   "core_concepts_text": "COMMIT/ROLLBACK·ACID·GRANT",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 25,
+   "current_count": 19,
+   "default_visible_count": 21,
+   "backbone_prereq_reduced": [
+    7
+   ]
+  },
+  {
+   "stage": 9,
+   "order": 9,
+   "title": "방언·함정 통합",
+   "goal": "같은 개념의 ANSI/Oracle/SQL Server 차이와 예외를 통합",
+   "prereq_text": "Stage 0–8",
+   "prereq_stages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "clusters": [
+    "XC1",
+    "XC2"
+   ],
+   "core_concepts_text": "NULL·Top-N·차집합·DDL commit",
+   "meaning": "DAG의 간선은 '이해를 위해 먼저 필요한 지식'만 표현. 대조/방언/영향 관계는 Edge 시트에서 별도 표현.",
+   "concept_count": 12,
+   "current_count": 0,
+   "default_visible_count": 12,
+   "backbone_prereq_reduced": [
+    8
+   ]
+  },
+  {
+   "stage": "L",
+   "order": 10,
+   "title": "구범위·레거시 (선택)",
+   "goal": "52회 이후 현행 출제 증거가 없는 과거 범위(성능·옵티마이저·분산 DB·PL/SQL·물리 조인·성능 모델링)",
+   "prereq_stages": [
+    9
+   ],
+   "clusters": [
+    "LG1",
+    "LG2",
+    "LG3",
+    "LG4",
+    "LG5"
+   ],
+   "prereq_text": "Stage 9",
+   "core_concepts_text": "옵티마이저·실행계획·인덱스·물리 조인·분산 DB·PL/SQL·성능 모델링",
+   "meaning": "기본 화면에서 숨김. Include Legacy 토글로만 표시.",
+   "concept_count": 41,
+   "current_count": 0,
+   "default_visible_count": 0,
+   "backbone_prereq_reduced": [
+    9
+   ]
+  }
+ ],
+ "clusters": [
+  {
+   "code": "DM0",
+   "node_id": "N0008",
+   "name": "데이터 모델링 원리",
+   "domain": "D1",
+   "stage": 0,
+   "memo": "정의·특징·관점·3단계",
+   "order": 0,
+   "stage_order": 0,
+   "domain_name": "데이터 모델링",
+   "concept_count": 21,
+   "current_count": 8,
+   "legacy_hidden_count": 9
+  },
+  {
+   "code": "DM1",
+   "node_id": "N0009",
+   "name": "스키마·독립성",
+   "domain": "D1",
+   "stage": 0,
+   "memo": "외부/개념/내부 스키마와 독립성",
+   "order": 1,
+   "stage_order": 0,
+   "domain_name": "데이터 모델링",
+   "concept_count": 5,
+   "current_count": 5,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "DM2",
+   "node_id": "N0010",
+   "name": "엔터티",
+   "domain": "D1",
+   "stage": 0,
+   "memo": "엔터티·인스턴스·발생시점",
+   "order": 2,
+   "stage_order": 0,
+   "domain_name": "데이터 모델링",
+   "concept_count": 14,
+   "current_count": 10,
+   "legacy_hidden_count": 3
+  },
+  {
+   "code": "DM3",
+   "node_id": "N0011",
+   "name": "속성·도메인",
+   "domain": "D1",
+   "stage": 0,
+   "memo": "속성 분류·도메인·값 구조",
+   "order": 3,
+   "stage_order": 0,
+   "domain_name": "데이터 모델링",
+   "concept_count": 13,
+   "current_count": 10,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "DM4",
+   "node_id": "N0012",
+   "name": "관계·ERD",
+   "domain": "D1",
+   "stage": 0,
+   "memo": "관계 차수/선택성·ERD 표기",
+   "order": 4,
+   "stage_order": 0,
+   "domain_name": "데이터 모델링",
+   "concept_count": 18,
+   "current_count": 11,
+   "legacy_hidden_count": 6
+  },
+  {
+   "code": "DM5",
+   "node_id": "N0013",
+   "name": "식별자·키",
+   "domain": "D1",
+   "stage": 1,
+   "memo": "주/보조·내/외부·단일/복합·본질/인조",
+   "order": 0,
+   "stage_order": 1,
+   "domain_name": "데이터 모델링",
+   "concept_count": 28,
+   "current_count": 13,
+   "legacy_hidden_count": 11
+  },
+  {
+   "code": "DM6",
+   "node_id": "N0014",
+   "name": "정규화·반정규화",
+   "domain": "D1",
+   "stage": 1,
+   "memo": "함수적 종속·정규형·반정규화",
+   "order": 1,
+   "stage_order": 1,
+   "domain_name": "데이터 모델링",
+   "concept_count": 15,
+   "current_count": 7,
+   "legacy_hidden_count": 7
+  },
+  {
+   "code": "DM7",
+   "node_id": "N0015",
+   "name": "무결성·제약 개념",
+   "domain": "D1",
+   "stage": 1,
+   "memo": "개체/참조/도메인 무결성",
+   "order": 2,
+   "stage_order": 1,
+   "domain_name": "데이터 모델링",
+   "concept_count": 4,
+   "current_count": 4,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "SQ0",
+   "node_id": "N0016",
+   "name": "SQL 언어 특성·논리 실행순서",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "선언적/집합적/비절차성, 논리 실행",
+   "order": 0,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 5,
+   "current_count": 5,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "SQ1",
+   "node_id": "N0017",
+   "name": "SELECT·FROM·별칭",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "SELECT/FROM/별칭/CTAS의 조회 관점",
+   "order": 1,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 7,
+   "current_count": 4,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "SQ2",
+   "node_id": "N0018",
+   "name": "자료형·리터럴·형변환",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "문자/숫자/날짜/암시적·명시적 변환",
+   "order": 2,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 9,
+   "current_count": 3,
+   "legacy_hidden_count": 4
+  },
+  {
+   "code": "SQ3",
+   "node_id": "N0019",
+   "name": "NULL·3값 논리",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "NULL/UNKNOWN/빈 문자열/집계·집합 영향",
+   "order": 3,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 14,
+   "current_count": 9,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "SQ4",
+   "node_id": "N0020",
+   "name": "WHERE·조건·패턴",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "비교/논리/IN/BETWEEN/LIKE/EXISTS",
+   "order": 4,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 22,
+   "current_count": 17,
+   "legacy_hidden_count": 4
+  },
+  {
+   "code": "SQ5",
+   "node_id": "N0021",
+   "name": "ORDER BY·정렬",
+   "domain": "D2",
+   "stage": 2,
+   "memo": "ASC/DESC/NULL/별칭/순서번호 정렬",
+   "order": 5,
+   "stage_order": 2,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 6,
+   "current_count": 5,
+   "legacy_hidden_count": 1
+  },
+  {
+   "code": "FN1",
+   "node_id": "N0022",
+   "name": "문자 함수",
+   "domain": "D2",
+   "stage": 3,
+   "memo": "문자열 변환·추출·길이·trim",
+   "order": 0,
+   "stage_order": 3,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 18,
+   "current_count": 7,
+   "legacy_hidden_count": 5
+  },
+  {
+   "code": "FN2",
+   "node_id": "N0023",
+   "name": "숫자 함수",
+   "domain": "D2",
+   "stage": 3,
+   "memo": "ABS/MOD/ROUND/TRUNC/CEIL/FLOOR",
+   "order": 1,
+   "stage_order": 3,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 5,
+   "current_count": 2,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "FN3",
+   "node_id": "N0024",
+   "name": "날짜 함수",
+   "domain": "D2",
+   "stage": 3,
+   "memo": "날짜 연산/포맷/EXTRACT",
+   "order": 2,
+   "stage_order": 3,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 10,
+   "current_count": 4,
+   "legacy_hidden_count": 6
+  },
+  {
+   "code": "FN4",
+   "node_id": "N0025",
+   "name": "조건·NULL·형변환 함수",
+   "domain": "D2",
+   "stage": 3,
+   "memo": "CASE/DECODE/NVL/COALESCE/CAST류",
+   "order": 3,
+   "stage_order": 3,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 7,
+   "current_count": 5,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "FN5",
+   "node_id": "N0026",
+   "name": "정규표현식",
+   "domain": "D2",
+   "stage": 3,
+   "memo": "REGEXP_*와 메타문자",
+   "order": 4,
+   "stage_order": 3,
+   "domain_name": "SQL 언어·표현식",
+   "concept_count": 15,
+   "current_count": 15,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "JN1",
+   "node_id": "N0027",
+   "name": "JOIN",
+   "domain": "D3",
+   "stage": 4,
+   "memo": "INNER/OUTER/CROSS/NATURAL/ON/USING",
+   "order": 0,
+   "stage_order": 4,
+   "domain_name": "관계 결합·집합",
+   "concept_count": 23,
+   "current_count": 15,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "SQ6",
+   "node_id": "N0028",
+   "name": "서브쿼리·WITH/CTE",
+   "domain": "D3",
+   "stage": 4,
+   "memo": "단일행/다중행/상관/스칼라/인라인뷰/CTE",
+   "order": 1,
+   "stage_order": 4,
+   "domain_name": "관계 결합·집합",
+   "concept_count": 13,
+   "current_count": 10,
+   "legacy_hidden_count": 1
+  },
+  {
+   "code": "SQ7",
+   "node_id": "N0029",
+   "name": "집합 연산자",
+   "domain": "D3",
+   "stage": 4,
+   "memo": "UNION/UNION ALL/INTERSECT/MINUS/EXCEPT",
+   "order": 2,
+   "stage_order": 4,
+   "domain_name": "관계 결합·집합",
+   "concept_count": 9,
+   "current_count": 8,
+   "legacy_hidden_count": 1
+  },
+  {
+   "code": "AG1",
+   "node_id": "N0030",
+   "name": "집계·GROUP BY·HAVING",
+   "domain": "D4",
+   "stage": 5,
+   "memo": "COUNT/SUM/AVG/MIN/MAX, 그룹/필터",
+   "order": 0,
+   "stage_order": 5,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 21,
+   "current_count": 20,
+   "legacy_hidden_count": 1
+  },
+  {
+   "code": "AG2",
+   "node_id": "N0031",
+   "name": "그룹함수 확장",
+   "domain": "D4",
+   "stage": 5,
+   "memo": "ROLLUP/CUBE/GROUPING SETS/GROUPING",
+   "order": 1,
+   "stage_order": 5,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 5,
+   "current_count": 5,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "AG3",
+   "node_id": "N0032",
+   "name": "윈도우 함수",
+   "domain": "D4",
+   "stage": 6,
+   "memo": "순위/행이동/분포/프레임",
+   "order": 0,
+   "stage_order": 6,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 30,
+   "current_count": 15,
+   "legacy_hidden_count": 10
+  },
+  {
+   "code": "AG4",
+   "node_id": "N0033",
+   "name": "Top-N",
+   "domain": "D4",
+   "stage": 6,
+   "memo": "ROWNUM/FETCH FIRST/TOP/LIMIT/WITH TIES",
+   "order": 1,
+   "stage_order": 6,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 6,
+   "current_count": 5,
+   "legacy_hidden_count": 1
+  },
+  {
+   "code": "AG5",
+   "node_id": "N0034",
+   "name": "PIVOT·UNPIVOT",
+   "domain": "D4",
+   "stage": 6,
+   "memo": "행↔열 재구성",
+   "order": 2,
+   "stage_order": 6,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 3,
+   "current_count": 2,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "HQ1",
+   "node_id": "N0035",
+   "name": "계층형 질의",
+   "domain": "D4",
+   "stage": 6,
+   "memo": "START WITH/CONNECT BY/PRIOR/LEVEL/의사열",
+   "order": 3,
+   "stage_order": 6,
+   "domain_name": "집계·분석·계층",
+   "concept_count": 17,
+   "current_count": 15,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "MG1",
+   "node_id": "N0036",
+   "name": "DML",
+   "domain": "D5",
+   "stage": 7,
+   "memo": "INSERT/UPDATE/DELETE/MERGE",
+   "order": 0,
+   "stage_order": 7,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 11,
+   "current_count": 6,
+   "legacy_hidden_count": 4
+  },
+  {
+   "code": "MG2",
+   "node_id": "N0037",
+   "name": "DDL·객체",
+   "domain": "D5",
+   "stage": 7,
+   "memo": "CREATE/ALTER/DROP/TRUNCATE/RENAME/CTAS",
+   "order": 1,
+   "stage_order": 7,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 27,
+   "current_count": 13,
+   "legacy_hidden_count": 12
+  },
+  {
+   "code": "MG3",
+   "node_id": "N0038",
+   "name": "제약조건·참조동작",
+   "domain": "D5",
+   "stage": 7,
+   "memo": "PK/FK/UNIQUE/NOT NULL/CHECK/CASCADE",
+   "order": 2,
+   "stage_order": 7,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 10,
+   "current_count": 7,
+   "legacy_hidden_count": 3
+  },
+  {
+   "code": "MG4",
+   "node_id": "N0039",
+   "name": "VIEW",
+   "domain": "D5",
+   "stage": 7,
+   "memo": "가상테이블·의존성",
+   "order": 3,
+   "stage_order": 7,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 2,
+   "current_count": 2,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "MG5",
+   "node_id": "N0040",
+   "name": "Transaction·TCL·ACID",
+   "domain": "D5",
+   "stage": 8,
+   "memo": "COMMIT/ROLLBACK/SAVEPOINT/격리",
+   "order": 0,
+   "stage_order": 8,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 14,
+   "current_count": 10,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "MG6",
+   "node_id": "N0041",
+   "name": "DCL·권한",
+   "domain": "D5",
+   "stage": 8,
+   "memo": "GRANT/REVOKE/ROLE/권한 위임",
+   "order": 1,
+   "stage_order": 8,
+   "domain_name": "데이터 관리·트랜잭션",
+   "concept_count": 11,
+   "current_count": 9,
+   "legacy_hidden_count": 2
+  },
+  {
+   "code": "XC1",
+   "node_id": "N0042",
+   "name": "DBMS 방언",
+   "domain": "D6",
+   "stage": 9,
+   "memo": "ANSI/Oracle/SQL Server의 표현 차이",
+   "order": 0,
+   "stage_order": 9,
+   "domain_name": "메타 규칙·DBMS 방언",
+   "concept_count": 9,
+   "current_count": 0,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "XC2",
+   "node_id": "N0043",
+   "name": "실행순서·시험 함정",
+   "domain": "D6",
+   "stage": 9,
+   "memo": "별칭 가시성/NULL/OUTER JOIN 필터/DDL commit",
+   "order": 1,
+   "stage_order": 9,
+   "domain_name": "메타 규칙·DBMS 방언",
+   "concept_count": 3,
+   "current_count": 0,
+   "legacy_hidden_count": 0
+  },
+  {
+   "code": "LG1",
+   "node_id": "N0044",
+   "name": "성능·인덱스·옵티마이저",
+   "domain": "D7",
+   "stage": "L",
+   "memo": "인덱스/옵티마이저/실행계획",
+   "order": 0,
+   "stage_order": 10,
+   "domain_name": "LEGACY",
+   "concept_count": 21,
+   "current_count": 0,
+   "legacy_hidden_count": 21
+  },
+  {
+   "code": "LG2",
+   "node_id": "N0045",
+   "name": "분산 데이터베이스",
+   "domain": "D7",
+   "stage": "L",
+   "memo": "분산 DB 투명성",
+   "order": 1,
+   "stage_order": 10,
+   "domain_name": "LEGACY",
+   "concept_count": 5,
+   "current_count": 0,
+   "legacy_hidden_count": 5
+  },
+  {
+   "code": "LG3",
+   "node_id": "N0046",
+   "name": "PL/SQL",
+   "domain": "D7",
+   "stage": "L",
+   "memo": "PL/SQL 블록·커서",
+   "order": 2,
+   "stage_order": 10,
+   "domain_name": "LEGACY",
+   "concept_count": 7,
+   "current_count": 0,
+   "legacy_hidden_count": 7
+  },
+  {
+   "code": "LG4",
+   "node_id": "N0047",
+   "name": "물리 조인 알고리즘",
+   "domain": "D7",
+   "stage": "L",
+   "memo": "NL/Sort Merge/Hash Join",
+   "order": 3,
+   "stage_order": 10,
+   "domain_name": "LEGACY",
+   "concept_count": 5,
+   "current_count": 0,
+   "legacy_hidden_count": 5
+  },
+  {
+   "code": "LG5",
+   "node_id": "N0048",
+   "name": "성능 데이터 모델링",
+   "domain": "D7",
+   "stage": "L",
+   "memo": "Row chaining/migration 등",
+   "order": 4,
+   "stage_order": 10,
+   "domain_name": "LEGACY",
+   "concept_count": 3,
+   "current_count": 0,
+   "legacy_hidden_count": 3
+  }
+ ],
+ "domains": [
+  {
+   "code": "D1",
+   "node_id": "N0001",
+   "name": "데이터 모델링",
+   "subject": "과목 I",
+   "memo": "현실→관계형 구조로 추상화하는 층"
+  },
+  {
+   "code": "D2",
+   "node_id": "N0002",
+   "name": "SQL 언어·표현식",
+   "subject": "과목 II",
+   "memo": "SQL 문장의 실행 모델, 값, 조건, 함수"
+  },
+  {
+   "code": "D3",
+   "node_id": "N0003",
+   "name": "관계 결합·집합",
+   "subject": "과목 II",
+   "memo": "테이블/결과집합을 결합하는 층"
+  },
+  {
+   "code": "D4",
+   "node_id": "N0004",
+   "name": "집계·분석·계층",
+   "subject": "과목 II",
+   "memo": "그룹, 분석함수, Top-N, 계층 구조 처리"
+  },
+  {
+   "code": "D5",
+   "node_id": "N0005",
+   "name": "데이터 관리·트랜잭션",
+   "subject": "과목 II",
+   "memo": "DML/DDL/권한/트랜잭션/객체 관리"
+  },
+  {
+   "code": "D6",
+   "node_id": "N0006",
+   "name": "메타 규칙·DBMS 방언",
+   "subject": "과목 II",
+   "memo": "실행순서·예외·ANSI/Oracle/SQL Server 차이"
+  },
+  {
+   "code": "D7",
+   "node_id": "N0007",
+   "name": "LEGACY",
+   "subject": "과거범위",
+   "memo": "현행과 분리 보존할 과거 출제범위"
+  }
+ ],
+ "hubs": [
+  {
+   "hub": "NULL",
+   "role": "cross-cutting hub",
+   "core_rule": "NULL은 값이 아니라 '알 수 없음' 상태로 3값 논리를 만든다.",
+   "edge_types": "AFFECTS / DIALECT / EXCEPTION",
+   "study_note": "SQLD에서 가장 여러 단원을 가로지르는 허브로 취급",
+   "hub_nodes": [
+    "N0464"
+   ],
+   "linked": [
+    "N0472",
+    "N0483",
+    "N0460",
+    "N0053",
+    "N0049",
+    "N0459",
+    "N0458",
+    "N0497",
+    "N0308",
+    "N0262",
+    "N0259"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "SQL 논리 실행 순서",
+   "role": "execution hub",
+   "core_rule": "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY가 별칭·집계 허용범위를 설명한다.",
+   "edge_types": "PRECEDES / EXPLAINS",
+   "study_note": "문법 작성순서와 논리 실행순서를 분리",
+   "hub_nodes": [
+    "N0425"
+   ],
+   "linked": [
+    "N0437",
+    "N0488",
+    "N0054",
+    "N0057",
+    "N0497",
+    "N0486",
+    "N0499"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "JOIN",
+   "role": "relational hub",
+   "core_rule": "정규화로 분리된 관계를 조인 조건으로 다시 결합한다.",
+   "edge_types": "IMPLEMENTS / CONTRASTS / AFFECTS",
+   "study_note": "OUTER JOIN은 필터 위치까지 한 묶음으로 학습",
+   "hub_nodes": [
+    "N0301"
+   ],
+   "linked": [
+    "N0300",
+    "N0308",
+    "N0297",
+    "N0304",
+    "N0306",
+    "N0312",
+    "N0181",
+    "N0220",
+    "N0307"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "서브쿼리",
+   "role": "composition hub",
+   "core_rule": "결과집합을 다른 SQL의 입력으로 사용한다.",
+   "edge_types": "IS_A / USES / ALTERNATIVE_TO",
+   "study_note": "연산자와 결과 행수 관계를 같이 학습",
+   "hub_nodes": [
+    "N0511"
+   ],
+   "linked": [
+    "N0509",
+    "N0508",
+    "N0510",
+    "N0513",
+    "N0514",
+    "N0436",
+    "N0503",
+    "N0502",
+    "N0505",
+    "N0507",
+    "N0504"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "집계·GROUP BY",
+   "role": "aggregation hub",
+   "core_rule": "여러 행을 그룹 단위 한 행으로 축약한다.",
+   "edge_types": "REQUIRES / CONTRASTS / AFFECTS",
+   "study_note": "NULL과 공집합 semantics 포함",
+   "hub_nodes": [
+    "N0068",
+    "N0054"
+   ],
+   "linked": [
+    "N0050",
+    "N0062",
+    "N0049",
+    "N0060",
+    "N0059",
+    "N0057",
+    "N0072",
+    "N0069",
+    "N0071",
+    "N0065"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "윈도우 함수",
+   "role": "analysis hub",
+   "core_rule": "행 수를 줄이지 않고 집합 문맥에서 계산한다.",
+   "edge_types": "IS_A / USES / CONTRASTS",
+   "study_note": "집계함수와 차이는 '행 보존'으로 구분",
+   "hub_nodes": [
+    "N0099"
+   ],
+   "linked": [
+    "N0090",
+    "N0076",
+    "N0095",
+    "N0079",
+    "N0081",
+    "N0084",
+    "N0094"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "계층형 질의",
+   "role": "hierarchy hub",
+   "core_rule": "부모-자식 탐색은 START WITH와 CONNECT BY/PRIOR의 방향 규칙이 핵심이다.",
+   "edge_types": "BELONGS_TO / AFFECTS / ENABLES",
+   "study_note": "WHERE 후필터와 PRIOR 방향을 별도 규칙으로 기억",
+   "hub_nodes": [
+    "N0291"
+   ],
+   "linked": [
+    "N0287",
+    "N0279",
+    "N0286",
+    "N0283",
+    "N0284",
+    "N0281",
+    "N0280",
+    "N0282",
+    "N0285"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "Transaction",
+   "role": "state hub",
+   "core_rule": "DML 변경은 COMMIT/ROLLBACK 경계 안에서 원자적으로 관리된다.",
+   "edge_types": "CONTRASTS / AFFECTS / DIALECT",
+   "study_note": "Oracle/SQL Server 동작 차이를 메타층에서 연결",
+   "hub_nodes": [
+    "N0409"
+   ],
+   "linked": [
+    "N0402",
+    "N0404",
+    "N0405",
+    "N0407",
+    "N0403",
+    "N0388"
+   ],
+   "unresolved_tokens": []
+  },
+  {
+   "hub": "DBMS 방언",
+   "role": "meta hub",
+   "core_rule": "같은 의미라도 표준과 제품별 표현이 다르다.",
+   "edge_types": "DIALECT_OF / DIALECT_EQUIVALENT",
+   "study_note": "개념과 문법 방언을 분리해서 암기",
+   "hub_nodes": [
+    "N0524",
+    "N0525",
+    "N0526"
+   ],
+   "linked": [
+    "N0517",
+    "N0515",
+    "N0102",
+    "N0103",
+    "N0100",
+    "N0262",
+    "N0259",
+    "N0310",
+    "N0467"
+   ],
+   "unresolved_tokens": []
+  }
+ ],
+ "gap_families": [
+  {
+   "family": "서브쿼리",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "43·61 등에서 직접/부분 확인",
+   "action": "단일행/다중행/상관/스칼라/EXISTS 등으로 확장",
+   "matched_nodes": [
+    "N0511"
+   ]
+  },
+  {
+   "family": "집합 연산자",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "27·40·43·44에서 UNION/UNION ALL/MINUS/INTERSECT/EXCEPT 확인",
+   "action": "연산자별 중복 처리와 DBMS 차이 노드화",
+   "matched_nodes": [
+    "N0520",
+    "X104"
+   ]
+  },
+  {
+   "family": "윈도우 함수",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "27·33·37·40·43·60 등 반복 확인",
+   "action": "OVER/PARTITION/ORDER/프레임/순위·행이동 함수로 분해",
+   "matched_nodes": [
+    "N0099"
+   ]
+  },
+  {
+   "family": "그룹함수 확장",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "27·35·40·43·52·60 등 ROLLUP/CUBE/GROUPING SETS 확인",
+   "action": "GROUPING까지 별도 노드",
+   "matched_nodes": [
+    "N0067"
+   ]
+  },
+  {
+   "family": "계층형 질의",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "40·43 및 다수 복원에서 확인",
+   "action": "START WITH/CONNECT BY/PRIOR/전개 방향",
+   "matched_nodes": [
+    "N0291"
+   ]
+  },
+  {
+   "family": "정규표현식 함수",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "62회 REGEXP_COUNT 복원 확인",
+   "action": "REGEXP_COUNT를 시작으로 함수별 증거 추가",
+   "matched_nodes": [
+    "N0278"
+   ]
+  },
+  {
+   "family": "PIVOT·UNPIVOT",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "사용자 기존 기출 분석표에서 출제 노드로 확인",
+   "action": "회차 원문 증거를 추가 수집",
+   "matched_nodes": [
+    "N0107"
+   ]
+  },
+  {
+   "family": "DCL",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "27·40·44에서 DCL/GRANT 직접 확인",
+   "action": "GRANT/REVOKE와 권한 범위",
+   "matched_nodes": [
+    "N0414"
+   ]
+  },
+  {
+   "family": "ERD 표기법",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "40 IE, 44 Barker 확인",
+   "action": "IE/Barker와 참여도·기수성 판독 추가",
+   "matched_nodes": [
+    "N0167"
+   ]
+  },
+  {
+   "family": "상호배타 관계",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "62회 실시간 복원에서 확인",
+   "action": "exclusive arc/부모 선택 제약 개념 추가",
+   "matched_nodes": [
+    "N0178"
+   ]
+  },
+  {
+   "family": "슈퍼타입/서브타입",
+   "mindmap_status": "없음",
+   "scope": "구범위에서 확인",
+   "evidence": "39회 복원에서 직접 확인",
+   "action": "현행 출제기준과 분리해 레거시 표시",
+   "matched_nodes": [
+    "N0125"
+   ]
+  },
+  {
+   "family": "CTAS",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "31·62에서 확인",
+   "action": "제약조건 상속 여부와 함께 연결",
+   "matched_nodes": [
+    "N0432"
+   ]
+  },
+  {
+   "family": "Top-N/ROWNUM",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "30·43 등에서 ROWNUM 확인",
+   "action": "현행 Top-N/FETCH와 구분해 확장",
+   "matched_nodes": []
+  },
+  {
+   "family": "NULL 정렬 DBMS 차이",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "31회에서 Oracle/SQL Server 차이 확인",
+   "action": "ANSI/Oracle/SQL Server 비교표와 연결",
+   "matched_nodes": [
+    "X102"
+   ]
+  },
+  {
+   "family": "성능·옵티마이저·파티셔닝",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "27·30·33·38 등 구회차에서 확인",
+   "action": "현행 그래프와 분리된 LEGACY 레이어로 보존",
+   "matched_nodes": []
+  },
+  {
+   "family": "서브쿼리 세분화",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "45~60대 복원에서 단일행·다중행·스칼라·상관·EXISTS/NOT EXISTS/ANY/ALL이 독립 출제 단위로 확인",
+   "action": "서브쿼리 아래 유형 및 다중행 연산자를 별도 노드로 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "윈도우 함수 프레임·통계함수",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "FIRST_VALUE/LAST_VALUE, ROWS/RANGE, UNBOUNDED, RATIO_TO_REPORT, PERCENT_RANK, CUME_DIST 확인",
+   "action": "순위함수만이 아니라 프레임/위치/분포 함수로 확장",
+   "matched_nodes": []
+  },
+  {
+   "family": "계층형 질의 고급 의사열",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "NOCYCLE, CONNECT_BY_ISLEAF/ISCYCLE/ROOT, ORDER SIBLINGS BY 확인",
+   "action": "START WITH/CONNECT BY/PRIOR 외 고급 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "Top-N",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "ROWNUM, Top-N, WITH TIES가 복원문항에서 확인",
+   "action": "ROWNUM/FETCH/TOP과 DBMS 차이 연결",
+   "matched_nodes": [
+    "N0104"
+   ]
+  },
+  {
+   "family": "INSERT 확장",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "INSERT ALL, INSERT FIRST가 반복 복원",
+   "action": "조건부/다중 테이블 INSERT 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "CTAS 제약조건 상속",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "CTAS와 NOT NULL/PK 제약의 상속 여부가 출제됨",
+   "action": "CTAS 아래 '무엇이 복제되고 무엇이 복제되지 않는가' 규칙 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "OUTER JOIN 필터 위치",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "ON과 WHERE에 조건을 둘 때 보존 행이 달라지는 문제가 출제됨",
+   "action": "OUTER JOIN—ON—WHERE의 결과 차이를 규칙 노드로 추가",
+   "matched_nodes": [
+    "X203"
+   ]
+  },
+  {
+   "family": "공집합·집계 반환값",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "COUNT(*)=0 vs SUM/AVG/MIN/MAX=NULL 형태가 복원문항에서 확인",
+   "action": "집계 함수 아래 공집합 semantics 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "속성 세분화",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "기본/설계/파생 외 복합·단일값·다중값 속성이 확인",
+   "action": "속성 분류 체계를 의미/구성/값 개수 기준으로 분리",
+   "matched_nodes": []
+  },
+  {
+   "family": "식별자 세분화",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "내부/외부, 대리키, 복합키, 주식별자 4특성이 독립 출제",
+   "action": "식별자 분류와 주식별자 특성을 개별 노드화",
+   "matched_nodes": []
+  },
+  {
+   "family": "정규표현식 세부",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "REGEXP_SUBSTR 및 정규식 * / +가 복원문항에서 확인",
+   "action": "정규표현식 함수와 메타문자를 별도 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "NULL의 집합·그룹 동작",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "GROUP BY NULL, DISTINCT NULL, UNKNOWN, NOT IN NULL이 별개로 출제",
+   "action": "NULL 허브에 비교/집합/그룹/서브쿼리 동작을 각각 연결",
+   "matched_nodes": [
+    "X101"
+   ]
+  },
+  {
+   "family": "SQL 언어 특성",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "선언적·집합적·비절차적 특성이 62회 복원에서 확인",
+   "action": "SQL 기본 최상위 정의 노드로 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "객체·식별자 명명 규칙",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "DDL 객체명 규칙과 식별자 명명 규칙이 별도 출제",
+   "action": "DDL/모델링 양쪽에 명명규칙 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "VIEW·DROP 의존성",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "VIEW가 참조 객체 변화/삭제의 영향을 받는 문제가 확인",
+   "action": "VIEW 의존성·DROP CASCADE와 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "Top-N DBMS 방언",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "ROWNUM, FETCH FIRST, WITH TIES, TOP, LIMIT이 서로 다른 회차에서 출제 단위로 확인",
+   "action": "Top-N 상위 노드 아래 Oracle/ANSI-SQL Server/MySQL 계열 방언을 분리",
+   "matched_nodes": [
+    "X103"
+   ]
+  },
+  {
+   "family": "계층형 질의 전개 규칙",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "순·역방향 PRIOR, WHERE 후필터, NULL에서 가지 종료, SYS_CONNECT_BY_PATH, CONNECT_BY_ROOT/ISLEAF/ISCYCLE가 확인",
+   "action": "문법 목록이 아니라 전개 방향·필터 시점·의사열 semantics까지 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "DCL 권한 전달·회수",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "GRANT/REVOKE 외 GRANT OPTION, REVOKE RESTRICT, ROLE가 확인",
+   "action": "DCL 아래 객체권한·재부여권한·회수 효과로 세분화",
+   "matched_nodes": []
+  },
+  {
+   "family": "윈도우 프레임 경계",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "ROWS/RANGE, CURRENT ROW, UNBOUNDED PRECEDING/FOLLOWING, n FOLLOWING이 출제",
+   "action": "윈도우 함수와 별개로 프레임 단위를 독립 노드화",
+   "matched_nodes": []
+  },
+  {
+   "family": "OUTER JOIN 보존 규칙",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "보존 테이블, 연속 OUTER JOIN, ON/WHERE 위치, LEFT/RIGHT/FULL 결과 건수 문제가 확인",
+   "action": "'어느 쪽 행을 보존하는가'와 필터 위치를 규칙 노드로 분리",
+   "matched_nodes": []
+  },
+  {
+   "family": "NULL 3값 논리 확장",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "UNKNOWN, IN+NULL, NOT IN+NULL, NULL 산술, 빈 문자열= NULL(Oracle), GROUP BY/DISTINCT NULL이 확인",
+   "action": "NULL 허브 아래 비교·논리·집계·집합·DBMS 방언을 별도 간선으로 연결",
+   "matched_nodes": [
+    "X202"
+   ]
+  },
+  {
+   "family": "집계식의 NULL 위치",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "SUM(C1+C2)와 SUM(C1)+SUM(C2), SUM(NVL(...)), 공집합 집계가 출제",
+   "action": "집계함수 아래 '행 계산 전 NULL'과 '집계 후 NULL'을 구분",
+   "matched_nodes": []
+  },
+  {
+   "family": "HAVING 특수 규칙",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "GROUP BY 없는 HAVING, WHERE 집계함수 불가가 출제",
+   "action": "WHERE/HAVING 비교 아래 예외/허용 범위를 규칙 노드화",
+   "matched_nodes": []
+  },
+  {
+   "family": "식별자 분류 전체",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "주/보조, 내부/외부, 단일/복합, 본질/인조가 각각 출제",
+   "action": "식별자를 4개 분류축으로 재구성",
+   "matched_nodes": []
+  },
+  {
+   "family": "반정규화 세부 기법",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "관계/컬럼 반정규화, 테이블 병합, 컬럼 분할, 통계 테이블 추가가 확인",
+   "action": "현행 그래프에서는 LEGACY 레이어로 격리",
+   "matched_nodes": []
+  },
+  {
+   "family": "분산 DB 투명성",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "분할·중복·위치·지역사상 투명성이 실제 출제",
+   "action": "분산 DB 아래 4개 투명성 노드 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "조인 수행 알고리즘",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "Nested Loop, Sort Merge, Hash Join이 반복 확인",
+   "action": "논리 JOIN과 물리 실행 알고리즘을 구분해 LEGACY에 배치",
+   "matched_nodes": []
+  },
+  {
+   "family": "옵티마이저·실행계획",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "규칙/비용 기반 옵티마이저와 실행계획이 확인",
+   "action": "현행 범위와 분리하되 과거 기출 증거 보존",
+   "matched_nodes": []
+  },
+  {
+   "family": "CTE·WITH 절",
+   "mindmap_status": "없음",
+   "scope": "현행/공통",
+   "evidence": "WITH 절, CTE, 재귀 CTE가 출제",
+   "action": "서브쿼리와 계층형 질의 사이의 대안 관계로 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "문자열 함수 DBMS 차이",
+   "mindmap_status": "부분",
+   "scope": "현행/공통",
+   "evidence": "LENGTH/LEN, CHAR 후행 공백, Oracle 빈 문자열=NULL 등이 확인",
+   "action": "문자 함수와 자료형 사이에 DBMS_DIALECT 간선 추가",
+   "matched_nodes": [
+    "X106"
+   ]
+  },
+  {
+   "family": "제약조건 삭제 연쇄",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "ON DELETE CASCADE, CASCADE CONSTRAINTS, PK/FK/UNIQUE/CHECK가 출제",
+   "action": "참조 무결성과 DDL 삭제 효과를 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "슈퍼/서브타입 변환",
+   "mindmap_status": "없음",
+   "scope": "구범위/레거시",
+   "evidence": "개별 타입, 슈퍼/서브타입 변환 방식이 출제",
+   "action": "구범위 모델링 변환 전략으로 별도 보존",
+   "matched_nodes": [
+    "N0332"
+   ]
+  },
+  {
+   "family": "정규표현식 함수군",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "REGEXP_INSTR/COUNT/LIKE/REPLACE/SUBSTR와 ?,*,+,{m,} 메타문자까지 현행 회차에서 확인",
+   "action": "함수 종류와 메타문자 규칙을 분리해 연결",
+   "matched_nodes": []
+  },
+  {
+   "family": "DCL 권한 종류",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "시스템 권한·객체 권한·ROLE·GRANT OPTION·REVOKE 연쇄가 확인",
+   "action": "DCL 아래 권한 종류와 위임/회수 구조를 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "Peter Chen ERD 표기",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "60회 복원에서 엔터티=사각형, 속성=타원, 관계=마름모 표기 판별 출제",
+   "action": "IE/Barker와 별도 표기법 노드로 추가",
+   "matched_nodes": []
+  },
+  {
+   "family": "별칭 가시성",
+   "mindmap_status": "부분",
+   "scope": "현행",
+   "evidence": "SELECT 별칭은 ORDER BY에서는 사용 가능하지만 WHERE에서는 사용할 수 없는 문제가 확인",
+   "action": "SQL 논리 실행순서와 ALIAS를 연결",
+   "matched_nodes": [
+    "X201"
+   ]
+  },
+  {
+   "family": "집합연산자 결과 규칙",
+   "mindmap_status": "없음",
+   "scope": "현행",
+   "evidence": "컬럼 호환성·최종 ORDER BY 위치·중복 제거 여부가 독립 출제",
+   "action": "집합연산자 상위 노드 아래 결과 규칙 추가",
+   "matched_nodes": []
+  }
+ ]
+}

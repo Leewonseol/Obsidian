@@ -1,0 +1,2362 @@
+[
+ {
+  "source": "N0057",
+  "target": "N0437",
+  "relation": "EXECUTION_ORDER",
+  "reason": "논리적 실행 순서",
+  "edge_class": "핵심규칙",
+  "source_name": "HAVING",
+  "target_name": "SELECT",
+  "original_relation": "PRECEDES",
+  "review": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
+ },
+ {
+  "source": "N0488",
+  "target": "N0486",
+  "relation": "EXCEPTION",
+  "reason": "WHERE가 SELECT보다 먼저 평가",
+  "edge_class": "핵심규칙",
+  "source_name": "WHERE",
+  "target_name": "SELECT 별칭 WHERE 사용 불가"
+ },
+ {
+  "source": "N0464",
+  "target": "N0472",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "UNKNOWN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0483",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0460",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "IN + NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0466",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "NULL 산술 연산"
+ },
+ {
+  "source": "N0464",
+  "target": "N0053",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0049",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0464",
+  "target": "N0062",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "SUM"
+ },
+ {
+  "source": "N0464",
+  "target": "N0060",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "MIN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0059",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "MAX"
+ },
+ {
+  "source": "N0464",
+  "target": "N0459",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "GROUP BY NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0458",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "DISTINCT NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0467",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0464",
+  "target": "N0308",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0259",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0464",
+  "target": "N0262",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0261",
+  "relation": "AFFECTS",
+  "reason": "NULL semantics가 결과를 바꿈",
+  "edge_class": "핵심규칙",
+  "source_name": "NULL",
+  "target_name": "NULLIF"
+ },
+ {
+  "source": "N0464",
+  "target": "N0473",
+  "relation": "DIALECT",
+  "reason": "Oracle의 빈 문자열 처리",
+  "edge_class": "DBMS",
+  "source_name": "NULL",
+  "target_name": "빈 문자열과 NULL(Oracle)"
+ },
+ {
+  "source": "N0525",
+  "target": "N0473",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 특수 동작",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "빈 문자열과 NULL(Oracle)"
+ },
+ {
+  "source": "N0488",
+  "target": "N0057",
+  "relation": "CONTRASTS",
+  "reason": "행 필터 vs 그룹 필터",
+  "edge_class": "핵심비교",
+  "source_name": "WHERE",
+  "target_name": "HAVING"
+ },
+ {
+  "source": "N0051",
+  "target": "N0053",
+  "relation": "CONTRASTS",
+  "reason": "NULL 포함 여부 차이",
+  "edge_class": "핵심비교",
+  "source_name": "COUNT(*)",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0065",
+  "target": "N0051",
+  "relation": "AFFECTS",
+  "reason": "공집합이면 COUNT=0",
+  "edge_class": "핵심규칙",
+  "source_name": "공집합 집계",
+  "target_name": "COUNT(*)"
+ },
+ {
+  "source": "N0065",
+  "target": "N0062",
+  "relation": "AFFECTS",
+  "reason": "공집합이면 일반 집계 NULL",
+  "edge_class": "핵심규칙",
+  "source_name": "공집합 집계",
+  "target_name": "SUM"
+ },
+ {
+  "source": "N0065",
+  "target": "N0049",
+  "relation": "AFFECTS",
+  "reason": "공집합이면 일반 집계 NULL",
+  "edge_class": "핵심규칙",
+  "source_name": "공집합 집계",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0065",
+  "target": "N0060",
+  "relation": "AFFECTS",
+  "reason": "공집합이면 일반 집계 NULL",
+  "edge_class": "핵심규칙",
+  "source_name": "공집합 집계",
+  "target_name": "MIN"
+ },
+ {
+  "source": "N0065",
+  "target": "N0059",
+  "relation": "AFFECTS",
+  "reason": "공집합이면 일반 집계 NULL",
+  "edge_class": "핵심규칙",
+  "source_name": "공집합 집계",
+  "target_name": "MAX"
+ },
+ {
+  "source": "N0062",
+  "target": "N0063",
+  "relation": "EXCEPTION",
+  "reason": "NULL의 위치에 따라 결과 변화",
+  "edge_class": "핵심함정",
+  "source_name": "SUM",
+  "target_name": "SUM(열1+열2) vs SUM(열1)+SUM(열2)"
+ },
+ {
+  "source": "N0300",
+  "target": "N0308",
+  "relation": "CONTRASTS",
+  "reason": "일치행만 vs 비일치행 보존",
+  "edge_class": "핵심비교",
+  "source_name": "INNER JOIN",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0302",
+  "relation": "IS_A",
+  "reason": "OUTER JOIN 종류",
+  "edge_class": "핵심구조",
+  "source_name": "OUTER JOIN",
+  "target_name": "LEFT OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0311",
+  "relation": "IS_A",
+  "reason": "OUTER JOIN 종류",
+  "edge_class": "핵심구조",
+  "source_name": "OUTER JOIN",
+  "target_name": "RIGHT OUTER JOIN"
+ },
+ {
+  "source": "N0308",
+  "target": "N0299",
+  "relation": "IS_A",
+  "reason": "OUTER JOIN 종류",
+  "edge_class": "핵심구조",
+  "source_name": "OUTER JOIN",
+  "target_name": "FULL OUTER JOIN"
+ },
+ {
+  "source": "N0306",
+  "target": "N0488",
+  "relation": "CONTRASTS",
+  "reason": "조인 조건과 후필터 위치 차이",
+  "edge_class": "핵심비교",
+  "source_name": "ON",
+  "target_name": "WHERE"
+ },
+ {
+  "source": "N0308",
+  "target": "N0309",
+  "relation": "AFFECTS",
+  "reason": "필터 위치에 따라 보존행이 달라짐",
+  "edge_class": "핵심함정",
+  "source_name": "OUTER JOIN",
+  "target_name": "OUTER JOIN 조건 위치"
+ },
+ {
+  "source": "N0173",
+  "target": "N0181",
+  "relation": "IMPLEMENTS",
+  "reason": "관계형 모델의 참조 구현",
+  "edge_class": "모델-SQL",
+  "source_name": "관계",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0220",
+  "target": "N0301",
+  "relation": "INCREASES_NEED_FOR",
+  "reason": "분해된 테이블을 다시 결합",
+  "edge_class": "모델-SQL",
+  "source_name": "정규화",
+  "target_name": "JOIN"
+ },
+ {
+  "source": "N0170",
+  "target": "N0137",
+  "relation": "RESOLVED_BY",
+  "reason": "M:N을 1:M+M:1로 변환",
+  "edge_class": "모델-SQL",
+  "source_name": "M:N 해소",
+  "target_name": "관계 엔터티"
+ },
+ {
+  "source": "N0182",
+  "target": "N0110",
+  "relation": "ENFORCES",
+  "reason": "주키는 NULL/중복 불가",
+  "edge_class": "핵심규칙",
+  "source_name": "PK",
+  "target_name": "개체 무결성"
+ },
+ {
+  "source": "N0181",
+  "target": "N0130",
+  "relation": "ENFORCES",
+  "reason": "부모키 참조 일관성",
+  "edge_class": "핵심규칙",
+  "source_name": "FK",
+  "target_name": "참조 무결성"
+ },
+ {
+  "source": "N0224",
+  "target": "N0130",
+  "relation": "AFFECTS",
+  "reason": "부모 삭제 시 자식 처리",
+  "edge_class": "핵심규칙",
+  "source_name": "ON DELETE CASCADE",
+  "target_name": "참조 무결성"
+ },
+ {
+  "source": "N0216",
+  "target": "N0210",
+  "relation": "REMOVED_BY",
+  "reason": "2NF의 핵심",
+  "edge_class": "모델링",
+  "source_name": "부분 함수 종속",
+  "target_name": "2NF"
+ },
+ {
+  "source": "N0219",
+  "target": "N0211",
+  "relation": "REMOVED_BY",
+  "reason": "3NF의 핵심",
+  "edge_class": "모델링",
+  "source_name": "이행 함수 종속",
+  "target_name": "3NF"
+ },
+ {
+  "source": "N0220",
+  "target": "N0215",
+  "relation": "CONTRASTS",
+  "reason": "품질/무결성 vs 조회성능 타협",
+  "edge_class": "핵심비교",
+  "source_name": "정규화",
+  "target_name": "반정규화"
+ },
+ {
+  "source": "N0511",
+  "target": "N0509",
+  "relation": "IS_A",
+  "reason": "서브쿼리 유형",
+  "edge_class": "핵심구조",
+  "source_name": "서브쿼리",
+  "target_name": "단일행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0508",
+  "relation": "IS_A",
+  "reason": "서브쿼리 유형",
+  "edge_class": "핵심구조",
+  "source_name": "서브쿼리",
+  "target_name": "다중행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0513",
+  "relation": "IS_A",
+  "reason": "서브쿼리 유형",
+  "edge_class": "핵심구조",
+  "source_name": "서브쿼리",
+  "target_name": "스칼라 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0510",
+  "relation": "IS_A",
+  "reason": "서브쿼리 유형",
+  "edge_class": "핵심구조",
+  "source_name": "서브쿼리",
+  "target_name": "상관 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0514",
+  "relation": "IS_A",
+  "reason": "서브쿼리 유형",
+  "edge_class": "핵심구조",
+  "source_name": "서브쿼리",
+  "target_name": "인라인 뷰"
+ },
+ {
+  "source": "N0508",
+  "target": "N0436",
+  "relation": "USES",
+  "reason": "다중행 비교/존재 연산",
+  "edge_class": "핵심규칙",
+  "source_name": "다중행 서브쿼리",
+  "target_name": "IN"
+ },
+ {
+  "source": "N0508",
+  "target": "N0503",
+  "relation": "USES",
+  "reason": "다중행 비교/존재 연산",
+  "edge_class": "핵심규칙",
+  "source_name": "다중행 서브쿼리",
+  "target_name": "ANY"
+ },
+ {
+  "source": "N0508",
+  "target": "N0502",
+  "relation": "USES",
+  "reason": "다중행 비교/존재 연산",
+  "edge_class": "핵심규칙",
+  "source_name": "다중행 서브쿼리",
+  "target_name": "ALL"
+ },
+ {
+  "source": "N0508",
+  "target": "N0505",
+  "relation": "USES",
+  "reason": "다중행 비교/존재 연산",
+  "edge_class": "핵심규칙",
+  "source_name": "다중행 서브쿼리",
+  "target_name": "EXISTS"
+ },
+ {
+  "source": "N0508",
+  "target": "N0506",
+  "relation": "USES",
+  "reason": "다중행 비교/존재 연산",
+  "edge_class": "핵심규칙",
+  "source_name": "다중행 서브쿼리",
+  "target_name": "NOT EXISTS"
+ },
+ {
+  "source": "N0507",
+  "target": "N0504",
+  "relation": "IMPLEMENTS",
+  "reason": "공통 테이블 표현식",
+  "edge_class": "핵심구조",
+  "source_name": "WITH 절",
+  "target_name": "CTE"
+ },
+ {
+  "source": "N0518",
+  "target": "N0519",
+  "relation": "CONTRASTS",
+  "reason": "중복 제거 vs 유지",
+  "edge_class": "핵심비교",
+  "source_name": "UNION",
+  "target_name": "UNION ALL"
+ },
+ {
+  "source": "N0517",
+  "target": "N0515",
+  "relation": "DIALECT_EQUIVALENT",
+  "reason": "차집합 명칭 차이",
+  "edge_class": "DBMS",
+  "source_name": "MINUS",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0525",
+  "target": "N0517",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 전통 차집합 문법",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "MINUS"
+ },
+ {
+  "source": "N0524",
+  "target": "N0515",
+  "relation": "DIALECT_OF",
+  "reason": "표준 차집합 문법",
+  "edge_class": "DBMS",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0099",
+  "target": "N0090",
+  "relation": "IS_A",
+  "reason": "순위 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "RANK"
+ },
+ {
+  "source": "N0099",
+  "target": "N0076",
+  "relation": "IS_A",
+  "reason": "순위 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "DENSE_RANK"
+ },
+ {
+  "source": "N0099",
+  "target": "N0095",
+  "relation": "IS_A",
+  "reason": "순위 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "ROW_NUMBER"
+ },
+ {
+  "source": "N0090",
+  "target": "N0076",
+  "relation": "CONTRASTS",
+  "reason": "동순위 후 건너뜀 차이",
+  "edge_class": "핵심비교",
+  "source_name": "RANK",
+  "target_name": "DENSE_RANK"
+ },
+ {
+  "source": "N0076",
+  "target": "N0095",
+  "relation": "CONTRASTS",
+  "reason": "동률 처리 vs 고유번호",
+  "edge_class": "핵심비교",
+  "source_name": "DENSE_RANK",
+  "target_name": "ROW_NUMBER"
+ },
+ {
+  "source": "N0099",
+  "target": "N0084",
+  "relation": "USES",
+  "reason": "OVER 절 구성",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "PARTITION BY"
+ },
+ {
+  "source": "N0099",
+  "target": "N0497",
+  "relation": "USES",
+  "reason": "OVER 절 구성",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0099",
+  "target": "N0094",
+  "relation": "USES",
+  "reason": "OVER 절 구성",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "ROWS/RANGE 프레임"
+ },
+ {
+  "source": "N0099",
+  "target": "N0079",
+  "relation": "IS_A",
+  "reason": "행 위치/값 탐색 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "LAG"
+ },
+ {
+  "source": "N0099",
+  "target": "N0081",
+  "relation": "IS_A",
+  "reason": "행 위치/값 탐색 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "LEAD"
+ },
+ {
+  "source": "N0099",
+  "target": "N0077",
+  "relation": "IS_A",
+  "reason": "행 위치/값 탐색 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "FIRST_VALUE"
+ },
+ {
+  "source": "N0099",
+  "target": "N0080",
+  "relation": "IS_A",
+  "reason": "행 위치/값 탐색 함수",
+  "edge_class": "핵심구조",
+  "source_name": "윈도우 함수",
+  "target_name": "LAST_VALUE"
+ },
+ {
+  "source": "N0525",
+  "target": "N0102",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 전통 Top-N",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0526",
+  "target": "N0103",
+  "relation": "DIALECT_OF",
+  "reason": "SQL Server Top-N",
+  "edge_class": "DBMS",
+  "source_name": "SQL Server",
+  "target_name": "TOP"
+ },
+ {
+  "source": "N0524",
+  "target": "N0100",
+  "relation": "DIALECT_OF",
+  "reason": "표준 Top-N",
+  "edge_class": "DBMS",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "FETCH FIRST"
+ },
+ {
+  "source": "N0286",
+  "target": "N0293",
+  "relation": "AFFECTS",
+  "reason": "PRIOR 위치가 전개 방향 결정",
+  "edge_class": "핵심규칙",
+  "source_name": "PRIOR",
+  "target_name": "순방향 계층 전개"
+ },
+ {
+  "source": "N0286",
+  "target": "N0294",
+  "relation": "AFFECTS",
+  "reason": "PRIOR 위치가 전개 방향 결정",
+  "edge_class": "핵심규칙",
+  "source_name": "PRIOR",
+  "target_name": "역방향 계층 전개"
+ },
+ {
+  "source": "N0488",
+  "target": "N0289",
+  "relation": "AFFECTS",
+  "reason": "계층 전개 후 WHERE 필터",
+  "edge_class": "핵심함정",
+  "source_name": "WHERE",
+  "target_name": "WHERE 후 계층 필터"
+ },
+ {
+  "source": "N0504",
+  "target": "N0295",
+  "relation": "IS_A",
+  "reason": "재귀적 계층 표현",
+  "edge_class": "핵심구조",
+  "source_name": "CTE",
+  "target_name": "재귀 CTE"
+ },
+ {
+  "source": "N0295",
+  "target": "N0291",
+  "relation": "ALTERNATIVE_TO",
+  "reason": "계층 데이터 처리 대안",
+  "edge_class": "핵심구조",
+  "source_name": "재귀 CTE",
+  "target_name": "계층형 질의"
+ },
+ {
+  "source": "N0360",
+  "target": "N0393",
+  "relation": "CONTRASTS",
+  "reason": "행 삭제 vs 전체 초기화",
+  "edge_class": "핵심비교",
+  "source_name": "DELETE",
+  "target_name": "TRUNCATE"
+ },
+ {
+  "source": "N0393",
+  "target": "N0381",
+  "relation": "CONTRASTS",
+  "reason": "데이터만 제거 vs 객체 제거",
+  "edge_class": "핵심비교",
+  "source_name": "TRUNCATE",
+  "target_name": "DROP"
+ },
+ {
+  "source": "N0361",
+  "target": "N0405",
+  "relation": "AFFECTS",
+  "reason": "일반 DML은 rollback 가능",
+  "edge_class": "트랜잭션",
+  "source_name": "DML",
+  "target_name": "ROLLBACK"
+ },
+ {
+  "source": "N0380",
+  "target": "N0388",
+  "relation": "DIALECT",
+  "reason": "Oracle의 DDL implicit commit",
+  "edge_class": "DBMS",
+  "source_name": "DDL",
+  "target_name": "Oracle DDL 자동 커밋"
+ },
+ {
+  "source": "N0404",
+  "target": "N0405",
+  "relation": "CONTRASTS",
+  "reason": "확정 vs 취소",
+  "edge_class": "핵심비교",
+  "source_name": "COMMIT",
+  "target_name": "ROLLBACK"
+ },
+ {
+  "source": "N0415",
+  "target": "N0416",
+  "relation": "AFFECTS",
+  "reason": "권한 재부여 가능 여부",
+  "edge_class": "핵심규칙",
+  "source_name": "GRANT",
+  "target_name": "GRANT OPTION"
+ },
+ {
+  "source": "N0417",
+  "target": "N0423",
+  "relation": "AFFECTS",
+  "reason": "재부여된 권한의 연쇄 회수",
+  "edge_class": "핵심규칙",
+  "source_name": "REVOKE",
+  "target_name": "권한 연쇄 회수"
+ },
+ {
+  "source": "N0432",
+  "target": "N0398",
+  "relation": "EXCEPTION",
+  "reason": "CTAS가 모든 제약을 복제하지 않음",
+  "edge_class": "핵심함정",
+  "source_name": "CTAS",
+  "target_name": "PK 제약 비상속"
+ },
+ {
+  "source": "N0432",
+  "target": "N0463",
+  "relation": "AFFECTS",
+  "reason": "DBMS별 상속 규칙 확인",
+  "edge_class": "DBMS",
+  "source_name": "CTAS",
+  "target_name": "NOT NULL"
+ },
+ {
+  "source": "N0525",
+  "target": "N0262",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 고유/전통 문법",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0525",
+  "target": "N0260",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 고유/전통 문법",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "DECODE"
+ },
+ {
+  "source": "N0525",
+  "target": "N0310",
+  "relation": "DIALECT_OF",
+  "reason": "Oracle 고유/전통 문법",
+  "edge_class": "DBMS",
+  "source_name": "Oracle SQL",
+  "target_name": "Oracle (+) OUTER JOIN"
+ },
+ {
+  "source": "N0526",
+  "target": "N0487",
+  "relation": "DIALECT_OF",
+  "reason": "SQL Server 특성",
+  "edge_class": "DBMS",
+  "source_name": "SQL Server",
+  "target_name": "SQL Server LIKE []"
+ },
+ {
+  "source": "N0526",
+  "target": "N0471",
+  "relation": "DIALECT_OF",
+  "reason": "SQL Server 특성",
+  "edge_class": "DBMS",
+  "source_name": "SQL Server",
+  "target_name": "SQL Server NULL 정렬"
+ },
+ {
+  "source": "N0524",
+  "target": "N0259",
+  "relation": "DIALECT_OF",
+  "reason": "표준 SQL 중심 표현",
+  "edge_class": "DBMS",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0524",
+  "target": "N0258",
+  "relation": "DIALECT_OF",
+  "reason": "표준 SQL 중심 표현",
+  "edge_class": "DBMS",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "CASE"
+ },
+ {
+  "source": "N0464",
+  "target": "N0472",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "UNKNOWN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0483",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0460",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "IN + NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0053",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0049",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0464",
+  "target": "N0459",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "GROUP BY NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0458",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "DISTINCT NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0497",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0464",
+  "target": "N0308",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0262",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0259",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'NULL' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "NULL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0425",
+  "target": "N0437",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "SELECT"
+ },
+ {
+  "source": "N0425",
+  "target": "N0488",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "WHERE"
+ },
+ {
+  "source": "N0425",
+  "target": "N0054",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "GROUP BY"
+ },
+ {
+  "source": "N0425",
+  "target": "N0057",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "HAVING"
+ },
+ {
+  "source": "N0425",
+  "target": "N0497",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0425",
+  "target": "N0486",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "SELECT 별칭 WHERE 사용 불가"
+ },
+ {
+  "source": "N0425",
+  "target": "N0499",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'SQL 논리 실행 순서' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "ORDER BY 별칭"
+ },
+ {
+  "source": "N0301",
+  "target": "N0300",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "INNER JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0308",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0297",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "CROSS JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0304",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "NATURAL JOIN"
+ },
+ {
+  "source": "N0301",
+  "target": "N0306",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "ON"
+ },
+ {
+  "source": "N0301",
+  "target": "N0312",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "USING"
+ },
+ {
+  "source": "N0301",
+  "target": "N0181",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0301",
+  "target": "N0220",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "정규화"
+ },
+ {
+  "source": "N0301",
+  "target": "N0307",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'JOIN' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "JOIN",
+  "target_name": "ON vs WHERE"
+ },
+ {
+  "source": "N0511",
+  "target": "N0509",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "단일행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0508",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "다중행 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0510",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "상관 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0513",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "스칼라 서브쿼리"
+ },
+ {
+  "source": "N0511",
+  "target": "N0514",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "인라인 뷰"
+ },
+ {
+  "source": "N0511",
+  "target": "N0436",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "IN"
+ },
+ {
+  "source": "N0511",
+  "target": "N0503",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "ANY"
+ },
+ {
+  "source": "N0511",
+  "target": "N0502",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "ALL"
+ },
+ {
+  "source": "N0511",
+  "target": "N0505",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "EXISTS"
+ },
+ {
+  "source": "N0511",
+  "target": "N0507",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "WITH 절"
+ },
+ {
+  "source": "N0511",
+  "target": "N0504",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '서브쿼리' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "서브쿼리",
+  "target_name": "CTE"
+ },
+ {
+  "source": "N0068",
+  "target": "N0050",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "COUNT"
+ },
+ {
+  "source": "N0068",
+  "target": "N0062",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "SUM"
+ },
+ {
+  "source": "N0068",
+  "target": "N0049",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0068",
+  "target": "N0060",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "MIN"
+ },
+ {
+  "source": "N0068",
+  "target": "N0059",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "MAX"
+ },
+ {
+  "source": "N0068",
+  "target": "N0057",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "HAVING"
+ },
+ {
+  "source": "N0068",
+  "target": "N0072",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "ROLLUP"
+ },
+ {
+  "source": "N0068",
+  "target": "N0069",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "CUBE"
+ },
+ {
+  "source": "N0068",
+  "target": "N0071",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "GROUPING SETS"
+ },
+ {
+  "source": "N0068",
+  "target": "N0065",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "집계 함수",
+  "target_name": "공집합 집계"
+ },
+ {
+  "source": "N0054",
+  "target": "N0050",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "COUNT"
+ },
+ {
+  "source": "N0054",
+  "target": "N0062",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "SUM"
+ },
+ {
+  "source": "N0054",
+  "target": "N0049",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0054",
+  "target": "N0060",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "MIN"
+ },
+ {
+  "source": "N0054",
+  "target": "N0059",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "MAX"
+ },
+ {
+  "source": "N0054",
+  "target": "N0057",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "HAVING"
+ },
+ {
+  "source": "N0054",
+  "target": "N0072",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "ROLLUP"
+ },
+ {
+  "source": "N0054",
+  "target": "N0069",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "CUBE"
+ },
+ {
+  "source": "N0054",
+  "target": "N0071",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "GROUPING SETS"
+ },
+ {
+  "source": "N0054",
+  "target": "N0065",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '집계·GROUP BY' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "GROUP BY",
+  "target_name": "공집합 집계"
+ },
+ {
+  "source": "N0099",
+  "target": "N0090",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "RANK"
+ },
+ {
+  "source": "N0099",
+  "target": "N0076",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "DENSE_RANK"
+ },
+ {
+  "source": "N0099",
+  "target": "N0095",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "ROW_NUMBER"
+ },
+ {
+  "source": "N0099",
+  "target": "N0079",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "LAG"
+ },
+ {
+  "source": "N0099",
+  "target": "N0081",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "LEAD"
+ },
+ {
+  "source": "N0099",
+  "target": "N0084",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "PARTITION BY"
+ },
+ {
+  "source": "N0099",
+  "target": "N0094",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '윈도우 함수' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "윈도우 함수",
+  "target_name": "ROWS/RANGE 프레임"
+ },
+ {
+  "source": "N0291",
+  "target": "N0287",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "START WITH"
+ },
+ {
+  "source": "N0291",
+  "target": "N0279",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "CONNECT BY"
+ },
+ {
+  "source": "N0291",
+  "target": "N0286",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "PRIOR"
+ },
+ {
+  "source": "N0291",
+  "target": "N0283",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "LEVEL"
+ },
+ {
+  "source": "N0291",
+  "target": "N0284",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "NOCYCLE"
+ },
+ {
+  "source": "N0291",
+  "target": "N0281",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "CONNECT_BY_ISLEAF"
+ },
+ {
+  "source": "N0291",
+  "target": "N0280",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "CONNECT_BY_ISCYCLE"
+ },
+ {
+  "source": "N0291",
+  "target": "N0282",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "CONNECT_BY_ROOT"
+ },
+ {
+  "source": "N0291",
+  "target": "N0285",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules '계층형 질의' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "계층형 질의",
+  "target_name": "ORDER SIBLINGS BY"
+ },
+ {
+  "source": "N0409",
+  "target": "N0402",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "ACID"
+ },
+ {
+  "source": "N0409",
+  "target": "N0404",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "COMMIT"
+ },
+ {
+  "source": "N0409",
+  "target": "N0405",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "ROLLBACK"
+ },
+ {
+  "source": "N0409",
+  "target": "N0407",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "SAVEPOINT"
+ },
+ {
+  "source": "N0409",
+  "target": "N0403",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "AUTO COMMIT"
+ },
+ {
+  "source": "N0409",
+  "target": "N0388",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'Transaction' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Transaction",
+  "target_name": "Oracle DDL 자동 커밋"
+ },
+ {
+  "source": "N0524",
+  "target": "N0517",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "MINUS"
+ },
+ {
+  "source": "N0524",
+  "target": "N0515",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0524",
+  "target": "N0102",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0524",
+  "target": "N0103",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "TOP"
+ },
+ {
+  "source": "N0524",
+  "target": "N0100",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "FETCH FIRST"
+ },
+ {
+  "source": "N0524",
+  "target": "N0262",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0524",
+  "target": "N0259",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0524",
+  "target": "N0310",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "Oracle (+) OUTER JOIN"
+ },
+ {
+  "source": "N0524",
+  "target": "N0467",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "ANSI/ISO SQL",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0525",
+  "target": "N0517",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "MINUS"
+ },
+ {
+  "source": "N0525",
+  "target": "N0515",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0525",
+  "target": "N0102",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0525",
+  "target": "N0103",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "TOP"
+ },
+ {
+  "source": "N0525",
+  "target": "N0100",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "FETCH FIRST"
+ },
+ {
+  "source": "N0525",
+  "target": "N0262",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0525",
+  "target": "N0259",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0525",
+  "target": "N0310",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "Oracle (+) OUTER JOIN"
+ },
+ {
+  "source": "N0525",
+  "target": "N0467",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "Oracle SQL",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0526",
+  "target": "N0517",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "MINUS"
+ },
+ {
+  "source": "N0526",
+  "target": "N0515",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "EXCEPT"
+ },
+ {
+  "source": "N0526",
+  "target": "N0102",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0526",
+  "target": "N0103",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "TOP"
+ },
+ {
+  "source": "N0526",
+  "target": "N0100",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "FETCH FIRST"
+ },
+ {
+  "source": "N0526",
+  "target": "N0262",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0526",
+  "target": "N0259",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0526",
+  "target": "N0310",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "Oracle (+) OUTER JOIN"
+ },
+ {
+  "source": "N0526",
+  "target": "N0467",
+  "relation": "HUB_LINK",
+  "reason": "20_Hubs_Rules 'DBMS 방언' 허브의 Linked Concepts",
+  "edge_class": "허브",
+  "source_name": "SQL Server",
+  "target_name": "NULL 정렬"
+ },
+ {
+  "source": "N0464",
+  "target": "N0472",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "UNKNOWN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0488",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "WHERE"
+ },
+ {
+  "source": "N0464",
+  "target": "N0478",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "IN·NOT IN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0483",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0460",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "IN + NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0050",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "COUNT"
+ },
+ {
+  "source": "N0464",
+  "target": "N0053",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "COUNT(열)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0049",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "AVG"
+ },
+ {
+  "source": "N0464",
+  "target": "N0459",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "GROUP BY NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0458",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "DISTINCT NULL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0308",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "OUTER JOIN"
+ },
+ {
+  "source": "N0464",
+  "target": "N0262",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0464",
+  "target": "N0259",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "COALESCE"
+ },
+ {
+  "source": "N0464",
+  "target": "N0473",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "빈 문자열과 NULL(Oracle)"
+ },
+ {
+  "source": "N0464",
+  "target": "N0431",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "CHECK"
+ },
+ {
+  "source": "N0464",
+  "target": "N0438",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "UNIQUE"
+ },
+ {
+  "source": "N0464",
+  "target": "X202",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "NULL 함정 종합"
+ },
+ {
+  "source": "N0464",
+  "target": "X101",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "NULL 처리 DBMS 차이"
+ },
+ {
+  "source": "N0464",
+  "target": "X102",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "NULL",
+  "target_name": "NULL 정렬 DBMS 차이"
+ },
+ {
+  "source": "N0291",
+  "target": "X001",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "계층형 질의",
+  "target_name": "순환 관계(자기참조)"
+ },
+ {
+  "source": "N0291",
+  "target": "N0316",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "계층형 질의",
+  "target_name": "셀프 조인"
+ },
+ {
+  "source": "N0291",
+  "target": "N0295",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "계층형 질의",
+  "target_name": "재귀 CTE"
+ },
+ {
+  "source": "N0291",
+  "target": "N0488",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "계층형 질의",
+  "target_name": "WHERE"
+ },
+ {
+  "source": "N0291",
+  "target": "N0497",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "계층형 질의",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0099",
+  "target": "N0068",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "윈도우 함수",
+  "target_name": "집계 함수"
+ },
+ {
+  "source": "N0099",
+  "target": "N0054",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "윈도우 함수",
+  "target_name": "GROUP BY"
+ },
+ {
+  "source": "N0099",
+  "target": "N0104",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "윈도우 함수",
+  "target_name": "Top-N"
+ },
+ {
+  "source": "N0099",
+  "target": "N0497",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "윈도우 함수",
+  "target_name": "ORDER BY"
+ },
+ {
+  "source": "N0301",
+  "target": "N0220",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "JOIN",
+  "target_name": "정규화"
+ },
+ {
+  "source": "N0301",
+  "target": "N0181",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "JOIN",
+  "target_name": "FK"
+ },
+ {
+  "source": "N0301",
+  "target": "N0511",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "JOIN",
+  "target_name": "서브쿼리"
+ },
+ {
+  "source": "N0301",
+  "target": "N0520",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "JOIN",
+  "target_name": "집합 연산자"
+ },
+ {
+  "source": "N0511",
+  "target": "N0301",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "서브쿼리",
+  "target_name": "JOIN"
+ },
+ {
+  "source": "N0511",
+  "target": "N0507",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "서브쿼리",
+  "target_name": "WITH 절"
+ },
+ {
+  "source": "N0511",
+  "target": "N0483",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "서브쿼리",
+  "target_name": "NOT IN"
+ },
+ {
+  "source": "N0511",
+  "target": "N0400",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "서브쿼리",
+  "target_name": "VIEW"
+ },
+ {
+  "source": "N0409",
+  "target": "N0361",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "Transaction",
+  "target_name": "DML"
+ },
+ {
+  "source": "N0409",
+  "target": "N0380",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "Transaction",
+  "target_name": "DDL"
+ },
+ {
+  "source": "N0409",
+  "target": "N0388",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "Transaction",
+  "target_name": "Oracle DDL 자동 커밋"
+ },
+ {
+  "source": "N0409",
+  "target": "N0403",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "Transaction",
+  "target_name": "AUTO COMMIT"
+ },
+ {
+  "source": "N0409",
+  "target": "X105",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "Transaction",
+  "target_name": "DDL 커밋 동작 차이"
+ },
+ {
+  "source": "N0102",
+  "target": "N0095",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "ROWNUM",
+  "target_name": "ROW_NUMBER"
+ },
+ {
+  "source": "N0102",
+  "target": "X103",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "ROWNUM",
+  "target_name": "Top-N 문법 차이"
+ },
+ {
+  "source": "N0102",
+  "target": "N0514",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "ROWNUM",
+  "target_name": "인라인 뷰"
+ },
+ {
+  "source": "N0054",
+  "target": "N0099",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "GROUP BY",
+  "target_name": "윈도우 함수"
+ },
+ {
+  "source": "N0054",
+  "target": "N0106",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "GROUP BY",
+  "target_name": "PIVOT"
+ },
+ {
+  "source": "N0054",
+  "target": "N0435",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "GROUP BY",
+  "target_name": "DISTINCT"
+ },
+ {
+  "source": "N0425",
+  "target": "X201",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "별칭 가시성 종합"
+ },
+ {
+  "source": "N0425",
+  "target": "N0102",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "ROWNUM"
+ },
+ {
+  "source": "N0425",
+  "target": "N0099",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "SQL 논리 실행 순서",
+  "target_name": "윈도우 함수"
+ },
+ {
+  "source": "N0308",
+  "target": "X203",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "OUTER JOIN",
+  "target_name": "OUTER JOIN 필터 위치 종합"
+ },
+ {
+  "source": "N0308",
+  "target": "N0513",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "OUTER JOIN",
+  "target_name": "스칼라 서브쿼리"
+ },
+ {
+  "source": "N0308",
+  "target": "N0262",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "OUTER JOIN",
+  "target_name": "NVL"
+ },
+ {
+  "source": "N0435",
+  "target": "N0518",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "DISTINCT",
+  "target_name": "UNION"
+ },
+ {
+  "source": "N0435",
+  "target": "N0054",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "DISTINCT",
+  "target_name": "GROUP BY"
+ },
+ {
+  "source": "N0435",
+  "target": "N0052",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "DISTINCT",
+  "target_name": "COUNT(DISTINCT)"
+ },
+ {
+  "source": "N0432",
+  "target": "N0485",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "CTAS",
+  "target_name": "SELECT INTO"
+ },
+ {
+  "source": "N0432",
+  "target": "N0398",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "CTAS",
+  "target_name": "PK 제약 비상속"
+ },
+ {
+  "source": "N0432",
+  "target": "N0463",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "CTAS",
+  "target_name": "NOT NULL"
+ },
+ {
+  "source": "N0360",
+  "target": "N0393",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "DELETE",
+  "target_name": "TRUNCATE"
+ },
+ {
+  "source": "N0360",
+  "target": "N0381",
+  "relation": "RELATED_TO",
+  "reason": "curated: 함께 확인하면 좋은 관련 개념(선수관계 아님)",
+  "edge_class": "관련",
+  "source_name": "DELETE",
+  "target_name": "DROP"
+ }
+]

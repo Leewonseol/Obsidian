@@ -1,0 +1,379 @@
+[
+ {
+  "id": "dl_null_func",
+  "topic": "NULL 치환 함수",
+  "ansi": "COALESCE(a, b, …)",
+  "oracle": "NVL(a, b), NVL2(a, b, c), COALESCE",
+  "sqlserver": "ISNULL(a, b), COALESCE",
+  "note": "COALESCE는 양쪽 모두 사용 가능한 표준 함수.",
+  "concepts": [
+   "N0262",
+   "N0259",
+   "N0263",
+   "X101"
+  ]
+ },
+ {
+  "id": "dl_empty_string",
+  "topic": "빈 문자열('')과 NULL",
+  "ansi": "''와 NULL은 다르다",
+  "oracle": "''를 NULL로 처리 (LENGTH('') = NULL)",
+  "sqlserver": "''는 길이 0 문자열 (LEN('') = 0)",
+  "note": "Oracle에서 WHERE col = ''는 항상 0행.",
+  "concepts": [
+   "N0473",
+   "N0464",
+   "X101"
+  ]
+ },
+ {
+  "id": "dl_null_sort",
+  "topic": "NULL 정렬 위치",
+  "ansi": "NULLS FIRST / NULLS LAST (구현 정의)",
+  "oracle": "NULL = 최댓값 → ASC 마지막 / DESC 처음, NULLS FIRST·LAST 지원",
+  "sqlserver": "NULL = 최솟값 → ASC 처음 / DESC 마지막, NULLS FIRST·LAST 미지원",
+  "note": "SQL Server에서 NULL을 뒤로 보내려면 ORDER BY CASE WHEN col IS NULL THEN 1 ELSE 0 END, col.",
+  "concepts": [
+   "N0467",
+   "N0470",
+   "N0471",
+   "N0468",
+   "N0469",
+   "X102"
+  ]
+ },
+ {
+  "id": "dl_unique_null",
+  "topic": "UNIQUE 제약과 NULL",
+  "ansi": "NULL은 서로 다른 값으로 간주(여러 개 허용)",
+  "oracle": "NULL 여러 개 허용",
+  "sqlserver": "UNIQUE 제약 컬럼에 NULL은 1개만",
+  "note": "",
+  "concepts": [
+   "N0438",
+   "X101"
+  ]
+ },
+ {
+  "id": "dl_topn",
+  "topic": "Top-N",
+  "ansi": "ORDER BY … FETCH FIRST n ROWS ONLY | WITH TIES",
+  "oracle": "ROWNUM(인라인 뷰), 12c+ FETCH FIRST",
+  "sqlserver": "SELECT TOP(n) [PERCENT] [WITH TIES], ORDER BY … OFFSET m ROWS FETCH NEXT n ROWS ONLY",
+  "note": "LIMIT은 MySQL/PostgreSQL 문법.",
+  "concepts": [
+   "N0102",
+   "N0103",
+   "N0100",
+   "N0101",
+   "N0105",
+   "N0104",
+   "X103"
+  ]
+ },
+ {
+  "id": "dl_minus",
+  "topic": "차집합",
+  "ansi": "EXCEPT",
+  "oracle": "MINUS (21c부터 EXCEPT도 지원)",
+  "sqlserver": "EXCEPT",
+  "note": "의미는 같다.",
+  "concepts": [
+   "N0517",
+   "N0515",
+   "X104"
+  ]
+ },
+ {
+  "id": "dl_set_precedence",
+  "topic": "집합 연산자 우선순위",
+  "ansi": "INTERSECT가 UNION/EXCEPT보다 우선",
+  "oracle": "모든 집합 연산자 우선순위 동일(위→아래)",
+  "sqlserver": "INTERSECT 우선",
+  "note": "괄호로 명시하는 것이 안전.",
+  "concepts": [
+   "N0522"
+  ]
+ },
+ {
+  "id": "dl_ddl_commit",
+  "topic": "DDL과 트랜잭션",
+  "ansi": "구현 정의",
+  "oracle": "DDL 실행 전후 자동 COMMIT → ROLLBACK 불가",
+  "sqlserver": "BEGIN TRAN 안의 DDL·TRUNCATE는 ROLLBACK 가능",
+  "note": "Oracle에서 DML 후 DDL을 실행하면 앞선 DML도 확정된다.",
+  "concepts": [
+   "N0388",
+   "N0380",
+   "N0393",
+   "N0392",
+   "X105",
+   "N0389"
+  ]
+ },
+ {
+  "id": "dl_autocommit",
+  "topic": "AUTO COMMIT 기본값",
+  "ansi": "-",
+  "oracle": "DML은 수동 COMMIT이 기본(도구 설정 SET AUTOCOMMIT)",
+  "sqlserver": "AUTO COMMIT 모드가 기본, BEGIN TRAN으로 명시적 트랜잭션",
+  "note": "",
+  "concepts": [
+   "N0403",
+   "N0392",
+   "N0409",
+   "X105"
+  ]
+ },
+ {
+  "id": "dl_savepoint",
+  "topic": "SAVEPOINT 문법",
+  "ansi": "SAVEPOINT s / ROLLBACK TO SAVEPOINT s",
+  "oracle": "SAVEPOINT s / ROLLBACK TO s",
+  "sqlserver": "SAVE TRANSACTION s / ROLLBACK TRANSACTION s",
+  "note": "",
+  "concepts": [
+   "N0407",
+   "N0406"
+  ]
+ },
+ {
+  "id": "dl_strlen",
+  "topic": "문자열 길이",
+  "ansi": "CHAR_LENGTH",
+  "oracle": "LENGTH(문자 수), LENGTHB(바이트 수)",
+  "sqlserver": "LEN(후행 공백 제외), DATALENGTH(바이트)",
+  "note": "",
+  "concepts": [
+   "N0230",
+   "N0229",
+   "N0231",
+   "X106"
+  ]
+ },
+ {
+  "id": "dl_concat",
+  "topic": "문자열 결합",
+  "ansi": "||",
+  "oracle": "|| 또는 CONCAT(a, b) (인자 2개)",
+  "sqlserver": "+ 또는 CONCAT(a, b, …)",
+  "note": "SQL Server의 'A' + NULL은 NULL, CONCAT('A', NULL)은 'A'.",
+  "concepts": [
+   "N0227",
+   "X106"
+  ]
+ },
+ {
+  "id": "dl_substr",
+  "topic": "부분 문자열 / 위치",
+  "ansi": "SUBSTRING(s FROM p FOR n), POSITION",
+  "oracle": "SUBSTR(s, p, n), INSTR(s, t)",
+  "sqlserver": "SUBSTRING(s, p, n), CHARINDEX(t, s)",
+  "note": "Oracle SUBSTR은 음수 시작 위치 지원.",
+  "concepts": [
+   "N0237",
+   "N0228",
+   "X106"
+  ]
+ },
+ {
+  "id": "dl_date_now",
+  "topic": "현재 날짜·날짜 연산",
+  "ansi": "CURRENT_TIMESTAMP, CURRENT_DATE",
+  "oracle": "SYSDATE, DATE + n(일), ADD_MONTHS",
+  "sqlserver": "GETDATE(), DATEADD(day, n, d), DATEDIFF",
+  "note": "",
+  "concepts": [
+   "N0254",
+   "N0252",
+   "N0450"
+  ]
+ },
+ {
+  "id": "dl_date_format",
+  "topic": "날짜 → 문자 변환",
+  "ansi": "CAST",
+  "oracle": "TO_CHAR(d, 'YYYY-MM-DD'), TO_DATE",
+  "sqlserver": "CONVERT(VARCHAR, d, 스타일), FORMAT(d, 'yyyy-MM-dd'), CAST",
+  "note": "DATE_FORMAT은 MySQL 함수.",
+  "concepts": [
+   "N0255",
+   "N0250",
+   "N0253",
+   "N0453"
+  ]
+ },
+ {
+  "id": "dl_ceil_mod",
+  "topic": "숫자 함수 이름",
+  "ansi": "CEILING, MOD",
+  "oracle": "CEIL, MOD(m, n)",
+  "sqlserver": "CEILING, m % n",
+  "note": "",
+  "concepts": [
+   "N0245",
+   "N0247"
+  ]
+ },
+ {
+  "id": "dl_case_decode",
+  "topic": "조건 분기",
+  "ansi": "CASE",
+  "oracle": "CASE, DECODE",
+  "sqlserver": "CASE, IIF",
+  "note": "DECODE는 Oracle 전용.",
+  "concepts": [
+   "N0258",
+   "N0260"
+  ]
+ },
+ {
+  "id": "dl_outer_join",
+  "topic": "OUTER JOIN 표기",
+  "ansi": "LEFT/RIGHT/FULL OUTER JOIN … ON",
+  "oracle": "ANSI 문법 + 전통 (+) 표기(FULL 불가)",
+  "sqlserver": "ANSI 문법 (구 *= 표기는 폐지)",
+  "note": "",
+  "concepts": [
+   "N0310",
+   "N0308",
+   "N0302",
+   "N0299",
+   "X203"
+  ]
+ },
+ {
+  "id": "dl_row_in",
+  "topic": "다중 컬럼(행값) IN",
+  "ansi": "(a, b) IN ((1, 2), …)",
+  "oracle": "지원",
+  "sqlserver": "미지원(EXISTS로 우회)",
+  "note": "",
+  "concepts": [
+   "N0494"
+  ]
+ },
+ {
+  "id": "dl_like",
+  "topic": "LIKE 패턴",
+  "ansi": "%, _, ESCAPE",
+  "oracle": "%, _, ESCAPE",
+  "sqlserver": "%, _, [abc], [a-z], [^a], ESCAPE",
+  "note": "",
+  "concepts": [
+   "N0479",
+   "N0487",
+   "N0493"
+  ]
+ },
+ {
+  "id": "dl_regexp",
+  "topic": "정규표현식 함수",
+  "ansi": "SIMILAR TO / LIKE_REGEX",
+  "oracle": "REGEXP_LIKE, REGEXP_SUBSTR, REGEXP_REPLACE, REGEXP_INSTR, REGEXP_COUNT",
+  "sqlserver": "시험 범위 버전에는 정규식 함수 없음(LIKE 패턴 사용)",
+  "note": "SQLD의 정규식 문제는 Oracle 기준.",
+  "concepts": [
+   "N0278",
+   "N0266",
+   "N0268",
+   "N0267",
+   "N0265",
+   "N0264"
+  ]
+ },
+ {
+  "id": "dl_hierarchy",
+  "topic": "계층형 질의",
+  "ansi": "WITH RECURSIVE (재귀 CTE)",
+  "oracle": "START WITH … CONNECT BY PRIOR (재귀 WITH도 지원)",
+  "sqlserver": "재귀 CTE (WITH … UNION ALL)",
+  "note": "",
+  "concepts": [
+   "N0291",
+   "N0279",
+   "N0295"
+  ]
+ },
+ {
+  "id": "dl_ctas",
+  "topic": "SELECT 결과로 테이블 생성",
+  "ansi": "CREATE TABLE … AS (SELECT …)",
+  "oracle": "CREATE TABLE t AS SELECT … (NOT NULL만 복사)",
+  "sqlserver": "SELECT … INTO t FROM …",
+  "note": "",
+  "concepts": [
+   "N0432",
+   "N0485",
+   "N0398"
+  ]
+ },
+ {
+  "id": "dl_alter_column",
+  "topic": "컬럼 변경·이름 변경",
+  "ansi": "ALTER TABLE … ALTER COLUMN",
+  "oracle": "ALTER TABLE t MODIFY (c 타입); RENAME a TO b; ALTER TABLE t RENAME COLUMN a TO b",
+  "sqlserver": "ALTER TABLE t ALTER COLUMN c 타입; EXEC sp_rename",
+  "note": "",
+  "concepts": [
+   "N0387",
+   "N0374",
+   "N0377",
+   "N0390",
+   "N0391",
+   "N0389"
+  ]
+ },
+ {
+  "id": "dl_identity",
+  "topic": "자동 증가 값",
+  "ansi": "GENERATED … AS IDENTITY",
+  "oracle": "SEQUENCE, 12c+ GENERATED AS IDENTITY",
+  "sqlserver": "IDENTITY(시작, 증가), SEQUENCE(2012+)",
+  "note": "",
+  "concepts": [
+   "N0386",
+   "N0185"
+  ]
+ },
+ {
+  "id": "dl_drop_cascade",
+  "topic": "참조되는 테이블 삭제",
+  "ansi": "DROP TABLE t CASCADE | RESTRICT",
+  "oracle": "DROP TABLE t CASCADE CONSTRAINTS",
+  "sqlserver": "참조하는 FK를 먼저 삭제해야 함",
+  "note": "",
+  "concepts": [
+   "N0396",
+   "N0397",
+   "N0381",
+   "N0385"
+  ]
+ },
+ {
+  "id": "dl_alias",
+  "topic": "테이블 별칭 AS",
+  "ansi": "FROM t AS a",
+  "oracle": "FROM t a (AS 사용 불가)",
+  "sqlserver": "FROM t AS a 또는 FROM t a",
+  "note": "컬럼 별칭의 AS는 양쪽 모두 사용 가능.",
+  "concepts": [
+   "N0447",
+   "N0430"
+  ]
+ },
+ {
+  "id": "dl_grant",
+  "topic": "권한 회수 연쇄",
+  "ansi": "REVOKE … CASCADE | RESTRICT",
+  "oracle": "WITH GRANT OPTION 객체 권한은 자동 연쇄 회수",
+  "sqlserver": "재부여가 있으면 REVOKE … CASCADE 필요",
+  "note": "",
+  "concepts": [
+   "N0417",
+   "N0423",
+   "N0418",
+   "N0416"
+  ]
+ }
+]

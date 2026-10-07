@@ -1,0 +1,168 @@
+{
+ "is_dag": true,
+ "cycles": [],
+ "suspected_edges": [],
+ "pre_review_candidate_graph": {
+  "description": "명시 후보(REQUIRES/PRECEDES/ENABLES/EXPLAINS) 전부 + curated inferred edge로 만든 후보 그래프. edge를 임의 삭제하지 않고 cycle을 기록한 뒤 prerequisite 관계만 재검토했다.",
+  "is_dag": false,
+  "cycles": [
+   [
+    "WHERE",
+    "GROUP BY",
+    "HAVING",
+    "SELECT",
+    "WHERE"
+   ],
+   [
+    "GROUP BY",
+    "HAVING",
+    "SELECT",
+    "집계 함수",
+    "GROUP BY"
+   ]
+  ],
+  "suspected_edges": [
+   {
+    "source": "GROUP BY",
+    "target": "HAVING",
+    "cycles_involved": 2,
+    "kind": "explicit:PRECEDES,REQUIRES"
+   },
+   {
+    "source": "HAVING",
+    "target": "SELECT",
+    "cycles_involved": 2,
+    "kind": "explicit:PRECEDES (재검토 대상)"
+   },
+   {
+    "source": "WHERE",
+    "target": "GROUP BY",
+    "cycles_involved": 1,
+    "kind": "explicit:PRECEDES"
+   },
+   {
+    "source": "SELECT",
+    "target": "WHERE",
+    "cycles_involved": 1,
+    "kind": "inferred"
+   },
+   {
+    "source": "SELECT",
+    "target": "집계 함수",
+    "cycles_involved": 1,
+    "kind": "inferred"
+   },
+   {
+    "source": "집계 함수",
+    "target": "GROUP BY",
+    "cycles_involved": 1,
+    "kind": "inferred"
+   }
+  ],
+  "resolution": [
+   {
+    "edge": "HAVING -[PRECEDES]-> SELECT",
+    "decision": "reclassify_as_execution_order",
+    "reason": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
+   }
+  ]
+ },
+ "diagnostic_naive_all_typed_relations": {
+  "description": "진단용: BELONGS_TO를 제외한 원본 typed relation을 전부 방향 간선으로 넣고 CONTRASTS/DIALECT_EQUIVALENT를 대칭으로 취급한 그래프. 이런 관계가 DAG에 들어가면 cycle이 생김을 보여준다.",
+  "is_dag": false,
+  "cycles": [
+   [
+    "ROLLBACK",
+    "COMMIT",
+    "ROLLBACK"
+   ],
+   [
+    "TRUNCATE",
+    "DELETE",
+    "TRUNCATE"
+   ],
+   [
+    "TRUNCATE",
+    "DROP",
+    "TRUNCATE"
+   ],
+   [
+    "ROW_NUMBER",
+    "DENSE_RANK",
+    "ROW_NUMBER"
+   ],
+   [
+    "RANK",
+    "DENSE_RANK",
+    "RANK"
+   ],
+   [
+    "UNION ALL",
+    "UNION",
+    "UNION ALL"
+   ],
+   [
+    "정규화",
+    "반정규화",
+    "정규화"
+   ],
+   [
+    "EXCEPT",
+    "MINUS",
+    "EXCEPT"
+   ],
+   [
+    "OUTER JOIN",
+    "INNER JOIN",
+    "OUTER JOIN"
+   ],
+   [
+    "COUNT(열)",
+    "COUNT(*)",
+    "COUNT(열)"
+   ],
+   [
+    "WHERE",
+    "HAVING",
+    "WHERE"
+   ],
+   [
+    "WHERE",
+    "ON",
+    "WHERE"
+   ],
+   [
+    "WHERE",
+    "GROUP BY",
+    "HAVING",
+    "WHERE"
+   ]
+  ],
+  "relations_in_cycles": [
+   [
+    "CONTRASTS",
+    11
+   ],
+   [
+    "CONTRASTS(symmetric)",
+    12
+   ],
+   [
+    "DIALECT_EQUIVALENT",
+    1
+   ],
+   [
+    "DIALECT_EQUIVALENT(symmetric)",
+    1
+   ],
+   [
+    "PRECEDES",
+    1
+   ],
+   [
+    "REQUIRES",
+    1
+   ]
+  ]
+ }
+}

@@ -1,0 +1,7253 @@
+{
+ "N0049": {
+  "definition": "NULL을 제외한 값의 평균(= SUM(열) / COUNT(열)). NULL을 0으로 보려면 AVG(NVL(열, 0)).",
+  "why_it_matters": "",
+  "core_rule": [
+   "AVG(col) = SUM(col) / COUNT(col)"
+  ],
+  "exam_traps": [
+   "NULL을 0으로 간주한 평균 = AVG(NVL(col, 0)) = SUM(col) / COUNT(*) — AVG(col)과 다르다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "-- comm: 300, 500, NULL, NULL\nSELECT AVG(comm), AVG(NVL(comm,0)) FROM t;",
+    "explain": "400 vs 200"
+   }
+  ],
+  "hubs": []
+ },
+ "N0050": {
+  "definition": "행 수를 센다. COUNT(*)는 전체 행, COUNT(열)은 NULL이 아닌 행, COUNT(DISTINCT 열)은 NULL 제외 고유값 수.",
+  "why_it_matters": "",
+  "core_rule": [
+   "COUNT(*): NULL 포함 전체 행",
+   "COUNT(열): NULL 제외",
+   "COUNT(DISTINCT 열): NULL 제외 고유값"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_count"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0051": {
+  "definition": "결과 행 전체의 수(NULL 포함). 행이 없으면 0.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "대상 행이 없으면 COUNT(*) = 0 (NULL 아님)."
+  ],
+  "comparisons": [
+   "cmp_count"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0052": {
+  "definition": "NULL을 제외하고 중복을 제거한 고유값의 개수.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_count"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0053": {
+  "definition": "해당 열이 NULL이 아닌 행의 수.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "COUNT(comm)은 comm이 NULL인 행을 세지 않는다."
+  ],
+  "comparisons": [
+   "cmp_count"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0054": {
+  "definition": "지정한 컬럼 값이 같은 행끼리 그룹으로 묶어 그룹당 한 행으로 집계하는 절.",
+  "why_it_matters": "집계·HAVING·ROLLUP·윈도우·PIVOT으로 이어지는 핵심 절.",
+  "core_rule": [
+   "여러 행을 그룹 단위 한 행으로 축약한다.",
+   "SELECT의 비집계 컬럼은 모두 GROUP BY에 있어야 함",
+   "GROUP BY 컬럼의 NULL은 하나의 그룹",
+   "SELECT 별칭은 GROUP BY에 쓸 수 없음(Oracle)"
+  ],
+  "exam_traps": [
+   "GROUP BY에 있는 컬럼을 SELECT에 꼭 넣을 필요는 없다(반대는 필수)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "집계·GROUP BY",
+    "role": "aggregation hub",
+    "core_rule": "여러 행을 그룹 단위 한 행으로 축약한다.",
+    "study_note": "NULL과 공집합 semantics 포함"
+   }
+  ]
+ },
+ "N0055": {
+  "definition": "GROUP BY에 ROLLUP, CUBE, GROUPING SETS를 써서 소계·총계를 함께 만드는 문법(그룹함수 확장과 같은 범주).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0056": {
+  "definition": "GROUP BY가 있으면 ORDER BY에는 GROUP BY 표현식, 집계 함수, 상수만 쓸 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0057": {
+  "definition": "GROUP BY로 만든 그룹에 조건을 거는 그룹 필터. 집계 함수를 사용할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "그룹에 대한 조건",
+   "집계 함수 사용 가능",
+   "논리적으로 GROUP BY 다음, SELECT 이전"
+  ],
+  "exam_traps": [
+   "HAVING에 GROUP BY에 없는 일반 컬럼 조건을 쓰면 오류(집계 함수 또는 GROUP BY 컬럼만)."
+  ],
+  "comparisons": [
+   "cmp_where_having"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0058": {
+  "definition": "GROUP BY 없이 HAVING을 쓰면 테이블 전체가 하나의 그룹으로 취급된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "전체 테이블이 하나의 그룹"
+  ],
+  "exam_traps": [
+   "HAVING 조건이 거짓이면 결과는 0행(집계 1행도 나오지 않음)."
+  ],
+  "comparisons": [
+   "cmp_where_having"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0059": {
+  "definition": "NULL을 제외한 최댓값. 문자·날짜에도 사용 가능.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULL 제외 최댓값",
+   "문자·날짜에도 사용"
+  ],
+  "exam_traps": [
+   "문자형 MAX는 사전순: MAX('9', '10') = '9'.",
+   "0행이면 NULL."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0060": {
+  "definition": "NULL을 제외한 최솟값. 문자·날짜에도 사용 가능.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0061": {
+  "definition": "집계 함수는 NULL을 제외하고 계산하며, 대상 값이 모두 NULL이면 결과도 NULL(COUNT는 0).",
+  "why_it_matters": "",
+  "core_rule": [
+   "SUM/AVG/MIN/MAX/COUNT(열)은 NULL 제외",
+   "값이 전부 NULL이면 SUM·AVG·MIN·MAX = NULL, COUNT(열) = 0"
+  ],
+  "exam_traps": [
+   "AVG(comm)과 SUM(comm)/COUNT(*)는 다르다."
+  ],
+  "comparisons": [
+   "cmp_count"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0062": {
+  "definition": "NULL을 제외한 값의 합계. 대상이 없으면 NULL.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "행이 없으면 SUM = NULL. 0으로 받으려면 NVL(SUM(col), 0)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0063": {
+  "definition": "행 단위 열1+열2가 NULL이면 그 행이 통째로 빠지므로 두 식의 결과가 다를 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "-- (a, b): (10, NULL), (20, 5)\nSUM(a + b)      → 25   -- 첫 행은 a+b가 NULL이라 제외\nSUM(a) + SUM(b) → 35   -- 30 + 5",
+    "explain": "NULL의 위치에 따라 결과가 다르다"
+   }
+  ],
+  "hubs": []
+ },
+ "N0064": {
+  "definition": "WHERE는 그룹화 이전에 행 단위로 평가되므로 집계 함수를 쓸 수 없다(HAVING을 사용).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "WHERE SUM(sal) > 1000 → 오류. HAVING SUM(sal) > 1000으로."
+  ],
+  "comparisons": [
+   "cmp_where_having"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0065": {
+  "definition": "대상 행이 0개일 때 GROUP BY 없는 집계는 1행(COUNT=0, SUM/AVG/MIN/MAX=NULL)을, GROUP BY가 있으면 0행을 반환한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "GROUP BY 없음 + 0행 → 1행(COUNT 0, 나머지 NULL)",
+   "GROUP BY 있음 + 0행 → 0행"
+  ],
+  "exam_traps": [
+   "SELECT MAX(sal) FROM emp WHERE 1=2 는 NULL 한 행을 반환한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0066": {
+  "definition": "윈도우 함수 중 비율·분포를 계산하는 함수 묶음 — RATIO_TO_REPORT, PERCENT_RANK, CUME_DIST, NTILE.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0067": {
+  "definition": "ROLLUP, CUBE, GROUPING SETS와 GROUPING 함수로 여러 그룹 수준의 집계를 한 번에 만드는 기능.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0068": {
+  "definition": "여러 행을 하나의 값으로 요약하는 함수(COUNT, SUM, AVG, MIN, MAX). COUNT(*)를 제외하면 NULL을 무시한다.",
+  "why_it_matters": "COUNT/SUM/AVG의 NULL 처리와 공집합 반환값은 현행 함정 문제의 단골이다.",
+  "core_rule": [
+   "여러 행을 그룹 단위 한 행으로 축약한다.",
+   "COUNT(*)를 제외한 집계 함수는 NULL을 무시",
+   "GROUP BY 없이 쓰면 전체가 한 그룹",
+   "WHERE에는 쓸 수 없고 HAVING·SELECT·ORDER BY에 사용"
+  ],
+  "exam_traps": [
+   "SELECT 목록에 집계 함수와 GROUP BY에 없는 일반 컬럼을 함께 쓰면 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "집계·GROUP BY",
+    "role": "aggregation hub",
+    "core_rule": "여러 행을 그룹 단위 한 행으로 축약한다.",
+    "study_note": "NULL과 공집합 semantics 포함"
+   }
+  ]
+ },
+ "N0069": {
+  "definition": "CUBE(a, b)는 (a,b), (a), (b), () 모든 조합의 소계를 만든다(2^n 수준). 인자 순서와 무관.",
+  "why_it_matters": "",
+  "core_rule": [
+   "CUBE(a, b) → (a,b), (a), (b), () 4수준",
+   "인자 순서와 무관"
+  ],
+  "exam_traps": [
+   "CUBE는 ROLLUP보다 많은 소계를 만든다(2^n)."
+  ],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0070": {
+  "definition": "GROUPING(col)은 그 행이 col에 대해 소계/총계로 집계된 행이면 1, 일반 행이면 0을 반환.",
+  "why_it_matters": "",
+  "core_rule": [
+   "소계/총계로 집계된 컬럼이면 1, 아니면 0"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT CASE GROUPING(job) WHEN 1 THEN 'ALL JOBS' ELSE job END AS job, SUM(sal)\n  FROM emp GROUP BY ROLLUP(job);",
+    "explain": "총계 행에 'ALL JOBS' 표시"
+   }
+  ],
+  "hubs": []
+ },
+ "N0071": {
+  "definition": "GROUPING SETS(a, b)는 나열한 그룹별 집계만 따로 만든다((a), (b)). 총계는 ()를 넣어야 하고 순서와 무관.",
+  "why_it_matters": "",
+  "core_rule": [
+   "GROUPING SETS(a, b) → (a), (b) 개별 집계만",
+   "총계가 필요하면 () 추가",
+   "인자 순서와 무관"
+  ],
+  "exam_traps": [
+   "GROUPING SETS((a, b)) 와 GROUPING SETS(a, b)는 다르다."
+  ],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0072": {
+  "definition": "ROLLUP(a, b)는 (a,b) → (a) → () 순으로 계층적 소계와 총계를 만든다. 인자 순서가 결과에 영향을 준다(n개 → n+1 수준).",
+  "why_it_matters": "ROLLUP/CUBE/GROUPING SETS 결과 행 수 계산은 현행 6~7회 출제된 고빈도 문제다.",
+  "core_rule": [
+   "ROLLUP(a, b) → (a,b), (a), () 3수준",
+   "인자 순서가 바뀌면 결과가 바뀐다",
+   "소계 행의 집계되지 않은 컬럼은 NULL"
+  ],
+  "exam_traps": [
+   "ROLLUP(a, b)에는 (b) 단독 소계가 없다.",
+   "소계 행의 NULL과 실제 NULL 데이터는 GROUPING()으로 구분."
+  ],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0073": {
+  "definition": "GROUPING SETS 안의 빈 괄호 ()는 전체 총계 그룹을 뜻한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_group_ext"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0074": {
+  "definition": "정렬 기준으로 현재 값 이하인 행 수 / 파티션 전체 행 수(누적 분포, 0 초과 1 이하).",
+  "why_it_matters": "",
+  "core_rule": [
+   "(현재 값 이하 행 수) / N",
+   "동일 값은 같은 결과"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0075": {
+  "definition": "프레임 경계로 현재 행(RANGE에서는 현재 행과 같은 값을 가진 행들까지).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0076": {
+  "definition": "동순위에는 같은 순위를 주고 다음 순위를 건너뛰지 않는다(1, 2, 2, 3).",
+  "why_it_matters": "",
+  "core_rule": [
+   "동순위 동일, 다음 순위 연속"
+  ],
+  "exam_traps": [
+   "DENSE_RANK의 최댓값 = 서로 다른 정렬 값의 개수."
+  ],
+  "comparisons": [
+   "cmp_rank"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "sal 300, 200, 200, 100",
+    "explain": "→ 1, 2, 2, 3"
+   }
+  ],
+  "hubs": []
+ },
+ "N0077": {
+  "definition": "윈도우 프레임의 첫 행 값.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_lag_lead"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0078": {
+  "definition": "윈도우 함수는 GROUP BY 결과(그룹 행) 위에서 계산되므로 집계 결과로 순위를 매길 수 있다(RANK() OVER(ORDER BY SUM(sal))).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0079": {
+  "definition": "LAG(열, n, 기본값) — 현재 행 기준 n행 이전 행의 값(기본 n=1, 없으면 기본값/NULL).",
+  "why_it_matters": "",
+  "core_rule": [
+   "LAG(열, n=1, 기본값=NULL)",
+   "첫 행의 LAG는 기본값(없으면 NULL)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_lag_lead"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0080": {
+  "definition": "윈도우 프레임의 마지막 행 값. 기본 프레임에서는 현재 행(또는 동순위 마지막) 값이 나온다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "프레임의 마지막 행 값"
+  ],
+  "exam_traps": [
+   "OVER(ORDER BY …)만 쓰면 프레임이 CURRENT ROW까지라 '현재 행' 값이 나온다. 파티션 마지막 값을 원하면 ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING."
+  ],
+  "comparisons": [
+   "cmp_lag_lead"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0081": {
+  "definition": "LEAD(열, n, 기본값) — 현재 행 기준 n행 이후 행의 값.",
+  "why_it_matters": "",
+  "core_rule": [
+   "LEAD(열, n=1, 기본값=NULL)",
+   "마지막 행의 LEAD는 기본값(없으면 NULL)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_lag_lead"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0082": {
+  "definition": "그룹 내 최댓값을 각 행 옆에 붙이는 윈도우 집계(그룹 내 집계 함수). 행 수는 그대로다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0083": {
+  "definition": "NTILE(n) — 파티션을 n개 그룹으로 나눠 그룹 번호를 부여. 나누어떨어지지 않으면 앞 그룹부터 1개씩 더 배정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "NTILE(3) OVER(ORDER BY sal) — 행 10개",
+    "explain": "그룹 크기 4, 3, 3 (앞 그룹부터 1개씩 더)"
+   }
+  ],
+  "hubs": []
+ },
+ "N0084": {
+  "definition": "윈도우를 그룹으로 나누는 절. GROUP BY와 달리 행을 축약하지 않는다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "파티션별로 계산이 초기화",
+   "행은 축약되지 않음"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0085": {
+  "definition": "(RANK - 1) / (파티션 행 수 - 1). 첫 행 0, 마지막 행 1.",
+  "why_it_matters": "",
+  "core_rule": [
+   "(RANK - 1) / (N - 1)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0086": {
+  "definition": "n PRECEDING은 현재 기준 n행(또는 값) 이전, n FOLLOWING은 이후를 프레임 경계로 지정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0087": {
+  "definition": "ORDER BY 값 기준 프레임. 같은 정렬 값(동료 행)은 함께 포함된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_rows_range"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0088": {
+  "definition": "RANGE BETWEEN 시작 AND 끝 형태로 정렬 값 범위를 프레임으로 지정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0089": {
+  "definition": "윈도우에 ORDER BY가 있고 프레임을 생략했을 때의 기본 프레임. 같은 값 행들이 함께 누적된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_rows_range"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0090": {
+  "definition": "동순위에는 같은 순위를 주고 그다음 순위를 건너뛴다(1, 2, 2, 4).",
+  "why_it_matters": "",
+  "core_rule": [
+   "동순위 동일, 다음 순위 건너뜀"
+  ],
+  "exam_traps": [
+   "동점이 2개면 다음 순위는 +2 (1, 2, 2, 4) — '3'이 나오지 않는다.",
+   "OVER 절에 ORDER BY가 없으면 순위 함수는 오류."
+  ],
+  "comparisons": [
+   "cmp_rank"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT sal, RANK() OVER(ORDER BY sal DESC) FROM emp;",
+    "explain": "sal 300, 200, 200, 100 → 1, 2, 2, 4"
+   }
+  ],
+  "hubs": []
+ },
+ "N0091": {
+  "definition": "RATIO_TO_REPORT(열) OVER(...) — 파티션 합계 대비 현재 값의 비율(Oracle).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0092": {
+  "definition": "물리적 행 개수 기준 프레임.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_rows_range"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0093": {
+  "definition": "ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING처럼 현재 행의 앞뒤 n행을 프레임으로 지정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0094": {
+  "definition": "윈도우 안에서 계산에 포함할 범위. ROWS는 물리적 행 수, RANGE는 ORDER BY 값의 논리적 범위.",
+  "why_it_matters": "ROWS와 RANGE의 차이(동일 값 처리)와 기본 프레임은 현행 3회 이상 출제.",
+  "core_rule": [
+   "ROWS: 물리적 행 개수",
+   "RANGE: 정렬 값 범위(동일 값 행은 함께 포함)",
+   "기본(ORDER BY 있음): RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW"
+  ],
+  "exam_traps": [
+   "ROWS BETWEEN 1 PRECEDING AND CURRENT ROW는 '직전 1행 + 현재 행' 2행.",
+   "RANGE는 ORDER BY 키가 하나여야 값 범위(n PRECEDING)를 쓸 수 있다."
+  ],
+  "comparisons": [
+   "cmp_rows_range"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0095": {
+  "definition": "동순위와 상관없이 고유한 연속 번호를 준다(1, 2, 3, 4).",
+  "why_it_matters": "",
+  "core_rule": [
+   "항상 고유 번호"
+  ],
+  "exam_traps": [
+   "동점 행 사이의 번호 순서는 보장되지 않는다(정렬 키를 추가해야 결정적).",
+   "ROWNUM(Oracle 의사 컬럼)과 ROW_NUMBER()(윈도우 함수)는 다르다."
+  ],
+  "comparisons": [
+   "cmp_rank"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "sal 300, 200, 200, 100",
+    "explain": "→ 1, 2, 3, 4"
+   }
+  ],
+  "hubs": []
+ },
+ "N0096": {
+  "definition": "프레임 끝을 파티션의 마지막 행으로 지정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0097": {
+  "definition": "프레임 시작을 파티션의 첫 행으로 지정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0098": {
+  "definition": "RANGE BETWEEN 100 PRECEDING AND 100 FOLLOWING처럼 정렬 키 값의 범위로 정한 프레임.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0099": {
+  "definition": "행 수를 줄이지 않고 OVER 절로 정의한 윈도우(행 집합) 안에서 순위·집계·행 이동 값을 계산하는 함수(분석 함수).",
+  "why_it_matters": "순위 함수 비교, 프레임 기본값, LAG/LEAD, 결과 행 수 유지가 현행 7회 출제된 고빈도 영역.",
+  "core_rule": [
+   "행 수를 줄이지 않고 집합 문맥에서 계산한다.",
+   "행 수를 줄이지 않는다(집계 함수와의 차이)",
+   "OVER 절이 반드시 필요",
+   "논리적으로 SELECT 단계에서 계산 → WHERE에서 직접 사용 불가"
+  ],
+  "exam_traps": [
+   "윈도우 함수 결과로 필터하려면 인라인 뷰로 감싸야 한다(WHERE RANK() … 불가).",
+   "ORDER BY만 있고 프레임이 없으면 기본 프레임은 RANGE UNBOUNDED PRECEDING ~ CURRENT ROW (누적)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "윈도우 함수",
+    "role": "analysis hub",
+    "core_rule": "행 수를 줄이지 않고 집합 문맥에서 계산한다.",
+    "study_note": "집계함수와 차이는 '행 보존'으로 구분"
+   }
+  ]
+ },
+ "N0100": {
+  "definition": "ANSI 표준 Top-N(Oracle 12c+). ORDER BY … FETCH FIRST n ROWS ONLY | WITH TIES. SQL Server는 OFFSET … FETCH NEXT.",
+  "why_it_matters": "",
+  "core_rule": [
+   "ORDER BY … FETCH FIRST n ROWS ONLY",
+   "OFFSET m ROWS FETCH NEXT n ROWS ONLY",
+   "WITH TIES 지원(ONLY 대신)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0101": {
+  "definition": "MySQL/PostgreSQL의 Top-N 문법. Oracle·SQL Server는 지원하지 않는다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0102": {
+  "definition": "Oracle 의사 컬럼. 결과 행에 1부터 순번을 부여하며 ORDER BY보다 먼저 부여된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "WHERE 단계에서 결과 행에 1부터 부여",
+   "ORDER BY보다 먼저 부여됨"
+  ],
+  "exam_traps": [
+   "SELECT … WHERE ROWNUM <= 3 ORDER BY sal DESC 는 '아무 3행을 고른 뒤 정렬' — 상위 3명이 아니다.",
+   "WHERE ROWNUM = 1은 동작하지만 ROWNUM = 2, ROWNUM > 1은 항상 0행."
+  ],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT * FROM (\n  SELECT ename, sal FROM emp ORDER BY sal DESC\n) WHERE ROWNUM <= 3;",
+    "explain": "정렬을 인라인 뷰에서 먼저 해야 상위 3명"
+   }
+  ],
+  "hubs": []
+ },
+ "N0103": {
+  "definition": "SQL Server의 Top-N 문법. SELECT TOP(n) [PERCENT] [WITH TIES] …",
+  "why_it_matters": "",
+  "core_rule": [
+   "SELECT TOP(n) … ORDER BY …",
+   "TOP(n) PERCENT, WITH TIES 지원"
+  ],
+  "exam_traps": [
+   "WITH TIES는 ORDER BY가 있어야 한다."
+  ],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0104": {
+  "definition": "정렬 후 상위 N개 행만 조회하는 쿼리 패턴.",
+  "why_it_matters": "ROWNUM의 부여 시점, TOP/FETCH FIRST WITH TIES, DBMS별 문법 차이가 현행에서 반복 출제된다.",
+  "core_rule": [
+   "정렬 후 자르기",
+   "Oracle 전통 방식: 인라인 뷰에서 ORDER BY 후 바깥에서 ROWNUM <= N"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0105": {
+  "definition": "마지막 순위와 같은 정렬 값을 가진 행까지 함께 반환하는 옵션(ORDER BY 필수).",
+  "why_it_matters": "",
+  "core_rule": [
+   "N번째와 같은 정렬 값의 행을 모두 포함"
+  ],
+  "exam_traps": [
+   "결과 행 수가 N보다 많을 수 있다."
+  ],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0106": {
+  "definition": "PIVOT(집계함수 FOR 열 IN (값 목록)) — 행 값을 열로 펼친다. PIVOT에 쓰이지 않은 나머지 컬럼은 암묵적으로 GROUP BY 된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "SELECT * FROM t PIVOT (SUM(sal) FOR job IN ('CLERK' AS c, 'MANAGER' AS m))",
+   "IN 목록 값이 새 열",
+   "PIVOT에 안 쓰인 나머지 컬럼 기준으로 암묵적 GROUP BY"
+  ],
+  "exam_traps": [
+   "원본 테이블의 불필요한 컬럼까지 그룹 키가 되므로 인라인 뷰로 필요한 컬럼만 넘겨야 한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0107": {
+  "definition": "행을 열로(PIVOT), 열을 행으로(UNPIVOT) 재구성하는 문법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0108": {
+  "definition": "여러 열을 (이름, 값) 행으로 바꾼다. 기본적으로 값이 NULL인 행은 제외된다(INCLUDE NULLS로 포함).",
+  "why_it_matters": "",
+  "core_rule": [
+   "열 → 행",
+   "기본 EXCLUDE NULLS: NULL 값 행 제외",
+   "INCLUDE NULLS로 NULL 행 포함"
+  ],
+  "exam_traps": [
+   "UNPIVOT 결과 행 수는 NULL 값 개수만큼 줄어든다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0109": {
+  "definition": "추상화 수준이 가장 높은 단계. 업무 중심의 핵심 엔터티와 그 관계를 도출하며 전사적 모델링(EA)에 활용.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0110": {
+  "definition": "기본키(PK)를 구성하는 속성은 NULL일 수 없고 중복될 수 없다는 규칙.",
+  "why_it_matters": "",
+  "core_rule": [
+   "PK는 NULL 불가, 중복 불가"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_pk_unique"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0111": {
+  "definition": "키·속성·관계를 정확히 정의하고 정규화를 수행하는 단계. 특정 DBMS에 독립적이며 재사용성이 가장 높다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0112": {
+  "definition": "복잡한 현실을 약속된 규약(표기법)과 제한된 개념만으로 쉽게 이해할 수 있게 표현하는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0113": {
+  "definition": "업무가 어떤 데이터와 관련 있고 데이터 간 관계가 무엇인지에 초점을 둔 모델링 관점(What, Data).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0114": {
+  "definition": "개념적 → 논리적 → 물리적 데이터 모델링 순서로 추상화 수준을 낮추며 구체화하는 단계 구분.",
+  "why_it_matters": "개념/논리/물리 단계별 특징과 '재사용성이 가장 높은 단계(논리)'가 반복 출제된다.",
+  "core_rule": [
+   "개념적: 추상화 수준 최고, 핵심 엔터티·관계, 전사적 모델링",
+   "논리적: 키·속성·관계 상세화, 정규화, DBMS 독립, 재사용성 최고",
+   "물리적: DBMS 종속, 테이블·인덱스·저장 구조·성능"
+  ],
+  "exam_traps": [
+   "정규화는 '논리적' 모델링 단계에서 수행한다(물리 아님).",
+   "추상화 수준: 개념 > 논리 > 물리. 구체성은 그 반대."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0115": {
+  "definition": "좋은 데이터 모델을 위해 피해야 할 세 가지 — 중복, 비유연성, 비일관성.",
+  "why_it_matters": "",
+  "core_rule": [
+   "중복: 같은 정보를 여러 곳에 저장하지 않는다",
+   "비유연성: 데이터 정의와 프로세스를 분리한다",
+   "비일관성: 데이터 간 연관관계를 명확히 한다"
+  ],
+  "exam_traps": [
+   "'유연성', '일관성'이 아니라 '비유연성', '비일관성'이 유의점 이름이다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0116": {
+  "definition": "데이터 관점(What: 어떤 데이터와 관계), 프로세스 관점(How: 업무 처리 방식), 데이터와 프로세스의 상관 관점(처리가 데이터에 주는 영향)의 세 관점.",
+  "why_it_matters": "",
+  "core_rule": [
+   "데이터 관점 = What(어떤 데이터)",
+   "프로세스 관점 = How(업무 처리)",
+   "상관 관점 = 처리와 데이터의 상호 영향"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0117": {
+  "definition": "업무·DBMS 변화에 독립적인 모델일수록 다른 시스템에서도 재사용할 수 있다는 특성(논리 모델이 가장 높음).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0118": {
+  "definition": "현실 세계의 업무와 데이터를 추상화하여 엔터티·속성·관계로 구조화하고, 약속된 표기법으로 표현하는 과정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0119": {
+  "definition": "데이터 모델링이 가지는 세 가지 성질 — 추상화, 단순화, 명확화(정확화).",
+  "why_it_matters": "모델링 정의·특징 문제는 1과목 첫 문항으로 자주 나온다. '추상화/단순화/명확화' 세 단어를 정확히 짝지어야 한다.",
+  "core_rule": [
+   "추상화: 현실을 일정한 형식에 맞춰 간략히 표현",
+   "단순화: 약속된 규약으로 쉽게 이해하게 표현",
+   "명확화: 애매함을 제거하고 정확하게 기술"
+  ],
+  "exam_traps": [
+   "'복잡화', '구체화'는 데이터 모델링의 특징이 아니다.",
+   "'단순화'와 '추상화'의 설명을 바꿔 놓은 선지에 주의."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0120": {
+  "definition": "물리 설계 시 테이블별 데이터 건수·증가량을 산정하여 저장 공간과 성능을 고려하는 요소.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0121": {
+  "definition": "대상에 대한 애매모호함을 제거하고 한 가지 의미로 정확하게 기술하는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0122": {
+  "definition": "실제 DBMS에 맞게 테이블·컬럼·인덱스·저장 구조 등 성능과 저장 측면을 설계하는 단계.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0123": {
+  "definition": "데이터 정의를 프로세스와 분리하지 않아 작은 업무 변화에도 모델을 수시로 고쳐야 하는 문제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0124": {
+  "definition": "데이터 간 상호 연관 관계를 명확히 정의하지 않아 데이터가 서로 모순되는 문제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0125": {
+  "definition": "공통 속성을 가진 슈퍼타입과 개별 속성을 가진 서브타입으로 엔터티를 계층화하는 기법(배타적/포괄적 관계).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0126": {
+  "definition": "데이터 모델에 반영되어야 하는 업무 정책·제약(예: '주문은 반드시 한 고객에게 속한다'). 관계·선택성·식별자로 표현된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0127": {
+  "definition": "업무에 필요한 데이터가 모델에 빠짐없이 정의되어야 한다는 모델링 원칙(좋은 모델의 평가 기준).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0128": {
+  "definition": "여러 엔터티/장소에 같은 정보를 저장하는 문제. 모델링 3대 유의점의 하나이며 이상현상의 원인.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0129": {
+  "definition": "같은 사실을 여러 곳에 중복 저장하지 않도록 설계해야 한다는 모델링 원칙.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0130": {
+  "definition": "외래키(FK) 값은 참조하는 부모 테이블의 기본키 값으로 존재하거나 NULL이어야 한다는 규칙.",
+  "why_it_matters": "",
+  "core_rule": [
+   "FK 값은 부모 PK에 존재하거나 NULL",
+   "참조 동작: RESTRICT/NO ACTION, CASCADE, SET NULL, SET DEFAULT"
+  ],
+  "exam_traps": [
+   "ON DELETE CASCADE면 부모 삭제 시 자식이 같이 삭제, SET NULL이면 자식 FK가 NULL로 바뀐다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0131": {
+  "definition": "현실 세계를 일정한 형식에 맞추어 간략하게(일반화·개념화하여) 표현하는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0132": {
+  "definition": "ANSI/SPARC 구조. 외부·개념·내부 스키마로 사용자 관점과 저장 관점을 분리해 데이터 독립성을 확보한다.",
+  "why_it_matters": "외부/개념/내부 스키마 정의와 독립성 종류 매칭이 현행 회차에서 반복 출제(4회).",
+  "core_rule": [
+   "외부 스키마: 사용자 관점, 여러 개",
+   "개념 스키마: 통합 관점, 하나, 모든 사용자의 데이터와 관계·제약 포함",
+   "내부 스키마: 물리 저장 관점",
+   "외부↔개념 매핑 = 논리적 독립성, 개념↔내부 매핑 = 물리적 독립성"
+  ],
+  "exam_traps": [
+   "'개념 스키마'는 사용자별 뷰가 아니라 전체를 통합한 단일 구조다.",
+   "논리적/물리적 독립성의 매핑 위치를 바꿔 놓은 선지에 주의."
+  ],
+  "comparisons": [
+   "cmp_schema"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0133": {
+  "definition": "모든 사용자 관점을 통합한 데이터베이스 전체의 논리 구조. 하나만 존재하며 엔터티·관계·제약조건을 포함한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "모든 사용자 관점을 통합한 하나의 논리 구조",
+   "엔터티·관계·제약조건·보안 정책을 포함"
+  ],
+  "exam_traps": [
+   "사용자별로 여러 개 존재하는 것은 외부 스키마다."
+  ],
+  "comparisons": [
+   "cmp_schema"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0134": {
+  "definition": "물리 저장 장치 관점에서 데이터가 실제로 저장되는 방식(레코드 구조, 인덱스, 저장 순서)을 정의한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "물리 저장 구조(레코드 형식, 인덱스, 저장 순서)",
+   "내부 스키마 변경이 개념 스키마에 영향 없음 = 물리적 독립성"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_schema"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0135": {
+  "definition": "하위 스키마를 바꿔도 상위 스키마가 영향을 받지 않는 성질. 논리적 독립성(개념→외부)과 물리적 독립성(내부→개념)이 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "논리적 독립성: 개념 스키마가 바뀌어도 외부 스키마(응용)는 영향 없음",
+   "물리적 독립성: 내부 스키마(저장 구조)가 바뀌어도 개념 스키마는 영향 없음"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_schema"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0136": {
+  "definition": "사용자·응용 프로그램 관점에서 필요한 데이터만 정의한 개별 뷰. 여러 개 존재할 수 있다(서브 스키마).",
+  "why_it_matters": "",
+  "core_rule": [
+   "사용자/응용 프로그램별 뷰",
+   "여러 개 존재 가능"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_schema"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0137": {
+  "definition": "M:N 관계를 해소하기 위해 두 엔터티 사이에 추가하는 엔터티(교차·연관 엔터티).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0138": {
+  "definition": "M:N 관계 해소를 위해 생성된 관계 엔터티의 다른 이름.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0139": {
+  "definition": "업무에 원래 존재하며 다른 엔터티로부터 주식별자를 상속받지 않고 독립적으로 생성되는 엔터티(예: 고객, 상품, 사원).",
+  "why_it_matters": "",
+  "core_rule": [
+   "독립적으로 생성",
+   "자신의 고유한 주식별자",
+   "다른 엔터티의 부모 역할"
+  ],
+  "exam_traps": [
+   "기본 엔터티는 다른 엔터티로부터 주식별자를 상속받지 않는다."
+  ],
+  "comparisons": [
+   "cmp_entity_time"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0140": {
+  "definition": "업무에 필요하고 유용한 정보를 저장·관리하기 위한 집합적인 것(Thing). 인스턴스들의 집합이다.",
+  "why_it_matters": "엔터티 특징·분류·명명은 1과목의 기본 출제 영역이다.",
+  "core_rule": [
+   "엔터티는 인스턴스의 집합",
+   "엔터티 = 테이블, 인스턴스 = 행, 속성 = 컬럼(물리 대응)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0141": {
+  "definition": "업무 기술서·인터뷰에서 관리 대상이 되는 명사를 찾아 엔터티로 정의하는 과정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0142": {
+  "definition": "현업 업무 용어 사용, 약어 지양, 단수 명사 사용, 모델 전체에서 유일한 이름, 생성 의미대로 이름 부여.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0143": {
+  "definition": "엔터티가 언제 생기는지에 따라 기본(키) 엔터티 → 중심 엔터티 → 행위 엔터티로 나누는 분류.",
+  "why_it_matters": "'기본/중심/행위' 구분은 현행에서 4회 이상 출제된 대표 문제다.",
+  "core_rule": [
+   "기본(키) 엔터티: 독립 생성, 자신의 주식별자 보유(고객·상품·부서)",
+   "중심 엔터티: 기본에서 발생, 업무 중심, 행위 엔터티를 생성(주문·계약)",
+   "행위 엔터티: 2개 이상 부모, 자주 변경·증가(주문상세·이력)"
+  ],
+  "exam_traps": [
+   "'주문'은 중심 엔터티, '주문상세/주문이력'은 행위 엔터티.",
+   "기본 엔터티는 다른 엔터티의 주식별자를 상속받지 않는다."
+  ],
+  "comparisons": [
+   "cmp_entity_time"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0144": {
+  "definition": "유무형에 따라 유형·개념·사건 엔터티로, 발생시점에 따라 기본·중심·행위 엔터티로 분류한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0145": {
+  "definition": "업무에 필요, 유일한 식별자, 2개 이상의 인스턴스, 업무 프로세스에서 이용, 반드시 속성 보유, 최소 1개 이상의 관계.",
+  "why_it_matters": "",
+  "core_rule": [
+   "반드시 업무에서 필요하고 관리할 정보",
+   "유일한 식별자로 식별 가능",
+   "인스턴스가 2개 이상",
+   "업무 프로세스에서 이용(CRUD)",
+   "반드시 속성을 가짐",
+   "다른 엔터티와 1개 이상의 관계"
+  ],
+  "exam_traps": [
+   "인스턴스가 1개뿐인 것은 엔터티가 아니다.",
+   "관계가 없는 엔터티는 원칙적으로 잘못 도출된 것(단, 코드성·통계성 엔터티 예외 언급 가능)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0146": {
+  "definition": "주어진 항목(예: 사원 / 사원번호 / '홍길동')이 엔터티·속성·인스턴스(값) 중 무엇인지 구분하는 문제 유형.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0147": {
+  "definition": "엔터티는 2개 이상의 인스턴스, 인스턴스는 2개 이상의 속성을 가지며, 한 속성은 인스턴스마다 하나의 속성값을 가진다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0148": {
+  "definition": "엔터티에 속한 개별 데이터 한 건(테이블의 한 행에 해당).",
+  "why_it_matters": "",
+  "core_rule": [
+   "엔터티의 개별 사례(행)",
+   "엔터티는 2개 이상의 인스턴스를 가져야 함"
+  ],
+  "exam_traps": [
+   "'홍길동'은 인스턴스(값), '사원명'은 속성, '사원'은 엔터티."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0149": {
+  "definition": "기본 엔터티로부터 발생하고 업무의 중심 역할을 하며 많은 행위 엔터티를 만들어내는 엔터티(예: 주문, 계약).",
+  "why_it_matters": "",
+  "core_rule": [
+   "기본 엔터티로부터 발생",
+   "업무의 중심, 데이터 양이 많음",
+   "행위 엔터티를 생성"
+  ],
+  "exam_traps": [
+   "'주문', '계약'은 중심 엔터티의 대표 예."
+  ],
+  "comparisons": [
+   "cmp_entity_time"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0150": {
+  "definition": "두 개 이상의 부모 엔터티로부터 발생하며 데이터가 자주 변경·증가하는 엔터티(예: 주문상세, 이력).",
+  "why_it_matters": "",
+  "core_rule": [
+   "2개 이상의 부모 엔터티로부터 발생",
+   "데이터가 자주 변경·증가",
+   "상세·이력 정보"
+  ],
+  "exam_traps": [
+   "'주문상세', '변경이력'은 행위 엔터티."
+  ],
+  "comparisons": [
+   "cmp_entity_time"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0151": {
+  "definition": "업무 분석을 통해 바로 정의되는 본래의 속성(예: 제품명, 가격).",
+  "why_it_matters": "",
+  "core_rule": [
+   "업무 분석으로 바로 도출되는 본래 속성"
+  ],
+  "exam_traps": [
+   "코드·일련번호처럼 설계 시 만든 속성은 기본 속성이 아니라 설계 속성."
+  ],
+  "comparisons": [
+   "cmp_attr_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0152": {
+  "definition": "하나의 인스턴스가 여러 값을 가질 수 있는 속성(예: 전화번호 여러 개). 1NF 위배이므로 별도 엔터티로 분리한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "한 인스턴스가 여러 값을 가짐",
+   "1NF 위배 → 별도 엔터티(1:M)로 분리"
+  ],
+  "exam_traps": [
+   "'전화번호들'처럼 여러 값을 한 컬럼에 넣으면 1NF 위배."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0153": {
+  "definition": "인스턴스마다 하나의 값만 가지는 속성(예: 주민등록번호).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0154": {
+  "definition": "각 속성이 가질 수 있는 값의 범위(데이터 타입, 길이, 허용값, 제약).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0155": {
+  "definition": "여러 의미 있는 하위 속성으로 분해할 수 있는 속성(예: 주소 → 시·구·동).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0156": {
+  "definition": "업무에는 없지만 설계 시 유일성·규칙화를 위해 추가하는 속성(예: 코드, 일련번호).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_attr_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0157": {
+  "definition": "업무에서 필요로 하는, 더 이상 분리되지 않는 엔터티의 최소 데이터 단위.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0158": {
+  "definition": "업무 용어 사용, 서술식·약어 지양, 모델 전체에서 유일한 이름을 권장하는 속성 이름 규칙.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0159": {
+  "definition": "특성별(기본·설계·파생), 구성 방식별(PK·FK·일반), 분해 여부별(단일·복합), 값 개수별(단일값·다중값) 분류.",
+  "why_it_matters": "기본·설계·파생 속성 구분, 단일/복합, 단일값/다중값 구분이 반복 출제된다.",
+  "core_rule": [
+   "특성: 기본(업무 원래) / 설계(코드·일련번호) / 파생(계산값)",
+   "구성 방식: PK / FK / 일반 속성",
+   "분해 여부: 단일 / 복합",
+   "값 개수: 단일값 / 다중값"
+  ],
+  "exam_traps": [
+   "'일련번호'는 설계 속성, '합계·잔액'은 파생 속성.",
+   "파생 속성은 데이터 정합성 유지가 어려워 가급적 적게 정의한다."
+  ],
+  "comparisons": [
+   "cmp_attr_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0160": {
+  "definition": "업무에서 관리되는 정보이고, 주식별자에 함수적으로 종속되며, 하나의 속성은 인스턴스마다 한 개의 값만 가진다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0161": {
+  "definition": "인스턴스 하나가 특정 속성에 대해 가지는 구체적인 값. 한 속성은 인스턴스마다 하나의 값만 가진다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0162": {
+  "definition": "엔터티 구성 방식에 따른 분류에서 PK·FK가 아닌 나머지 속성.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0163": {
+  "definition": "다른 속성으로부터 계산·변형되어 만들어지는 속성(예: 합계, 잔액). 정합성 유지 부담 때문에 최소화가 원칙.",
+  "why_it_matters": "",
+  "core_rule": [
+   "다른 속성의 계산 결과",
+   "정합성 유지 부담이 커 최소화 원칙"
+  ],
+  "exam_traps": [
+   "파생 속성을 많이 둘수록 좋은 모델이라는 선지는 틀린 설명."
+  ],
+  "comparisons": [
+   "cmp_attr_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0164": {
+  "definition": "Oracle CASE 표기법. 관계선 실선=필수, 점선=선택. 속성 앞 #=식별자, *=필수, o=선택. 관계선을 가로지르는 막대로 식별 관계를 표시.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0165": {
+  "definition": "Entity Relationship Diagram. 엔터티·속성·관계를 그림으로 표현한 데이터 모델 도식.",
+  "why_it_matters": "",
+  "core_rule": [
+   "엔터티 도출 → 배치 → 관계 설정 → 관계명 → 관계 차수·선택성 기술",
+   "중요한 엔터티를 왼쪽 상단에 배치하는 것이 일반적"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0166": {
+  "definition": "ERD 표기법에서 관계의 필수/선택 참여를 기호(|, ○, 실선/점선)로 표현하는 규칙.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0167": {
+  "definition": "ERD를 그리는 규약. IE(Crow's Foot), Barker, Peter Chen, IDEF1X, UML 등이 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "IE(Crow's Foot): 까마귀발=Many, ○=선택, |=필수",
+   "Barker: 실선=필수, 점선=선택, #=식별자, *=필수 속성, o=선택 속성",
+   "Peter Chen: 사각형=엔터티, 마름모=관계, 타원=속성"
+  ],
+  "exam_traps": [
+   "IE에서 식별 관계는 실선, 비식별 관계는 점선(Barker의 '필수/선택 실선·점선'과 혼동 주의)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0168": {
+  "definition": "IDEF1X. 미국 국방부 표준 표기법. 독립/종속 엔터티를 각진/둥근 사각형으로, 식별/비식별 관계를 실선/점선으로 표현.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0169": {
+  "definition": "Information Engineering 표기법. 까마귀발로 Many, ○로 선택, |로 필수를 표현. 식별 관계 실선, 비식별 관계 점선.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0170": {
+  "definition": "다대다 관계를 관계(교차) 엔터티를 두어 1:M과 M:1 두 관계로 분해하는 것.",
+  "why_it_matters": "",
+  "core_rule": [
+   "M:N → 관계 엔터티 + 1:M 두 개",
+   "관계 엔터티는 양쪽 부모의 식별자를 상속(주로 식별 관계)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "학생 M:N 과목 → 학생 1:M 수강 M:1 과목",
+    "explain": "수강(학번, 과목코드, 성적)이 관계 엔터티"
+   }
+  ],
+  "hubs": []
+ },
+ "N0171": {
+  "definition": "최초의 ER 표기법. 엔터티는 사각형, 관계는 마름모, 속성은 타원으로 그린다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0172": {
+  "definition": "UML 클래스 다이어그램 형태로 엔터티와 관계(다중성)를 표현하는 표기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0173": {
+  "definition": "엔터티의 인스턴스 사이에 존재하는 논리적 연관성. 존재에 의한 관계와 행위에 의한 관계가 있다.",
+  "why_it_matters": "관계 차수·선택성, 관계명 규칙, 상호배타 관계, 표기법별 기호 해석이 출제된다.",
+  "core_rule": [
+   "관계 = 관계명 + 관계 차수(Cardinality) + 관계 선택성(Optionality)",
+   "존재 관계(부서-사원)와 행위 관계(고객-주문)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0174": {
+  "definition": "관계 참여가 필수(Mandatory)인지 선택(Optional)인지를 나타내는 성질. Optionality.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0175": {
+  "definition": "한 엔터티의 인스턴스가 상대 엔터티 인스턴스 몇 개와 관계를 맺는지(1:1, 1:M, M:N). Cardinality.",
+  "why_it_matters": "",
+  "core_rule": [
+   "1:1, 1:M, M:N",
+   "M:N은 관계 엔터티로 해소"
+  ],
+  "exam_traps": [
+   "물리 모델에서 M:N 관계는 직접 구현할 수 없다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0176": {
+  "definition": "관계에 참여하는 엔터티 관점에서 관계를 서술한 이름. 애매한 동사·과거형을 피하고 현재형으로 쓴다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0177": {
+  "definition": "데이터를 행과 열로 구성된 릴레이션(테이블)으로 표현하고, 키로 테이블 간 관계를 연결하는 데이터 모델.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0178": {
+  "definition": "한 엔터티가 두 개 이상의 엔터티 중 오직 하나와만 관계를 맺을 수 있는 관계(Arc 관계).",
+  "why_it_matters": "",
+  "core_rule": [
+   "두 관계 중 하나만 존재(Arc)",
+   "예: 주문은 개인고객 또는 법인고객 중 하나에만 속함"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0179": {
+  "definition": "관계에 참여하지 않는 인스턴스가 있을 수 있음(IE: ○, Barker: 점선).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0180": {
+  "definition": "모든 인스턴스가 반드시 관계에 참여해야 함(IE: |, Barker: 실선).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0181": {
+  "definition": "Foreign Key. 다른(또는 자기) 테이블의 PK·UNIQUE 컬럼을 참조하는 컬럼. NULL과 중복을 허용할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "부모의 PK/UNIQUE를 참조",
+   "NULL 허용 가능, 중복 가능",
+   "참조 무결성을 보장"
+  ],
+  "exam_traps": [
+   "FK 컬럼 값은 NULL일 수 있다(비식별·선택 관계).",
+   "부모 행이 참조되고 있으면 기본 설정에서는 부모를 삭제할 수 없다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0182": {
+  "definition": "Primary Key. 테이블의 각 행을 유일하게 식별하는 키. UNIQUE + NOT NULL이며 테이블당 하나만 존재한다.",
+  "why_it_matters": "PK는 개체 무결성, FK, 정규화, JOIN, 제약조건 단원으로 이어지는 출발점이다.",
+  "core_rule": [
+   "UNIQUE + NOT NULL",
+   "테이블당 하나(여러 컬럼으로 구성 가능)",
+   "자동으로 유일 인덱스 생성(대부분 DBMS)"
+  ],
+  "exam_traps": [
+   "PK는 NULL을 허용하지 않는다(UNIQUE는 허용).",
+   "CTAS로 테이블을 복사하면 PK 제약은 복사되지 않는다."
+  ],
+  "comparisons": [
+   "cmp_pk_unique"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0183": {
+  "definition": "엔터티 내부에서 스스로 만들어지는 식별자(예: 고객번호).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0184": {
+  "definition": "하나의 속성으로 구성된 식별자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0185": {
+  "definition": "자연키 대신 시스템이 생성하는 인위적 키(Surrogate Key, 예: 일련번호·IDENTITY).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_identity"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0186": {
+  "definition": "부모와 자식이 함께 생성·소멸하는 강한 연관. 이런 경우 식별 관계를 사용한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifying"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0187": {
+  "definition": "유일성은 만족하지만 대표성이 없어 참조 관계 연결에 쓰이지 않는 식별자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0188": {
+  "definition": "둘 이상의 속성으로 구성된 식별자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0189": {
+  "definition": "둘 이상의 컬럼으로 구성된 키(Composite Key).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0190": {
+  "definition": "업무에 의해 자연스럽게 만들어지는 식별자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0191": {
+  "definition": "부모 엔터티의 식별자가 자식 엔터티의 일반 속성(FK)으로만 전이되는 관계. IE 표기에서 점선.",
+  "why_it_matters": "",
+  "core_rule": [
+   "부모 PK가 자식의 일반 속성(FK)이 됨",
+   "약한 연결, 자식이 독립 생명주기, 부모 없는 자식 가능(FK NULL)",
+   "IE 표기 점선"
+  ],
+  "exam_traps": [
+   "비식별 관계만 쓰면 부모 쪽 정보를 얻기 위한 조인이 많아질 수 있다."
+  ],
+  "comparisons": [
+   "cmp_identifying"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0192": {
+  "definition": "부모 엔터티의 식별자가 자식 엔터티 주식별자의 일부(또는 전부)가 되는 관계. IE 표기에서 실선.",
+  "why_it_matters": "식별/비식별 관계 판단과 각각의 장단점은 현행에서도 반복 출제된다.",
+  "core_rule": [
+   "부모 PK가 자식 PK의 일부가 됨",
+   "강한 연결, 동일 생명주기",
+   "IE 표기 실선"
+  ],
+  "exam_traps": [
+   "식별 관계만 계속 쓰면 자식으로 갈수록 PK 컬럼 수가 늘어 SQL 조인 조건이 복잡해진다."
+  ],
+  "comparisons": [
+   "cmp_identifying"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0193": {
+  "definition": "엔터티 내 인스턴스를 유일하게 구분하는 속성(또는 속성의 조합).",
+  "why_it_matters": "식별자 분류(대표성/생성/속성수/대체여부)와 주식별자 특징이 1과목 핵심 문항이다.",
+  "core_rule": [
+   "대표성: 주식별자 / 보조 식별자",
+   "생성: 내부 식별자 / 외부 식별자",
+   "속성 수: 단일 / 복합",
+   "대체 여부: 본질 / 인조"
+  ],
+  "exam_traps": [
+   "보조 식별자도 유일성은 만족한다. 차이는 '대표성' 여부."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0194": {
+  "definition": "식별자는 업무적으로 의미 있는 이름을 쓰고, 모델 전체에서 일관되게 명명한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0195": {
+  "definition": "주식별자가 갖춰야 할 성질 — 유일성·최소성·불변성·존재성.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0196": {
+  "definition": "다른 엔터티와의 관계를 통해 받아오는 식별자. 물리적으로 FK가 된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0197": {
+  "definition": "업무적으로 존재하지 않지만 편의를 위해 인위적으로 만든 식별자(예: 일련번호).",
+  "why_it_matters": "",
+  "core_rule": [
+   "업무에 없는 일련번호 등을 식별자로 사용",
+   "단점: 본질 식별자의 중복 데이터 발생 가능, 불필요한 인덱스 추가"
+  ],
+  "exam_traps": [
+   "인조 식별자를 쓰면 중복 데이터 입력을 막기 어렵다(본질 식별자에 UNIQUE 필요)."
+  ],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0198": {
+  "definition": "엔터티를 대표하는 식별자. 다른 엔터티와의 참조 관계 연결에 사용되며 물리 모델의 PK가 된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifier_kind"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0199": {
+  "definition": "자주 이용되는 속성, 명칭·내역 같은 이름성 속성 지양, 너무 많은 속성으로 구성하지 않기 등의 기준으로 주식별자를 정하는 과정.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0200": {
+  "definition": "주식별자 값은 한 번 정해지면 변하지 않아야 한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0201": {
+  "definition": "식별 관계에서 부모의 주식별자가 자식의 주식별자에 포함되어 내려가는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_identifying"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0202": {
+  "definition": "후보 식별자 중 대표 식별자를 결정하는 것(주식별자 도출 기준 적용).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0203": {
+  "definition": "후보 식별자 중 주식별자를 고르는 것(주식별자 선정과 같은 의미).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0204": {
+  "definition": "주식별자로 엔터티 내 모든 인스턴스를 유일하게 구분할 수 있어야 한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0205": {
+  "definition": "주식별자는 반드시 값이 있어야 하며 NULL일 수 없다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0206": {
+  "definition": "주식별자를 구성하는 속성 수는 유일성을 만족하는 최소 수여야 한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0207": {
+  "definition": "유일성·최소성·불변성·존재성의 4가지.",
+  "why_it_matters": "",
+  "core_rule": [
+   "유일성: 모든 인스턴스를 유일하게 구분",
+   "최소성: 유일성을 만족하는 최소 속성",
+   "불변성: 값이 바뀌지 않음",
+   "존재성: NULL 불가"
+  ],
+  "exam_traps": [
+   "'최소성'은 속성 수가 최소라는 뜻이지 값이 작다는 뜻이 아니다.",
+   "자주 바뀌는 속성(예: 전화번호)은 불변성 위반으로 주식별자 부적합."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0208": {
+  "definition": "유일성과 최소성을 만족하는 키. 그중 하나를 기본키로 선택하고 나머지는 대체키가 된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0209": {
+  "definition": "모든 속성이 원자값을 가지도록 반복 그룹·다중값 속성을 제거한 정규형.",
+  "why_it_matters": "",
+  "core_rule": [
+   "모든 속성은 원자값",
+   "반복 그룹·다중값 속성 제거"
+  ],
+  "exam_traps": [
+   "1NF 위반 해결은 다중값을 별도 테이블로 분리하는 것이지 컬럼을 여러 개(전화1, 전화2) 만드는 것이 아니다."
+  ],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0210": {
+  "definition": "1NF이면서 부분 함수 종속을 제거해 모든 일반 속성이 기본키 전체에 완전 함수 종속인 정규형.",
+  "why_it_matters": "",
+  "core_rule": [
+   "복합 PK의 일부에만 종속된 속성을 분리"
+  ],
+  "exam_traps": [
+   "PK가 단일 컬럼이면 부분 함수 종속이 생길 수 없다(1NF면 곧 2NF)."
+  ],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "주문상품(주문번호, 상품번호, 상품명, 수량)",
+    "explain": "상품명은 상품번호에만 종속 → 부분 함수 종속 → 상품(상품번호, 상품명)으로 분리해 2NF"
+   }
+  ],
+  "hubs": []
+ },
+ "N0211": {
+  "definition": "2NF이면서 이행 함수 종속을 제거해 일반 속성이 기본키에만 종속하는 정규형.",
+  "why_it_matters": "",
+  "core_rule": [
+   "일반 속성 → 일반 속성 종속(이행 종속)을 분리"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "사원(사원번호, 부서번호, 부서명)",
+    "explain": "사원번호 → 부서번호 → 부서명 (이행 종속) → 부서(부서번호, 부서명) 분리"
+   }
+  ],
+  "hubs": []
+ },
+ "N0212": {
+  "definition": "모든 결정자가 후보키인 정규형(3NF를 강화).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0213": {
+  "definition": "조인 경로를 줄이기 위해 중복 관계를 추가하는 반정규화.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0214": {
+  "definition": "반정규화로 생긴 중복 때문에 데이터 정합성 유지가 어려워지는 부작용.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0215": {
+  "definition": "성능 향상과 단순화를 위해 정규화된 모델에 중복·통합·분리를 허용하는 기법. 데이터 무결성이 저하될 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "조회 성능 향상, 조인 감소 목적",
+   "테이블·컬럼·관계 반정규화",
+   "무결성 저하 위험"
+  ],
+  "exam_traps": [
+   "반정규화 전에 인덱스 조정·클러스터링·뷰 등 다른 방법을 먼저 검토한다."
+  ],
+  "comparisons": [
+   "cmp_normalize_denormalize"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0216": {
+  "definition": "복합 기본키의 일부 속성만으로 다른 속성이 결정되는 종속.",
+  "why_it_matters": "",
+  "core_rule": [
+   "복합 PK (A, B)에서 A → C 이면 C는 PK에 부분 함수 종속",
+   "제거하면 2NF"
+  ],
+  "exam_traps": [
+   "단일 컬럼 PK에서는 부분 함수 종속이 존재할 수 없다."
+  ],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0217": {
+  "definition": "컬럼 단위로 테이블을 나누는(자주 쓰는/드물게 쓰는 컬럼 분리) 반정규화 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0218": {
+  "definition": "정규화되지 않은 릴레이션에서 데이터 중복 때문에 생기는 삽입 이상·갱신 이상·삭제 이상.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0219": {
+  "definition": "X → Y이고 Y → Z일 때 X → Z가 성립하는 간접 종속(일반 속성이 다른 일반 속성에 종속).",
+  "why_it_matters": "",
+  "core_rule": [
+   "A → B, B → C (B는 키가 아님) 이면 A → C는 이행 종속",
+   "제거하면 3NF"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_normal_forms"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0220": {
+  "definition": "함수적 종속성을 기준으로 릴레이션을 분해해 중복과 이상현상을 제거하는 과정.",
+  "why_it_matters": "정규형 판별(부분/이행 종속)과 이상현상 문제는 현행에서도 거의 매회 나온다.",
+  "core_rule": [
+   "1NF: 원자값",
+   "2NF: 부분 함수 종속 제거",
+   "3NF: 이행 함수 종속 제거",
+   "BCNF: 모든 결정자가 후보키"
+  ],
+  "exam_traps": [
+   "정규화는 조회 성능을 항상 향상시키지 않는다(조인 증가). 입력·수정·삭제 성능과 무결성이 개선된다.",
+   "정규화는 논리적 모델링 단계에서 수행한다."
+  ],
+  "comparisons": [
+   "cmp_normal_forms",
+   "cmp_normalize_denormalize"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0221": {
+  "definition": "중복 컬럼·파생 컬럼·이력 컬럼 추가 등 컬럼 단위로 하는 반정규화.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0222": {
+  "definition": "조인을 줄이기 위해 다른 테이블의 컬럼을 중복 저장하는 반정규화 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0223": {
+  "definition": "속성 X의 값이 속성 Y의 값을 유일하게 결정할 때 'Y는 X에 함수적으로 종속'(X → Y)한다고 한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "X → Y: X 값이 정해지면 Y 값이 하나로 정해짐",
+   "결정자(X)와 종속자(Y)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0224": {
+  "definition": "부모 행을 삭제하면 그 행을 참조하는 자식 행도 함께 삭제하는 FK 참조 동작.",
+  "why_it_matters": "",
+  "core_rule": [
+   "부모 행 DELETE → 참조하는 자식 행 자동 DELETE"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "CREATE TABLE 자식 (\n  id NUMBER PRIMARY KEY,\n  p_id NUMBER REFERENCES 부모(id) ON DELETE CASCADE\n);",
+    "explain": "부모 id=1 삭제 시 p_id=1인 자식 행도 삭제"
+   }
+  ],
+  "hubs": []
+ },
+ "N0225": {
+  "definition": "속성 값이 정의된 도메인(타입·범위·허용값) 안에 있어야 한다는 규칙. CHECK·NOT NULL·자료형으로 구현.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0226": {
+  "definition": "문자의 ASCII 코드 값을 반환. 반대 변환은 CHR(Oracle) / CHAR(SQL Server).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0227": {
+  "definition": "두 문자열을 결합. Oracle CONCAT은 인자 2개만 받으며 || 연산자와 같다. SQL Server는 + 연산자도 사용.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_concat"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0228": {
+  "definition": "INSTR(문자열, 찾을문자열[, 시작, n번째]) — 위치 반환. 없으면 0.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_substr"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0229": {
+  "definition": "SQL Server의 문자열 길이 함수. 후행 공백은 세지 않는다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_strlen"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0230": {
+  "definition": "문자열의 문자 수를 반환(Oracle). SQL Server는 LEN.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_strlen"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0231": {
+  "definition": "문자열의 바이트 수를 반환(Oracle).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_strlen"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0232": {
+  "definition": "문자열을 소문자로 변환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0233": {
+  "definition": "LPAD(문자열, n, 채움문자) — 왼쪽을 채워 전체 길이를 n으로 맞춤. RPAD는 오른쪽.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0234": {
+  "definition": "LTRIM(문자열[, 문자집합]) — 왼쪽에서 집합에 속한 문자를 연속으로 제거. 생략 시 공백 제거.",
+  "why_it_matters": "",
+  "core_rule": [
+   "두 번째 인자는 '문자열'이 아니라 '문자 집합' — 집합에 속한 문자가 나오는 동안 계속 제거"
+  ],
+  "exam_traps": [
+   "LTRIM('xxyAxy', 'xy') = 'Axy' (왼쪽의 x, y를 모두 제거하고 A에서 멈춤)."
+  ],
+  "comparisons": [
+   "cmp_trim"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0235": {
+  "definition": "REPLACE(문자열, 찾을, 바꿀) — 일치하는 부분을 모두 치환. 바꿀 문자열을 생략하면 삭제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0236": {
+  "definition": "RTRIM(문자열[, 문자집합]) — 오른쪽에서 집합에 속한 문자를 연속으로 제거.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_trim"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0237": {
+  "definition": "SUBSTR(문자열, 시작위치[, 길이]) — 부분 문자열 추출. 위치는 1부터. SQL Server는 SUBSTRING.",
+  "why_it_matters": "",
+  "core_rule": [
+   "SUBSTR(s, 시작, 길이), 위치는 1부터",
+   "길이 생략 시 끝까지",
+   "Oracle은 음수 시작 위치 가능(끝에서부터)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_substr"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT SUBSTR('SQLDEVELOPER', 4, 3) FROM dual;",
+    "explain": "'DEV'"
+   }
+  ],
+  "hubs": []
+ },
+ "N0238": {
+  "definition": "Oracle SUBSTR의 시작 위치가 음수면 문자열 끝에서부터 센다(SUBSTR('ABCDE', -2) = 'DE').",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0239": {
+  "definition": "TRIM([LEADING|TRAILING|BOTH] 'x' FROM 문자열) — 양쪽(기본) 공백 또는 지정한 한 문자를 제거.",
+  "why_it_matters": "",
+  "core_rule": [
+   "기본은 양쪽 공백 제거",
+   "TRIM('x' FROM s)처럼 지정할 수 있는 문자는 한 개"
+  ],
+  "exam_traps": [
+   "Oracle TRIM은 제거 문자로 한 글자만 지정 가능(LTRIM/RTRIM은 집합 지정 가능)."
+  ],
+  "comparisons": [
+   "cmp_trim"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0240": {
+  "definition": "문자열을 대문자로 변환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0241": {
+  "definition": "각 행마다 하나의 결과를 반환하는 함수(문자·숫자·날짜·변환·NULL 관련). SELECT·WHERE·ORDER BY에서 사용한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0242": {
+  "definition": "문자 컬럼의 MIN/MAX는 문자열 사전순 기준이다('9' > '10', 'B' > 'AZ').",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0243": {
+  "definition": "문자열을 입력받아 처리하는 단일행 함수(LOWER, SUBSTR, LENGTH, TRIM 등).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0244": {
+  "definition": "숫자를 입력받아 처리하는 단일행 함수(ROUND, TRUNC, CEIL, FLOOR, MOD 등).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0245": {
+  "definition": "n 이상인 가장 작은 정수(올림). CEIL(-1.5) = -1. SQL Server는 CEILING.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "CEIL(-1.5) = -1, FLOOR(-1.5) = -2 (음수에서 헷갈리기 쉬움)."
+  ],
+  "comparisons": [
+   "cmp_round_trunc"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ceil_mod"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0246": {
+  "definition": "n 이하인 가장 큰 정수(내림). FLOOR(-1.5) = -2.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "FLOOR(-1.5) = -2."
+  ],
+  "comparisons": [
+   "cmp_round_trunc"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0247": {
+  "definition": "MOD(m, n) — m을 n으로 나눈 나머지. SQL Server는 % 연산자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "Oracle MOD(-7, 3) = -1 (나머지 부호는 피제수 부호)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ceil_mod"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0248": {
+  "definition": "ROUND(n[, d]) — 소수점 d자리로 반올림. d가 음수면 정수부 자리에서 반올림(ROUND(1234.5, -2) = 1200).",
+  "why_it_matters": "",
+  "core_rule": [
+   "ROUND(n, d): d자리에서 반올림",
+   "d 음수 → 정수부 반올림"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_round_trunc"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "ROUND(123.456, 2) → 123.46\nROUND(123.456, -1) → 120\nROUND(125, -1) → 130",
+    "explain": "자릿수 인자의 부호에 주의"
+   }
+  ],
+  "hubs": []
+ },
+ "N0249": {
+  "definition": "TRUNC(n[, d]) — 소수점 d자리 아래를 버림(절삭). 날짜에도 사용 가능.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_round_trunc"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "TRUNC(123.456, 1) → 123.4\nTRUNC(-1.7) → -1",
+    "explain": "절삭은 0 방향"
+   }
+  ],
+  "hubs": []
+ },
+ "N0250": {
+  "definition": "MySQL의 날짜 포맷 함수(DATE_FORMAT(d, '%Y-%m-%d')). Oracle은 TO_CHAR, SQL Server는 FORMAT/CONVERT를 쓴다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_format"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0251": {
+  "definition": "EXTRACT(YEAR | MONTH | DAY FROM 날짜) — 날짜에서 특정 요소를 숫자로 추출.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0252": {
+  "definition": "DATE + n은 n일 후, DATE + n/24는 n시간 후, DATE - DATE는 두 날짜 사이의 일수(숫자).",
+  "why_it_matters": "",
+  "core_rule": [
+   "DATE + 1 = 1일 후",
+   "DATE + 1/24 = 1시간 후",
+   "DATE - DATE = 일수(소수 포함)"
+  ],
+  "exam_traps": [
+   "DATE + DATE는 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_now"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0253": {
+  "definition": "TO_CHAR/TO_DATE의 포맷 모델 — YYYY, MM, DD, HH24, MI, SS, DY, MON 등.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_format"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0254": {
+  "definition": "Oracle의 현재 날짜·시각. SQL Server는 GETDATE().",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_now"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0255": {
+  "definition": "날짜·숫자를 지정한 포맷의 문자열로 변환(TO_CHAR(SYSDATE, 'YYYY-MM-DD')).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_format"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0256": {
+  "definition": "문자열을 지정한 포맷의 DATE로 변환(TO_DATE('20240131', 'YYYYMMDD')).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0257": {
+  "definition": "포맷에서 생략된 요소는 기본값으로 채워진다 — 월·일 생략 시 '현재 월의 1일', 시각 생략 시 00:00:00.",
+  "why_it_matters": "",
+  "core_rule": [
+   "TO_DATE('2024', 'YYYY') → 2024년 '현재 월' 1일 00:00:00"
+  ],
+  "exam_traps": [
+   "월을 생략하면 1월이 아니라 '현재 월'이 된다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0258": {
+  "definition": "조건에 따라 다른 값을 반환하는 ANSI 표준 조건식. Simple CASE와 Searched CASE가 있으며 ELSE 생략 시 NULL.",
+  "why_it_matters": "조건 분기의 표준 문법. DECODE·ORDER BY CASE·수동 PIVOT으로 이어진다.",
+  "core_rule": [
+   "Simple CASE: CASE expr WHEN v1 THEN r1 … END",
+   "Searched CASE: CASE WHEN 조건 THEN r … END",
+   "위에서부터 처음 만족하는 WHEN 하나만 적용",
+   "ELSE 생략 시 NULL"
+  ],
+  "exam_traps": [
+   "Simple CASE에서 WHEN NULL은 절대 일치하지 않는다(= 비교이므로). DECODE와 다름.",
+   "ELSE가 없으면 일치하지 않는 행은 NULL."
+  ],
+  "comparisons": [
+   "cmp_case_decode"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_case_decode"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT ename,\n       CASE WHEN sal >= 3000 THEN 'HIGH'\n            WHEN sal >= 1000 THEN 'MID'\n            ELSE 'LOW' END AS grade\n  FROM emp;",
+    "explain": "sal=3000은 첫 WHEN에서 'HIGH'로 끝난다"
+   }
+  ],
+  "hubs": []
+ },
+ "N0259": {
+  "definition": "COALESCE(a, b, c, …) — 처음으로 NULL이 아닌 인자를 반환하는 ANSI 표준 함수.",
+  "why_it_matters": "",
+  "core_rule": [
+   "인자 중 처음으로 NULL이 아닌 값",
+   "모두 NULL이면 NULL",
+   "ANSI 표준 — Oracle/SQL Server 모두 지원"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_nvl_coalesce"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_func"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0260": {
+  "definition": "Oracle 전용 조건 함수 DECODE(식, 값1, 결과1, …, 기본값). 등가 비교만 가능하고 NULL과 NULL을 같다고 본다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "DECODE(식, v1, r1, v2, r2, …, 기본값)",
+   "등가 비교만 가능",
+   "NULL과 NULL을 같다고 본다"
+  ],
+  "exam_traps": [
+   "기본값을 생략하면 일치하지 않을 때 NULL."
+  ],
+  "comparisons": [
+   "cmp_case_decode"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_case_decode"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0261": {
+  "definition": "NULLIF(a, b) — a와 b가 같으면 NULL, 다르면 a를 반환.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULLIF(a, b): a = b면 NULL, 아니면 a"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_nvl_coalesce"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "NULLIF(10, 10) → NULL\nNULLIF(10, 20) → 10",
+    "explain": "0으로 나누기 방지: x / NULLIF(y, 0)"
+   }
+  ],
+  "hubs": []
+ },
+ "N0262": {
+  "definition": "NVL(a, b) — a가 NULL이면 b, 아니면 a(Oracle). SQL Server는 ISNULL.",
+  "why_it_matters": "NULL 치환의 기본 함수. COALESCE·NVL2·ISNULL과의 차이가 비교 문제로 나온다.",
+  "core_rule": [
+   "NVL(a, b): a가 NULL이면 b",
+   "a와 b의 자료형이 호환되어야 함"
+  ],
+  "exam_traps": [
+   "NVL(comm, 0)을 SUM 안에 쓰든 밖에 쓰든 SUM 결과는 같지만, 행이 없을 때는 SUM 결과 자체가 NULL이다."
+  ],
+  "comparisons": [
+   "cmp_nvl_coalesce"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_func"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0263": {
+  "definition": "NVL2(a, b, c) — a가 NULL이 아니면 b, NULL이면 c(Oracle).",
+  "why_it_matters": "",
+  "core_rule": [
+   "NVL2(a, b, c): a NOT NULL → b, a NULL → c"
+  ],
+  "exam_traps": [
+   "NVL과 인자 의미가 다르다(첫 인자가 반환값이 아님)."
+  ],
+  "comparisons": [
+   "cmp_nvl_coalesce"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_func"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0264": {
+  "definition": "REGEXP_COUNT(문자열, 패턴) — 패턴이 일치하는 횟수 반환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT REGEXP_COUNT('banana', 'an') FROM dual;",
+    "explain": "2"
+   }
+  ],
+  "hubs": []
+ },
+ "N0265": {
+  "definition": "REGEXP_INSTR(문자열, 패턴[, 시작, n번째]) — 패턴이 일치하는 위치 반환(없으면 0).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0266": {
+  "definition": "REGEXP_LIKE(문자열, 패턴) — 패턴 일치 여부를 판단하는 조건(WHERE에서 사용).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0267": {
+  "definition": "REGEXP_REPLACE(문자열, 패턴, 바꿀문자열) — 패턴과 일치하는 부분을 치환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0268": {
+  "definition": "REGEXP_SUBSTR(문자열, 패턴[, 시작, n번째]) — 패턴과 일치하는 부분 문자열 반환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT REGEXP_SUBSTR('A-12-345', '[0-9]+', 1, 2) FROM dual;",
+    "explain": "두 번째 숫자 덩어리 '345'"
+   }
+  ],
+  "hubs": []
+ },
+ "N0269": {
+  "definition": "문자열의 끝 위치.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0270": {
+  "definition": "앞 패턴이 0회 이상 반복.",
+  "why_it_matters": "",
+  "core_rule": [
+   "앞 문자/그룹 0회 이상"
+  ],
+  "exam_traps": [
+   "'ab*'는 'a'에도 일치한다(b가 0회)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0271": {
+  "definition": "앞 패턴이 1회 이상 반복.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0272": {
+  "definition": "앞 패턴이 0회 또는 1회.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0273": {
+  "definition": "단어 문자 [A-Za-z0-9_] 하나.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0274": {
+  "definition": "문자열의 시작 위치(대괄호 안 [^...]에서는 부정).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0275": {
+  "definition": "앞 패턴이 m회 이상 반복({m}은 정확히 m회, {m,n}은 m~n회).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0276": {
+  "definition": "정규표현식의 특수 기호 — . * + ? ^ $ [] {} | () \\d \\w 등.",
+  "why_it_matters": "",
+  "core_rule": [
+   ". 임의 1문자, * 0회+, + 1회+, ? 0~1회",
+   "^ 시작, $ 끝, [abc] 문자 집합, [^abc] 부정",
+   "{m} m회, {m,} m회 이상, {m,n} m~n회",
+   "\\d 숫자, \\w 단어 문자, | OR, () 그룹"
+  ],
+  "exam_traps": [
+   "기본 매칭은 탐욕적(greedy) — 가능한 한 길게 일치한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0277": {
+  "definition": "문자열 패턴을 메타문자로 기술하는 표현식. Oracle의 REGEXP_* 함수에서 사용한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "LIKE보다 강력한 패턴 언어",
+   "Oracle REGEXP_* 함수의 패턴 인자로 사용"
+  ],
+  "exam_traps": [
+   "정규식 패턴은 기본적으로 부분 일치 — 전체 일치는 ^…$로 고정."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0278": {
+  "definition": "Oracle 정규식 함수군 — REGEXP_LIKE, REGEXP_REPLACE, REGEXP_SUBSTR, REGEXP_INSTR, REGEXP_COUNT.",
+  "why_it_matters": "",
+  "core_rule": [
+   "REGEXP_LIKE: 조건",
+   "REGEXP_REPLACE: 치환",
+   "REGEXP_SUBSTR: 추출",
+   "REGEXP_INSTR: 위치",
+   "REGEXP_COUNT: 횟수"
+  ],
+  "exam_traps": [
+   "REGEXP_LIKE는 값을 반환하는 함수가 아니라 WHERE 조건식으로 쓴다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_regexp"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0279": {
+  "definition": "부모-자식 연결 조건. PRIOR로 부모(직전) 행의 컬럼을 표시한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "CONNECT BY [NOCYCLE] PRIOR 컬럼 = 컬럼",
+   "PRIOR가 붙은 쪽이 부모(직전) 행",
+   "CONNECT BY 조건으로 걸러진 노드는 하위까지 전개되지 않음(가지치기)"
+  ],
+  "exam_traps": [
+   "CONNECT BY에 PRIOR가 없으면 의미 있는 계층이 만들어지지 않는다."
+  ],
+  "comparisons": [
+   "cmp_hier_direction",
+   "cmp_hier_filter"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_hierarchy"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0280": {
+  "definition": "현재 행의 자식이 동시에 조상이면(순환) 1, 아니면 0. NOCYCLE과 함께만 사용 가능.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "NOCYCLE 없이 사용하면 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0281": {
+  "definition": "현재 행이 리프(자식 없음)이면 1, 아니면 0.",
+  "why_it_matters": "",
+  "core_rule": [
+   "자식 없음 = 1"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0282": {
+  "definition": "현재 행이 속한 계층의 루트 행 컬럼 값을 반환하는 연산자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0283": {
+  "definition": "계층 깊이를 나타내는 의사 컬럼. 루트 = 1.",
+  "why_it_matters": "",
+  "core_rule": [
+   "루트 1, 한 단계 내려갈 때마다 +1"
+  ],
+  "exam_traps": [
+   "역방향 전개에서도 시작 행이 LEVEL 1이다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0284": {
+  "definition": "데이터에 순환이 있어도 오류 없이 전개하고 순환 지점에서 멈추게 하는 옵션(CONNECT BY NOCYCLE).",
+  "why_it_matters": "",
+  "core_rule": [
+   "순환 데이터에서 ORA-01436(CONNECT BY loop) 오류 방지"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0285": {
+  "definition": "계층 구조를 유지하면서 같은 부모를 가진 형제끼리 정렬.",
+  "why_it_matters": "",
+  "core_rule": [
+   "계층 구조 유지 + 형제끼리 정렬"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0286": {
+  "definition": "직전(부모) 행의 컬럼 값을 가리키는 연산자. 어느 쪽 컬럼에 붙느냐로 전개 방향이 결정된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "PRIOR가 붙은 컬럼 = 부모(직전) 행의 값",
+   "PRIOR 자식키 = 부모키 → 순방향",
+   "PRIOR 부모키 = 자식키 → 역방향"
+  ],
+  "exam_traps": [
+   "CONNECT BY PRIOR empno = mgr와 CONNECT BY mgr = PRIOR empno는 같은 의미(PRIOR 위치 기준으로 판단)."
+  ],
+  "comparisons": [
+   "cmp_hier_direction"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0287": {
+  "definition": "계층 전개의 루트(시작) 행을 지정하는 조건.",
+  "why_it_matters": "",
+  "core_rule": [
+   "루트 행 조건",
+   "여러 행이 만족하면 각각 루트가 되어 전개"
+  ],
+  "exam_traps": [
+   "START WITH를 생략하면 모든 행이 루트가 된다."
+  ],
+  "comparisons": [
+   "cmp_hier_filter"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0288": {
+  "definition": "SYS_CONNECT_BY_PATH(열, 구분자) — 루트부터 현재 행까지의 경로를 문자열로 반환.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SYS_CONNECT_BY_PATH(ename, '/')",
+    "explain": "/KING/JONES/SCOTT"
+   }
+  ],
+  "hubs": []
+ },
+ "N0289": {
+  "definition": "계층형 질의의 WHERE는 계층 전개(START WITH/CONNECT BY)가 끝난 뒤 개별 행을 필터링한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_hier_filter"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0290": {
+  "definition": "부모 키가 NULL이거나 더 이상 연결될 행이 없으면 전개가 끝난다(루트 판별에 MGR IS NULL 사용).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0291": {
+  "definition": "자기참조 구조 데이터를 트리 형태로 조회하는 질의(Oracle: START WITH … CONNECT BY).",
+  "why_it_matters": "PRIOR 방향, LEVEL, WHERE 후필터, 의사 컬럼(CONNECT_BY_*)이 현행 6회 출제된 고빈도 단원.",
+  "core_rule": [
+   "부모-자식 탐색은 START WITH와 CONNECT BY/PRIOR의 방향 규칙이 핵심이다.",
+   "START WITH: 루트 지정",
+   "CONNECT BY PRIOR 자식 = 부모 → 순방향(Top-Down)",
+   "CONNECT BY PRIOR 부모 = 자식 → 역방향(Bottom-Up)",
+   "수행 순서: START WITH → CONNECT BY 전개 → WHERE 필터 → (ORDER SIBLINGS BY)"
+  ],
+  "exam_traps": [
+   "WHERE 조건은 전개 후 행 단위로만 적용 — 제외된 노드의 자식은 남는다.",
+   "START WITH를 생략하면 모든 행이 루트가 되어 각각 전개된다.",
+   "일반 ORDER BY를 쓰면 계층 순서가 깨진다 → ORDER SIBLINGS BY."
+  ],
+  "comparisons": [],
+  "dialect_notes": [
+   "SQL Server는 CONNECT BY가 없고 재귀 CTE를 사용."
+  ],
+  "dialects": [
+   "dl_hierarchy"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT LEVEL, LPAD(' ', 2*(LEVEL-1)) || ename AS tree\n  FROM emp\n START WITH mgr IS NULL\nCONNECT BY PRIOR empno = mgr\n ORDER SIBLINGS BY ename;",
+    "explain": "KING(루트, LEVEL 1)부터 부하 직원 방향으로 순방향 전개"
+   }
+  ],
+  "hubs": [
+   {
+    "hub": "계층형 질의",
+    "role": "hierarchy hub",
+    "core_rule": "부모-자식 탐색은 START WITH와 CONNECT BY/PRIOR의 방향 규칙이 핵심이다.",
+    "study_note": "WHERE 후필터와 PRIOR 방향을 별도 규칙으로 기억"
+   }
+  ]
+ },
+ "N0292": {
+  "definition": "WHERE로 제외된 행의 자식은 결과에 남는다(가지치기가 아님). 가지 전체를 자르려면 CONNECT BY 조건에 넣는다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "WHERE: 전개 후 해당 행만 제거(자식 유지)",
+   "CONNECT BY 조건: 해당 노드와 그 하위 전체 제거(가지치기)"
+  ],
+  "exam_traps": [
+   "'WHERE 조건에 걸린 노드의 하위 노드도 함께 제외된다'는 틀린 설명."
+  ],
+  "comparisons": [
+   "cmp_hier_filter"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0293": {
+  "definition": "부모 → 자식(Top-Down) 전개. CONNECT BY PRIOR 자식키(PK) = 부모키(FK), 예: CONNECT BY PRIOR EMPNO = MGR.",
+  "why_it_matters": "",
+  "core_rule": [
+   "PRIOR 자식키 = 부모키",
+   "루트(최상위)부터 리프 방향"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_hier_direction"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0294": {
+  "definition": "자식 → 부모(Bottom-Up) 전개. CONNECT BY PRIOR 부모키(FK) = 자식키(PK), 예: CONNECT BY PRIOR MGR = EMPNO.",
+  "why_it_matters": "",
+  "core_rule": [
+   "PRIOR 부모키 = 자식키",
+   "리프(특정 행)부터 루트 방향"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_hier_direction"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0295": {
+  "definition": "앵커 멤버 UNION ALL 재귀 멤버(자기 자신 참조)로 계층 데이터를 전개하는 CTE. SQL Server의 계층 조회 방법(Oracle도 지원).",
+  "why_it_matters": "",
+  "core_rule": [
+   "WITH cte AS (앵커 SELECT UNION ALL 재귀 SELECT … JOIN cte …)",
+   "재귀 멤버가 0행이면 종료",
+   "SQL Server는 기본 최대 재귀 100(MAXRECURSION)"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [
+   "SQL Server는 CONNECT BY가 없어 계층 조회에 재귀 CTE를 쓴다.",
+   "Oracle 11gR2+도 재귀 WITH를 지원하지만 시험에서는 CONNECT BY가 중심."
+  ],
+  "dialects": [
+   "dl_hierarchy"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0296": {
+  "definition": "조인 조건이 없을 때 두 테이블 행의 모든 조합(M×N행)이 만들어지는 결과.",
+  "why_it_matters": "",
+  "core_rule": [
+   "조인 조건 누락 → M×N행"
+  ],
+  "exam_traps": [
+   "3개 테이블 조인에 조건이 1개뿐이면 일부가 카티션 곱이 된다(N-1 규칙)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0297": {
+  "definition": "카티션 곱을 명시적으로 수행하는 ANSI 조인. ON 절을 쓰지 않는다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "M행 × N행 = M×N행",
+   "ON 절 사용 불가"
+  ],
+  "exam_traps": [
+   "조인 조건을 빠뜨린 일반 조인도 카티션 곱이 된다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0298": {
+  "definition": "등호(=) 조건으로 두 테이블을 연결하는 조인.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0299": {
+  "definition": "양쪽 테이블의 모든 행을 보존(LEFT 결과 ∪ RIGHT 결과, 중복 제거).",
+  "why_it_matters": "",
+  "core_rule": [
+   "LEFT ∪ RIGHT (중복 제거)"
+  ],
+  "exam_traps": [
+   "Oracle (+)로는 양쪽에 동시에 붙일 수 없어 FULL OUTER JOIN을 표현 못 함."
+  ],
+  "comparisons": [
+   "cmp_inner_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_outer_join"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0300": {
+  "definition": "조인 조건을 만족하는 행만 반환하는 조인(JOIN의 기본값).",
+  "why_it_matters": "",
+  "core_rule": [
+   "매칭 행만 반환",
+   "JOIN = INNER JOIN",
+   "INNER JOIN에서는 ON 조건과 WHERE 조건의 결과가 같다"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_inner_outer",
+   "cmp_join_syntax"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0301": {
+  "definition": "두 개 이상의 테이블을 조인 조건으로 연결해 하나의 결과 집합을 만드는 연산.",
+  "why_it_matters": "정규화로 분리된 테이블을 다시 결합하는 핵심 연산. INNER/OUTER/CROSS/NATURAL과 조건 위치 문제로 이어진다.",
+  "core_rule": [
+   "정규화로 분리된 관계를 조인 조건으로 다시 결합한다.",
+   "조인 조건이 없으면 카티션 곱",
+   "N개 테이블 → 최소 N-1개 조인 조건",
+   "같은 이름 컬럼은 테이블명/별칭으로 구분"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "JOIN",
+    "role": "relational hub",
+    "core_rule": "정규화로 분리된 관계를 조인 조건으로 다시 결합한다.",
+    "study_note": "OUTER JOIN은 필터 위치까지 한 묶음으로 학습"
+   }
+  ]
+ },
+ "N0302": {
+  "definition": "왼쪽 테이블의 모든 행을 보존하고 오른쪽에 매칭이 없으면 NULL로 채운다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "A LEFT JOIN B = A의 모든 행 + 매칭되는 B"
+  ],
+  "exam_traps": [
+   "A LEFT JOIN B = B RIGHT JOIN A."
+  ],
+  "comparisons": [
+   "cmp_inner_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_outer_join"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0303": {
+  "definition": "N개 테이블을 빠짐없이 연결하려면 최소 N-1개의 조인 조건이 필요하다는 규칙.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0304": {
+  "definition": "두 테이블의 모든 동일 이름 컬럼으로 자동 등가 조인. 해당 컬럼에 별칭 접두사를 쓸 수 없고 ON/USING과 함께 쓸 수 없다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "모든 동일 이름 컬럼으로 등가 조인",
+   "공통 컬럼은 결과에 한 번만 나옴"
+  ],
+  "exam_traps": [
+   "NATURAL JOIN의 공통 컬럼에 테이블 별칭 접두사(e.deptno)를 붙이면 오류(Oracle).",
+   "NATURAL JOIN과 ON/USING을 함께 쓸 수 없다.",
+   "공통 컬럼이 여러 개면 모두 조건이 된다."
+  ],
+  "comparisons": [
+   "cmp_join_syntax"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0305": {
+  "definition": "= 이외의 조건(BETWEEN, >, < 등)으로 연결하는 조인(예: 급여 등급 테이블).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0306": {
+  "definition": "ANSI JOIN에서 조인 조건을 명시하는 절. 컬럼 이름이 달라도 쓸 수 있고 임의 조건을 넣을 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "조인 조건 명시",
+   "컬럼명이 달라도 사용 가능",
+   "OUTER JOIN에서 비보존 쪽 필터는 ON에"
+  ],
+  "exam_traps": [
+   "ON에 쓴 조건과 WHERE에 쓴 조건은 OUTER JOIN에서 결과가 다르다."
+  ],
+  "comparisons": [
+   "cmp_on_where_outer",
+   "cmp_join_syntax"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0307": {
+  "definition": "ON은 조인 조건(OUTER JOIN 보존 행을 없애지 않음), WHERE는 조인 결과 전체에 대한 후필터라는 차이.",
+  "why_it_matters": "",
+  "core_rule": [
+   "INNER JOIN에서는 ON과 WHERE 조건 결과가 같다",
+   "OUTER JOIN에서는 결과가 달라진다"
+  ],
+  "exam_traps": [
+   "'INNER JOIN에서도 ON과 WHERE의 결과가 다르다'는 틀린 설명."
+  ],
+  "comparisons": [
+   "cmp_on_where_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0308": {
+  "definition": "조인 조건에 맞지 않는 행도 보존 테이블 기준으로 남기고, 반대쪽 컬럼은 NULL로 채우는 조인.",
+  "why_it_matters": "보존 테이블, NULL 채움, 조건 위치(ON vs WHERE)가 한 묶음으로 현행 회차에 반복 출제된다.",
+  "core_rule": [
+   "LEFT: 왼쪽 보존, RIGHT: 오른쪽 보존, FULL: 양쪽 보존",
+   "매칭되지 않은 쪽 컬럼은 NULL",
+   "비보존 테이블 조건은 ON에 두어야 보존 행이 유지된다"
+  ],
+  "exam_traps": [
+   "LEFT JOIN 후 WHERE 오른쪽.col = 값 → 사실상 INNER JOIN.",
+   "COUNT(*)는 NULL 채운 행도 세고 COUNT(오른쪽.col)은 세지 않는다."
+  ],
+  "comparisons": [
+   "cmp_inner_outer"
+  ],
+  "dialect_notes": [
+   "Oracle (+)는 NULL로 채워질 쪽에 붙인다. FULL OUTER JOIN은 (+)로 표현할 수 없다."
+  ],
+  "dialects": [
+   "dl_outer_join"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT d.deptno, e.ename\n  FROM dept d LEFT OUTER JOIN emp e\n    ON d.deptno = e.deptno;",
+    "explain": "사원이 없는 부서(예: 40)도 ename = NULL로 나온다"
+   }
+  ],
+  "hubs": []
+ },
+ "N0309": {
+  "definition": "비보존 테이블 조건을 ON에 두면 조인 전 필터(보존 행 유지), WHERE에 두면 조인 후 필터(보존 행 제거 → 사실상 INNER JOIN)가 된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "비보존 쪽 필터를 ON에 두면 조인 전 적용 → 보존 행 유지",
+   "WHERE에 두면 조인 후 적용 → NULL 채운 행이 걸러짐"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_on_where_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "-- (1) ON에 조건\nSELECT d.deptno, e.ename FROM dept d\n  LEFT JOIN emp e ON d.deptno = e.deptno AND e.job = 'CLERK';\n-- (2) WHERE에 조건\nSELECT d.deptno, e.ename FROM dept d\n  LEFT JOIN emp e ON d.deptno = e.deptno\n WHERE e.job = 'CLERK';",
+    "explain": "(1)은 모든 부서가 나오고 CLERK가 없는 부서는 NULL, (2)는 CLERK가 있는 부서만 나온다"
+   }
+  ],
+  "hubs": []
+ },
+ "N0310": {
+  "definition": "Oracle 전통 문법. 데이터가 없어 NULL로 채워질 쪽 컬럼에 (+)를 붙인다. A.id = B.id(+)는 A LEFT OUTER JOIN B.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULL이 채워질(데이터가 부족한) 쪽 컬럼에 (+)",
+   "WHERE a.id = b.id(+) → a 보존(LEFT)"
+  ],
+  "exam_traps": [
+   "(+)를 양쪽에 붙일 수 없다.",
+   "비보존 테이블의 다른 조건에도 (+)를 붙여야 ON 조건처럼 동작한다(붙이지 않으면 후필터)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_outer_join"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0311": {
+  "definition": "오른쪽 테이블의 모든 행을 보존하고 왼쪽에 매칭이 없으면 NULL로 채운다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "오른쪽 테이블 전부 보존",
+   "A RIGHT JOIN B = B LEFT JOIN A"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_inner_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0312": {
+  "definition": "같은 이름 컬럼으로 등가 조인하는 ANSI 문법. USING 컬럼에는 테이블 별칭을 붙일 수 없다(Oracle).",
+  "why_it_matters": "",
+  "core_rule": [
+   "USING(col) = 같은 이름 컬럼 등가 조인"
+  ],
+  "exam_traps": [
+   "USING에 쓴 컬럼은 SELECT에서 별칭 접두사를 붙일 수 없다(Oracle)."
+  ],
+  "comparisons": [
+   "cmp_join_syntax"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0313": {
+  "definition": "조인한 여러 테이블에 같은 이름의 컬럼이 있을 때 테이블명/별칭 없이 쓰면 발생하는 오류(column ambiguously defined).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0314": {
+  "definition": "OUTER JOIN에서 모든 행이 결과에 남는 쪽 테이블(LEFT의 왼쪽, RIGHT의 오른쪽, FULL은 양쪽).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0315": {
+  "definition": "여러 컬럼으로 된 PK/FK를 조인할 때 모든 컬럼을 조인 조건에 걸어야 하는 규칙(일부만 걸면 중복 발생).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0316": {
+  "definition": "같은 테이블을 서로 다른 별칭으로 두 번 사용해 자기 자신과 조인하는 것(예: 사원-관리자).",
+  "why_it_matters": "",
+  "core_rule": [
+   "같은 테이블에 서로 다른 별칭 두 개",
+   "자기참조 FK(MGR → EMPNO)로 연결"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT e.ename AS 사원, m.ename AS 관리자\n  FROM emp e LEFT JOIN emp m\n    ON e.mgr = m.empno;",
+    "explain": "관리자가 없는 사원(KING)도 남기려면 OUTER JOIN"
+   }
+  ],
+  "hubs": []
+ },
+ "N0317": {
+  "definition": "OUTER JOIN 결과에 이어서 다른 테이블을 조인하는 것. 뒤에 INNER JOIN을 걸면 보존된 행이 사라질 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0318": {
+  "definition": "1:M 조인 후 1쪽 값을 집계하면 그 값이 M번 반복되어 SUM 등이 부풀려지는 현상.",
+  "why_it_matters": "",
+  "core_rule": [
+   "1:M 조인 후 1쪽 컬럼 SUM은 M배가 된다",
+   "집계 후 조인하거나 DISTINCT·서브쿼리로 회피"
+  ],
+  "exam_traps": [
+   "부서 예산을 사원과 조인한 뒤 SUM하면 부서 사원 수만큼 부풀려진다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0319": {
+  "definition": "루트-브랜치-리프 블록으로 구성된 균형 트리 인덱스. 가장 일반적인 인덱스 구조.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0320": {
+  "definition": "SQL Server에서 테이블 데이터를 인덱스 키 순서로 물리 정렬해 저장하는 인덱스(테이블당 1개).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0321": {
+  "definition": "FK 컬럼에 만드는 인덱스. 조인 성능과 부모 삭제 시 잠금 문제를 완화한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0322": {
+  "definition": "테이블의 모든 블록을 처음부터 끝까지 읽는 접근 방식.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0323": {
+  "definition": "해시 함수 결과로 고르게 분산하는 파티셔닝.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0324": {
+  "definition": "Index-Organized Table. 테이블 데이터를 PK 인덱스 구조 안에 함께 저장하는 Oracle 테이블.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0325": {
+  "definition": "인덱스를 통해 필요한 행만 찾아 읽는 접근 방식(Range/Unique/Full/Skip Scan 등).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0326": {
+  "definition": "값 목록(예: 지역 코드)으로 나누는 파티셔닝.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0327": {
+  "definition": "값의 범위(예: 날짜 구간)로 나누는 파티셔닝.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0328": {
+  "definition": "유일 인덱스에 = 조건을 주어 단 한 건을 찾는 인덱스 스캔.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0329": {
+  "definition": "슈퍼/서브타입 변환 방식 중 슈퍼타입과 각 서브타입을 개별 테이블로 만드는 방식(One-to-One).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0330": {
+  "definition": "RBO. 미리 정한 액세스 경로 우선순위 규칙으로 실행계획을 선택하는 옵티마이저.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0331": {
+  "definition": "CBO. 통계 정보로 비용을 추정해 가장 낮은 비용의 실행계획을 선택하는 옵티마이저.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0332": {
+  "definition": "논리 모델의 슈퍼/서브타입을 물리 테이블로 바꾸는 방식 — One-to-One(개별), Plus(서브타입별), Single(통합).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0333": {
+  "definition": "SQL을 수행하기 위해 옵티마이저가 선택한 처리 절차(접근 경로, 조인 순서·방식).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0334": {
+  "definition": "들여쓰기가 깊은 것부터, 같은 깊이에서는 위에서 아래로 읽는다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0335": {
+  "definition": "테이블 데이터를 빠르게 찾기 위한 정렬된 접근 구조(키 값 + 행 위치 ROWID).",
+  "why_it_matters": "",
+  "core_rule": [
+   "검색 성능 향상, DML 성능은 저하될 수 있음"
+  ],
+  "exam_traps": [
+   "인덱스 컬럼을 가공하거나 암시적 형변환이 일어나면 인덱스를 못 탈 수 있다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0336": {
+  "definition": "자주 쓰지 않는 컬럼을 별도 테이블로 나누는 반정규화 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0337": {
+  "definition": "1:1·1:M 관계 테이블을 하나로 합치는 반정규화 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0338": {
+  "definition": "집계 결과를 미리 저장하는 통계 테이블을 추가하는 반정규화 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0339": {
+  "definition": "큰 테이블을 기준값에 따라 여러 파티션으로 나눠 저장하는 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0340": {
+  "definition": "물리적으로 분산된 여러 DB를 하나의 논리 DB처럼 사용하는 시스템.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0341": {
+  "definition": "사용자가 테이블이 여러 조각으로 분할 저장된 사실을 몰라도 되는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0342": {
+  "definition": "사용자가 데이터의 물리적 위치를 몰라도 되는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0343": {
+  "definition": "같은 데이터가 여러 사이트에 복제되어 있어도 사용자는 하나처럼 쓰는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0344": {
+  "definition": "지역 DBMS와 물리 DB 사이의 사상(매핑)이 보장되어 지역 시스템 이름과 무관하게 접근하는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0345": {
+  "definition": "SQL 결과 집합을 한 행씩 처리하기 위한 작업 영역 포인터.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0346": {
+  "definition": "커서를 닫아 자원을 해제하는 단계.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0347": {
+  "definition": "커서 결과 집합에서 한 행씩 변수로 가져오는 단계.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0348": {
+  "definition": "커서의 SELECT를 실행해 결과 집합을 준비하는 단계.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0349": {
+  "definition": "Oracle의 절차적 SQL 확장 언어(변수, 조건문, 반복문, 예외 처리).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0350": {
+  "definition": "블록 안에서 선언한 변수는 그 블록과 내부 블록에서만 유효하다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0351": {
+  "definition": "DECLARE(선언부) - BEGIN(실행부) - EXCEPTION(예외 처리부) - END 구조.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0352": {
+  "definition": "작은 쪽으로 해시 테이블을 만들고(Build) 큰 쪽으로 탐색(Probe)하는 조인. 등가 조인만 가능, 대용량에 유리.",
+  "why_it_matters": "",
+  "core_rule": [
+   "등가 조인만",
+   "작은 테이블로 Build"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0353": {
+  "definition": "HASH JOIN의 두 단계 — Build(작은 입력으로 해시 테이블 생성), Probe(큰 입력으로 탐색).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0354": {
+  "definition": "선행 테이블의 각 행마다 후행 테이블을 반복 탐색하는 조인. 인덱스가 중요하며 소량·OLTP에 유리.",
+  "why_it_matters": "",
+  "core_rule": [
+   "선행 테이블 결과가 적을수록 유리",
+   "랜덤 액세스 위주"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0355": {
+  "definition": "두 집합을 조인 키로 정렬한 뒤 병합하는 조인. 비등가 조인에도 사용 가능.",
+  "why_it_matters": "",
+  "core_rule": [
+   "정렬 부하",
+   "비등가 조인 가능"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0356": {
+  "definition": "물리적 조인 방식 — Nested Loop, Sort Merge, Hash Join.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0357": {
+  "definition": "한 행이 너무 길어 하나의 블록에 담기지 못해 여러 블록에 나뉘어 저장되는 현상.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0358": {
+  "definition": "UPDATE로 행이 커져 원래 블록에 들어가지 못하고 다른 블록으로 옮겨지며 원위치에는 주소만 남는 현상.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0359": {
+  "definition": "성능을 고려해 정규화/반정규화, 테이블 분할, 컬럼 순서, 이력 모델 등을 설계하는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0360": {
+  "definition": "행을 삭제하는 DML. WHERE를 생략하면 모든 행이 삭제되지만 테이블 구조는 남고 ROLLBACK할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "DML — ROLLBACK 가능",
+   "WHERE 생략 시 전체 행 삭제, 구조 유지",
+   "삭제 트리거 동작"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_delete_truncate_drop"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0361": {
+  "definition": "Data Manipulation Language. INSERT, UPDATE, DELETE, MERGE(분류에 따라 SELECT 포함). COMMIT 전까지 ROLLBACK할 수 있다.",
+  "why_it_matters": "DML/DDL/DCL/TCL 분류와 COMMIT·ROLLBACK 가능 여부는 2과목 기본 문제다.",
+  "core_rule": [
+   "INSERT/UPDATE/DELETE/MERGE",
+   "COMMIT 전까지 ROLLBACK 가능",
+   "Oracle은 DML 후 명시적 COMMIT 필요(도구 설정에 따라 다름)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_sql_kinds"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0362": {
+  "definition": "테이블에 행을 추가하는 문장. INSERT INTO t (열…) VALUES (…) 또는 INSERT INTO t SELECT ….",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0363": {
+  "definition": "Oracle 다중 테이블 INSERT. 서브쿼리 각 행에 대해 조건을 만족하는 모든 WHEN 절(또는 무조건 모든 INTO)을 실행한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_insert_all_first"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0364": {
+  "definition": "Oracle 조건부 다중 INSERT. 각 행마다 처음으로 조건을 만족하는 WHEN 절 하나만 실행한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "각 행마다 첫 번째로 만족하는 WHEN 하나만 실행"
+  ],
+  "exam_traps": [
+   "INSERT ALL은 만족하는 모든 WHEN을 실행 → 같은 행이 여러 테이블에 들어갈 수 있다."
+  ],
+  "comparisons": [
+   "cmp_insert_all_first"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "INSERT FIRST\n  WHEN sal >= 3000 THEN INTO high_emp VALUES (empno, sal)\n  WHEN sal >= 1000 THEN INTO mid_emp  VALUES (empno, sal)\n  ELSE INTO low_emp VALUES (empno, sal)\nSELECT empno, sal FROM emp;",
+    "explain": "sal=5000인 행은 high_emp에만 들어간다(INSERT ALL이면 mid_emp에도)"
+   }
+  ],
+  "hubs": []
+ },
+ "N0365": {
+  "definition": "대상 테이블과 소스를 ON 조건으로 비교해 일치하면 UPDATE(/DELETE), 없으면 INSERT하는 문장.",
+  "why_it_matters": "",
+  "core_rule": [
+   "MERGE INTO 대상 USING 소스 ON (조건)",
+   "WHEN MATCHED THEN UPDATE … [DELETE WHERE …]",
+   "WHEN NOT MATCHED THEN INSERT …"
+  ],
+  "exam_traps": [
+   "ON 절에 쓴 컬럼은 UPDATE SET에서 수정할 수 없다(Oracle).",
+   "MERGE DELETE는 UPDATE된 행 중에서만 삭제한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0366": {
+  "definition": "Oracle MERGE의 WHEN MATCHED THEN UPDATE … DELETE WHERE 조건 — UPDATE된 행 중 조건을 만족하는 행을 삭제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0367": {
+  "definition": "MERGE의 WHEN MATCHED THEN UPDATE SET … 절(일치하는 대상 행 수정).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0368": {
+  "definition": "MERGE의 WHEN NOT MATCHED THEN INSERT … 절(대상에 없는 소스 행 입력).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0369": {
+  "definition": "기존 행의 컬럼 값을 수정하는 문장. WHERE를 생략하면 모든 행이 수정된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "WHERE 없는 UPDATE는 모든 행을 수정한다.",
+   "UPDATE t SET col = NULL은 가능(NOT NULL 제약이 없으면)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0370": {
+  "definition": "있으면 UPDATE, 없으면 INSERT하는 동작. SQL에서는 MERGE로 구현한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0371": {
+  "definition": "테이블에 새 컬럼을 추가하는 것. 추가된 컬럼은 맨 뒤에 붙고 기존 행에는 NULL(또는 DEFAULT)이 들어간다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0372": {
+  "definition": "ALTER TABLE t ADD CONSTRAINT 이름 제약 — 제약조건 추가.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0373": {
+  "definition": "기존 객체의 구조를 변경하는 DDL.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0374": {
+  "definition": "SQL Server의 컬럼 변경 문법: ALTER TABLE t ALTER COLUMN 열 자료형.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0375": {
+  "definition": "테이블의 컬럼·제약조건을 추가·변경·삭제하는 DDL.",
+  "why_it_matters": "",
+  "core_rule": [
+   "ADD: 컬럼·제약 추가",
+   "MODIFY(Oracle) / ALTER COLUMN(SQL Server): 컬럼 변경",
+   "DROP COLUMN, RENAME COLUMN, DROP CONSTRAINT"
+  ],
+  "exam_traps": [
+   "Oracle에서 여러 컬럼을 MODIFY할 때는 괄호로 묶는다: MODIFY (c1 …, c2 …).",
+   "데이터가 있는 컬럼의 길이를 기존 데이터보다 작게 줄일 수 없다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0376": {
+  "definition": "ALTER TABLE t ADD (열 자료형) — 컬럼 또는 제약조건 추가.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0377": {
+  "definition": "컬럼 변경 문법 차이 — Oracle은 MODIFY, SQL Server는 ALTER COLUMN.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0378": {
+  "definition": "인덱스를 생성하는 DDL: CREATE [UNIQUE] INDEX 이름 ON 테이블(열…).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0379": {
+  "definition": "테이블을 생성하는 DDL. 컬럼명·자료형·DEFAULT·제약조건을 정의한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0380": {
+  "definition": "Data Definition Language. CREATE, ALTER, DROP, TRUNCATE, RENAME 등 객체 구조를 정의·변경한다.",
+  "why_it_matters": "DDL 종류와 Oracle 자동 커밋, TRUNCATE/DROP/DELETE 비교가 반복 출제된다.",
+  "core_rule": [
+   "CREATE / ALTER / DROP / TRUNCATE / RENAME",
+   "Oracle: DDL 실행 시 자동 COMMIT"
+  ],
+  "exam_traps": [
+   "Oracle에서 DML 후 DDL을 실행하면 앞의 DML까지 COMMIT되어 ROLLBACK할 수 없다."
+  ],
+  "comparisons": [
+   "cmp_sql_kinds"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0381": {
+  "definition": "객체(테이블 등)를 구조와 데이터까지 완전히 삭제하는 DDL.",
+  "why_it_matters": "",
+  "core_rule": [
+   "구조+데이터 삭제"
+  ],
+  "exam_traps": [
+   "다른 테이블의 FK가 참조 중이면 DROP 실패 → CASCADE CONSTRAINTS(Oracle)."
+  ],
+  "comparisons": [
+   "cmp_delete_truncate_drop"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_drop_cascade"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0382": {
+  "definition": "ALTER TABLE t DROP COLUMN 열 — 컬럼 삭제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0383": {
+  "definition": "ALTER TABLE t DROP CONSTRAINT 이름 — 제약조건 삭제.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0384": {
+  "definition": "인덱스를 삭제하는 DDL.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0385": {
+  "definition": "다른 객체가 참조하는 테이블을 DROP할 때의 영향 — FK가 참조하면 오류, 관련 VIEW는 무효화된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_drop_cascade"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0386": {
+  "definition": "SQL Server의 자동 증가 컬럼 속성 IDENTITY(시작, 증가). Oracle 12c+는 GENERATED AS IDENTITY.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [
+   "SQL Server: col INT IDENTITY(1,1)",
+   "Oracle 12c+: col NUMBER GENERATED ALWAYS AS IDENTITY, 이전 버전은 SEQUENCE"
+  ],
+  "dialects": [
+   "dl_identity"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0387": {
+  "definition": "Oracle의 컬럼 변경 문법: ALTER TABLE t MODIFY (열 자료형 [DEFAULT …] [NOT NULL]).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0388": {
+  "definition": "Oracle은 DDL 실행 전후로 자동 COMMIT하므로 이전 DML까지 확정되고 ROLLBACK할 수 없다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "DDL 실행 전 COMMIT, 실행 후 COMMIT"
+  ],
+  "exam_traps": [
+   "INSERT 후 CREATE TABLE을 실행하고 ROLLBACK해도 INSERT는 취소되지 않는다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0389": {
+  "definition": "컬럼 변경(MODIFY vs ALTER COLUMN), 이름 변경(RENAME vs sp_rename), DDL의 트랜잭션 처리 등 두 DBMS의 DDL 문법·동작 차이.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit",
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0390": {
+  "definition": "객체 이름 변경. Oracle: RENAME old TO new / SQL Server: sp_rename.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0391": {
+  "definition": "컬럼 이름 변경. Oracle: ALTER TABLE t RENAME COLUMN a TO b / SQL Server: sp_rename.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alter_column"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0392": {
+  "definition": "SQL Server는 기본 AUTO COMMIT이고 BEGIN TRAN으로 명시적 트랜잭션을 시작하며, 그 안의 DDL도 ROLLBACK할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit",
+   "dl_autocommit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0393": {
+  "definition": "테이블의 모든 행을 삭제하고 저장 공간을 초기화하는 DDL(구조는 유지). WHERE 불가, Oracle에서는 ROLLBACK 불가.",
+  "why_it_matters": "",
+  "core_rule": [
+   "모든 행 삭제 + 저장 공간 초기화",
+   "구조·인덱스·제약은 유지",
+   "WHERE 사용 불가"
+  ],
+  "exam_traps": [
+   "Oracle TRUNCATE는 DDL이라 ROLLBACK 불가.",
+   "SQL Server는 명시적 트랜잭션 안의 TRUNCATE를 ROLLBACK할 수 있다."
+  ],
+  "comparisons": [
+   "cmp_delete_truncate_drop"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0394": {
+  "definition": "테이블에 DML이 발생할 때 자동 실행되는 저장 프로그램. 제약조건으로 표현하기 어려운 무결성 유지에 사용.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0395": {
+  "definition": "부모 변경·삭제나 객체 삭제 시 참조하는 대상까지 함께 처리하는 옵션의 통칭.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0396": {
+  "definition": "Oracle DROP TABLE t CASCADE CONSTRAINTS — t를 참조하는 FK 제약조건을 함께 삭제하고 테이블을 DROP한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "DROP TABLE 부모 CASCADE CONSTRAINTS → 자식의 FK 제약 삭제 후 부모 DROP"
+  ],
+  "exam_traps": [
+   "자식 테이블의 데이터는 삭제되지 않는다(FK 제약만 제거)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_drop_cascade"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0397": {
+  "definition": "참조 제약/종속 객체까지 함께 삭제하는 DROP 옵션(예: DROP TABLE … CASCADE CONSTRAINTS, DROP USER … CASCADE).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_drop_cascade"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0398": {
+  "definition": "CTAS로 만든 테이블에는 원본의 PK(및 FK·UNIQUE·CHECK) 제약조건이 복사되지 않는다(NOT NULL만 복사).",
+  "why_it_matters": "",
+  "core_rule": [
+   "CTAS 결과 테이블에는 PK가 없다 → ALTER TABLE ADD CONSTRAINT로 추가"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ctas"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0399": {
+  "definition": "제약조건·트리거·애플리케이션 로직 등으로 데이터의 정확성·일관성을 유지하는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0400": {
+  "definition": "하나 이상의 테이블로부터 정의된 가상 테이블. SELECT 정의만 저장하고 데이터는 저장하지 않는다.",
+  "why_it_matters": "VIEW의 장점(보안·독립성·편의성)과 의존성, VIEW를 통한 DML 가능 여부가 출제된다.",
+  "core_rule": [
+   "SELECT 정의만 저장, 데이터 없음",
+   "장점: 독립성, 편리성, 보안성",
+   "Oracle은 ALTER VIEW로 정의를 바꿀 수 없음 → CREATE OR REPLACE VIEW"
+  ],
+  "exam_traps": [
+   "VIEW도 조건에 따라 INSERT/UPDATE/DELETE가 가능하다(집계·DISTINCT·GROUP BY 등이 있으면 불가).",
+   "기반 테이블을 DROP하면 VIEW 정의는 남지만 무효 상태가 된다."
+  ],
+  "comparisons": [
+   "cmp_view_table"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0401": {
+  "definition": "VIEW는 기반 테이블에 의존하므로 기반 테이블이 삭제·변경되면 무효(사용 불가)가 된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0402": {
+  "definition": "트랜잭션의 4가지 특성 — 원자성(Atomicity), 일관성(Consistency), 고립성(Isolation), 지속성(Durability).",
+  "why_it_matters": "",
+  "core_rule": [
+   "원자성: All or Nothing",
+   "일관성: 전후 무결성 유지",
+   "고립성: 중간 결과 비공개",
+   "지속성: COMMIT 결과 영구 보존"
+  ],
+  "exam_traps": [
+   "'일관성'과 '고립성' 설명을 바꿔 놓은 선지에 주의."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0403": {
+  "definition": "각 SQL 문이 실행 즉시 자동으로 COMMIT되는 모드. SQL Server의 기본 동작.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [
+   "SQL Server 기본: AUTO COMMIT",
+   "Oracle(SQL*Plus 등): 기본 수동 COMMIT, SET AUTOCOMMIT ON으로 변경"
+  ],
+  "dialects": [
+   "dl_autocommit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0404": {
+  "definition": "트랜잭션의 변경을 영구 반영하고 트랜잭션을 종료한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "변경 영구 반영, 트랜잭션 종료",
+   "COMMIT 후에는 ROLLBACK 불가",
+   "SAVEPOINT는 COMMIT 시 모두 해제"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_tcl"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0405": {
+  "definition": "마지막 COMMIT 이후의 변경을 모두 취소한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "마지막 COMMIT 이후 변경 모두 취소",
+   "잠금 해제"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_tcl"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0406": {
+  "definition": "지정한 저장점 이후의 변경만 취소한다(트랜잭션은 계속 진행 중).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_tcl"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_savepoint"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0407": {
+  "definition": "트랜잭션 안에 저장점을 두어 그 지점까지만 부분 ROLLBACK할 수 있게 한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "SAVEPOINT 이름 → ROLLBACK TO 이름",
+   "ROLLBACK TO 이후에도 트랜잭션은 계속"
+  ],
+  "exam_traps": [
+   "같은 이름의 SAVEPOINT를 다시 만들면 앞의 것은 사라진다(Oracle).",
+   "ROLLBACK(이름 없이)은 SAVEPOINT와 상관없이 전체 취소."
+  ],
+  "comparisons": [
+   "cmp_tcl"
+  ],
+  "dialect_notes": [
+   "Oracle: SAVEPOINT sp1; ROLLBACK TO sp1;",
+   "SQL Server: SAVE TRANSACTION sp1; ROLLBACK TRANSACTION sp1;"
+  ],
+  "dialects": [
+   "dl_savepoint"
+  ],
+  "examples": [
+   {
+    "sql": "INSERT … (A);\nSAVEPOINT s1;\nINSERT … (B);\nROLLBACK TO s1;\nCOMMIT;",
+    "explain": "A만 반영"
+   }
+  ],
+  "hubs": []
+ },
+ "N0408": {
+  "definition": "Transaction Control Language — COMMIT, ROLLBACK, SAVEPOINT.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_tcl",
+   "cmp_sql_kinds"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0409": {
+  "definition": "하나의 논리적 작업 단위를 이루는 연산들의 집합. 모두 반영되거나 모두 취소된다.",
+  "why_it_matters": "ACID, COMMIT/ROLLBACK/SAVEPOINT 결과 추적, DBMS별 자동 커밋 차이가 2과목 단골 문제다.",
+  "core_rule": [
+   "DML 변경은 COMMIT/ROLLBACK 경계 안에서 원자적으로 관리된다.",
+   "시작: 첫 DML(Oracle 암묵적) / BEGIN TRAN(SQL Server 명시적)",
+   "종료: COMMIT 또는 ROLLBACK",
+   "DDL·정상 종료 시 Oracle은 자동 COMMIT"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_autocommit"
+  ],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "Transaction",
+    "role": "state hub",
+    "core_rule": "DML 변경은 COMMIT/ROLLBACK 경계 안에서 원자적으로 관리된다.",
+    "study_note": "Oracle/SQL Server 동작 차이를 메타층에서 연결"
+   }
+  ]
+ },
+ "N0410": {
+  "definition": "실행 중인 트랜잭션의 중간 결과를 다른 트랜잭션이 볼 수 없어야 한다(고립성).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0411": {
+  "definition": "트랜잭션의 연산은 모두 수행되거나 전혀 수행되지 않아야 한다(All or Nothing).",
+  "why_it_matters": "",
+  "core_rule": [
+   "All or Nothing",
+   "COMMIT/ROLLBACK으로 보장"
+  ],
+  "exam_traps": [
+   "'일부 연산만 반영될 수 있다'는 원자성 위반."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0412": {
+  "definition": "트랜잭션 수행 전후에 데이터베이스가 무결성 제약을 만족하는 일관된 상태여야 한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0413": {
+  "definition": "COMMIT된 결과는 장애가 나도 영구히 보존되어야 한다(영속성).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0414": {
+  "definition": "Data Control Language — GRANT(권한 부여), REVOKE(권한 회수).",
+  "why_it_matters": "GRANT/REVOKE 문법, WITH GRANT OPTION 연쇄 회수, ROLE 사용은 현행 3회 출제.",
+  "core_rule": [
+   "GRANT 권한 ON 객체 TO 사용자",
+   "REVOKE 권한 ON 객체 FROM 사용자"
+  ],
+  "exam_traps": [
+   "REVOKE는 TO가 아니라 FROM."
+  ],
+  "comparisons": [
+   "cmp_sql_kinds"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0415": {
+  "definition": "GRANT 권한 ON 객체 TO 사용자 [WITH GRANT OPTION] — 권한 부여.",
+  "why_it_matters": "",
+  "core_rule": [
+   "GRANT SELECT, INSERT ON emp TO scott [WITH GRANT OPTION]",
+   "GRANT CREATE SESSION TO scott [WITH ADMIN OPTION]",
+   "PUBLIC에게 부여 가능"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0416": {
+  "definition": "WITH GRANT OPTION — 받은 객체 권한을 다른 사용자에게 다시 부여할 수 있게 하는 옵션.",
+  "why_it_matters": "",
+  "core_rule": [
+   "GRANT … TO u WITH GRANT OPTION",
+   "u가 다른 사용자에게 같은 객체 권한을 재부여 가능"
+  ],
+  "exam_traps": [
+   "WITH GRANT OPTION으로 재부여된 권한은 원 권한이 REVOKE되면 연쇄 회수된다."
+  ],
+  "comparisons": [
+   "cmp_grant_admin"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_grant"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0417": {
+  "definition": "REVOKE 권한 ON 객체 FROM 사용자 — 권한 회수.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "WITH GRANT OPTION으로 재부여한 객체 권한은 연쇄 회수된다."
+  ],
+  "comparisons": [
+   "cmp_grant_admin"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_grant"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0418": {
+  "definition": "ANSI 회수 옵션. 회수 대상 권한으로 재부여한 권한이 있으면 REVOKE를 거부한다(CASCADE는 함께 회수).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_grant"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0419": {
+  "definition": "여러 권한을 묶은 객체. CREATE ROLE → 권한을 ROLE에 GRANT → ROLE을 사용자에게 GRANT.",
+  "why_it_matters": "",
+  "core_rule": [
+   "CREATE ROLE r; GRANT 권한 TO r; GRANT r TO 사용자",
+   "권한 관리 단순화"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0420": {
+  "definition": "GRANT 문에서 권한을 받을 사용자·롤을 지정하는 키워드(REVOKE는 FROM).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0421": {
+  "definition": "객체 권한의 하나. 특정 컬럼에만 부여할 수도 있다(GRANT UPDATE(sal) ON emp TO u).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0422": {
+  "definition": "특정 객체(테이블 등)에 대한 SELECT, INSERT, UPDATE, DELETE, REFERENCES 등의 권한.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_grant_admin"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0423": {
+  "definition": "WITH GRANT OPTION으로 재부여된 객체 권한은 원 부여자의 권한이 회수되면 연쇄적으로 회수된다(WITH ADMIN OPTION 시스템 권한은 연쇄 회수되지 않음).",
+  "why_it_matters": "",
+  "core_rule": [
+   "WITH GRANT OPTION(객체 권한): A→B→C 부여 후 A가 B의 권한 회수 시 C 권한도 회수",
+   "WITH ADMIN OPTION(시스템 권한): 연쇄 회수되지 않음"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_grant_admin"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_grant"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0424": {
+  "definition": "CREATE TABLE, CREATE SESSION처럼 DB 전체 작업에 대한 권한. WITH ADMIN OPTION으로 재부여를 허용한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_grant_admin"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0425": {
+  "definition": "SELECT 문의 논리적 평가 순서: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY. 작성 순서와 다르다.",
+  "why_it_matters": "별칭을 어디서 쓸 수 있는지, WHERE에 집계함수를 못 쓰는 이유, ORDER BY가 SELECT 별칭을 쓸 수 있는 이유가 모두 이 순서 하나로 설명된다.",
+  "core_rule": [
+   "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY가 별칭·집계 허용범위를 설명한다.",
+   "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
+   "작성 순서(SELECT부터)와 논리 실행 순서는 다르다",
+   "앞 단계는 뒤 단계에서 만든 것(별칭, 집계)을 볼 수 없다"
+  ],
+  "exam_traps": [
+   "WHERE에서 SELECT 별칭 사용 불가, ORDER BY에서는 사용 가능.",
+   "WHERE에서 집계함수 사용 불가 → HAVING 사용.",
+   "실행 순서(HAVING이 SELECT보다 먼저)는 '학습 순서'가 아니다 — 학습은 SELECT부터."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT deptno, SUM(sal) AS total\n  FROM emp\n WHERE sal > 1000\n GROUP BY deptno\nHAVING SUM(sal) > 5000\n ORDER BY total DESC;",
+    "explain": "평가: FROM emp → WHERE sal>1000 → GROUP BY deptno → HAVING SUM(sal)>5000 → SELECT(별칭 total 생성) → ORDER BY total"
+   }
+  ],
+  "hubs": [
+   {
+    "hub": "SQL 논리 실행 순서",
+    "role": "execution hub",
+    "core_rule": "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY가 별칭·집계 허용범위를 설명한다.",
+    "study_note": "문법 작성순서와 논리 실행순서를 분리"
+   }
+  ],
+  "execution_order": [
+   {
+    "edge": "HAVING → SELECT",
+    "note": "원본 근거가 '논리적 실행 순서'(FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY)이다. 이는 평가 순서이지 학습 선수관계가 아니다. 학습상으로는 SELECT를 먼저 알아야 WHERE·GROUP BY·HAVING을 배울 수 있으므로, 이 edge를 DAG에 넣으면 SELECT→WHERE→GROUP BY→HAVING→SELECT cycle이 생긴다. 'SQL 논리 실행 순서' 노드의 execution_order 규칙 metadata로 이동한다."
+   },
+   {
+    "edge": "WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
+    "note": "17_KG_Edges PRECEDES 체인(논리적 실행 순서)"
+   }
+  ]
+ },
+ "N0426": {
+  "definition": "처리 절차(How)를 기술하지 않고 원하는 결과만 기술하는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0427": {
+  "definition": "무엇(What)을 원하는지만 선언하면 실행 방법은 DBMS(옵티마이저)가 결정한다는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0428": {
+  "definition": "한 행씩이 아니라 행의 집합 단위로 데이터를 처리하는 성질.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0429": {
+  "definition": "관계형 데이터베이스를 다루는 표준 언어로, 선언적·비절차적·집합적 특징을 가진다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0430": {
+  "definition": "컬럼 또는 테이블에 붙이는 별칭. 컬럼 별칭은 AS(생략 가능) 뒤에 쓴다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "컬럼 별칭: 컬럼 [AS] 별칭",
+   "공백·특수문자·대소문자 유지 시 큰따옴표",
+   "Oracle 테이블 별칭에는 AS 불가"
+  ],
+  "exam_traps": [
+   "별칭은 WHERE·GROUP BY에서 쓸 수 없고 ORDER BY에서는 쓸 수 있다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alias"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0431": {
+  "definition": "입력 값이 지정한 조건을 만족하도록 제한하는 제약조건. 조건 결과가 UNKNOWN(NULL)이면 통과한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "조건이 FALSE면 거부, TRUE·UNKNOWN이면 허용"
+  ],
+  "exam_traps": [
+   "CHECK (sal > 0)인 컬럼에도 NULL은 들어간다 — 막으려면 NOT NULL 추가."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0432": {
+  "definition": "CREATE TABLE … AS SELECT. SELECT 결과로 테이블을 만든다. 컬럼 구조와 데이터는 복사되지만 제약조건은 NOT NULL만 복사된다.",
+  "why_it_matters": "CTAS로 복사되는 것과 복사되지 않는 것(제약조건)이 현행 2회 이상 출제.",
+  "core_rule": [
+   "CREATE TABLE 새테이블 AS SELECT …",
+   "컬럼·자료형·데이터 복사",
+   "제약조건은 NOT NULL만 복사"
+  ],
+  "exam_traps": [
+   "PK·FK·UNIQUE·CHECK·DEFAULT·인덱스는 복사되지 않는다.",
+   "구조만 복사하려면 WHERE 1 = 2.",
+   "SQL Server는 CTAS 대신 SELECT … INTO 새테이블 FROM …."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ctas"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0433": {
+  "definition": "INSERT 시 값을 지정하지 않으면 들어가는 컬럼 기본값.",
+  "why_it_matters": "",
+  "core_rule": [
+   "INSERT 시 컬럼 생략 또는 DEFAULT 키워드 사용 시 적용",
+   "명시적으로 NULL을 넣으면 DEFAULT가 아니라 NULL이 들어감"
+  ],
+  "exam_traps": [
+   "INSERT INTO t(col) VALUES (NULL)은 DEFAULT 값을 쓰지 않는다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0434": {
+  "definition": "ALTER TABLE로 DEFAULT 값을 바꾸는 것. 이미 입력된 행에는 영향이 없고 이후 INSERT부터 적용된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "DEFAULT를 바꿔도 기존 행 값은 바뀌지 않는다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0435": {
+  "definition": "SELECT 결과에서 중복 행을 제거하는 키워드. 지정한 모든 컬럼의 조합 기준으로 판단한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "SELECT 바로 뒤에 한 번만 사용",
+   "지정한 모든 컬럼 조합 기준 중복 제거",
+   "NULL끼리는 같은 값으로 취급"
+  ],
+  "exam_traps": [
+   "SELECT DISTINCT a, b는 a만이 아니라 (a, b) 조합 기준으로 중복을 제거한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0436": {
+  "definition": "값이 목록 중 하나와 같으면 TRUE. 여러 OR 등호 조건의 축약형.",
+  "why_it_matters": "",
+  "core_rule": [
+   "col IN (a, b) = col = a OR col = b",
+   "목록의 NULL은 어떤 값과도 일치하지 않음"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0437": {
+  "definition": "테이블에서 데이터를 조회하는 문장. SELECT 열 FROM 테이블 [WHERE] [GROUP BY] [HAVING] [ORDER BY].",
+  "why_it_matters": "모든 SQL 단원의 출발점. 현행 증거는 '단독 문제'가 아니라 다른 Concept 문제 속에 녹아 있다.",
+  "core_rule": [
+   "SELECT 목록 → FROM → [WHERE] → [GROUP BY] → [HAVING] → [ORDER BY] 순으로 작성"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0438": {
+  "definition": "컬럼 값의 중복을 금지하는 제약조건. NULL은 허용된다(Oracle은 여러 NULL, SQL Server는 NULL 하나).",
+  "why_it_matters": "",
+  "core_rule": [
+   "중복 금지, NULL 허용",
+   "테이블에 여러 개 가능"
+  ],
+  "exam_traps": [
+   "PK와 달리 NULL을 허용한다."
+  ],
+  "comparisons": [
+   "cmp_pk_unique"
+  ],
+  "dialect_notes": [
+   "Oracle: UNIQUE 컬럼에 NULL 여러 개 가능 / SQL Server: UNIQUE 제약 컬럼에 NULL은 하나만"
+  ],
+  "dialects": [
+   "dl_unique_null"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0439": {
+  "definition": "UNIQUE 제약을 지정하는 키워드. (Oracle에서는 SELECT UNIQUE가 DISTINCT와 같은 의미로도 쓰인다.)",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0440": {
+  "definition": "테이블·컬럼명은 문자로 시작, 문자·숫자·_·$·# 사용, 길이 제한(Oracle 30바이트, 12.2+ 128), 예약어 불가, 같은 소유자 내 중복 불가.",
+  "why_it_matters": "",
+  "core_rule": [
+   "문자로 시작",
+   "A-Z, a-z, 0-9, _, $, # 사용",
+   "예약어 불가",
+   "같은 소유자 안에서 중복 불가"
+  ],
+  "exam_traps": [
+   "숫자로 시작하는 테이블명(예: 1EMP)은 큰따옴표 없이 만들 수 없다.",
+   "하이픈(-)은 사용할 수 없다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0441": {
+  "definition": "조건을 만족하는 행이 하나도 없는 결과(0행). 이때 집계·스칼라 서브쿼리가 무엇을 반환하는지가 시험 함정이다.",
+  "why_it_matters": "0행 상황에서 집계·스칼라 서브쿼리·NOT IN의 반환값이 현행 회차에서 반복 출제(3회).",
+  "core_rule": [
+   "GROUP BY 없는 집계 + 0행 → 1행 반환(COUNT=0, 나머지 NULL)",
+   "GROUP BY 있는 집계 + 0행 → 0행",
+   "스칼라 서브쿼리 결과가 0행이면 NULL"
+  ],
+  "exam_traps": [
+   "SELECT SUM(sal) FROM emp WHERE 1=2 → NULL 1행 (0행이 아님)",
+   "SELECT COUNT(*) FROM emp WHERE 1=2 → 0 (NULL 아님)"
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0442": {
+  "definition": "ROUND(날짜[, 단위]) — 날짜를 지정 단위로 반올림(기본 일 단위, 정오 기준; 'MM'은 16일 기준).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0443": {
+  "definition": "TRUNC(날짜[, 단위]) — 날짜를 지정 단위로 절삭(기본은 시각 제거 → 그날 00:00:00; 'MM'은 그 달 1일).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0444": {
+  "definition": "CHAR끼리는 짧은 쪽에 공백을 채워 비교(공백 패딩 비교), VARCHAR가 섞이면 공백까지 그대로 비교(비패딩 비교)한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "CHAR vs CHAR: 공백 패딩 비교 → 'A' = 'A  ' TRUE",
+   "VARCHAR가 포함되면 비패딩 비교 → 'A' ≠ 'A  '"
+  ],
+  "exam_traps": [
+   "같아 보이는 두 문자열도 VARCHAR 비교에서는 후행 공백 때문에 다르다."
+  ],
+  "comparisons": [
+   "cmp_char_varchar"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0445": {
+  "definition": "데이터 무결성을 보장하기 위해 컬럼·테이블에 거는 규칙 — PK, FK, UNIQUE, NOT NULL, CHECK.",
+  "why_it_matters": "제약조건 종류별 NULL·중복 허용 여부와 CTAS 상속, CHECK의 NULL 통과가 출제된다.",
+  "core_rule": [
+   "PK: UNIQUE + NOT NULL, 1개",
+   "UNIQUE: 중복 불가, NULL 허용",
+   "NOT NULL: NULL 불가",
+   "CHECK: 조건 만족",
+   "FK: 부모 PK/UNIQUE 참조"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_pk_unique"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0446": {
+  "definition": "큰따옴표 없는 별칭은 대문자로 처리(Oracle)되며, 공백·특수문자·대소문자를 유지하려면 큰따옴표가 필요하다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0447": {
+  "definition": "FROM 절 테이블에 붙이는 별칭. Oracle에서는 테이블 별칭 앞에 AS를 쓸 수 없다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "FROM t a 형태",
+   "별칭을 지정하면 그 문장에서는 원래 테이블명 대신 별칭을 써야 함(Oracle)"
+  ],
+  "exam_traps": [
+   "Oracle에서 FROM emp AS e는 오류(테이블 별칭에 AS 불가).",
+   "별칭을 붙인 뒤 emp.ename처럼 원래 테이블명으로 참조하면 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_alias"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0448": {
+  "definition": "고정 길이 문자형. 지정 길이보다 짧은 값은 뒤를 공백으로 채운다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "고정 길이, 남는 자리를 공백으로 채움",
+   "CHAR끼리 비교는 짧은 쪽에 공백을 붙여 비교"
+  ],
+  "exam_traps": [
+   "CHAR(5)에 'AB' 저장 → 'AB   ' (LENGTH = 5)."
+  ],
+  "comparisons": [
+   "cmp_char_varchar"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0449": {
+  "definition": "CHAR(n)에 짧은 값을 넣으면 뒤에 공백이 채워져 길이가 n이 되고, 비교 시 공백 패딩 규칙이 적용된다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_char_varchar"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0450": {
+  "definition": "날짜형. Oracle DATE는 연·월·일과 시·분·초까지 저장한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_now"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0451": {
+  "definition": "숫자형. Oracle NUMBER(p,s), SQL Server NUMERIC/DECIMAL(p,s). p=전체 자릿수, s=소수 자릿수.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0452": {
+  "definition": "가변 길이 문자형(Oracle은 VARCHAR2). 입력한 길이만큼만 저장한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_char_varchar"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0453": {
+  "definition": "변환 함수(TO_CHAR, TO_NUMBER, TO_DATE, CAST, CONVERT)로 사용자가 직접 자료형을 바꾸는 것.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_date_format"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0454": {
+  "definition": "문자열 안의 작은따옴표는 두 번('') 써서 표현한다(예: 'It''s').",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0455": {
+  "definition": "DBMS가 자동으로 자료형을 변환하는 것. Oracle은 문자와 숫자를 비교할 때 문자를 숫자로 변환한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: 문자 vs 숫자 비교 시 문자를 숫자로 변환",
+   "날짜와 문자 비교 시 문자를 날짜로 변환(NLS 포맷 의존)"
+  ],
+  "exam_traps": [
+   "WHERE char_col = 100 은 char_col에 숫자로 바꿀 수 없는 값이 있으면 오류(ORA-01722).",
+   "인덱스 컬럼에 암시적 형변환이 일어나면 인덱스를 사용하지 못할 수 있다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0456": {
+  "definition": "컬럼이 저장할 수 있는 값의 종류(문자형, 숫자형, 날짜형 등).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0457": {
+  "definition": "ALTER TABLE로 컬럼 자료형·길이를 바꾸는 것. 데이터가 있으면 길이 축소·타입 변경에 제약이 있다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0458": {
+  "definition": "DISTINCT는 여러 NULL을 같은 값으로 보아 하나만 남긴다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0459": {
+  "definition": "GROUP BY는 NULL 값들을 하나의 그룹으로 묶는다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0460": {
+  "definition": "col IN (1, NULL)은 col = 1 OR col = NULL이므로 NULL 항목은 어떤 행과도 일치하지 않는다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "IN 목록의 NULL은 무시되는 것과 같다(어떤 행과도 일치하지 않음)"
+  ],
+  "exam_traps": [
+   "WHERE col IN (NULL)은 col이 NULL인 행도 반환하지 않는다."
+  ],
+  "comparisons": [
+   "cmp_in_exists"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0461": {
+  "definition": "값이 NULL이 아닌지 판별하는 연산자.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0462": {
+  "definition": "값이 NULL인지 판별하는 연산자. NULL 판별에는 = NULL이 아니라 IS NULL을 써야 한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULL 판별은 반드시 IS NULL / IS NOT NULL"
+  ],
+  "exam_traps": [
+   "DECODE는 NULL끼리 같다고 보지만 = 비교는 그렇지 않다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0463": {
+  "definition": "컬럼에 NULL 입력을 금지하는 제약조건(IS NOT NULL 조건식과 구분).",
+  "why_it_matters": "",
+  "core_rule": [
+   "컬럼 레벨에서만 정의(Oracle)",
+   "CTAS에서 유일하게 복사되는 제약"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0464": {
+  "definition": "값이 없거나 알 수 없는 상태. 0이나 공백 문자와 다르며, 비교·연산·집계에서 특수하게 동작한다.",
+  "why_it_matters": "SQLD에서 가장 여러 단원(WHERE·집계·JOIN·정렬·함수·방언)을 가로지르는 허브. 함정 문제의 절반 이상이 NULL에서 나온다.",
+  "core_rule": [
+   "NULL은 값이 아니라 '알 수 없음' 상태로 3값 논리를 만든다.",
+   "NULL 비교 결과는 TRUE/FALSE가 아니라 UNKNOWN이 될 수 있다",
+   "WHERE·HAVING·ON은 TRUE인 행만 통과시킨다",
+   "NULL 판별은 IS NULL / IS NOT NULL",
+   "NULL이 산술 연산에 들어가면 결과도 NULL",
+   "집계 함수는 NULL을 무시한다(COUNT(*) 제외)"
+  ],
+  "exam_traps": [
+   "NULL = NULL은 TRUE가 아니다(UNKNOWN).",
+   "NOT IN (…, NULL)은 항상 0행.",
+   "COUNT(col)은 NULL을 제외한다 — COUNT(*)와 결과가 다를 수 있다.",
+   "NULL이 산술 연산에 들어가면 결과도 NULL(SAL + COMM이 NULL).",
+   "AVG(col)은 NULL 행을 분모에서도 제외한다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [
+   "Oracle은 빈 문자열('')을 NULL로 처리, SQL Server는 별개 값.",
+   "Oracle은 NULL을 가장 큰 값으로 정렬(ASC 마지막), SQL Server는 가장 작은 값(ASC 처음)."
+  ],
+  "dialects": [
+   "dl_empty_string"
+  ],
+  "examples": [
+   {
+    "sql": "SELECT COUNT(*), COUNT(comm), AVG(comm) FROM emp;",
+    "explain": "comm이 NULL인 행은 COUNT(comm)과 AVG(comm)의 분자·분모 모두에서 빠진다"
+   },
+   {
+    "sql": "SELECT * FROM emp WHERE comm = NULL;",
+    "explain": "항상 0행 — IS NULL을 써야 한다"
+   }
+  ],
+  "hubs": [
+   {
+    "hub": "NULL",
+    "role": "cross-cutting hub",
+    "core_rule": "NULL은 값이 아니라 '알 수 없음' 상태로 3값 논리를 만든다.",
+    "study_note": "SQLD에서 가장 여러 단원을 가로지르는 허브로 취급"
+   }
+  ]
+ },
+ "N0465": {
+  "definition": "NULL을 =, <>, > 등으로 비교하면 결과는 TRUE/FALSE가 아니라 UNKNOWN이다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "col = NULL, col <> NULL → UNKNOWN",
+   "UNKNOWN 행은 WHERE에서 제외"
+  ],
+  "exam_traps": [
+   "WHERE col <> 10 은 col이 NULL인 행을 포함하지 않는다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0466": {
+  "definition": "NULL이 포함된 사칙연산의 결과는 NULL이다(예: 100 + NULL = NULL).",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULL + 1 = NULL, NULL * 0 = NULL",
+   "NULL을 0으로 보고 계산하려면 NVL/COALESCE로 치환"
+  ],
+  "exam_traps": [
+   "SAL + COMM에서 COMM이 NULL인 사원은 결과가 NULL → NVL(COMM, 0) 필요."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0467": {
+  "definition": "ORDER BY에서 NULL이 어디에 오는지는 DBMS마다 다르다(Oracle: 가장 큰 값, SQL Server: 가장 작은 값).",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: NULL이 가장 큼 → ASC 마지막 / DESC 처음",
+   "SQL Server: NULL이 가장 작음 → ASC 처음 / DESC 마지막",
+   "Oracle은 NULLS FIRST / NULLS LAST로 위치 지정 가능"
+  ],
+  "exam_traps": [
+   "SQL Server에는 NULLS FIRST/LAST 문법이 없다(CASE 정렬로 우회)."
+  ],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0468": {
+  "definition": "Oracle ORDER BY 옵션. NULL을 정렬 결과의 맨 앞에 둔다(SQL Server 미지원).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0469": {
+  "definition": "Oracle ORDER BY 옵션. NULL을 정렬 결과의 맨 뒤에 둔다(SQL Server 미지원).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0470": {
+  "definition": "Oracle은 NULL을 가장 큰 값으로 취급 → ASC에서 마지막, DESC에서 처음.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0471": {
+  "definition": "SQL Server는 NULL을 가장 작은 값으로 취급 → ASC에서 처음, DESC에서 마지막.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0472": {
+  "definition": "3값 논리(TRUE/FALSE/UNKNOWN)의 세 번째 값. WHERE·HAVING·ON은 TRUE인 행만 통과시킨다.",
+  "why_it_matters": "NOT IN + NULL, CHECK 제약 통과, OUTER JOIN 필터 등 NULL 함정의 공통 원리.",
+  "core_rule": [
+   "TRUE AND UNKNOWN = UNKNOWN, FALSE AND UNKNOWN = FALSE",
+   "TRUE OR UNKNOWN = TRUE, FALSE OR UNKNOWN = UNKNOWN",
+   "NOT UNKNOWN = UNKNOWN",
+   "WHERE/HAVING/ON은 TRUE만 통과, CHECK 제약은 FALSE만 거부(UNKNOWN 통과)"
+  ],
+  "exam_traps": [
+   "CHECK (sal > 0) 컬럼에 NULL은 입력된다(UNKNOWN은 거부되지 않음)."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0473": {
+  "definition": "Oracle은 ''(길이 0 문자열)을 NULL로 저장·처리한다. SQL Server는 ''과 NULL을 구분한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: '' 는 NULL",
+   "SQL Server: '' 는 길이 0인 일반 문자열"
+  ],
+  "exam_traps": [
+   "Oracle에서 WHERE col = '' 는 항상 0행(col = NULL과 같음).",
+   "Oracle에서 LENGTH('')는 NULL."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_empty_string"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0474": {
+  "definition": "두 조건이 모두 TRUE일 때 TRUE. FALSE AND UNKNOWN = FALSE, TRUE AND UNKNOWN = UNKNOWN.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0475": {
+  "definition": "논리 연산자 우선순위는 NOT > AND > OR. 괄호가 없으면 AND가 OR보다 먼저 평가된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NOT > AND > OR",
+   "괄호로 우선순위를 명시하는 것이 안전"
+  ],
+  "exam_traps": [
+   "WHERE a = 1 OR b = 2 AND c = 3 은 a = 1 OR (b = 2 AND c = 3)으로 해석된다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0476": {
+  "definition": "BETWEEN a AND b는 a 이상 b 이하(>= a AND <= b)를 뜻한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "BETWEEN a AND b = (>= a AND <= b), 양 끝 포함",
+   "a > b면 결과 0행"
+  ],
+  "exam_traps": [
+   "NOT BETWEEN a AND b = (< a OR > b).",
+   "DATE 컬럼 BETWEEN은 종료일의 00:00:00까지만 포함."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0477": {
+  "definition": "BETWEEN은 양쪽 경계값을 모두 포함하며, a > b로 쓰면 결과가 없다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0478": {
+  "definition": "값이 목록과 일치(IN) 또는 불일치(NOT IN)하는지 판단하는 조건 묶음.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0479": {
+  "definition": "와일드카드 패턴으로 문자열을 비교하는 연산자.",
+  "why_it_matters": "",
+  "core_rule": [
+   "% = 0개 이상 문자, _ = 정확히 1문자",
+   "와일드카드 없는 LIKE는 = 와 같다"
+  ],
+  "exam_traps": [
+   "LIKE '_A%'는 두 번째 글자가 A인 문자열.",
+   "% 자체를 찾으려면 ESCAPE 필요."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_like"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0480": {
+  "definition": "% 또는 _ 문자 자체를 찾을 때 ESCAPE로 이스케이프 문자를 지정한다(예: LIKE '%#_%' ESCAPE '#').",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT * FROM t WHERE code LIKE 'A#_%' ESCAPE '#';",
+    "explain": "'A_'로 시작하는 문자열(밑줄 자체를 문자로 취급)"
+   }
+  ],
+  "hubs": []
+ },
+ "N0481": {
+  "definition": "LIKE 오른쪽에 상수가 아니라 컬럼·식(예: name LIKE prefix || '%')을 쓰는 형태.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0482": {
+  "definition": "조건의 논리값을 반전. NOT UNKNOWN = UNKNOWN.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0483": {
+  "definition": "값이 목록의 어떤 값과도 같지 않으면 TRUE. 목록에 NULL이 있으면 결과가 항상 FALSE/UNKNOWN이 되어 0행이 된다.",
+  "why_it_matters": "NOT IN + NULL은 SQLD 대표 함정. 현행 회차에서 서브쿼리와 결합해 반복 출제된다.",
+  "core_rule": [
+   "col NOT IN (a, b) = col <> a AND col <> b",
+   "목록/서브쿼리 결과에 NULL이 하나라도 있으면 col <> NULL이 UNKNOWN → 전체가 UNKNOWN 또는 FALSE"
+  ],
+  "exam_traps": [
+   "NOT IN (1, 2, NULL)은 항상 0행.",
+   "NOT IN 서브쿼리 결과에 NULL이 섞이면 0행 → NOT EXISTS 또는 IS NOT NULL 조건으로 회피.",
+   "col 자체가 NULL인 행도 NOT IN 결과에 나오지 않는다."
+  ],
+  "comparisons": [
+   "cmp_in_exists"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT ename FROM emp\n WHERE empno NOT IN (SELECT mgr FROM emp);",
+    "explain": "mgr 컬럼에 NULL(최상위 관리자)이 있으면 결과는 0행"
+   }
+  ],
+  "hubs": []
+ },
+ "N0484": {
+  "definition": "두 조건 중 하나라도 TRUE면 TRUE. TRUE OR UNKNOWN = TRUE, FALSE OR UNKNOWN = UNKNOWN.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0485": {
+  "definition": "SQL Server에서 SELECT 결과로 새 테이블을 만드는 문법(Oracle CTAS에 대응). PL/SQL에서는 조회 값을 변수에 담는 구문.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ctas"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0486": {
+  "definition": "WHERE는 SELECT보다 먼저 평가되므로 SELECT 절의 컬럼 별칭을 WHERE에서 사용할 수 없다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "WHERE는 SELECT보다 먼저 평가 → 별칭이 아직 없다"
+  ],
+  "exam_traps": [
+   "SELECT sal*12 AS annual FROM emp WHERE annual > 30000 → 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0487": {
+  "definition": "SQL Server LIKE는 [abc], [a-z], [^a] 같은 문자 집합 패턴을 지원한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_like"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0488": {
+  "definition": "FROM에서 읽은 행 중 조건식이 TRUE인 행만 남기는 행 필터 절.",
+  "why_it_matters": "행 필터의 기본이며 NULL·IN·LIKE·BETWEEN·서브쿼리 등 대부분의 조건 문제가 WHERE에서 나온다.",
+  "core_rule": [
+   "조건이 TRUE인 행만 통과(FALSE·UNKNOWN 제외)",
+   "집계 함수·SELECT 별칭 사용 불가"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_where_having"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0489": {
+  "definition": "BETWEEN '2024-01-01' AND '2024-01-31'은 31일 00:00:00까지만 포함해 31일의 나머지 시각을 누락하는 함정.",
+  "why_it_matters": "",
+  "core_rule": [
+   "DATE에는 시각이 포함된다",
+   "종료일 포함 조회는 '< 종료일 + 1' 또는 TRUNC 사용"
+  ],
+  "exam_traps": [
+   "BETWEEN TO_DATE('20240101','YYYYMMDD') AND TO_DATE('20240131','YYYYMMDD')는 1월 31일 09:00 데이터를 누락."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0490": {
+  "definition": "dt >= 시작일 AND dt < 종료일+1 형태로 끝 경계를 열어 두는 안전한 날짜 조건.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0491": {
+  "definition": "DATE 컬럼에 기간 조건을 거는 것. 시·분·초가 포함되어 있어 경계 처리가 핵심이다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0492": {
+  "definition": "산술 → 연결(||) → 비교 → IS NULL·LIKE·IN → BETWEEN → NOT → AND → OR 순으로 평가된다(괄호 우선).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0493": {
+  "definition": "LIKE의 패턴 문자. %는 0개 이상의 임의 문자, _는 정확히 1개의 임의 문자.",
+  "why_it_matters": "",
+  "core_rule": [
+   "% : 0개 이상 임의 문자",
+   "_ : 정확히 1개 임의 문자"
+  ],
+  "exam_traps": [
+   "LIKE 'A%'는 'A' 자체도 포함(% = 0개 이상).",
+   "LIKE '__'는 정확히 두 글자."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_like"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0494": {
+  "definition": "(col1, col2) IN ((1,'A'),(2,'B'))처럼 여러 컬럼을 묶어 비교. Oracle은 지원, SQL Server는 미지원.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_row_in"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0495": {
+  "definition": "오름차순 정렬(기본값).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0496": {
+  "definition": "내림차순 정렬.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0497": {
+  "definition": "결과 행을 정렬하는 절. 기본은 ASC이며 논리적으로 가장 마지막에 수행된다.",
+  "why_it_matters": "정렬 규칙(별칭·순서번호·NULL 위치·다중 키)은 Top-N, 윈도우 함수, 집합 연산자 문제의 전제이다.",
+  "core_rule": [
+   "기본 ASC",
+   "컬럼명·별칭·순서번호·표현식 사용 가능",
+   "SELECT에 없는 컬럼으로도 정렬 가능(단, DISTINCT·GROUP BY·집합 연산 시 제한)"
+  ],
+  "exam_traps": [
+   "ORDER BY 2는 SELECT 목록 두 번째 컬럼. 목록 개수보다 큰 번호는 오류.",
+   "ORDER BY는 논리적으로 마지막이라 SELECT 별칭을 쓸 수 있다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0498": {
+  "definition": "ORDER BY 절에 CASE 식을 써서 사용자 정의 순서로 정렬하는 기법.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0499": {
+  "definition": "ORDER BY는 SELECT 이후에 평가되므로 SELECT 절의 컬럼 별칭을 사용할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "ORDER BY는 SELECT 이후 평가 → 별칭 사용 가능"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0500": {
+  "definition": "SELECT 목록의 위치 번호로 정렬(ORDER BY 2).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0501": {
+  "definition": "첫 정렬 키가 같은 행끼리 다음 키로 정렬. 컬럼마다 ASC/DESC를 따로 지정한다.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "ORDER BY a, b DESC는 a는 ASC, b만 DESC다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0502": {
+  "definition": "서브쿼리 결과 모두에 대해 조건을 만족해야 TRUE. > ALL은 '최댓값보다 크다'.",
+  "why_it_matters": "",
+  "core_rule": [
+   "> ALL = 최댓값보다 큼",
+   "< ALL = 최솟값보다 작음"
+  ],
+  "exam_traps": [
+   "서브쿼리 결과가 0행이면 > ALL은 TRUE(모든 행 반환), > ANY는 FALSE(0행)."
+  ],
+  "comparisons": [
+   "cmp_any_all"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0503": {
+  "definition": "서브쿼리 결과 중 하나라도 조건을 만족하면 TRUE. > ANY는 '최솟값보다 크다'.",
+  "why_it_matters": "",
+  "core_rule": [
+   "> ANY = 최솟값보다 큼",
+   "< ANY = 최댓값보다 작음",
+   "= ANY = IN"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_any_all"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0504": {
+  "definition": "Common Table Expression. WITH 절로 정의한 이름 있는 임시 결과 집합.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0505": {
+  "definition": "서브쿼리 결과가 1행이라도 있으면 TRUE. 값이 아니라 존재 여부만 판단한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "결과 존재 여부만 판단(SELECT 목록 내용은 무관)",
+   "주로 상관 서브쿼리와 함께"
+  ],
+  "exam_traps": [
+   "EXISTS (SELECT NULL FROM …)도 행이 있으면 TRUE."
+  ],
+  "comparisons": [
+   "cmp_in_exists"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0506": {
+  "definition": "서브쿼리 결과가 하나도 없으면 TRUE. 결과에 NULL이 있어도 NOT IN과 달리 정상 동작한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "서브쿼리 결과가 없을 때 TRUE",
+   "NULL이 섞여도 의도대로 동작"
+  ],
+  "exam_traps": [
+   "NOT IN과 NOT EXISTS는 서브쿼리에 NULL이 있을 때 결과가 다르다."
+  ],
+  "comparisons": [
+   "cmp_in_exists"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0507": {
+  "definition": "메인 쿼리 앞에 이름 붙은 서브쿼리 블록을 정의하는 구문(Subquery Factoring). 여러 번 참조할 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "WITH 이름 AS (SELECT …) SELECT … FROM 이름",
+   "여러 개 정의 시 쉼표로 구분",
+   "메인 쿼리에서 여러 번 참조 가능"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_view_table"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0508": {
+  "definition": "결과가 여러 행인 서브쿼리. IN, ANY, ALL, EXISTS 같은 다중행 연산자와 함께 쓴다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "IN, ANY, ALL, EXISTS와 함께 사용"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_subquery_types"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0509": {
+  "definition": "결과가 1행 이하인 서브쿼리. 단일행 비교 연산자(=, <, > 등)와 함께 쓰며 2행 이상 반환되면 오류.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "결과가 0행이면 비교 결과는 UNKNOWN → 메인쿼리 0행(오류 아님)."
+  ],
+  "comparisons": [
+   "cmp_subquery_types"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0510": {
+  "definition": "메인쿼리의 컬럼을 참조하는 서브쿼리. 메인쿼리 행마다 반복 평가된다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "메인쿼리 컬럼을 참조",
+   "메인쿼리 행마다 서브쿼리 평가"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_subquery_types"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "SELECT ename, sal FROM emp e\n WHERE sal > (SELECT AVG(sal) FROM emp WHERE deptno = e.deptno);",
+    "explain": "자기 부서 평균보다 급여가 높은 사원"
+   }
+  ],
+  "hubs": []
+ },
+ "N0511": {
+  "definition": "SQL 문장 안에 포함된 SELECT 문. 위치(WHERE/FROM/SELECT)와 결과 행 수, 외부 참조 여부로 분류한다.",
+  "why_it_matters": "결과 행 수와 연산자의 짝(단일행↔=, 다중행↔IN/ANY/ALL/EXISTS)이 핵심. 현행 4회 출제.",
+  "core_rule": [
+   "결과집합을 다른 SQL의 입력으로 사용한다.",
+   "WHERE: 단일행/다중행/다중컬럼 서브쿼리",
+   "FROM: 인라인 뷰",
+   "SELECT: 스칼라 서브쿼리",
+   "메인쿼리 컬럼을 참조하면 상관 서브쿼리"
+  ],
+  "exam_traps": [
+   "단일행 연산자(=)에 여러 행을 반환하는 서브쿼리 → 오류.",
+   "WHERE 절 서브쿼리 안에는 ORDER BY 불가."
+  ],
+  "comparisons": [
+   "cmp_subquery_types"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "서브쿼리",
+    "role": "composition hub",
+    "core_rule": "결과집합을 다른 SQL의 입력으로 사용한다.",
+    "study_note": "연산자와 결과 행수 관계를 같이 학습"
+   }
+  ]
+ },
+ "N0512": {
+  "definition": "WHERE 절 서브쿼리 안에는 ORDER BY를 쓸 수 없다(인라인 뷰는 가능). SQL Server는 TOP 없이 서브쿼리/뷰에 ORDER BY 불가.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0513": {
+  "definition": "SELECT 절 등에서 1행 1열 값을 반환하는 서브쿼리. 결과가 없으면 NULL, 2행 이상이면 오류.",
+  "why_it_matters": "",
+  "core_rule": [
+   "1행 1열만 반환",
+   "결과가 없으면 NULL",
+   "2행 이상이면 오류"
+  ],
+  "exam_traps": [
+   "스칼라 서브쿼리는 OUTER JOIN처럼 동작한다(매칭이 없어도 메인 행은 남고 값은 NULL)."
+  ],
+  "comparisons": [
+   "cmp_subquery_types"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0514": {
+  "definition": "FROM 절에 쓰인 서브쿼리. 임시 테이블처럼 쓰이며 내부에 ORDER BY를 쓸 수 있다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "FROM 절 서브쿼리",
+   "ORDER BY 사용 가능 → ROWNUM Top-N 패턴에 필수"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_subquery_types",
+   "cmp_view_table"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0515": {
+  "definition": "ANSI/SQL Server의 차집합(Oracle MINUS와 같은 의미).",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_minus_except"
+  ],
+  "dialect_notes": [
+   "SQL Server·ANSI 표준 차집합. Oracle의 MINUS와 같은 의미."
+  ],
+  "dialects": [
+   "dl_minus"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0516": {
+  "definition": "교집합. 양쪽에 모두 있는 행(중복 제거).",
+  "why_it_matters": "",
+  "core_rule": [
+   "양쪽 공통 행, 중복 제거"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0517": {
+  "definition": "Oracle의 차집합. 첫 결과에서 두 번째 결과에 있는 행을 뺀다(중복 제거).",
+  "why_it_matters": "",
+  "core_rule": [
+   "A MINUS B = A에만 있는 행(중복 제거)",
+   "순서를 바꾸면 결과가 다르다"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_minus_except"
+  ],
+  "dialect_notes": [
+   "Oracle: MINUS (21c부터 EXCEPT도 지원) / SQL Server·ANSI: EXCEPT"
+  ],
+  "dialects": [
+   "dl_minus"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0518": {
+  "definition": "합집합. 결과에서 중복 행을 제거한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "중복 제거된 합집합"
+  ],
+  "exam_traps": [
+   "UNION 결과가 정렬되어 보이는 것은 보장된 동작이 아니다 — 정렬은 ORDER BY로."
+  ],
+  "comparisons": [
+   "cmp_union"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0519": {
+  "definition": "합집합. 중복을 제거하지 않고 모두 반환한다(정렬·중복 제거 비용 없음).",
+  "why_it_matters": "",
+  "core_rule": [
+   "중복 포함 합집합",
+   "가장 빠름(정렬·중복 제거 없음)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_union"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0520": {
+  "definition": "여러 SELECT 결과를 UNION / UNION ALL / INTERSECT / MINUS(EXCEPT)로 결합하는 연산자.",
+  "why_it_matters": "UNION/UNION ALL 결과 행 수, 차집합 방언, ORDER BY 위치, 컬럼 호환성이 현행에서 반복 출제된다.",
+  "core_rule": [
+   "컬럼 수·자료형 호환 필요",
+   "결과 컬럼명은 첫 SELECT 기준",
+   "ORDER BY는 맨 마지막에 한 번"
+  ],
+  "exam_traps": [
+   "UNION은 중복 제거, UNION ALL은 중복 유지 — 결과 행 수 계산 문제 단골.",
+   "각 SELECT마다 ORDER BY를 붙이면 오류(마지막만 허용)."
+  ],
+  "comparisons": [
+   "cmp_union"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0521": {
+  "definition": "ORDER BY는 마지막 SELECT 뒤에 한 번만 쓰며, 첫 SELECT의 컬럼명·별칭 또는 위치 번호로 지정한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "마지막 SELECT 뒤에 한 번만",
+   "첫 SELECT의 컬럼명/별칭 또는 위치 번호 사용"
+  ],
+  "exam_traps": [
+   "두 번째 SELECT에서 만든 별칭으로 ORDER BY 하면 오류."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0522": {
+  "definition": "Oracle은 모든 집합 연산자의 우선순위가 같아 위에서 아래로 수행하고, SQL Server(ANSI)는 INTERSECT를 먼저 수행한다.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: 모두 같은 우선순위, 위→아래 순서로 수행",
+   "SQL Server/ANSI: INTERSECT가 먼저"
+  ],
+  "exam_traps": [
+   "괄호 없이 섞어 쓰면 DBMS에 따라 결과가 다를 수 있다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_set_precedence"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "N0523": {
+  "definition": "각 SELECT의 컬럼 수가 같고 대응 컬럼의 자료형이 호환되어야 한다. 결과 컬럼명은 첫 SELECT 기준.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [
+   "컬럼 수가 다르면 오류.",
+   "결과 컬럼 이름은 첫 번째 SELECT의 이름/별칭을 따른다."
+  ],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "N0524": {
+  "definition": "표준 SQL. COALESCE, CASE, NULLIF, ANSI JOIN, FETCH FIRST, EXCEPT 등 DBMS 공통 문법의 기준.",
+  "why_it_matters": "",
+  "core_rule": [
+   "같은 의미라도 표준과 제품별 표현이 다르다."
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "DBMS 방언",
+    "role": "meta hub",
+    "core_rule": "같은 의미라도 표준과 제품별 표현이 다르다.",
+    "study_note": "개념과 문법 방언을 분리해서 암기"
+   }
+  ]
+ },
+ "N0525": {
+  "definition": "Oracle 고유 문법 — NVL/NVL2, DECODE, ROWNUM, MINUS, (+) OUTER JOIN, CONNECT BY, ''=NULL, DDL 자동 커밋.",
+  "why_it_matters": "",
+  "core_rule": [
+   "같은 의미라도 표준과 제품별 표현이 다르다."
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "DBMS 방언",
+    "role": "meta hub",
+    "core_rule": "같은 의미라도 표준과 제품별 표현이 다르다.",
+    "study_note": "개념과 문법 방언을 분리해서 암기"
+   }
+  ]
+ },
+ "N0526": {
+  "definition": "SQL Server(T-SQL) — ISNULL, TOP, EXCEPT, LEN, + 문자열 결합, GETDATE, IDENTITY, LIKE [], 기본 AUTO COMMIT.",
+  "why_it_matters": "",
+  "core_rule": [
+   "같은 의미라도 표준과 제품별 표현이 다르다."
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": [
+   {
+    "hub": "DBMS 방언",
+    "role": "meta hub",
+    "core_rule": "같은 의미라도 표준과 제품별 표현이 다르다.",
+    "study_note": "개념과 문법 방언을 분리해서 암기"
+   }
+  ]
+ },
+ "X001": {
+  "definition": "한 엔터티가 자기 자신과 관계를 맺는 구조(예: 사원-관리자). 테이블에서는 자기 테이블의 PK를 참조하는 FK(MGR → EMPNO)로 구현된다.",
+  "why_it_matters": "셀프 조인과 계층형 질의는 모두 이 '같은 테이블 안의 부모-자식' 구조를 전개하는 문법이다.",
+  "core_rule": [
+   "한 엔터티가 자기 자신과 관계",
+   "물리적으로 자기 테이블 PK를 참조하는 FK 컬럼(예: EMP.MGR → EMP.EMPNO)",
+   "루트 행은 부모 FK가 NULL"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [
+   {
+    "sql": "EMP(EMPNO PK, ENAME, MGR FK → EMP.EMPNO)",
+    "explain": "MGR이 NULL인 행이 최상위(루트) 사원"
+   }
+  ],
+  "hubs": []
+ },
+ "X002": {
+  "definition": "OVER([PARTITION BY …] [ORDER BY …] [ROWS|RANGE 프레임]) — 윈도우 함수의 계산 범위를 정의하는 절.",
+  "why_it_matters": "",
+  "core_rule": [
+   "OVER([PARTITION BY] [ORDER BY] [프레임])",
+   "PARTITION BY 생략 → 전체가 하나의 파티션",
+   "ORDER BY 생략 → 프레임은 파티션 전체",
+   "ORDER BY 있고 프레임 생략 → RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW"
+  ],
+  "exam_traps": [
+   "SUM(sal) OVER(ORDER BY sal)은 누적합이고, 같은 sal 값은 같은 누적합을 가진다(RANGE)."
+  ],
+  "comparisons": [
+   "cmp_rows_range"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "X003": {
+  "definition": "그룹 내 순위 함수 — RANK, DENSE_RANK, ROW_NUMBER. OVER(ORDER BY …)가 필요하다.",
+  "why_it_matters": "RANK·DENSE_RANK·ROW_NUMBER의 결과 비교는 현행에서 매우 자주 나오는 계산 문제다.",
+  "core_rule": [
+   "OVER(ORDER BY …) 필수",
+   "PARTITION BY로 그룹별 순위"
+  ],
+  "exam_traps": [
+   "ORDER BY 값이 같을 때 ROW_NUMBER의 순서는 보장되지 않는다(비결정적)."
+  ],
+  "comparisons": [
+   "cmp_rank"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "X004": {
+  "definition": "그룹 내 행 순서 함수 — FIRST_VALUE, LAST_VALUE, LAG, LEAD.",
+  "why_it_matters": "",
+  "core_rule": [],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_lag_lead"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "X101": {
+  "definition": "같은 NULL이라도 DBMS마다 다른 부분 — 빈 문자열 처리, NULL 치환 함수(NVL/ISNULL/COALESCE), UNIQUE 컬럼의 NULL 허용 개수.",
+  "why_it_matters": "DBMS 방언 문제 중 NULL 관련 차이는 함수명·빈 문자열·UNIQUE 처리에서 반복된다.",
+  "core_rule": [
+   "NULL 치환: Oracle NVL / SQL Server ISNULL / 공통 COALESCE",
+   "빈 문자열: Oracle ''=NULL / SQL Server ''≠NULL",
+   "UNIQUE 컬럼 NULL: Oracle 여러 개 / SQL Server 1개"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_nvl_coalesce"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_func",
+   "dl_empty_string",
+   "dl_unique_null"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X102": {
+  "definition": "ORDER BY에서 Oracle은 NULL을 가장 큰 값, SQL Server는 가장 작은 값으로 취급하는 차이와 NULLS FIRST/LAST 지원 여부.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle ASC: NULL 마지막, DESC: NULL 처음",
+   "SQL Server ASC: NULL 처음, DESC: NULL 마지막",
+   "NULLS FIRST/LAST: Oracle만"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_null_sort"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_null_sort"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X103": {
+  "definition": "상위 N행 조회 문법의 DBMS 차이 — Oracle ROWNUM/FETCH FIRST, SQL Server TOP/OFFSET-FETCH, ANSI FETCH FIRST.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: 인라인 뷰 + ROWNUM, 12c+ FETCH FIRST",
+   "SQL Server: TOP(n) [WITH TIES], OFFSET-FETCH",
+   "ANSI: FETCH FIRST n ROWS ONLY/WITH TIES"
+  ],
+  "exam_traps": [
+   "ROWNUM은 ORDER BY 전에 부여된다.",
+   "TOP/FETCH FIRST의 WITH TIES는 ORDER BY가 필요하다."
+  ],
+  "comparisons": [
+   "cmp_topn"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_topn"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X104": {
+  "definition": "차집합 연산자 이름 차이 — Oracle MINUS(21c부터 EXCEPT도 지원), SQL Server·ANSI EXCEPT.",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle MINUS, SQL Server EXCEPT — 의미는 같다(중복 제거된 차집합)"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_minus_except"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_minus"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X105": {
+  "definition": "DDL·TRUNCATE를 실행했을 때 COMMIT/ROLLBACK 가능 여부의 DBMS 차이(Oracle 자동 커밋 vs SQL Server 명시적 트랜잭션 내 ROLLBACK 가능).",
+  "why_it_matters": "",
+  "core_rule": [
+   "Oracle: DDL 전후 자동 COMMIT → DDL·TRUNCATE ROLLBACK 불가",
+   "SQL Server: 명시적 트랜잭션(BEGIN TRAN) 안의 DDL·TRUNCATE ROLLBACK 가능, 기본은 AUTO COMMIT"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_ddl_commit",
+   "dl_autocommit"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X106": {
+  "definition": "같은 문자열 처리의 함수명·동작 차이 — LENGTH/LEN, SUBSTR/SUBSTRING, ||·CONCAT/+, INSTR/CHARINDEX.",
+  "why_it_matters": "",
+  "core_rule": [
+   "길이: LENGTH / LEN",
+   "부분 문자열: SUBSTR / SUBSTRING",
+   "결합: || 또는 CONCAT / + 또는 CONCAT",
+   "위치: INSTR / CHARINDEX"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_strlen",
+   "dl_concat",
+   "dl_substr"
+  ],
+  "examples": [],
+  "hubs": []
+ },
+ "X201": {
+  "definition": "SQL 논리 실행 순서 때문에 별칭·집계가 어느 절에서 보이는지 정리한 종합 규칙.",
+  "why_it_matters": "",
+  "core_rule": [
+   "FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY",
+   "SELECT 별칭: ORDER BY에서만 사용 가능",
+   "집계 함수: WHERE 불가, HAVING·SELECT·ORDER BY 가능",
+   "집합 연산 ORDER BY: 첫 SELECT의 이름/별칭 기준"
+  ],
+  "exam_traps": [],
+  "comparisons": [],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "X202": {
+  "definition": "NOT IN, IN 목록 NULL, COUNT(열), 산술 연산, 공집합 집계, DISTINCT/GROUP BY의 NULL 처리 등 NULL 관련 시험 함정 총정리.",
+  "why_it_matters": "",
+  "core_rule": [
+   "NULL 비교 = UNKNOWN, WHERE는 TRUE만",
+   "NOT IN 목록에 NULL → 0행",
+   "COUNT(열)·AVG·SUM은 NULL 제외",
+   "NULL 산술 = NULL",
+   "0행 집계: COUNT 0, 나머지 NULL",
+   "DISTINCT·GROUP BY는 NULL을 하나로 묶음"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_in_exists"
+  ],
+  "dialect_notes": [],
+  "dialects": [],
+  "examples": [],
+  "hubs": []
+ },
+ "X203": {
+  "definition": "OUTER JOIN에서 조건을 ON/WHERE/(+) 어디에 두느냐에 따라 보존 행이 달라지는 규칙 총정리.",
+  "why_it_matters": "",
+  "core_rule": [
+   "비보존 쪽 조건: ON(보존 행 유지) vs WHERE(보존 행 제거)",
+   "Oracle (+): 비보존 쪽 모든 조건에 (+)를 붙여야 ON처럼 동작",
+   "OUTER JOIN 뒤 INNER JOIN이 오면 보존 행이 사라질 수 있음",
+   "FULL OUTER JOIN = LEFT ∪ RIGHT"
+  ],
+  "exam_traps": [],
+  "comparisons": [
+   "cmp_on_where_outer"
+  ],
+  "dialect_notes": [],
+  "dialects": [
+   "dl_outer_join"
+  ],
+  "examples": [],
+  "hubs": []
+ }
+}

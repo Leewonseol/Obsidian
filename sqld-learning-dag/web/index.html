@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQLD Learning DAG</title>
+  <meta name="description" content="SQLD 기출 Concept을 선수지식 순서로 배치한 시험 대비 학습 DAG">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>SQLD Learning DAG</h1>
+      <p class="sub" id="sub">무엇을 먼저, 그 다음 무엇을 공부할지</p>
+    </div>
+
+    <div class="search" role="search">
+      <input id="search" type="search" placeholder="Concept 검색 (예: NULL, 계층형 질의, RANK)  /" autocomplete="off"
+             aria-label="Concept 검색" aria-controls="search-results">
+      <div id="search-results" class="search-results" role="listbox" hidden></div>
+    </div>
+
+    <div class="controls">
+      <div class="seg" role="group" aria-label="범위">
+        <button type="button" data-scope="current" class="on" title="현행 Concept + 필수 선수(보조) Concept만 표시">Current Only</button>
+        <button type="button" data-scope="legacy" title="52회 이후 현행 증거가 없는 Legacy Concept까지 표시">Include Legacy</button>
+      </div>
+      <label class="sel">강조
+        <select id="highlight">
+          <option value="none">없음</option>
+          <option value="unlearned">아직 공부하지 않은 Concept</option>
+          <option value="ready">지금 공부할 수 있는 Concept</option>
+          <option value="review">복습 필요</option>
+        </select>
+      </label>
+      <div class="btns">
+        <button type="button" id="btn-core" title="모든 Cluster를 핵심 Concept만 보이게">핵심만</button>
+        <button type="button" id="btn-all" title="모든 Cluster 세부 Concept 펼치기">모두 펼치기</button>
+        <button type="button" id="btn-fold" title="모든 Stage 접기">Stage 접기</button>
+        <button type="button" id="btn-path" class="primary">학습 경로</button>
+        <details class="menu">
+          <summary aria-label="더보기">⋯</summary>
+          <div class="menu-body">
+            <button type="button" id="btn-export">진행 상황 내보내기 (JSON)</button>
+            <label class="file-btn">진행 상황 가져오기<input type="file" id="file-import" accept="application/json"></label>
+            <button type="button" id="btn-reset">진행 상황 초기화</button>
+            <button type="button" id="btn-theme">라이트/다크 전환</button>
+            <hr>
+            <div class="legend">
+              <div><span class="lg prio-A">A</span> 현행 반복·선수·함정 많음</div>
+              <div><span class="lg prio-B">B</span> 현행 출제 확인</div>
+              <div><span class="lg prio-C">C</span> 보조·구조적으로 필요</div>
+              <div><span class="lg prio-Legacy">L</span> 52회 이후 증거 없음</div>
+              <div><span class="dot st-learned"></span>학습 완료 <span class="dot st-studying"></span>학습 중 <span class="dot st-review_needed"></span>복습 필요</div>
+              <div><span class="lock-demo">선수 2</span> 미완료 선수 Concept 수 · <span class="ext-demo">↑2</span> 다른 Cluster의 선수</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="progress" id="progress" aria-live="polite"></div>
+  </header>
+
+  <main class="layout">
+    <section id="canvas" class="canvas" aria-label="Learning DAG">
+      <div id="canvas-inner" class="canvas-inner"></div>
+    </section>
+    <aside id="panel" class="panel" aria-label="상세 패널">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-tab="detail" class="on">상세</button>
+        <button type="button" role="tab" data-tab="path">학습 경로</button>
+        <button type="button" class="close" id="panel-close" aria-label="패널 닫기">×</button>
+      </div>
+      <div id="panel-body" class="panel-body"></div>
+    </aside>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
